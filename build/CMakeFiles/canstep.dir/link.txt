@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcanstep.a CMakeFiles/canstep.dir/src/HidDevice.cpp.o
+/usr/bin/ranlib libcanstep.a

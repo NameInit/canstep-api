@@ -1,0 +1,1 @@
+/usr/bin/c++ "CMakeFiles/canstep-test.dir/test/main.cpp.o" -o canstep-test  libcanstep.a -lhidapi-hidraw 
