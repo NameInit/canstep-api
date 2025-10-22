@@ -1,6 +1,5 @@
 #pragma once
 
-// --- Includes ---
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,32 +10,22 @@
 #include <functional>
 #include <sstream>
 
-// POSIX/Linux headers
-#include <unistd.h> // для usleep
+#include <unistd.h>
 #include <pthread.h>
 
-// Ваши проектные заголовочные файлы
 #include "Typedefs.h"
 #include "ScenarioBuilder.h"
 #include "Mechanism.h"
 #include "HidDevice.h"
 #include "DefsCANStep.h"
 
-// --- Объявление класса CanController ---
 
 class CanController {
 public:
-    // Конструктор и деструктор
     CanController();
     ~CanController();
 
-    // Запуск интерактивной консоли
-    void runTerminal();
-
-public:
-    void initializeDevice(uint16_t vendorId, uint16_t productId);
-
-    // --- Реализация логики кнопок ---
+    void buttonOpenCOM_Click(uint16_t vendorId, uint16_t productId);
     void buttonNumBoard_Click(uint8_t boardId);
     void buttonNumGroup_Click(uint8_t groupId);
     void buttonNumSteps_Click(uint32_t steps);
@@ -51,12 +40,16 @@ public:
     void buttonResetDRVError_Click();
     void buttonBrakeOn_Click();
     void buttonBrakeOff_Click();
+
+    //-----------can откликается, но не знаю как затестить------------------
     void buttonRezervOn_Click();
     void buttonRezervOff_Click();
     void buttonAlarmResetOn_Click();
     void buttonAlarmResetOff_Click();
     void buttonDebugOn_Click();
     void buttonCurrentPositionSet_Click(uint32_t position);
+    //------------------------------------------------------
+
     void buttonNumBoardSave_Click(uint8_t boardId);
     void buttonNumGroupSave_Click(uint8_t groupId);
     void buttonStartPositionSave_Click(uint32_t position);
@@ -66,23 +59,91 @@ public:
     void buttonAccelSave_Click(uint8_t accel);
     void buttonDecelSave_Click(uint8_t decel);
     void buttonDeltaSave_Click(uint32_t delta);
-    void buttonSensorPolarity_Click(int sensorNum, uint8_t polarity);
-    void buttonSensorDir_Click(int sensorNum, uint8_t direction);
-    void buttonOutputPolarity_Click(const std::string& outputName, uint8_t polarity);
-    void buttonInputPolarity_Click(const std::string& inputName, uint8_t polarity);
+    // void buttonSensorPolarity_Click(int sensorNum, uint8_t polarity);
+    void buttonSensor1Polarity_Click(uint8_t u8Inverting);
+    void buttonSensor2Polarity_Click(uint8_t u8Inverting);
+    void buttonSensor3Polarity_Click(uint8_t u8Inverting);
+    void buttonSensor4Polarity_Click(uint8_t u8Inverting);
+    // void buttonSensorDir_Click(int sensorNum, uint8_t direction);
+    void buttonSensor1Dir_Click(uint8_t u8Inverting);
+    void buttonSensor2Dir_Click(uint8_t u8Inverting);
+    void buttonSensor3Dir_Click(uint8_t u8Inverting);
+    void buttonSensor4Dir_Click(uint8_t u8Inverting);
+    void buttonEnPolarity_Click(uint8_t u8Inverting);
+    void buttonAl_CLRPolarity_Click(uint8_t u8Inverting);
+    void buttonAl_OBrakePolarity_Click(uint8_t u8Inverting);
+    void buttonAl_ORezervPolarity_Click(uint8_t u8Inverting);
+    void buttonDirPolarity_Click(uint8_t u8Inverting);
+    void buttonSRVRDYPolarity_Click(uint8_t u8Inverting);
+    void buttonINPOSPolarity_Click(uint8_t u8Inverting);
+    void buttonFAULTPolarity_Click(uint8_t u8Inverting);
+    void buttonBrakePolarity_Click(uint8_t u8Inverting);
+
+    void button_OUT_0_OFF_Click();
+    void button_OUT_1_OFF_Click();
+    void button_OUT_2_OFF_Click();
+    void button_OUT_3_OFF_Click();
+    void button_OUT_4_OFF_Click();
+    void button_OUT_5_OFF_Click();
+    void button_OUT_6_OFF_Click();
+    void button_OUT_7_OFF_Click();
+    void button_OUT_0_TO_VCC_Click();
+    void button_OUT_1_TO_VCC_Click();
+    void button_OUT_2_TO_VCC_Click();
+    void button_OUT_3_TO_VCC_Click();
+    void button_OUT_4_TO_VCC_Click();
+    void button_OUT_5_TO_VCC_Click();
+    void button_OUT_6_TO_VCC_Click();
+    void button_OUT_7_TO_VCC_Click();
+    void button_OUT_0_TO_GND_Click();
+    void button_OUT_1_TO_GND_Click();
+    void button_OUT_2_TO_GND_Click();
+    void button_OUT_3_TO_GND_Click();
+    void button_OUT_4_TO_GND_Click();
+    void button_OUT_5_TO_GND_Click();
+    void button_OUT_6_TO_GND_Click();
+    void button_OUT_7_TO_GND_Click();
+    void button_IN_0_TO_VCC_Click();
+    void button_IN_1_TO_VCC_Click();
+    void button_IN_2_TO_VCC_Click();
+    void button_IN_3_TO_VCC_Click();
+    void button_IN_4_TO_VCC_Click();
+    void button_IN_5_TO_VCC_Click();
+    void button_IN_6_TO_VCC_Click();
+    void button_IN_7_TO_VCC_Click();
+    void button_IN_8_TO_VCC_Click();
+    void button_IN_9_TO_VCC_Click();
+    void button_IN_10_TO_VCC_Click();
+    void button_IN_11_TO_VCC_Click();
+    void button_IN_0_TO_GND_Click();
+    void button_IN_1_TO_GND_Click();
+    void button_IN_2_TO_GND_Click();
+    void button_IN_3_TO_GND_Click();
+    void button_IN_4_TO_GND_Click();
+    void button_IN_5_TO_GND_Click();
+    void button_IN_6_TO_GND_Click();
+    void button_IN_7_TO_GND_Click();
+    void button_IN_8_TO_GND_Click();
+    void button_IN_9_TO_GND_Click();
+    void button_IN_10_TO_GND_Click();
+    void button_IN_11_TO_GND_Click();
+    //------------------------------------------------------------------------
+
+    // void buttonOutputPolarity_Click(const std::string& outputName, uint8_t polarity);
+    // void buttonInputPolarity_Click(const std::string& inputName, uint8_t polarity);
     void button_MicroSteps_Click(uint32_t microsteps);
     void button_StepsTurn_Click(uint32_t steps);
-    void button_OUT_SetState_Click(int outNum, const std::string& state);
-    void button_IN_SetPull_Click(int inNum, const std::string& state);
+    // void button_OUT_SetState_Click(int outNum, const std::string& state);
+    // void button_IN_SetPull_Click(int inNum, const std::string& state);
     void buttonSaveInPullUps_Click();
     void buttonResetCANStep_Click();
     void buttonDriverOn_Click();
     void buttonDriverOff_Click();
     void buttonIHOLDSet_Click(uint8_t ihold, uint8_t irun, uint8_t iholddelay);
     void buttonSPEEDTHRSSet_Click(uint8_t threshold);
-    void buttonCOOLCONF_Click();
-    void buttonEncoderConfig_Click(uint8_t polarity, uint8_t delta, uint16_t toTurn);
-    void buttonGLOBAL_SCALER_Click(uint8_t scaler);
+    // void buttonCOOLCONF_Click();
+    // void buttonEncoderConfig_Click(uint8_t polarity, uint8_t delta, uint16_t toTurn);
+    // void buttonGLOBAL_SCALER_Click(uint8_t scaler);
     void trackBarPositioning_Velocity_Scroll(bool isPositioning);
     void buttonAutosender_Click(uint8_t type, uint8_t delayMs);
     void buttonTestUSBCAN_Click();
@@ -94,11 +155,9 @@ public:
     void buttonUpdate_Click();
     void buttonStopUpdate_Click();
 
-    // --- Внутренние методы и переменные ---
     void createMechanismObj0(uint8_t boardId, uint8_t groupId);
     void dataUpdateLoop();
 
-    // --- Обработчики обратных вызовов ---
     void myAnswerControlCallback(uint8_t* pNumBoardParse, uint8_t* pRescCMD, uint8_t* pNumCMD, uint8_t* pStartMotor, uint8_t* pCmdInWork, uint8_t* ptmpErrors);
     void myAnswerConfigCallback(uint8_t* pNumBoardParse);
     void myAnswerCallback(uint8_t* pNumBoardParse, uint8_t* pStatus, uint8_t* pNumAnswer, uint8_t* p8Data, uint32_t* p32Data, float* pfData, uint8_t* p8Data1, uint8_t* p8Data2, uint8_t* p8Data3);
@@ -107,16 +166,12 @@ public:
     std::unique_ptr<Mechanism> mechanismObj0;
     std::unique_ptr<ScenarioBuilder> scenarioBuilder;
 
-    // Для потока обновления
     std::thread updateThread;
     std::atomic<bool> isRunning{false};
-    
-    // Данные для HID
+
     uint16_t vendorId = 1155;
     uint16_t productId = 22399;
 };
-
-// --- Реализация методов класса CanController ---
 
 CanController::CanController() {
     hidDevice = std::make_unique<HidDevice>();
@@ -124,14 +179,13 @@ CanController::CanController() {
 }
 
 CanController::~CanController() {
-    buttonStopUpdate_Click(); // Останавливаем поток, если он работает
+    buttonStopUpdate_Click();
 }
 
 void CanController::createMechanismObj0(uint8_t boardId, uint8_t groupId) {
     if (!mechanismObj0) {
         mechanismObj0 = std::make_unique<Mechanism>(boardId, groupId);
-        
-        // Настройка обратных вызовов с использованием std::bind
+
         mechanismObj0->SetCallbackAnswer(std::bind(&CanController::myAnswerCallback, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5, std::placeholders::_6, std::placeholders::_7, std::placeholders::_8, std::placeholders::_9));
         mechanismObj0->SetCallbackAnswerConfig(std::bind(&CanController::myAnswerConfigCallback, this, std::placeholders::_1));
         mechanismObj0->SetCallbackAnswerControl(std::bind(&CanController::myAnswerControlCallback, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5, std::placeholders::_6));
@@ -151,7 +205,7 @@ void CanController::createMechanismObj0(uint8_t boardId, uint8_t groupId) {
     mechanismObj0->SetAsk(AskGroup);
 }
 
-void CanController::initializeDevice(uint16_t vendorId, uint16_t productId) {
+void CanController::buttonOpenCOM_Click(uint16_t vendorId=0x0483, uint16_t productId=0x577f) {
     createMechanismObj0(0, 0); // Создаем с ID по умолчанию
     mechanismObj0->SetHidDevice(hidDevice.get());
 
@@ -165,8 +219,7 @@ void CanController::initializeDevice(uint16_t vendorId, uint16_t productId) {
     }
 }
 
-// --- Простые команды ---
-void CanController::buttonMoveForward_Click() { if(mechanismObj0) mechanismObj0->runForavrd(); }
+void CanController::buttonMoveForward_Click() { if(mechanismObj0) mechanismObj0->runForward(); }
 void CanController::buttonMoveBackward_Click() { if(mechanismObj0) mechanismObj0->runBackward(); }
 void CanController::buttonStop_Click() { if(mechanismObj0) mechanismObj0->stop(); }
 void CanController::buttonHomingZero_Click() { if(mechanismObj0) mechanismObj0->HomingZero(); }
@@ -189,7 +242,6 @@ void CanController::buttonAbsolutePositionRotorUint_Click() { if(mechanismObj0) 
 void CanController::buttonAlarmCode_Click() { if(mechanismObj0) mechanismObj0->SetOneTaskAsk(AskAlarmCode); }
 
 
-// --- Команды с параметрами ---
 void CanController::buttonNumBoard_Click(uint8_t boardId) { createMechanismObj0(boardId, 0); }
 void CanController::buttonNumGroup_Click(uint8_t groupId) { if(mechanismObj0) mechanismObj0->changeGroup(groupId); }
 void CanController::buttonNumSteps_Click(uint32_t steps) { if(mechanismObj0) mechanismObj0->setSteps(steps); }
@@ -214,7 +266,73 @@ void CanController::trackBarPositioning_Velocity_Scroll(bool isPositioning) { if
 void CanController::buttonAutosender_Click(uint8_t type, uint8_t delayMs) { if(mechanismObj0) mechanismObj0->setAutosender(type, delayMs, 0); }
 void CanController::buttonTestUSBCAN_Click() { if (mechanismObj0) mechanismObj0->setUpdateType(!mechanismObj0->getUpdateType()); }
 
-// --- Потоковая логика ---
+void CanController::buttonSensor1Polarity_Click(uint8_t u8Inverting){ mechanismObj0->setHomingAPolarity(u8Inverting); }
+void CanController::buttonSensor2Polarity_Click(uint8_t u8Inverting){ mechanismObj0->setHomingBPolarity(u8Inverting); }
+void CanController::buttonSensor3Polarity_Click(uint8_t u8Inverting){ mechanismObj0->setHomingCPolarity(u8Inverting); }
+void CanController::buttonSensor4Polarity_Click(uint8_t u8Inverting){ mechanismObj0->setHomingDPolarity(u8Inverting); }
+void CanController::buttonSensor1Dir_Click(uint8_t u8Inverting){ mechanismObj0->setHomingADirection(u8Inverting); }
+void CanController::buttonSensor2Dir_Click(uint8_t u8Inverting){ mechanismObj0->setHomingBDirection(u8Inverting); }
+void CanController::buttonSensor3Dir_Click(uint8_t u8Inverting){ mechanismObj0->setHomingCDirection(u8Inverting); }
+void CanController::buttonSensor4Dir_Click(uint8_t u8Inverting){ mechanismObj0->setHomingDDirection(u8Inverting); }
+void CanController::buttonEnPolarity_Click(uint8_t u8Inverting){ mechanismObj0->setEnPolarity(u8Inverting); }
+void CanController::buttonAl_CLRPolarity_Click(uint8_t u8Inverting){ mechanismObj0->setAL_CLRPolarity(u8Inverting); }
+void CanController::buttonAl_OBrakePolarity_Click(uint8_t u8Inverting){ mechanismObj0->setOBRAKEPolarity(u8Inverting); }
+void CanController::buttonAl_ORezervPolarity_Click(uint8_t u8Inverting){ mechanismObj0->setOReservPolarity(u8Inverting); }
+void CanController::buttonDirPolarity_Click(uint8_t u8Inverting){ mechanismObj0->setDIRPolarity(u8Inverting); }
+void CanController::buttonSRVRDYPolarity_Click(uint8_t u8Inverting){ mechanismObj0->setSRVRDYPolarity(u8Inverting); }
+void CanController::buttonINPOSPolarity_Click(uint8_t u8Inverting){ mechanismObj0->setINPOSPolarity(u8Inverting); }
+void CanController::buttonFAULTPolarity_Click(uint8_t u8Inverting){ mechanismObj0->setFAULTPolarity(u8Inverting); }
+void CanController::buttonBrakePolarity_Click(uint8_t u8Inverting){ mechanismObj0->setBRAKEPolarity(u8Inverting); }
+
+void CanController::button_OUT_0_OFF_Click() { mechanismObj0->setOutToZ(0); }
+void CanController::button_OUT_1_OFF_Click() { mechanismObj0->setOutToZ(1); }
+void CanController::button_OUT_2_OFF_Click() { mechanismObj0->setOutToZ(2); }
+void CanController::button_OUT_3_OFF_Click() { mechanismObj0->setOutToZ(3); }
+void CanController::button_OUT_4_OFF_Click() { mechanismObj0->setOutToZ(4); }
+void CanController::button_OUT_5_OFF_Click() { mechanismObj0->setOutToZ(5); }
+void CanController::button_OUT_6_OFF_Click() { mechanismObj0->setOutToZ(6); }
+void CanController::button_OUT_7_OFF_Click() { mechanismObj0->setOutToZ(7); }
+void CanController::button_OUT_0_TO_VCC_Click() { mechanismObj0->setOutToHi(0); }
+void CanController::button_OUT_1_TO_VCC_Click() { mechanismObj0->setOutToHi(1); }
+void CanController::button_OUT_2_TO_VCC_Click() { mechanismObj0->setOutToHi(2); }
+void CanController::button_OUT_3_TO_VCC_Click() { mechanismObj0->setOutToHi(3); }
+void CanController::button_OUT_4_TO_VCC_Click() { mechanismObj0->setOutToHi(4); }
+void CanController::button_OUT_5_TO_VCC_Click() { mechanismObj0->setOutToHi(5); }
+void CanController::button_OUT_6_TO_VCC_Click() { mechanismObj0->setOutToHi(6); }
+void CanController::button_OUT_7_TO_VCC_Click() { mechanismObj0->setOutToHi(7); }
+void CanController::button_OUT_0_TO_GND_Click() { mechanismObj0->setOutToLo(0); }
+void CanController::button_OUT_1_TO_GND_Click() { mechanismObj0->setOutToLo(1); }
+void CanController::button_OUT_2_TO_GND_Click() { mechanismObj0->setOutToLo(2); }
+void CanController::button_OUT_3_TO_GND_Click() { mechanismObj0->setOutToLo(3); }
+void CanController::button_OUT_4_TO_GND_Click() { mechanismObj0->setOutToLo(4); }
+void CanController::button_OUT_5_TO_GND_Click() { mechanismObj0->setOutToLo(5); }
+void CanController::button_OUT_6_TO_GND_Click() { mechanismObj0->setOutToLo(6); }
+void CanController::button_OUT_7_TO_GND_Click() { mechanismObj0->setOutToLo(7); }
+void CanController::button_IN_0_TO_VCC_Click() { mechanismObj0->setInPullUp(0); }
+void CanController::button_IN_1_TO_VCC_Click() { mechanismObj0->setInPullUp(1); }
+void CanController::button_IN_2_TO_VCC_Click() { mechanismObj0->setInPullUp(2); }
+void CanController::button_IN_3_TO_VCC_Click() { mechanismObj0->setInPullUp(3); }
+void CanController::button_IN_4_TO_VCC_Click() { mechanismObj0->setInPullUp(4); }
+void CanController::button_IN_5_TO_VCC_Click() { mechanismObj0->setInPullUp(5); }
+void CanController::button_IN_6_TO_VCC_Click() { mechanismObj0->setInPullUp(6); }
+void CanController::button_IN_7_TO_VCC_Click() { mechanismObj0->setInPullUp(7); }
+void CanController::button_IN_8_TO_VCC_Click() { mechanismObj0->setInPullUp(8); }
+void CanController::button_IN_9_TO_VCC_Click() { mechanismObj0->setInPullUp(9); }
+void CanController::button_IN_10_TO_VCC_Click() { mechanismObj0->setInPullUp(10); }
+void CanController::button_IN_11_TO_VCC_Click() { mechanismObj0->setInPullUp(11); }
+void CanController::button_IN_0_TO_GND_Click() { mechanismObj0->setInPullDown(0); }
+void CanController::button_IN_1_TO_GND_Click() { mechanismObj0->setInPullDown(1); }
+void CanController::button_IN_2_TO_GND_Click() { mechanismObj0->setInPullDown(2); }
+void CanController::button_IN_3_TO_GND_Click() { mechanismObj0->setInPullDown(3); }
+void CanController::button_IN_4_TO_GND_Click() { mechanismObj0->setInPullDown(4); }
+void CanController::button_IN_5_TO_GND_Click() { mechanismObj0->setInPullDown(5); }
+void CanController::button_IN_6_TO_GND_Click() { mechanismObj0->setInPullDown(6); }
+void CanController::button_IN_7_TO_GND_Click() { mechanismObj0->setInPullDown(7); }
+void CanController::button_IN_8_TO_GND_Click() { mechanismObj0->setInPullDown(8); }
+void CanController::button_IN_9_TO_GND_Click() { mechanismObj0->setInPullDown(9); }
+void CanController::button_IN_10_TO_GND_Click() { mechanismObj0->setInPullDown(10); }
+void CanController::button_IN_11_TO_GND_Click() { mechanismObj0->setInPullDown(11); }
+
 void CanController::buttonUpdate_Click() {
     if (!isRunning) {
         isRunning = true;
@@ -238,11 +356,10 @@ void CanController::dataUpdateLoop() {
         if (mechanismObj0) {
             mechanismObj0->UpdateCode();
         }
-        usleep(100000); // 100ms задержка, чтобы не загружать процессор
+        usleep(100000);
     }
 }
 
-// --- Обработчики обратных вызовов ---
 void CanController::myAnswerControlCallback(uint8_t* pNumBoardParse, uint8_t* pRescCMD, uint8_t* pNumCMD, uint8_t* pStartMotor, uint8_t* pCmdInWork, uint8_t* ptmpErrors) {
     std::cout << "[CONTROL] Board: " << (int)*pNumBoardParse << ", CMD: " << (int)*pNumCMD << ", InWork: " << (int)*pCmdInWork << std::endl;
     if (mechanismObj0 && *pNumBoardParse == mechanismObj0->getNumBoard()) {
@@ -264,66 +381,6 @@ void CanController::myAnswerCallback(uint8_t* pNumBoardParse, uint8_t* pStatus, 
         
         if(*pNumAnswer == OutPosition) {
             std::cout << "[DATA] Board " << (int)*pNumBoardParse << " Position: " << *p32Data << std::endl;
-        }
-    }
-}
-
-// --- Интерактивный терминал ---
-void CanController::runTerminal() {
-    std::cout << "Консоль управления CAN-Step. Введите 'help' для списка команд." << std::endl;
-    std::string line;
-    while (std::cout << "> " && std::getline(std::cin, line)) {
-        std::stringstream ss(line);
-        std::string command;
-        ss >> command;
-
-        if (command == "exit") {
-            break;
-        } else if (command == "help") {
-            std::cout << "Доступные команды:\n"
-                      << "  init\n"
-                      << "  forward\n"
-                      << "  backward\n"
-                      << "  stop\n"
-                      << "  homing_zero\n"
-                      << "  homing_max\n"
-                      << "  set_pos <position>\n"
-                      << "  set_board <id>\n"
-                      << "  set_group <id>\n"
-                      << "  update_start\n"
-                      << "  update_stop\n"
-                      << "  exit\n"
-                      << "..." << std::endl;
-        } else if (command == "init") {
-            initializeDevice(0,0);
-        } else if (command == "forward") {
-            buttonMoveForward_Click();
-        } else if (command == "backward") {
-            buttonMoveBackward_Click();
-        } else if (command == "stop") {
-            buttonStop_Click();
-        } else if (command == "homing_zero") {
-            buttonHomingZero_Click();
-        } else if (command == "homing_max") {
-            buttonHomingMax_Click();
-        } else if (command == "set_pos") {
-            uint32_t pos;
-            ss >> pos;
-            buttonCurrentPositionSet_Click(pos);
-        } else if (command == "set_board") {
-            int id;
-            ss >> id;
-            buttonNumBoard_Click(static_cast<uint8_t>(id));
-        } else if (command == "set_group") {
-            int id;
-            ss >> id;
-            buttonNumGroup_Click(static_cast<uint8_t>(id));
-        } else if (command == "update_start") {
-            buttonUpdate_Click();
-        } else if (command == "update_stop") {
-            buttonStopUpdate_Click();
-        } else {
-            std::cout << "Неизвестная команда: " << command << std::endl;
         }
     }
 }

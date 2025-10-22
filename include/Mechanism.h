@@ -1621,7 +1621,7 @@ public:
 		if (R_Wr) return ReadDIRPolarity;
 		else return DIRPolarity;
 	};
-	void runForavrd() {
+	void runForward() {
 		CanInLoc->devID = NumBoard;
 		CanInLoc->group = Group;
 		CanInLoc->numCommand = cantrol_command;

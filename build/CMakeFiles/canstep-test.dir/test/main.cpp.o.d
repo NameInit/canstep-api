@@ -165,41 +165,34 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
  /usr/include/c++/13/limits /usr/include/c++/13/ctime \
  /usr/include/c++/13/bits/parse_numbers.h /usr/include/c++/13/chrono \
- /home/ilya/Рабочий\ стол/canstep-api/include/HidDevice.h \
- /usr/include/hidapi/hidapi.h /usr/include/c++/13/atomic \
+ /home/ilya/Рабочий\ стол/canstep-api/test/../include/CanController.h \
+ /usr/include/c++/13/memory /usr/include/c++/13/bits/stl_tempbuf.h \
+ /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/shared_ptr.h \
+ /usr/include/c++/13/bits/shared_ptr_base.h \
+ /usr/include/c++/13/bits/allocated_ptr.h \
+ /usr/include/c++/13/ext/aligned_buffer.h \
+ /usr/include/c++/13/ext/concurrence.h \
+ /usr/include/c++/13/bits/shared_ptr_atomic.h \
  /usr/include/c++/13/bits/atomic_base.h \
  /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/13/backward/auto_ptr.h \
+ /usr/include/c++/13/pstl/glue_memory_defs.h \
+ /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/mutex \
+ /usr/include/c++/13/bits/std_mutex.h \
+ /usr/include/c++/13/bits/unique_lock.h /usr/include/c++/13/atomic \
  /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
  /usr/include/c++/13/bits/hashtable.h \
  /usr/include/c++/13/bits/hashtable_policy.h \
- /usr/include/c++/13/ext/aligned_buffer.h \
  /usr/include/c++/13/bits/enable_special_members.h \
  /usr/include/c++/13/bits/node_handle.h \
  /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/array \
  /usr/include/c++/13/compare /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
- /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/bits/stl_tempbuf.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/Defs.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/TypesTenso.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/Typedefs.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/Types.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/CanController.h \
- /usr/include/c++/13/memory \
- /usr/include/c++/13/bits/stl_raw_storage_iter.h \
- /usr/include/c++/13/bits/align.h /usr/include/c++/13/bits/shared_ptr.h \
- /usr/include/c++/13/bits/shared_ptr_base.h \
- /usr/include/c++/13/bits/allocated_ptr.h \
- /usr/include/c++/13/ext/concurrence.h \
- /usr/include/c++/13/bits/shared_ptr_atomic.h \
- /usr/include/c++/13/backward/auto_ptr.h \
- /usr/include/c++/13/pstl/glue_memory_defs.h \
- /usr/include/c++/13/pstl/execution_defs.h /usr/include/c++/13/mutex \
- /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h /usr/include/c++/13/sstream \
+ /usr/include/c++/13/bits/uniform_int_dist.h /usr/include/c++/13/sstream \
  /usr/include/c++/13/bits/sstream.tcc /usr/include/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -208,8 +201,9 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
  /usr/include/linux/close_range.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/ScenarioBuilder.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/Mechanism.h \
+ /home/ilya/Рабочий\ стол/canstep-api/test/../include/Typedefs.h \
+ /home/ilya/Рабочий\ стол/canstep-api/test/../include/ScenarioBuilder.h \
+ /home/ilya/Рабочий\ стол/canstep-api/test/../include/Mechanism.h \
  /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
  /usr/include/c++/13/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
@@ -239,8 +233,13 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: \
  /usr/include/c++/13/tr1/poly_hermite.tcc \
  /usr/include/c++/13/tr1/poly_laguerre.tcc \
  /usr/include/c++/13/tr1/riemann_zeta.tcc \
- /home/ilya/Рабочий\ стол/canstep-api/include/DefsCANStep.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/TypesCANStep.h \
+ /home/ilya/Рабочий\ стол/canstep-api/test/../include/Defs.h \
+ /home/ilya/Рабочий\ стол/canstep-api/test/../include/DefsCANStep.h \
+ /home/ilya/Рабочий\ стол/canstep-api/test/../include/TypesCANStep.h \
+ /home/ilya/Рабочий\ стол/canstep-api/test/../include/Types.h \
+ /home/ilya/Рабочий\ стол/canstep-api/test/../include/HidDevice.h \
+ /usr/include/hidapi/hidapi.h \
+ /home/ilya/Рабочий\ стол/canstep-api/test/../include/TypesTenso.h \
  /usr/include/c++/13/fstream \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \

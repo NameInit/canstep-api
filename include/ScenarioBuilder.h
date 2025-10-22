@@ -128,7 +128,7 @@ public:
                     mech->setSteps(std::stoi(parts[2]));
                     std::this_thread::sleep_for(std::chrono::milliseconds(50));
                 } else if (action == "MOVE_FORWARD") {
-                    mech->runForavrd();
+                    mech->runForward();
                     std::this_thread::sleep_for(std::chrono::milliseconds(50));
                 } else if (action == "MOVE_BACKWARD") {
                     mech->runBackward();
@@ -208,7 +208,7 @@ public:
         std::this_thread::sleep_for(std::chrono::milliseconds(250));
 
         if (stepsNeeded > 0) {
-            mech->runForavrd();
+            mech->runForward();
         } else {
             mech->runBackward();
         }
