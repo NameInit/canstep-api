@@ -41,14 +41,12 @@ public:
     void buttonBrakeOn_Click();
     void buttonBrakeOff_Click();
 
-    //-----------can откликается, но не знаю как затестить------------------
     void buttonRezervOn_Click();
     void buttonRezervOff_Click();
     void buttonAlarmResetOn_Click();
     void buttonAlarmResetOff_Click();
     void buttonDebugOn_Click();
     void buttonCurrentPositionSet_Click(uint32_t position);
-    //------------------------------------------------------
 
     void buttonNumBoardSave_Click(uint8_t boardId);
     void buttonNumGroupSave_Click(uint8_t groupId);
@@ -59,12 +57,10 @@ public:
     void buttonAccelSave_Click(uint8_t accel);
     void buttonDecelSave_Click(uint8_t decel);
     void buttonDeltaSave_Click(uint32_t delta);
-    // void buttonSensorPolarity_Click(int sensorNum, uint8_t polarity);
     void buttonSensor1Polarity_Click(uint8_t u8Inverting);
     void buttonSensor2Polarity_Click(uint8_t u8Inverting);
     void buttonSensor3Polarity_Click(uint8_t u8Inverting);
     void buttonSensor4Polarity_Click(uint8_t u8Inverting);
-    // void buttonSensorDir_Click(int sensorNum, uint8_t direction);
     void buttonSensor1Dir_Click(uint8_t u8Inverting);
     void buttonSensor2Dir_Click(uint8_t u8Inverting);
     void buttonSensor3Dir_Click(uint8_t u8Inverting);
@@ -127,23 +123,14 @@ public:
     void button_IN_9_TO_GND_Click();
     void button_IN_10_TO_GND_Click();
     void button_IN_11_TO_GND_Click();
-    //------------------------------------------------------------------------
-
-    // void buttonOutputPolarity_Click(const std::string& outputName, uint8_t polarity);
-    // void buttonInputPolarity_Click(const std::string& inputName, uint8_t polarity);
     void button_MicroSteps_Click(uint32_t microsteps);
     void button_StepsTurn_Click(uint32_t steps);
-    // void button_OUT_SetState_Click(int outNum, const std::string& state);
-    // void button_IN_SetPull_Click(int inNum, const std::string& state);
     void buttonSaveInPullUps_Click();
     void buttonResetCANStep_Click();
     void buttonDriverOn_Click();
     void buttonDriverOff_Click();
     void buttonIHOLDSet_Click(uint8_t ihold, uint8_t irun, uint8_t iholddelay);
     void buttonSPEEDTHRSSet_Click(uint8_t threshold);
-    // void buttonCOOLCONF_Click();
-    // void buttonEncoderConfig_Click(uint8_t polarity, uint8_t delta, uint16_t toTurn);
-    // void buttonGLOBAL_SCALER_Click(uint8_t scaler);
     void trackBarPositioning_Velocity_Scroll(bool isPositioning);
     void buttonAutosender_Click(uint8_t type, uint8_t delayMs);
     void buttonTestUSBCAN_Click();
@@ -151,6 +138,10 @@ public:
     void buttonMotorSpeed_Click();
     void buttonAbsolutePositionRotorUint_Click();
     void buttonAlarmCode_Click();
+    void resetLostCounters_Click();
+    void buttonEncoderConfig_Click(uint8_t encoderPolarity, uint8_t encoderDelta, uint16_t encoderToTurn);
+    void buttonGLOBAL_SCALER_Click(uint8_t globalScaler);
+    void buttonCOOLCONF_Click(uint8_t Seup, uint8_t Sedn, bool Seimen, bool SGFilter, uint8_t Semin, uint8_t Semax, uint8_t SGThreshold);
 
     void buttonUpdate_Click();
     void buttonStopUpdate_Click();
@@ -332,6 +323,11 @@ void CanController::button_IN_8_TO_GND_Click() { mechanismObj0->setInPullDown(8)
 void CanController::button_IN_9_TO_GND_Click() { mechanismObj0->setInPullDown(9); }
 void CanController::button_IN_10_TO_GND_Click() { mechanismObj0->setInPullDown(10); }
 void CanController::button_IN_11_TO_GND_Click() { mechanismObj0->setInPullDown(11); }
+
+void CanController::resetLostCounters_Click() { mechanismObj0->clrPossibleLostFrame(); }
+void CanController::buttonEncoderConfig_Click(uint8_t encoderPolarity, uint8_t encoderDelta, uint16_t encoderToTurn) { mechanismObj0->setEncoderConfig(encoderPolarity,encoderDelta,encoderToTurn); }
+void CanController::buttonGLOBAL_SCALER_Click(uint8_t globalScaler) { mechanismObj0->setGLOBAL_SCALER(globalScaler); }
+void CanController::buttonCOOLCONF_Click(uint8_t Seup, uint8_t Sedn, bool Seimen, bool SGFilter, uint8_t Semin, uint8_t Semax, uint8_t SGThreshold) { mechanismObj0->setCOOLCONF(Seup,Sedn,Seimen,SGFilter,Semin,Semax,SGThreshold); }
 
 void CanController::buttonUpdate_Click() {
     if (!isRunning) {
