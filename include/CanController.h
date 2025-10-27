@@ -147,6 +147,7 @@ public:
     void resetMechDriver(const std::string& selectedItem);
     void resetMechController_Click(const std::string& selectedItem);
     void executeSelectedCommandButton_Click(const std::string &selectedCommand);
+    void executeAllCommandsButton_Click();
     void buttonFullStop_Click();
     void stopExecutionButton_Click();
     void refrshMechButton_Click();
@@ -215,6 +216,27 @@ public:
 		}
 
 	// 	this->Invoke(gcnew MethodInvoker(this, &MyForm::resetExecutionLabels));
+		runningScenario = false;
+	}
+
+    void executeAllCommands() {
+        std::thread executionThread([this]() {
+            this->executeAllCommandsThread();
+        });
+        executionThread.detach();
+		// System::Threading::Thread^ executionThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::executeAllCommandsThread));
+		// executionThread->Start();
+	}
+
+    void executeAllCommandsThread() {
+		runningScenario = true;
+		for (int i = 0; i < scenarioBuilder->commandQueue.size(); i++) {
+			if (!runningScenario) break; // ���������, �� ������ �� ������ "����������"
+
+	// 		updateCommandHighlight(i);
+			scenarioBuilder->executeSingleCommand(scenarioBuilder->commandQueue[i]);
+		}
+	// 	resetCommandHighlight();
 		runningScenario = false;
 	}
 
@@ -449,6 +471,12 @@ void CanController::executeSelectedCommandButton_Click(const std::string &select
     return ;
 }
 
+void CanController::executeAllCommandsButton_Click() {
+	// scenarioBuilder->executeCommands();
+	executeAllCommands();
+    return ;
+}
+
 void CanController::buttonFullStop_Click(){
     scenarioBuilder->stopAllMechanisms();
     return ;
@@ -596,6 +624,7 @@ void CanController::button2_Click(const std::string& mechName, const std::string
 }
 
 void CanController::saveMechsToFile_Click(const std::string& filename){
+    scenarioBuilder->saveMechanismsToFile(filename);
     // System::Threading::Thread^ staThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::ShowSaveMechanismsDialog));
 	// staThread->SetApartmentState(System::Threading::ApartmentState::STA);
 	// staThread->Start();
@@ -603,6 +632,7 @@ void CanController::saveMechsToFile_Click(const std::string& filename){
 }
 
 void CanController::readMechsFromFile_Click(const std::string& filename){
+    scenarioBuilder->loadMechanismsFromFile(filename);
     // System::Threading::Thread^ staThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::ShowOpenMechanismsDialog));
 	// staThread->SetApartmentState(System::Threading::ApartmentState::STA);
 	// staThread->Start();
@@ -610,6 +640,7 @@ void CanController::readMechsFromFile_Click(const std::string& filename){
 }
 
 void CanController::saveCommandsButton_Click(const std::string& filename) {
+    scenarioBuilder->saveCommandsToFile(filename);
 	// System::Threading::Thread^ staThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::ShowSaveCommandsDialog));
 	// staThread->SetApartmentState(System::Threading::ApartmentState::STA);
 	// staThread->Start();
@@ -617,6 +648,7 @@ void CanController::saveCommandsButton_Click(const std::string& filename) {
 }
 
 void CanController::loadCommandsButton_Click(const std::string& filename) {
+    scenarioBuilder->loadCommandsFromFile(filename);
 	// System::Threading::Thread^ staThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::ShowOpenCommandsDialog));
 	// staThread->SetApartmentState(System::Threading::ApartmentState::STA);
 	// staThread->Start();
