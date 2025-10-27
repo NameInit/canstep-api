@@ -13,7 +13,7 @@ int main() {
     controller.buttonOpenCOM_Click(0x0483,0x577f); //ID в парметрах, чтобы найти: lsusb | grep USB-CAN
     // std::this_thread::sleep_for(std::chrono::seconds(1));
 
-    // controller.buttonDebugOn_Click();
+    controller.buttonDebugOn_Click();
 
     controller.buttonNumBoardSave_Click(16);
     // std::this_thread::sleep_for(std::chrono::milliseconds(2000));

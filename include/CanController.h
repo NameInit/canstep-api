@@ -9,6 +9,7 @@
 #include <atomic>
 #include <functional>
 #include <sstream>
+#include <future>
 
 #include <unistd.h>
 #include <pthread.h>
@@ -143,6 +144,34 @@ public:
     void buttonGLOBAL_SCALER_Click(uint8_t globalScaler);
     void buttonCOOLCONF_Click(uint8_t Seup, uint8_t Sedn, bool Seimen, bool SGFilter, uint8_t Semin, uint8_t Semax, uint8_t SGThreshold);
 
+    void resetMechDriver(const std::string& selectedItem);
+    void resetMechController_Click(const std::string& selectedItem);
+    void executeSelectedCommandButton_Click(const std::string &selectedCommand);
+    void buttonFullStop_Click();
+    void stopExecutionButton_Click();
+    void refrshMechButton_Click();
+    void endMechRefresh_Click();
+    void removeMechButton_Click(const std::string &selectedItem);
+    void addMechButton_Click(const std::string& mechName, uint8_t board, uint8_t group);
+    void button1_Click(const std::string& selectedItem);
+    void button2_Click(const std::string& mechName, const std::string& action, const std::string& param);
+    void saveMechsToFile_Click(const std::string& filename);
+    void readMechsFromFile_Click(const std::string& filename);
+    void saveCommandsButton_Click(const std::string& filename);
+    void loadCommandsButton_Click(const std::string& filename);
+    void button3_Click();
+    void buttonDebugMode_Click(const std::string &selectedItem);
+    void refreshStateButton_Click();
+    void autoUpdateTable_CheckedChanged();
+    void startSceExecutionButton_Click(const std::string& mechFile, const std::string& bindingFile);
+    void stopSceExecutionButton_Click();
+    void resetAllDriversFaultButton_Click();
+    void selectMechSetButton_Click();
+    void saveSceExecSettings_Click(const std::string& mechFile, const std::string& bindingFile);
+    void sceExecStopAllMech_Click(const std::string& stopFile);
+    void button1_Click_1();
+    void sceExecConfigModeCheckbox_CheckedChanged();
+
     void buttonUpdate_Click();
     void buttonStopUpdate_Click();
 
@@ -153,6 +182,42 @@ public:
     void myAnswerConfigCallback(uint8_t* pNumBoardParse);
     void myAnswerCallback(uint8_t* pNumBoardParse, uint8_t* pStatus, uint8_t* pNumAnswer, uint8_t* p8Data, uint32_t* p32Data, float* pfData, uint8_t* p8Data1, uint8_t* p8Data2, uint8_t* p8Data3);
 
+    void executeAllCommandsSilent() {
+        std::thread executionThread([this]() {
+            this->executeAllCommandsSilentThread();
+        });
+        executionThread.detach();
+    }
+
+    void executeAllCommandsSilentThread() {
+		runningScenario = true;
+
+	// 	// Show "Executing..." in status label
+	// 	this->Invoke(gcnew MethodInvoker(this, &MyForm::setStatusExecuting));
+
+		for (int i = 0; i < scenarioBuilder->commandQueue.size(); i++) {
+			if (!runningScenario) break;
+
+			std::string &command = scenarioBuilder->commandQueue[i];
+
+	// 		// Parse mech name
+	// 		array<String^>^ parts = command->Split(' ');
+	// 		String^ mechName = parts->Length > 0 ? parts[0] : "";
+
+	// 		// Store parameters temporarily
+	// 		currentCommand = command;
+	// 		currentMechName = mechName;
+
+	// 		// Update command and mech labels using MethodInvoker
+	// 		this->Invoke(gcnew MethodInvoker(this, &MyForm::UpdateLabelsFromFields));
+
+			scenarioBuilder->executeSingleCommand(command);
+		}
+
+	// 	this->Invoke(gcnew MethodInvoker(this, &MyForm::resetExecutionLabels));
+		runningScenario = false;
+	}
+
     std::unique_ptr<HidDevice> hidDevice;
     std::unique_ptr<Mechanism> mechanismObj0;
     std::unique_ptr<ScenarioBuilder> scenarioBuilder;
@@ -162,6 +227,8 @@ public:
 
     uint16_t vendorId = 1155;
     uint16_t productId = 22399;
+
+    bool runningScenario;
 };
 
 CanController::CanController() {
@@ -186,9 +253,8 @@ void CanController::createMechanismObj0(uint8_t boardId, uint8_t groupId) {
         mechanismObj0->changeNumBoard(boardId);
     }
     
-    // Отправка запросов на получение начальных данных
     mechanismObj0->ClrAsks();
-    usleep(10000); // 10ms
+    usleep(10000);
     mechanismObj0->SetAsk(AskPosition);
     mechanismObj0->SetAsk(AskHomings);
     mechanismObj0->SetAsk(AskInputs);
@@ -197,7 +263,7 @@ void CanController::createMechanismObj0(uint8_t boardId, uint8_t groupId) {
 }
 
 void CanController::buttonOpenCOM_Click(uint16_t vendorId=0x0483, uint16_t productId=0x577f) {
-    createMechanismObj0(0, 0); // Создаем с ID по умолчанию
+    createMechanismObj0(0, 0);
     mechanismObj0->SetHidDevice(hidDevice.get());
 
     if (hidDevice->IsConnected()) {
@@ -328,6 +394,453 @@ void CanController::resetLostCounters_Click() { mechanismObj0->clrPossibleLostFr
 void CanController::buttonEncoderConfig_Click(uint8_t encoderPolarity, uint8_t encoderDelta, uint16_t encoderToTurn) { mechanismObj0->setEncoderConfig(encoderPolarity,encoderDelta,encoderToTurn); }
 void CanController::buttonGLOBAL_SCALER_Click(uint8_t globalScaler) { mechanismObj0->setGLOBAL_SCALER(globalScaler); }
 void CanController::buttonCOOLCONF_Click(uint8_t Seup, uint8_t Sedn, bool Seimen, bool SGFilter, uint8_t Semin, uint8_t Semax, uint8_t SGThreshold) { mechanismObj0->setCOOLCONF(Seup,Sedn,Seimen,SGFilter,Semin,Semax,SGThreshold); }
+
+void CanController::resetMechDriver(const std::string& selectedItem){
+    if(selectedItem.empty()){
+        std::cerr << "Empty string in resetMechDriver" << std::endl;
+        return ;
+    }
+    
+    size_t pos = selectedItem.find('-');
+    std::string key=(pos!=std::string::npos) ? selectedItem.substr(0,pos) : selectedItem;
+    if(key.length()==0){
+        std::cerr << "Key is zero len" << std::endl;
+        return ;
+    }
+    
+    auto it = scenarioBuilder->mechanisms.find(key);
+    if(it!=scenarioBuilder->mechanisms.end() && it->second!=nullptr){
+        it->second->ResetDRVError();
+    }
+    else{
+        std::cerr << "Not found key in mechanisms";
+        return ;
+    }
+
+    return ;
+}
+
+void CanController::resetMechController_Click(const std::string& selectedItem){
+    if(selectedItem.empty()){
+        std::cerr << "Empty string in resetMechController_Click" << std::endl;
+        return ;
+    }
+
+    size_t pos = selectedItem.find('-');
+    std::string key=(pos!=std::string::npos) ? selectedItem.substr(0,pos) : selectedItem;
+    if(key.length()==0){
+        std::cerr << "Key is zero len" << std::endl;
+        return ;
+    }
+
+    auto it = scenarioBuilder->mechanisms.find(key);
+    if(it!=scenarioBuilder->mechanisms.end() && it->second!=nullptr){
+        mechanismObj0->SetUpdater(eCANUpdaterOff);
+        it->second->Reset();
+    }
+    else{
+        std::cerr << "Not found key in mechanisms";
+        return ;
+    }
+}
+
+void CanController::executeSelectedCommandButton_Click(const std::string &selectedCommand){
+    scenarioBuilder->executeSingleCommand(selectedCommand);
+    return ;
+}
+
+void CanController::buttonFullStop_Click(){
+    scenarioBuilder->stopAllMechanisms();
+    return ;
+}
+
+void CanController::stopExecutionButton_Click(){
+    runningScenario=false;
+    //
+    // resetCommandHighlight();
+    // if(commandListBox->InvokeRequired) {
+    //     commandListBox->Invoke(gcnew Action(this, &MyForm::resetCommandHighlight));
+    // }
+    // else{
+    //     commandListBox->SelectedIndex = -1;
+    // }
+    return ;
+}
+
+void CanController::refrshMechButton_Click(){
+    mechanismObj0->SetUpdater(eCANUpdaterCentral);
+	// if (backgroundWorker1->IsBusy != true)
+	// {
+	// 	backgroundWorker1->RunWorkerAsync();
+	// }
+    return ;
+}
+
+void CanController::endMechRefresh_Click(){
+    mechanismObj0->SetUpdater(eCANUpdaterOff);
+	// if (backgroundWorker1->IsBusy == true)
+	// {
+	// 	backgroundWorker1->CancelAsync();
+	// }
+    return ;
+}
+
+void CanController::removeMechButton_Click(const std::string &selectedItem){
+    if(selectedItem.empty()){
+        std::cerr << "Empty string in removeMechButton_Click" << std::endl;
+        return ;
+    }
+
+    size_t pos = selectedItem.find('-');
+    std::string key=(pos!=std::string::npos) ? selectedItem.substr(0,pos) : selectedItem;
+    if(key.length()==0){
+        std::cerr << "Key is zero len" << std::endl;
+        return ;
+    }
+
+    auto it = scenarioBuilder->mechanisms.find(key);
+    if(it!=scenarioBuilder->mechanisms.end() && it->second!=nullptr){
+        scenarioBuilder->mechanisms.erase(it);
+        // LoadMechanisms()
+    }
+    else{
+        std::cerr << "Not found key in mechanisms";
+        return ;
+    }
+    // void LoadMechanisms()
+	// {
+	// 	mechListBox->Items->Clear();
+	// 	for each (String ^ key in scenarioBuilder->mechanisms->Keys)
+	// 	{
+	// 		Mechanism^ mech = scenarioBuilder->mechanisms[key];
+	// 		String^ item = String::Format("{0} - �����: {1}, ������: {2}", key, mech->getNumBoard(), mech->getGroup(true));
+	// 		mechListBox->Items->Add(item);
+	// 	}
+	// }
+
+    // if (mechListBox->SelectedItem != nullptr)
+	// {
+	// 	String^ selectedItem = mechListBox->SelectedItem->ToString();
+	// 	array<String^>^ parts = selectedItem->Split('-');
+	// 	String^ key = parts[0]->Trim();
+
+	// 	scenarioBuilder->mechanisms->Remove(key);
+	// 	LoadMechanisms();
+	// }
+}
+
+void CanController::addMechButton_Click(const std::string& mechName, uint8_t board, uint8_t group){
+    if(mechName.empty() || scenarioBuilder->mechanisms.find(mechName) != scenarioBuilder->mechanisms.end())
+    {
+        std::cerr << "Incorrect mechName" << std::endl;
+        return;
+    }
+
+    scenarioBuilder->mechanisms[mechName] = std::make_unique<Mechanism>(board,group);
+    scenarioBuilder->mechanisms[mechName]->SetHidDevice(hidDevice.get());
+    scenarioBuilder->mechanisms[mechName]->setGroup(group);
+    scenarioBuilder->mechanisms[mechName]->SetAsk(_AskEnum::AskPosition);
+    scenarioBuilder->mechanisms[mechName]->SetAsk(_AskEnum::AskHomings);
+    scenarioBuilder->mechanisms[mechName]->SetAsk(_AskEnum::AskInputs);
+    scenarioBuilder->mechanisms[mechName]->SetAsk(_AskEnum::AskCurrOutputs);
+    
+    // LoadMechanisms();
+    return ;
+}
+
+void CanController::button1_Click(const std::string& selectedItem) {
+    if(selectedItem.empty()){
+        std::cerr << "Void selectedItem" << std::endl;
+        return ;
+    }
+    scenarioBuilder->commandQueue.erase(std::remove(
+        scenarioBuilder->commandQueue.begin(),scenarioBuilder->commandQueue.end(),selectedItem
+    ),scenarioBuilder->commandQueue.end());
+    // LoadCommands();
+    return ;
+	// if (commandListBox->SelectedItem != nullptr)
+	// {
+	// 	scenarioBuilder->commandQueue->Remove(commandListBox->SelectedItem->ToString());
+	// 	LoadCommands();
+	// }
+}
+
+void CanController::button2_Click(const std::string& mechName, const std::string& action, const std::string& param){
+    if(mechName.empty() || action.empty() || param.empty()){
+        std::cerr << "Incorrect arguments in button2_Click" << std::endl;
+        return ;
+    }
+    scenarioBuilder->commandQueue.emplace_back(mechName+' '+action+' '+param);
+    // LoadCommands();
+    return ;
+
+    // if (mechanismComboBox->SelectedItem == nullptr || actionComboBox->SelectedItem == nullptr)
+	// 	return;
+
+	// String^ mechName = mechanismComboBox->SelectedItem->ToString();
+	// String^ action = actionComboBox->SelectedItem->ToString();
+	// String^ param = parameterTextBox->Text;
+
+	// if (action == "SET_STEPS" && String::IsNullOrWhiteSpace(param))
+	// {
+	// 	MessageBox::Show("�� ������ �������� ��� SET_STEPS", "������", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	// 	return;
+	// }
+
+	// String^ command = mechName + " " + action;
+	// if (!String::IsNullOrWhiteSpace(param)) command += " " + param;
+
+	// scenarioBuilder->commandQueue->Add(command);
+	// LoadCommands();
+	// parameterTextBox->Clear();
+}
+
+void CanController::saveMechsToFile_Click(const std::string& filename){
+    // System::Threading::Thread^ staThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::ShowSaveMechanismsDialog));
+	// staThread->SetApartmentState(System::Threading::ApartmentState::STA);
+	// staThread->Start();
+    return ;
+}
+
+void CanController::readMechsFromFile_Click(const std::string& filename){
+    // System::Threading::Thread^ staThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::ShowOpenMechanismsDialog));
+	// staThread->SetApartmentState(System::Threading::ApartmentState::STA);
+	// staThread->Start();
+    return ;
+}
+
+void CanController::saveCommandsButton_Click(const std::string& filename) {
+	// System::Threading::Thread^ staThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::ShowSaveCommandsDialog));
+	// staThread->SetApartmentState(System::Threading::ApartmentState::STA);
+	// staThread->Start();
+    return ;
+}
+
+void CanController::loadCommandsButton_Click(const std::string& filename) {
+	// System::Threading::Thread^ staThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::ShowOpenCommandsDialog));
+	// staThread->SetApartmentState(System::Threading::ApartmentState::STA);
+	// staThread->Start();
+    return ;
+}
+
+void CanController::button3_Click() {
+	// LoadMechanismsList();
+    return ;
+}
+
+void CanController::buttonDebugMode_Click(const std::string &selectedItem) {
+    if(selectedItem.empty()){
+        std::cerr << "Error selectedItem in buttonDebugMode_Click" << std::endl;
+        return ;
+    }
+	scenarioBuilder->mechanisms[selectedItem]->Debug_on();
+    return ;
+}
+
+void CanController::refreshStateButton_Click() {
+	// UpdateMechanismStateGrid();
+    // void UpdateMechanismStateGrid() {
+	// 	mechStateGridView->Rows->Clear();
+
+	// 	mechStateGridView->Rows->Clear();
+
+	// 	List<array<Object^>^>^ stateList = scenarioBuilder->getMechanismsStateList();
+
+	// 	for each (array<Object^> ^ row in stateList) {
+	// 		mechStateGridView->Rows->Add(row);
+
+
+	// 		// �������� ������ ������� FAULT
+	// 		int faultColumnIndex = mechStateGridView->Columns["FAULT"]->Index;
+
+	// 		// ��������� ��������� FAULT ��� ���� ������
+	// 		bool isFault = Convert::ToBoolean(row[faultColumnIndex]);
+
+	// 		// ��������� ����������� � ����������� �� �������� FAULT
+	// 		int rowIndex = mechStateGridView->Rows->Count - 1;  // ������ ������ ��� ����������� ������
+	// 		if (isFault) {
+	// 			mechStateGridView->Rows[rowIndex]->DefaultCellStyle->BackColor = Color::Red;
+	// 			mechStateGridView->Rows[rowIndex]->DefaultCellStyle->ForeColor = Color::White;
+	// 		}
+	// 		else {
+	// 			mechStateGridView->Rows[rowIndex]->DefaultCellStyle->BackColor = Color::White;
+	// 			mechStateGridView->Rows[rowIndex]->DefaultCellStyle->ForeColor = Color::Black;
+	// 		}
+
+	// 	}
+	// }
+    return ;
+}
+
+void CanController::autoUpdateTable_CheckedChanged() {
+	// if (autoUpdateTable->Checked) {
+	// 	autoTableUpdate = true;
+	// }
+	// else {
+	// 	autoTableUpdate = false;
+	// }
+    return ;
+}
+
+void CanController::startSceExecutionButton_Click(const std::string& mechFile = "mechs.txt", const std::string& bindingFile = "scenario_bindings.txt")
+{
+    // 1. Load Mechs
+    std::ifstream mechStream(mechFile);
+    if (mechStream.good()) {
+        std::string line;
+        while (std::getline(mechStream, line)) {
+            std::vector<std::string> parts;
+            std::istringstream iss(line);
+            std::string part;
+            
+            while (iss >> part) {
+                parts.push_back(part);
+            }
+            
+            if (parts.size() >= 3) {
+                std::string name = parts[0];
+                int board = std::stoi(parts[1]);
+                int group = std::stoi(parts[2]);
+                
+                auto mech = std::make_unique<Mechanism>(static_cast<uint8_t>(board), static_cast<uint8_t>(group));
+                mech->SetHidDevice(hidDevice.get());
+                usleep(150000);
+                mech->setGroup(static_cast<uint8_t>(group));
+                usleep(150000);
+                mech->ClrAsks();
+                usleep(150000);
+                mech->SetAsk(_AskEnum::AskPosition);
+                usleep(150000);
+                mech->SetAsk(_AskEnum::AskGroup);
+                usleep(150000);
+                mech->SetAsk(_AskEnum::AskHomings);
+                usleep(150000);
+                mech->SetAsk(_AskEnum::AskInputs);
+                usleep(150000);
+                mech->SetAsk(_AskEnum::AskCurrOutputs);
+                usleep(1500000);
+                
+                if (mech) {
+                    mech->setAutosender(4, 10, 0);
+                    usleep(150000);
+                }
+                if (mech) {
+                    mech->setUpdateType(true);
+                }
+                usleep(50000);
+                
+                scenarioBuilder->addMechanism(name, std::move(mech));
+            }
+        }
+        mechStream.close();
+    }
+
+    usleep(1500000);
+
+    // 2. Load scenario bindings
+    auto bindingStream = std::make_unique<std::ifstream>(bindingFile);
+    if (!bindingStream->good()) return;
+
+    std::string bindLine;
+    while (std::getline(*bindingStream, bindLine)) {
+        size_t pos = bindLine.find('=');
+        if (pos != std::string::npos) {
+            std::string buttonName = bindLine.substr(0, pos);
+            std::string filePath = bindLine.substr(pos + 1);
+            // ну тут ui было дальше
+        }
+    }
+    return ;
+}
+
+void CanController::stopSceExecutionButton_Click() {
+	mechanismObj0->SetUpdater(eCANUpdaterOff);
+	// if (backgroundWorker1->IsBusy == true)
+	// {
+		// backgroundWorker1->CancelAsync();
+	// }
+    return ;
+}
+
+void CanController::resetAllDriversFaultButton_Click() {
+    for(auto& it : scenarioBuilder->mechanisms){
+        it.second->ResetDRVError();
+    }
+    return ;
+}
+
+void CanController::selectMechSetButton_Click() {
+	// System::Threading::Thread^ staThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::ShowOpenMechanismsDialog));
+	// staThread->SetApartmentState(System::Threading::ApartmentState::STA);
+	// staThread->Start();
+    return ;
+}
+
+void CanController::saveSceExecSettings_Click(const std::string& mechFile = "mechs.txt", const std::string& bindingFile = "scenario_bindings.txt") {
+	// 1. Save Scenario Bindings
+    std::ofstream writer(bindingFile);
+    // scenarioBindings - ui
+	// StreamWriter^ writer = gcnew StreamWriter("scenario_bindings.txt");
+	// for each (auto pair in scenarioBindings) {
+	// 	writer->WriteLine(pair.Key->Name + "=" + pair.Value);
+	// }
+	// writer->Close();
+
+	// 2. Save Mechanisms
+	std::ofstream mechWriter(mechFile);
+	for(auto& it : scenarioBuilder->mechanisms) {
+		Mechanism* mech = it.second.get();
+		mechWriter << it.first << " "
+                          << static_cast<int>(mech->getNumBoard()) << " "
+                          << static_cast<int>(mech->getGroup(false)) << std::endl;
+	}
+	mechWriter.close();
+    return ;
+}
+
+
+void CanController::sceExecStopAllMech_Click(const std::string& stopFile = "full_stop.sce") {
+    runningScenario = false;
+    
+    std::ifstream file(stopFile);
+    if (file.good()) {
+        file.close();
+        scenarioBuilder->loadCommandsFromFile(stopFile);
+        executeAllCommandsSilent();
+    }
+    
+    scenarioBuilder->stopAllMechanisms();
+    return ;
+}
+
+void CanController::button1_Click_1() {
+	runningScenario = false;
+	// resetExecutionLabels();
+    // void resetExecutionLabels() {
+	// 	sceExecSceStatusLabel->Text = "��������";
+	// 	sceExecCurrCmdLabel->Text = "";
+	// 	sceExecCurrMechLabel->Text = "";
+	// }
+    return ;
+}
+
+void CanController::sceExecConfigModeCheckbox_CheckedChanged() {
+	// if (sceExecConfigModeCheckbox->Checked)
+	// 	for (int i = 3; i <= 41; i += 2) {
+	// 		Button^ selectBtn = (Button^)this->Controls->Find("button" + (i + 1).ToString(), true)[0];
+
+	// 		selectBtn->Visible = TRUE;
+	// 	}
+	// else {
+	// 	for (int i = 3; i <= 41; i += 2) {
+	// 		Button^ selectBtn = (Button^)this->Controls->Find("button" + (i + 1).ToString(), true)[0];
+
+	// 		selectBtn->Visible = FALSE;
+	// 	}
+
+	// }
+    return ;
+}
 
 void CanController::buttonUpdate_Click() {
     if (!isRunning) {
