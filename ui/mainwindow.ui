@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>230</width>
+      <height>220</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButtonConnect">
+       <property name="text">
+        <string>connect</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButtonDebugOn">
+       <property name="text">
+        <string>debugOn</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButtonBoard">
+       <property name="text">
+        <string>board</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEditBoard"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pushButtonSteps">
+       <property name="text">
+        <string>steps</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="lineEditSteps"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="pushButtonSpeed">
+       <property name="text">
+        <string>speed</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="lineEditSpeed"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QPushButton" name="pushButtonAccel">
+       <property name="text">
+        <string>accel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="lineEditAccel"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QPushButton" name="pushButtonDecel">
+       <property name="text">
+        <string>decel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="lineEditDecel"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QPushButton" name="pushButtonForward">
+       <property name="text">
+        <string>forward</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QPushButton" name="pushButtonBackward">
+       <property name="text">
+        <string>backward</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ilya/Рабочий стол/canstep-api/test/main.cpp" "CMakeFiles/canstep-test.dir/test/main.cpp.o" "gcc" "CMakeFiles/canstep-test.dir/test/main.cpp.o.d"
+  "/home/ilya/Desktop/canstep-api/test/main.cpp" "CMakeFiles/canstep-test.dir/test/main.cpp.o" "gcc" "CMakeFiles/canstep-test.dir/test/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

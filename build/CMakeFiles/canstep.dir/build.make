@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ilya/Рабочий стол/canstep-api"
+CMAKE_SOURCE_DIR = /home/ilya/Desktop/canstep-api
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ilya/Рабочий стол/canstep-api/build"
+CMAKE_BINARY_DIR = /home/ilya/Desktop/canstep-api/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/canstep.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/canstep.dir/progress.make
 include CMakeFiles/canstep.dir/flags.make
 
 CMakeFiles/canstep.dir/src/HidDevice.cpp.o: CMakeFiles/canstep.dir/flags.make
-CMakeFiles/canstep.dir/src/HidDevice.cpp.o: /home/ilya/Рабочий\ стол/canstep-api/src/HidDevice.cpp
+CMakeFiles/canstep.dir/src/HidDevice.cpp.o: /home/ilya/Desktop/canstep-api/src/HidDevice.cpp
 CMakeFiles/canstep.dir/src/HidDevice.cpp.o: CMakeFiles/canstep.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/ilya/Рабочий стол/canstep-api/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/canstep.dir/src/HidDevice.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/canstep.dir/src/HidDevice.cpp.o -MF CMakeFiles/canstep.dir/src/HidDevice.cpp.o.d -o CMakeFiles/canstep.dir/src/HidDevice.cpp.o -c "/home/ilya/Рабочий стол/canstep-api/src/HidDevice.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilya/Desktop/canstep-api/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/canstep.dir/src/HidDevice.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/canstep.dir/src/HidDevice.cpp.o -MF CMakeFiles/canstep.dir/src/HidDevice.cpp.o.d -o CMakeFiles/canstep.dir/src/HidDevice.cpp.o -c /home/ilya/Desktop/canstep-api/src/HidDevice.cpp
 
 CMakeFiles/canstep.dir/src/HidDevice.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/canstep.dir/src/HidDevice.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ilya/Рабочий стол/canstep-api/src/HidDevice.cpp" > CMakeFiles/canstep.dir/src/HidDevice.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilya/Desktop/canstep-api/src/HidDevice.cpp > CMakeFiles/canstep.dir/src/HidDevice.cpp.i
 
 CMakeFiles/canstep.dir/src/HidDevice.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/canstep.dir/src/HidDevice.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ilya/Рабочий стол/canstep-api/src/HidDevice.cpp" -o CMakeFiles/canstep.dir/src/HidDevice.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilya/Desktop/canstep-api/src/HidDevice.cpp -o CMakeFiles/canstep.dir/src/HidDevice.cpp.s
 
 # Object files for target canstep
 canstep_OBJECTS = \
@@ -93,7 +93,7 @@ canstep_EXTERNAL_OBJECTS =
 libcanstep.a: CMakeFiles/canstep.dir/src/HidDevice.cpp.o
 libcanstep.a: CMakeFiles/canstep.dir/build.make
 libcanstep.a: CMakeFiles/canstep.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/ilya/Рабочий стол/canstep-api/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libcanstep.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilya/Desktop/canstep-api/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libcanstep.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/canstep.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/canstep.dir/link.txt --verbose=$(VERBOSE)
 
@@ -106,6 +106,6 @@ CMakeFiles/canstep.dir/clean:
 .PHONY : CMakeFiles/canstep.dir/clean
 
 CMakeFiles/canstep.dir/depend:
-	cd "/home/ilya/Рабочий стол/canstep-api/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ilya/Рабочий стол/canstep-api" "/home/ilya/Рабочий стол/canstep-api" "/home/ilya/Рабочий стол/canstep-api/build" "/home/ilya/Рабочий стол/canstep-api/build" "/home/ilya/Рабочий стол/canstep-api/build/CMakeFiles/canstep.dir/DependInfo.cmake" "--color=$(COLOR)"
+	cd /home/ilya/Desktop/canstep-api/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ilya/Desktop/canstep-api /home/ilya/Desktop/canstep-api /home/ilya/Desktop/canstep-api/build /home/ilya/Desktop/canstep-api/build /home/ilya/Desktop/canstep-api/build/CMakeFiles/canstep.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/canstep.dir/depend
 

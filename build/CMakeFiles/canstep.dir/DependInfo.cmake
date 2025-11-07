@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ilya/Рабочий стол/canstep-api/src/HidDevice.cpp" "CMakeFiles/canstep.dir/src/HidDevice.cpp.o" "gcc" "CMakeFiles/canstep.dir/src/HidDevice.cpp.o.d"
+  "/home/ilya/Desktop/canstep-api/src/HidDevice.cpp" "CMakeFiles/canstep.dir/src/HidDevice.cpp.o" "gcc" "CMakeFiles/canstep.dir/src/HidDevice.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -1,4 +1,4 @@
-/home/ilya/Рабочий стол/canstep-api/build/CMakeFiles/canstep.dir
-/home/ilya/Рабочий стол/canstep-api/build/CMakeFiles/canstep-test.dir
-/home/ilya/Рабочий стол/canstep-api/build/CMakeFiles/edit_cache.dir
-/home/ilya/Рабочий стол/canstep-api/build/CMakeFiles/rebuild_cache.dir
+/home/ilya/Desktop/canstep-api/build/CMakeFiles/canstep.dir
+/home/ilya/Desktop/canstep-api/build/CMakeFiles/canstep-test.dir
+/home/ilya/Desktop/canstep-api/build/CMakeFiles/edit_cache.dir
+/home/ilya/Desktop/canstep-api/build/CMakeFiles/rebuild_cache.dir

@@ -1,7 +1,7 @@
 CMakeFiles/canstep.dir/src/HidDevice.cpp.o: \
- /home/ilya/Рабочий\ стол/canstep-api/src/HidDevice.cpp \
+ /home/ilya/Desktop/canstep-api/src/HidDevice.cpp \
  /usr/include/stdc-predef.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/HidDevice.h \
+ /home/ilya/Desktop/canstep-api/include/HidDevice.h \
  /usr/include/hidapi/hidapi.h /usr/include/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -182,7 +182,7 @@ CMakeFiles/canstep.dir/src/HidDevice.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /home/ilya/Рабочий\ стол/canstep-api/include/Defs.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/TypesTenso.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/Typedefs.h \
- /home/ilya/Рабочий\ стол/canstep-api/include/Types.h
+ /home/ilya/Desktop/canstep-api/include/Defs.h \
+ /home/ilya/Desktop/canstep-api/include/TypesTenso.h \
+ /home/ilya/Desktop/canstep-api/include/Typedefs.h \
+ /home/ilya/Desktop/canstep-api/include/Types.h

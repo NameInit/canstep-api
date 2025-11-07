@@ -1,1 +1,1 @@
-/usr/bin/c++ "CMakeFiles/canstep-test.dir/test/main.cpp.o" -o canstep-test  libcanstep.a -lhidapi-hidraw 
+/usr/bin/c++ "CMakeFiles/canstep-test.dir/test/main.cpp.o" -o canstep-test  libcanstep.a -lhidapi-hidraw -lpistache /usr/lib/x86_64-linux-gnu/libboost_json.so.1.83.0 /usr/lib/x86_64-linux-gnu/libboost_container.so.1.83.0 
