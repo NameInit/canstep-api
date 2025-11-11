@@ -1,0 +1,43 @@
+[2025-11-09 20:23:50.227158] [info] work!
+[2025-11-09 20:24:23.851688] [info] JSON: work!
+[2025-11-09 20:25:51.743572] [info] SUCCES: buttonOpenCOM_Click
+[2025-11-09 20:26:45.786759] [info] buttonDebugOn_Click
+[2025-11-09 20:26:47.190500] [info] buttonOpenCOM_Click
+[2025-11-09 20:26:47.721210] [info] buttonDebugOn_Click
+[2025-11-09 20:26:48.159105] [info] buttonOpenCOM_Click
+[2025-11-09 20:28:53.942018] [info] buttonNumBoard_Click
+[2025-11-09 20:28:56.044690] [info] buttonNumBoard_Click
+[2025-11-09 20:28:56.253204] [info] buttonNumBoard_Click
+[2025-11-09 20:28:58.292715] [info] buttonNumBoard_Click
+[2025-11-09 20:29:38.390424] [info] buttonNumBoard_Click
+[2025-11-09 20:31:22.396899] [info] buttonDebugOn_Click
+[2025-11-09 20:31:23.463646] [info] buttonOpenCOM_Click
+[2025-11-09 20:31:23.829709] [info] buttonNumBoard_ClickJSON: {"numBoard":0}
+[2025-11-09 20:34:03.086059] [info] buttonDebugOn_Click
+[2025-11-09 20:34:04.784405] [info] buttonOpenCOM_Click
+[2025-11-09 20:34:06.022174] [info] buttonNumBoard_ClickJSON: {"numBoard":0}
+[2025-11-09 20:34:08.229040] [info] buttonNumSteps_ClickJSON: {"numSteps":0}
+[2025-11-09 20:34:11.885421] [info] buttonNumSteps_ClickJSON: {"numSteps":0}
+[2025-11-09 20:34:12.622173] [info] buttonNumBoard_ClickJSON: {"numBoard":0}
+[2025-11-09 20:34:19.598728] [info] buttonNumBoard_ClickJSON: {"numBoard":0}
+[2025-11-09 20:34:20.004690] [info] buttonNumSteps_ClickJSON: {"numSteps":0}
+[2025-11-09 20:35:51.781762] [info] buttonDebugOn_Click
+[2025-11-09 20:35:52.977069] [info] buttonOpenCOM_Click
+[2025-11-09 20:35:54.503472] [info] buttonNumBoard_Click JSON: {"numBoard":0}
+[2025-11-09 20:35:55.292680] [info] buttonNumSteps_Click JSON: {"numSteps":0}
+[2025-11-09 20:35:57.461536] [info] buttonSpeed_Click JSON: {"numSpeed":0}
+[2025-11-09 20:36:01.093244] [info] buttonSpeed_Click JSON: {"numSpeed":0}
+[2025-11-09 20:37:59.136900] [info] buttonNumBoard_Click JSON: {"numBoard":0}
+[2025-11-09 20:37:59.940843] [info] buttonSpeed_Click JSON: {"numSpeed":0}
+[2025-11-09 20:38:01.749867] [info] buttonSpeed_Click JSON: {"numSpeed":0}
+[2025-11-09 20:38:02.308933] [info] buttonAccel_Click JSON: {"numAccel":0}
+[2025-11-09 20:38:02.717450] [info] buttonDecel_Click JSON: {"numDecel":0}
+[2025-11-09 20:42:18.862648] [info] buttonDebugOn_Click
+[2025-11-09 20:42:20.097878] [info] buttonOpenCOM_Click
+[2025-11-09 20:42:21.808093] [info] buttonNumBoard_Click JSON: {"numBoard":0}
+[2025-11-09 20:42:23.278639] [info] buttonNumSteps_Click JSON: {"numSteps":0}
+[2025-11-09 20:42:24.710205] [info] buttonSpeed_Click JSON: {"numSpeed":0}
+[2025-11-09 20:42:26.445721] [info] buttonAccel_Click JSON: {"numAccel":0}
+[2025-11-09 20:42:29.294276] [info] buttonDecel_Click JSON: {"numDecel":0}
+[2025-11-09 20:42:29.797611] [info] buttonMoveForward_Click
+[2025-11-09 20:42:30.341025] [info] buttonMoveBackward_Click

@@ -12,8 +12,10 @@ target_include_directories(canstep PUBLIC include)
 
 target_link_libraries(canstep PUBLIC hidapi-hidraw)
 find_package(Boost REQUIRED COMPONENTS json)
+find_package(Boost REQUIRED COMPONENTS log)
 target_link_libraries(canstep PUBLIC pistache)
 target_link_libraries(canstep PUBLIC Boost::json)
+target_link_libraries(canstep PUBLIC Boost::log)
 
 add_executable(canstep-test test/main.cpp)
 target_link_libraries(canstep-test canstep)

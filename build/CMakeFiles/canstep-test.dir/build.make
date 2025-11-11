@@ -95,6 +95,12 @@ canstep-test: CMakeFiles/canstep-test.dir/build.make
 canstep-test: libcanstep.a
 canstep-test: /usr/lib/x86_64-linux-gnu/libboost_json.so.1.83.0
 canstep-test: /usr/lib/x86_64-linux-gnu/libboost_container.so.1.83.0
+canstep-test: /usr/lib/x86_64-linux-gnu/libboost_log.so.1.83.0
+canstep-test: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.83.0
+canstep-test: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.83.0
+canstep-test: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.83.0
+canstep-test: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.83.0
+canstep-test: /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.83.0
 canstep-test: CMakeFiles/canstep-test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilya/Desktop/canstep-api/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable canstep-test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/canstep-test.dir/link.txt --verbose=$(VERBOSE)

@@ -3,161 +3,235 @@
 #include <pistache/endpoint.h>
 #include <pistache/router.h>
 #include <boost/json.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/utility/setup.hpp>
+#include <boost/log/utility/setup/console.hpp>
+#include <boost/log/utility/setup/file.hpp>
+#include <boost/log/attributes.hpp>
+#include <boost/log/expressions.hpp>
+#include <boost/log/support/date_time.hpp>
 #include <memory>
 #include <iostream>
+#include <fstream>
 #include <cstdint>
+#include <mutex>
+#include <filesystem>
 
 #include "CanController.h"
 
 class CanControllerApi
 {
 private:
-    Pistache::Rest::Router router;
-    CanController controller;
+	Pistache::Rest::Router router;
+	Pistache::Address addr;
+	std::unique_ptr<Pistache::Http::Endpoint> server;
+	CanController controller;
+	std::mutex controller_mutex;
 
-    void setupRoutes(){
-        Pistache::Rest::Routes::Get(router, "/api/connect", Pistache::Rest::Routes::bind(&CanControllerApi::connect, this));
-        Pistache::Rest::Routes::Get(router, "/api/debug/on", Pistache::Rest::Routes::bind(&CanControllerApi::debugOn, this));
-        Pistache::Rest::Routes::Post(router, "/api/board", Pistache::Rest::Routes::bind(&CanControllerApi::board, this));
-        Pistache::Rest::Routes::Post(router, "/api/steps", Pistache::Rest::Routes::bind(&CanControllerApi::steps, this));
-        Pistache::Rest::Routes::Post(router, "/api/speed", Pistache::Rest::Routes::bind(&CanControllerApi::speed, this));
-        Pistache::Rest::Routes::Post(router, "/api/accel", Pistache::Rest::Routes::bind(&CanControllerApi::accel, this));
-        Pistache::Rest::Routes::Post(router, "/api/decel", Pistache::Rest::Routes::bind(&CanControllerApi::decel, this));
-        Pistache::Rest::Routes::Get(router, "/api/move/forward", Pistache::Rest::Routes::bind(&CanControllerApi::forward, this));
-        Pistache::Rest::Routes::Get(router, "/api/move/backward", Pistache::Rest::Routes::bind(&CanControllerApi::backward, this));
+	void initializeLogger() {
+		namespace logging = boost::log;
+        namespace keywords = boost::log::keywords;
+        namespace expr = boost::log::expressions;
+        namespace sinks = boost::log::sinks;
+		
+		std::filesystem::create_directories("logs");
+		
+		auto fmtTimeStamp = expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f");
+		auto fmtSeverity = expr::attr<logging::trivial::severity_level>("Severity");
+		auto fmtMessage = expr::smessage;
+		
+		auto fmt = expr::format("[%1%] [%2%] %3%")
+			% fmtTimeStamp
+			% fmtSeverity
+			% fmtMessage;
+		
+		logging::add_console_log(
+			std::clog,
+			keywords::format = fmt,
+			keywords::filter = logging::trivial::severity >= logging::trivial::info
+		);
+		
+		auto file_sink = logging::add_file_log(
+			keywords::file_name = "logs/can_api_%Y-%m-%d.log",
+			keywords::format = fmt,
+			keywords::filter = logging::trivial::severity >= logging::trivial::debug,
+			keywords::auto_flush = true,
+			keywords::open_mode = std::ios_base::app,
+			keywords::rotation_size = 10 * 1024 * 1024,
+			keywords::max_size = 100 * 1024 * 1024,
+			keywords::time_based_rotation = sinks::file::rotation_at_time_interval(boost::posix_time::hours(24))
+		);
 
-        Pistache::Rest::Routes::Get(router, "/health", Pistache::Rest::Routes::bind(&CanControllerApi::health, this));
-    }
+		logging::add_common_attributes();
+	}
 
-    void connect(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
-        std::cout << "connect" << std::endl;
-        std::cout << "SUCCESS!" << std::endl;
-        controller.buttonOpenCOM_Click();
-        response.send(Pistache::Http::Code::Ok, "Connected");
-    }
+	void setupRoutes(){
+		Pistache::Rest::Routes::Get(router, "/api/connect", Pistache::Rest::Routes::bind(&CanControllerApi::connect, this));
+		Pistache::Rest::Routes::Get(router, "/api/debug/on", Pistache::Rest::Routes::bind(&CanControllerApi::debugOn, this));
+		Pistache::Rest::Routes::Post(router, "/api/board", Pistache::Rest::Routes::bind(&CanControllerApi::board, this));
+		Pistache::Rest::Routes::Post(router, "/api/steps", Pistache::Rest::Routes::bind(&CanControllerApi::steps, this));
+		Pistache::Rest::Routes::Post(router, "/api/speed", Pistache::Rest::Routes::bind(&CanControllerApi::speed, this));
+		Pistache::Rest::Routes::Post(router, "/api/accel", Pistache::Rest::Routes::bind(&CanControllerApi::accel, this));
+		Pistache::Rest::Routes::Post(router, "/api/decel", Pistache::Rest::Routes::bind(&CanControllerApi::decel, this));
+		Pistache::Rest::Routes::Get(router, "/api/move/forward", Pistache::Rest::Routes::bind(&CanControllerApi::forward, this));
+		Pistache::Rest::Routes::Get(router, "/api/move/backward", Pistache::Rest::Routes::bind(&CanControllerApi::backward, this));
 
-    void debugOn(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
-        std::cout << "debugOn" << std::endl;
-        std::cout << "SUCCESS!" << std::endl;
-        controller.buttonDebugOn_Click();
-        response.send(Pistache::Http::Code::Ok, "Debug ON");
-    }
+		Pistache::Rest::Routes::Get(router, "/health", Pistache::Rest::Routes::bind(&CanControllerApi::health, this));
+	}
 
-    void board(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
-        std::cout << "board: " << request.body() << std::endl;
-        std::cout << "=====JSON BODY=====" << std::endl;
-        std::cout << request.body() << std::endl;
-        boost::json::value json_data = boost::json::parse(request.body());
-        boost::json::object obj=json_data.as_object();
-        int64_t val=obj["numBoard"].as_int64(); 
-        std::cout << obj["numBoard"].kind() << std::endl;
-        std::cout << "Transorm type: " << val << std::endl;
-        controller.buttonNumBoard_Click(val);
-        std::cout << "SUCCESS!" << std::endl;
-        response.send(Pistache::Http::Code::Ok, "Board Set");
-    }
+	void connect(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonOpenCOM_Click();
+			response.send(Pistache::Http::Code::Ok, "Connected");
+			BOOST_LOG_TRIVIAL(info) << "buttonOpenCOM_Click";
+		} catch (const std::exception& e){
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Connection failed");
+			BOOST_LOG_TRIVIAL(error) << "buttonOpenCOM_Click";
+		}
+	}
 
-    void steps(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
-        std::cout << "steps: " << request.body() << std::endl;
-        std::cout << "=====JSON BODY=====" << std::endl;
-        std::cout << request.body() << std::endl;
-        boost::json::value json_data = boost::json::parse(request.body());
-        boost::json::object obj=json_data.as_object();
-        int64_t val=obj["numSteps"].as_int64();
-        std::cout << obj["numSteps"].kind() << std::endl;
-        std::cout << "Transorm type: " << val << std::endl;
-        controller.buttonNumSteps_Click(val);
-        std::cout << "SUCCESS!" << std::endl;
-        response.send(Pistache::Http::Code::Ok, "Steps set");
-    }
+	void debugOn(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonDebugOn_Click();
+			response.send(Pistache::Http::Code::Ok, "Debug ON");
+			BOOST_LOG_TRIVIAL(info) << "buttonDebugOn_Click";
+		} catch (const std::exception& e){
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Connection failed");
+			BOOST_LOG_TRIVIAL(error) << "buttonDebugOn_Click";
+		}
+	}
 
-    void speed(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
-        std::cout << "speed: " << request.body() << std::endl;
-        std::cout << "=====JSON BODY=====" << std::endl;
-        std::cout << request.body() << std::endl;
-        boost::json::value json_data = boost::json::parse(request.body());
-        boost::json::object obj=json_data.as_object();
-        int64_t val = obj["numSpeed"].as_int64();
-        std::cout << obj["numSpeed"].kind() << std::endl;
-        std::cout << "Transorm type: " << val << std::endl;
-        controller.buttonSpeed_Click(val);
-        std::cout << "SUCCESS!" << std::endl;
-        response.send(Pistache::Http::Code::Ok, "Speed set");
-    }
+	void board(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			int64_t val=obj["numBoard"].as_int64();
+			controller.buttonNumBoard_Click(val);
+			response.send(Pistache::Http::Code::Ok, "Board Set");
+			BOOST_LOG_TRIVIAL(info) << "buttonNumBoard_Click" << " JSON: " << boost::json::serialize(json_data);
+		} catch (const std::exception& e){ 
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Board Set failed");
+			BOOST_LOG_TRIVIAL(error) << "buttonNumBoard_Click" << " JSON: " << boost::json::serialize(json_data);
+		}
+	}
 
-    void accel(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
-        std::cout << "accel: " << request.body() << std::endl;
-        std::cout << "=====JSON BODY=====" << std::endl;
-        std::cout << request.body() << std::endl;
-        boost::json::value json_data = boost::json::parse(request.body());
-        boost::json::object obj=json_data.as_object();
-        int64_t val = obj["numAccel"].as_int64();
-        std::cout << obj["numAccel"].kind() << std::endl;
-        std::cout << "Transorm type: " << val << std::endl;
-        controller.buttonAccel_Click(val);
-        std::cout << "SUCCESS!" << std::endl;
-        response.send(Pistache::Http::Code::Ok, "Acceleration set");
-    }
+	void steps(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			int64_t val=obj["numSteps"].as_int64();
+			controller.buttonNumSteps_Click(val);
+			response.send(Pistache::Http::Code::Ok, "Steps Set");
+			BOOST_LOG_TRIVIAL(info) << "buttonNumSteps_Click" << " JSON: " << boost::json::serialize(json_data);
+		} catch (const std::exception& e){
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Steps Set failed");
+			BOOST_LOG_TRIVIAL(error) << "buttonNumSteps_Click" << " JSON: " << boost::json::serialize(json_data);
+		}
+	}
 
-    void decel(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
-        std::cout << "decel: " << request.body() << std::endl;
-        std::cout << "=====JSON BODY=====" << std::endl;
-        std::cout << request.body() << std::endl;
-        boost::json::value json_data = boost::json::parse(request.body());
-        boost::json::object obj=json_data.as_object();
-        int64_t val = obj["numDecel"].as_int64();
-        std::cout << obj["numDecel"].kind() << std::endl;
-        std::cout << "Transorm type: " << val << std::endl;
-        controller.buttonDecel_Click(val);
-        std::cout << "SUCCESS!" << std::endl;
-        response.send(Pistache::Http::Code::Ok, "Deceleration set");
-    }
+	void speed(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			int64_t val=obj["numSpeed"].as_int64();
+			controller.buttonSpeed_Click(val);
+			response.send(Pistache::Http::Code::Ok, "Speed Set");
+			BOOST_LOG_TRIVIAL(info) << "buttonSpeed_Click" << " JSON: " << boost::json::serialize(json_data);
+		} catch (const std::exception& e){
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Speed Set failed");
+			BOOST_LOG_TRIVIAL(error) << "buttonSpeed_Click" << " JSON: " << boost::json::serialize(json_data);
+		}
+	}
 
-    void forward(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
-        std::cout << "forward" << std::endl;
-        std::cout << "SUCCESS!" << std::endl;
-        controller.buttonMoveForward_Click();
-        response.send(Pistache::Http::Code::Ok, "Moving forward");
-    }
+	void accel(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			int64_t val=obj["numAccel"].as_int64();
+			controller.buttonAccel_Click(val);
+			response.send(Pistache::Http::Code::Ok, "Acceleration Set");
+			BOOST_LOG_TRIVIAL(info) << "buttonAccel_Click" << " JSON: " << boost::json::serialize(json_data);
+		} catch (const std::exception& e){
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Acceleration Set failed");
+			BOOST_LOG_TRIVIAL(error) << "buttonAccel_Click" << " JSON: " << boost::json::serialize(json_data);
+		}
+	}
 
-    void backward(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
-        std::cout << "backward" << std::endl;
-        std::cout << "SUCCESS!" << std::endl;
-        controller.buttonMoveBackward_Click();
-        response.send(Pistache::Http::Code::Ok, "Moving backward");
-    }
+	void decel(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			int64_t val=obj["numDecel"].as_int64();
+			controller.buttonDecel_Click(val);
+			response.send(Pistache::Http::Code::Ok, "Deceleration Set");
+			BOOST_LOG_TRIVIAL(info) << "buttonDecel_Click" << " JSON: " << boost::json::serialize(json_data);
+		} catch (const std::exception& e){
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Deceleration Set failed");
+			BOOST_LOG_TRIVIAL(error) << "buttonDecel_Click" << " JSON: " << boost::json::serialize(json_data);
+		}
+	}
 
-    void health(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
-        std::cout << "health check" << std::endl;
-        response.send(Pistache::Http::Code::Ok, "OK");
-    }
+	void forward(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonMoveForward_Click();
+			response.send(Pistache::Http::Code::Ok, "Moving Borward");
+			BOOST_LOG_TRIVIAL(info) << "buttonMoveForward_Click";
+		} catch (const std::exception& e){
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Moving Forward failed");
+			BOOST_LOG_TRIVIAL(error) << "buttonMoveForward_Click";
+		}
+	}
+
+	void backward(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonMoveBackward_Click();
+			response.send(Pistache::Http::Code::Ok, "Moving Backward");
+			BOOST_LOG_TRIVIAL(info) << "buttonMoveBackward_Click";
+		} catch (const std::exception& e){
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Moving Backward failed");
+			BOOST_LOG_TRIVIAL(error) << "buttonMoveBackward_Click";
+		}
+	}
+
+	void health(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		BOOST_LOG_TRIVIAL(info) << "health check";
+		response.send(Pistache::Http::Code::Ok, "OK");
+	}
 
 public:
-    CanControllerApi(){ setupRoutes(); }
-    ~CanControllerApi(){}
-    
-    void runServer(const uint16_t numPort=5000){
-        std::cout << "Starting server on port " << numPort << std::endl;
-        
-        Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(numPort));
-        auto server = std::make_shared<Pistache::Http::Endpoint>(addr);
-        
-        auto opts = Pistache::Http::Endpoint::options().threads(2);
-        server->init(opts);
-        server->setHandler(router.handler());
-        
-        std::cout << "Server is running at http://localhost:" << numPort << std::endl;
-        std::cout << "Available endpoints:" << std::endl;
-        std::cout << "  GET  /api/connect" << std::endl;
-        std::cout << "  GET  /api/debug/on" << std::endl;
-        std::cout << "  POST /api/steps" << std::endl;
-        std::cout << "  POST /api/speed" << std::endl;
-        std::cout << "  POST /api/accel" << std::endl;
-        std::cout << "  POST /api/decel" << std::endl;
-        std::cout << "  GET  /api/move/forward" << std::endl;
-        std::cout << "  GET  /api/move/backward" << std::endl;
-        std::cout << "  GET  /health" << std::endl;
+	CanControllerApi(const uint16_t numPort=5000, const uint8_t numThread=2, const std::string host="127.0.0.1")
+	: addr(host, Pistache::Port(numPort))
+	{
+		initializeLogger();
+		Pistache::Http::Endpoint::Options opts = Pistache::Http::Endpoint::options().threads(numThread);
+		server = std::make_unique<Pistache::Http::Endpoint>(addr);
+		setupRoutes();
+		server->init(opts);
+		server->setHandler(router.handler());
+	}
+	~CanControllerApi(){}
+	
+	void runServer(){
+		std::cout << "Available endpoints:" << std::endl;
+		std::cout << "  GET  /api/connect" << std::endl;
+		std::cout << "  GET  /api/debug/on" << std::endl;
+		std::cout << "  POST /api/steps" << std::endl;
+		std::cout << "  POST /api/speed" << std::endl;
+		std::cout << "  POST /api/accel" << std::endl;
+		std::cout << "  POST /api/decel" << std::endl;
+		std::cout << "  GET  /api/move/forward" << std::endl;
+		std::cout << "  GET  /api/move/backward" << std::endl;
+		std::cout << "  GET  /health" << std::endl;
 
-        server->serve();
-    }
+		server->serve();
+	}
 };
