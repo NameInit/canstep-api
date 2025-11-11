@@ -17,27 +17,44 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>230</width>
-      <height>220</height>
+      <width>231</width>
+      <height>348</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QPushButton" name="pushButtonConnect">
+     <item row="5" column="0">
+      <widget class="QPushButton" name="pushButtonDecel">
        <property name="text">
-        <string>connect</string>
+        <string>decel</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QPushButton" name="pushButtonDebugOn">
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="lineEditAccel"/>
+     </item>
+     <item row="8" column="0">
+      <widget class="QPushButton" name="pushButtonReserDRVRErr">
        <property name="text">
-        <string>debugOn</string>
+        <string>ReserDRVRErr</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QPushButton" name="pushButtonForward">
+       <property name="text">
+        <string>forward</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QPushButton" name="pushButtonBrakeOff">
+       <property name="text">
+        <string>BrakeOff</string>
        </property>
       </widget>
      </item>
@@ -48,18 +65,63 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEditBoard"/>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="lineEditSteps"/>
      </item>
-     <item row="2" column="0">
-      <widget class="QPushButton" name="pushButtonSteps">
+     <item row="7" column="0">
+      <widget class="QPushButton" name="pushButtonHomingZero">
        <property name="text">
-        <string>steps</string>
+        <string>HomingZero</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEditSteps"/>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEditBoard"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButtonDebugOn">
+       <property name="text">
+        <string>debugOn</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QPushButton" name="pushButtonBackward">
+       <property name="text">
+        <string>backward</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QPushButton" name="pushButtonBrakeOn">
+       <property name="text">
+        <string>BrakeOn</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButtonConnect">
+       <property name="text">
+        <string>connect</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QPushButton" name="pushButtonAccel">
+       <property name="text">
+        <string>accel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="lineEditDecel"/>
+     </item>
+     <item row="7" column="1">
+      <widget class="QPushButton" name="pushButtonHomingMax">
+       <property name="text">
+        <string>HomingMax</string>
+       </property>
+      </widget>
      </item>
      <item row="3" column="0">
       <widget class="QPushButton" name="pushButtonSpeed">
@@ -71,37 +133,24 @@
      <item row="3" column="1">
       <widget class="QLineEdit" name="lineEditSpeed"/>
      </item>
-     <item row="4" column="0">
-      <widget class="QPushButton" name="pushButtonAccel">
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pushButtonSteps">
        <property name="text">
-        <string>accel</string>
+        <string>steps</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QLineEdit" name="lineEditAccel"/>
-     </item>
-     <item row="5" column="0">
-      <widget class="QPushButton" name="pushButtonDecel">
+     <item row="10" column="0">
+      <widget class="QPushButton" name="pushButtonRezervOff">
        <property name="text">
-        <string>decel</string>
+        <string>RezervOff</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QLineEdit" name="lineEditDecel"/>
-     </item>
-     <item row="6" column="0">
-      <widget class="QPushButton" name="pushButtonForward">
+     <item row="10" column="1">
+      <widget class="QPushButton" name="pushButtonRezervOn">
        <property name="text">
-        <string>forward</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
-      <widget class="QPushButton" name="pushButtonBackward">
-       <property name="text">
-        <string>backward</string>
+        <string>RezervOn</string>
        </property>
       </widget>
      </item>

@@ -3,3 +3,12 @@
 [2025-11-11 22:28:38.611709] [info] buttonNumBoard_Click JSON: {"numBoard":0}
 [2025-11-11 22:28:38.789972] [info] buttonNumBoard_Click JSON: {"numBoard":0}
 [2025-11-11 22:28:38.969519] [info] buttonNumBoard_Click JSON: {"numBoard":0}
+[2025-11-11 22:57:51.120619] [info] buttonMoveBackward_Click
+[2025-11-11 22:57:52.479559] [info] buttonMoveForward_Click
+[2025-11-11 23:05:03.404821] [info] buttonHomingZero_Click
+[2025-11-11 23:05:04.572426] [info] buttonHomingMax_Click
+[2025-11-11 23:11:56.564536] [info] buttonResetDRVError_Click
+[2025-11-11 23:19:03.461257] [info] buttonBrakeOn_Click
+[2025-11-11 23:19:04.980727] [info] buttonBrakeOff_Click
+[2025-11-11 23:29:05.017189] [info] buttonRezervOff_Click
+[2025-11-11 23:29:07.403896] [info] buttonRezervOn_Click

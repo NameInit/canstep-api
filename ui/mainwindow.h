@@ -37,6 +37,13 @@ public slots:
     void ButtonDecel();
     void ButtonForward();
     void ButtonBackward();
+    void ButtonHomZero();
+    void ButtonHomMax();
+    void ResetDRVRError();
+    void BrakeOff();
+    void BrakeOn();
+    void RezervOff();
+    void RezervOn();
 
     void sendApiRequest(const QString &endpoint, const QJsonObject &data = QJsonObject());
     void onApiReplyFinished(QNetworkReply *reply);

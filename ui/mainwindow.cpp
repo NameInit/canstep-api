@@ -17,6 +17,13 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonDecel, &QPushButton::clicked, this, &MainWindow::ButtonDecel);
     QObject::connect(ui->pushButtonForward, &QPushButton::clicked, this, &MainWindow::ButtonForward);
     QObject::connect(ui->pushButtonBackward, &QPushButton::clicked, this, &MainWindow::ButtonBackward);
+    QObject::connect(ui->pushButtonHomingZero, &QPushButton::clicked, this, &MainWindow::ButtonHomZero);
+    QObject::connect(ui->pushButtonHomingMax, &QPushButton::clicked, this, &MainWindow::ButtonHomMax);
+    QObject::connect(ui->pushButtonReserDRVRErr, &QPushButton::clicked, this, &MainWindow::ResetDRVRError);
+    QObject::connect(ui->pushButtonBrakeOff, &QPushButton::clicked, this, &MainWindow::BrakeOff);
+    QObject::connect(ui->pushButtonBrakeOn, &QPushButton::clicked, this, &MainWindow::BrakeOn);
+    QObject::connect(ui->pushButtonRezervOff, &QPushButton::clicked, this, &MainWindow::RezervOff);
+    QObject::connect(ui->pushButtonRezervOn, &QPushButton::clicked, this, &MainWindow::RezervOn);
 
     QObject::connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onApiReplyFinished);
 }
@@ -95,6 +102,55 @@ void MainWindow::ButtonBackward()
 {
     qDebug() << "ButtonBackward";
     this->sendApiRequest("api/move/backward");
+    return ;
+}
+
+void MainWindow::ButtonHomZero()
+{
+    qDebug() << "ButtonHomZero";
+    this->sendApiRequest("api/homing/zero");
+    return ;
+}
+
+void MainWindow::ButtonHomMax()
+{
+    qDebug() << "ButtonHomMax";
+    this->sendApiRequest("api/homing/max");
+    return ;
+}
+
+void MainWindow::ResetDRVRError()
+{
+    qDebug() << "ResetDRVRError";
+    this->sendApiRequest("api/reset/driver/error");
+    return ;
+}
+
+void MainWindow::BrakeOff()
+{
+    qDebug() << "BrakeOff";
+    this->sendApiRequest("api/brake/off");
+    return ;
+}
+
+void MainWindow::BrakeOn()
+{
+    qDebug() << "BrakeOn";
+    this->sendApiRequest("api/brake/on");
+    return ;
+}
+
+void MainWindow::RezervOff()
+{
+    qDebug() << "RezervOff";
+    this->sendApiRequest("api/rezerv/off");
+    return ;
+}
+
+void MainWindow::RezervOn()
+{
+    qDebug() << "RezervOn";
+    this->sendApiRequest("api/rezerv/on");
     return ;
 }
 
