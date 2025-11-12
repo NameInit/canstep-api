@@ -44,6 +44,18 @@ public slots:
     void BrakeOn();
     void RezervOff();
     void RezervOn();
+    void AlarmResetOn();
+    void AlarmResetOff();
+    void CurrentPos();
+    void SaveNumBoard();
+    void SaveNumGroup();
+    void SaveStartPos();
+    void SaveEndPos();
+    void SaveMaxSpeed();
+    void SaveDefaultSpeed();
+    void SaveAccel();
+    void SaveDecel();
+    void SaveDelta();
 
     void sendApiRequest(const QString &endpoint, const QJsonObject &data = QJsonObject());
     void onApiReplyFinished(QNetworkReply *reply);

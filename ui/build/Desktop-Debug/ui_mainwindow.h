@@ -16,6 +16,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -31,9 +32,19 @@ public:
     QLineEdit *lineEditAccel;
     QPushButton *pushButtonReserDRVRErr;
     QPushButton *pushButtonForward;
+    QPushButton *pushButtonRezervOn;
+    QPushButton *pushButtonSaveNumBoard;
+    QPushButton *pushButtonSaveStartPos;
+    QPushButton *pushButtonRezervOff;
     QPushButton *pushButtonBrakeOff;
     QPushButton *pushButtonBoard;
+    QLineEdit *lineEditSaveNumBoard;
+    QLineEdit *lineEditSaveStartPos;
+    QPushButton *pushButtonSaveMaxSpeed;
     QLineEdit *lineEditSteps;
+    QLineEdit *lineEditSaveEndPos;
+    QPushButton *pushButtoncurrentPos;
+    QLineEdit *lineEditcurrentPos;
     QPushButton *pushButtonHomingZero;
     QLineEdit *lineEditBoard;
     QPushButton *pushButtonDebugOn;
@@ -41,13 +52,26 @@ public:
     QPushButton *pushButtonBrakeOn;
     QPushButton *pushButtonConnect;
     QPushButton *pushButtonAccel;
+    QPushButton *pushButtonSaveNumGroup;
     QLineEdit *lineEditDecel;
+    QPushButton *pushButtonAlarmResetOn;
+    QPushButton *pushButtonAlarmResetOff;
     QPushButton *pushButtonHomingMax;
+    QPushButton *pushButtonSaveEndPos;
     QPushButton *pushButtonSpeed;
+    QLineEdit *lineEditSaveNumGroup;
+    QSpacerItem *horizontalSpacer;
     QLineEdit *lineEditSpeed;
     QPushButton *pushButtonSteps;
-    QPushButton *pushButtonRezervOff;
-    QPushButton *pushButtonRezervOn;
+    QLineEdit *lineEditSaveMaxSpeed;
+    QPushButton *pushButtonSaveDefSpeed;
+    QLineEdit *lineEditSaveDefSpeed;
+    QPushButton *pushButtonSaveAccel;
+    QLineEdit *lineEditSaveAccel;
+    QPushButton *pushButtonSaveDecel;
+    QLineEdit *lineEditSaveDecel;
+    QPushButton *pushButtonSaveDelta;
+    QLineEdit *lineEditSaveDelta;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -61,7 +85,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(20, 20, 231, 348));
+        layoutWidget->setGeometry(QRect(10, 10, 468, 540));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName("gridLayout");
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -85,6 +109,26 @@ public:
 
         gridLayout->addWidget(pushButtonForward, 6, 0, 1, 1);
 
+        pushButtonRezervOn = new QPushButton(layoutWidget);
+        pushButtonRezervOn->setObjectName("pushButtonRezervOn");
+
+        gridLayout->addWidget(pushButtonRezervOn, 10, 1, 1, 1);
+
+        pushButtonSaveNumBoard = new QPushButton(layoutWidget);
+        pushButtonSaveNumBoard->setObjectName("pushButtonSaveNumBoard");
+
+        gridLayout->addWidget(pushButtonSaveNumBoard, 13, 0, 1, 1);
+
+        pushButtonSaveStartPos = new QPushButton(layoutWidget);
+        pushButtonSaveStartPos->setObjectName("pushButtonSaveStartPos");
+
+        gridLayout->addWidget(pushButtonSaveStartPos, 15, 0, 1, 1);
+
+        pushButtonRezervOff = new QPushButton(layoutWidget);
+        pushButtonRezervOff->setObjectName("pushButtonRezervOff");
+
+        gridLayout->addWidget(pushButtonRezervOff, 10, 0, 1, 1);
+
         pushButtonBrakeOff = new QPushButton(layoutWidget);
         pushButtonBrakeOff->setObjectName("pushButtonBrakeOff");
 
@@ -95,10 +139,40 @@ public:
 
         gridLayout->addWidget(pushButtonBoard, 1, 0, 1, 1);
 
+        lineEditSaveNumBoard = new QLineEdit(layoutWidget);
+        lineEditSaveNumBoard->setObjectName("lineEditSaveNumBoard");
+
+        gridLayout->addWidget(lineEditSaveNumBoard, 13, 1, 1, 1);
+
+        lineEditSaveStartPos = new QLineEdit(layoutWidget);
+        lineEditSaveStartPos->setObjectName("lineEditSaveStartPos");
+
+        gridLayout->addWidget(lineEditSaveStartPos, 15, 1, 1, 1);
+
+        pushButtonSaveMaxSpeed = new QPushButton(layoutWidget);
+        pushButtonSaveMaxSpeed->setObjectName("pushButtonSaveMaxSpeed");
+
+        gridLayout->addWidget(pushButtonSaveMaxSpeed, 0, 3, 1, 1);
+
         lineEditSteps = new QLineEdit(layoutWidget);
         lineEditSteps->setObjectName("lineEditSteps");
 
         gridLayout->addWidget(lineEditSteps, 2, 1, 1, 1);
+
+        lineEditSaveEndPos = new QLineEdit(layoutWidget);
+        lineEditSaveEndPos->setObjectName("lineEditSaveEndPos");
+
+        gridLayout->addWidget(lineEditSaveEndPos, 16, 1, 1, 1);
+
+        pushButtoncurrentPos = new QPushButton(layoutWidget);
+        pushButtoncurrentPos->setObjectName("pushButtoncurrentPos");
+
+        gridLayout->addWidget(pushButtoncurrentPos, 12, 0, 1, 1);
+
+        lineEditcurrentPos = new QLineEdit(layoutWidget);
+        lineEditcurrentPos->setObjectName("lineEditcurrentPos");
+
+        gridLayout->addWidget(lineEditcurrentPos, 12, 1, 1, 1);
 
         pushButtonHomingZero = new QPushButton(layoutWidget);
         pushButtonHomingZero->setObjectName("pushButtonHomingZero");
@@ -135,20 +209,49 @@ public:
 
         gridLayout->addWidget(pushButtonAccel, 4, 0, 1, 1);
 
+        pushButtonSaveNumGroup = new QPushButton(layoutWidget);
+        pushButtonSaveNumGroup->setObjectName("pushButtonSaveNumGroup");
+
+        gridLayout->addWidget(pushButtonSaveNumGroup, 14, 0, 1, 1);
+
         lineEditDecel = new QLineEdit(layoutWidget);
         lineEditDecel->setObjectName("lineEditDecel");
 
         gridLayout->addWidget(lineEditDecel, 5, 1, 1, 1);
+
+        pushButtonAlarmResetOn = new QPushButton(layoutWidget);
+        pushButtonAlarmResetOn->setObjectName("pushButtonAlarmResetOn");
+
+        gridLayout->addWidget(pushButtonAlarmResetOn, 11, 0, 1, 1);
+
+        pushButtonAlarmResetOff = new QPushButton(layoutWidget);
+        pushButtonAlarmResetOff->setObjectName("pushButtonAlarmResetOff");
+
+        gridLayout->addWidget(pushButtonAlarmResetOff, 11, 1, 1, 1);
 
         pushButtonHomingMax = new QPushButton(layoutWidget);
         pushButtonHomingMax->setObjectName("pushButtonHomingMax");
 
         gridLayout->addWidget(pushButtonHomingMax, 7, 1, 1, 1);
 
+        pushButtonSaveEndPos = new QPushButton(layoutWidget);
+        pushButtonSaveEndPos->setObjectName("pushButtonSaveEndPos");
+
+        gridLayout->addWidget(pushButtonSaveEndPos, 16, 0, 1, 1);
+
         pushButtonSpeed = new QPushButton(layoutWidget);
         pushButtonSpeed->setObjectName("pushButtonSpeed");
 
         gridLayout->addWidget(pushButtonSpeed, 3, 0, 1, 1);
+
+        lineEditSaveNumGroup = new QLineEdit(layoutWidget);
+        lineEditSaveNumGroup->setObjectName("lineEditSaveNumGroup");
+
+        gridLayout->addWidget(lineEditSaveNumGroup, 14, 1, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 0, 2, 1, 1);
 
         lineEditSpeed = new QLineEdit(layoutWidget);
         lineEditSpeed->setObjectName("lineEditSpeed");
@@ -160,15 +263,50 @@ public:
 
         gridLayout->addWidget(pushButtonSteps, 2, 0, 1, 1);
 
-        pushButtonRezervOff = new QPushButton(layoutWidget);
-        pushButtonRezervOff->setObjectName("pushButtonRezervOff");
+        lineEditSaveMaxSpeed = new QLineEdit(layoutWidget);
+        lineEditSaveMaxSpeed->setObjectName("lineEditSaveMaxSpeed");
 
-        gridLayout->addWidget(pushButtonRezervOff, 10, 0, 1, 1);
+        gridLayout->addWidget(lineEditSaveMaxSpeed, 0, 4, 1, 1);
 
-        pushButtonRezervOn = new QPushButton(layoutWidget);
-        pushButtonRezervOn->setObjectName("pushButtonRezervOn");
+        pushButtonSaveDefSpeed = new QPushButton(layoutWidget);
+        pushButtonSaveDefSpeed->setObjectName("pushButtonSaveDefSpeed");
 
-        gridLayout->addWidget(pushButtonRezervOn, 10, 1, 1, 1);
+        gridLayout->addWidget(pushButtonSaveDefSpeed, 1, 3, 1, 1);
+
+        lineEditSaveDefSpeed = new QLineEdit(layoutWidget);
+        lineEditSaveDefSpeed->setObjectName("lineEditSaveDefSpeed");
+
+        gridLayout->addWidget(lineEditSaveDefSpeed, 1, 4, 1, 1);
+
+        pushButtonSaveAccel = new QPushButton(layoutWidget);
+        pushButtonSaveAccel->setObjectName("pushButtonSaveAccel");
+
+        gridLayout->addWidget(pushButtonSaveAccel, 2, 3, 1, 1);
+
+        lineEditSaveAccel = new QLineEdit(layoutWidget);
+        lineEditSaveAccel->setObjectName("lineEditSaveAccel");
+
+        gridLayout->addWidget(lineEditSaveAccel, 2, 4, 1, 1);
+
+        pushButtonSaveDecel = new QPushButton(layoutWidget);
+        pushButtonSaveDecel->setObjectName("pushButtonSaveDecel");
+
+        gridLayout->addWidget(pushButtonSaveDecel, 3, 3, 1, 1);
+
+        lineEditSaveDecel = new QLineEdit(layoutWidget);
+        lineEditSaveDecel->setObjectName("lineEditSaveDecel");
+
+        gridLayout->addWidget(lineEditSaveDecel, 3, 4, 1, 1);
+
+        pushButtonSaveDelta = new QPushButton(layoutWidget);
+        pushButtonSaveDelta->setObjectName("pushButtonSaveDelta");
+
+        gridLayout->addWidget(pushButtonSaveDelta, 4, 3, 1, 1);
+
+        lineEditSaveDelta = new QLineEdit(layoutWidget);
+        lineEditSaveDelta->setObjectName("lineEditSaveDelta");
+
+        gridLayout->addWidget(lineEditSaveDelta, 4, 4, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -190,19 +328,31 @@ public:
         pushButtonDecel->setText(QCoreApplication::translate("MainWindow", "decel", nullptr));
         pushButtonReserDRVRErr->setText(QCoreApplication::translate("MainWindow", "ReserDRVRErr", nullptr));
         pushButtonForward->setText(QCoreApplication::translate("MainWindow", "forward", nullptr));
+        pushButtonRezervOn->setText(QCoreApplication::translate("MainWindow", "RezervOn", nullptr));
+        pushButtonSaveNumBoard->setText(QCoreApplication::translate("MainWindow", "SaveNumBoard", nullptr));
+        pushButtonSaveStartPos->setText(QCoreApplication::translate("MainWindow", "SaveStartPos", nullptr));
+        pushButtonRezervOff->setText(QCoreApplication::translate("MainWindow", "RezervOff", nullptr));
         pushButtonBrakeOff->setText(QCoreApplication::translate("MainWindow", "BrakeOff", nullptr));
         pushButtonBoard->setText(QCoreApplication::translate("MainWindow", "board", nullptr));
+        pushButtonSaveMaxSpeed->setText(QCoreApplication::translate("MainWindow", "SaveMaxSpeed", nullptr));
+        pushButtoncurrentPos->setText(QCoreApplication::translate("MainWindow", "currentPos", nullptr));
         pushButtonHomingZero->setText(QCoreApplication::translate("MainWindow", "HomingZero", nullptr));
         pushButtonDebugOn->setText(QCoreApplication::translate("MainWindow", "debugOn", nullptr));
         pushButtonBackward->setText(QCoreApplication::translate("MainWindow", "backward", nullptr));
         pushButtonBrakeOn->setText(QCoreApplication::translate("MainWindow", "BrakeOn", nullptr));
         pushButtonConnect->setText(QCoreApplication::translate("MainWindow", "connect", nullptr));
         pushButtonAccel->setText(QCoreApplication::translate("MainWindow", "accel", nullptr));
+        pushButtonSaveNumGroup->setText(QCoreApplication::translate("MainWindow", "SaveNumGroup", nullptr));
+        pushButtonAlarmResetOn->setText(QCoreApplication::translate("MainWindow", "AlarmResetOn", nullptr));
+        pushButtonAlarmResetOff->setText(QCoreApplication::translate("MainWindow", "AlarmResetOff", nullptr));
         pushButtonHomingMax->setText(QCoreApplication::translate("MainWindow", "HomingMax", nullptr));
+        pushButtonSaveEndPos->setText(QCoreApplication::translate("MainWindow", "SaveEndPos", nullptr));
         pushButtonSpeed->setText(QCoreApplication::translate("MainWindow", "speed", nullptr));
         pushButtonSteps->setText(QCoreApplication::translate("MainWindow", "steps", nullptr));
-        pushButtonRezervOff->setText(QCoreApplication::translate("MainWindow", "RezervOff", nullptr));
-        pushButtonRezervOn->setText(QCoreApplication::translate("MainWindow", "RezervOn", nullptr));
+        pushButtonSaveDefSpeed->setText(QCoreApplication::translate("MainWindow", "SaveDefSpeed", nullptr));
+        pushButtonSaveAccel->setText(QCoreApplication::translate("MainWindow", "SaveAccel", nullptr));
+        pushButtonSaveDecel->setText(QCoreApplication::translate("MainWindow", "SaveDecel", nullptr));
+        pushButtonSaveDelta->setText(QCoreApplication::translate("MainWindow", "SaveDelta", nullptr));
     } // retranslateUi
 
 };

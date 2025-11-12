@@ -24,6 +24,18 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonBrakeOn, &QPushButton::clicked, this, &MainWindow::BrakeOn);
     QObject::connect(ui->pushButtonRezervOff, &QPushButton::clicked, this, &MainWindow::RezervOff);
     QObject::connect(ui->pushButtonRezervOn, &QPushButton::clicked, this, &MainWindow::RezervOn);
+    QObject::connect(ui->pushButtonAlarmResetOn, &QPushButton::clicked, this, &MainWindow::AlarmResetOn);
+    QObject::connect(ui->pushButtonAlarmResetOff, &QPushButton::clicked, this, &MainWindow::AlarmResetOff);
+    QObject::connect(ui->pushButtoncurrentPos, &QPushButton::clicked, this, &MainWindow::CurrentPos);
+    QObject::connect(ui->pushButtonSaveNumBoard, &QPushButton::clicked, this, &MainWindow::SaveNumBoard);
+    QObject::connect(ui->pushButtonSaveNumGroup, &QPushButton::clicked, this, &MainWindow::SaveNumGroup);
+    QObject::connect(ui->pushButtonSaveStartPos, &QPushButton::clicked, this, &MainWindow::SaveStartPos);
+    QObject::connect(ui->pushButtonSaveEndPos, &QPushButton::clicked, this, &MainWindow::SaveEndPos);
+    QObject::connect(ui->pushButtonSaveMaxSpeed, &QPushButton::clicked, this, &MainWindow::SaveMaxSpeed);
+    QObject::connect(ui->pushButtonSaveDefSpeed, &QPushButton::clicked, this, &MainWindow::SaveDefaultSpeed);
+    QObject::connect(ui->pushButtonSaveAccel, &QPushButton::clicked, this, &MainWindow::SaveAccel);
+    QObject::connect(ui->pushButtonSaveDecel, &QPushButton::clicked, this, &MainWindow::SaveDecel);
+    QObject::connect(ui->pushButtonSaveDelta, &QPushButton::clicked, this, &MainWindow::SaveDelta);
 
     QObject::connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onApiReplyFinished);
 }
@@ -68,7 +80,7 @@ void MainWindow::ButtonSpeed()
 {
     qDebug() << "ButtonSpeed";
     QJsonObject data;
-    data["numSpeed"]=ui->lineEditSteps->text().toInt();
+    data["numSpeed"]=ui->lineEditSpeed->text().toInt();
     this->sendApiRequest("api/speed",data);
     return ;
 }
@@ -77,7 +89,7 @@ void MainWindow::ButtonAccel()
 {
     qDebug() << "ButtonAccel";
     QJsonObject data;
-    data["numAccel"]=ui->lineEditSteps->text().toInt();
+    data["numAccel"]=ui->lineEditAccel->text().toInt();
     this->sendApiRequest("api/accel",data);
     return ;
 }
@@ -86,7 +98,7 @@ void MainWindow::ButtonDecel()
 {
     qDebug() << "ButtonDecel";
     QJsonObject data;
-    data["numDecel"]=ui->lineEditSteps->text().toInt();
+    data["numDecel"]=ui->lineEditDecel->text().toInt();
     this->sendApiRequest("api/decel",data);
     return ;
 }
@@ -151,6 +163,110 @@ void MainWindow::RezervOn()
 {
     qDebug() << "RezervOn";
     this->sendApiRequest("api/rezerv/on");
+    return ;
+}
+
+void MainWindow::AlarmResetOn()
+{
+    qDebug() << "AlarmResetOn";
+    this->sendApiRequest("api/alarm/reset/on");
+    return ;
+}
+
+void MainWindow::AlarmResetOff()
+{
+    qDebug() << "AlarmResetOff";
+    this->sendApiRequest("api/alarm/reset/off");
+    return ;
+}
+
+void MainWindow::CurrentPos()
+{
+    qDebug() << "CurrentPos";
+    QJsonObject data;
+    data["numPos"]=ui->lineEditcurrentPos->text().toInt();
+    this->sendApiRequest("api/current/pos",data);
+    return ;
+}
+
+void MainWindow::SaveNumBoard()
+{
+    qDebug() << "SaveNumBoard";
+    QJsonObject data;
+    data["numBoard"]=ui->lineEditSaveNumBoard->text().toInt();
+    this->sendApiRequest("api/save/board",data);
+    return ;
+}
+
+void MainWindow::SaveNumGroup()
+{
+    qDebug() << "SaveNumGroup";
+    QJsonObject data;
+    data["numGroup"]=ui->lineEditSaveNumGroup->text().toInt();
+    this->sendApiRequest("api/save/group",data);
+    return ;
+}
+
+void MainWindow::SaveStartPos()
+{
+    qDebug() << "SaveStartPos";
+    QJsonObject data;
+    data["numPos"]=ui->lineEditSaveStartPos->text().toInt();
+    this->sendApiRequest("api/save/start/pos",data);
+    return ;
+}
+
+void MainWindow::SaveEndPos()
+{
+    qDebug() << "SaveEndPos";
+    QJsonObject data;
+    data["numPos"]=ui->lineEditSaveEndPos->text().toInt();
+    this->sendApiRequest("api/save/end/pos",data);
+    return ;
+}
+
+void MainWindow::SaveMaxSpeed()
+{
+    qDebug() << "SaveMaxSpeed";
+    QJsonObject data;
+    data["numSpeed"]=ui->lineEditSaveMaxSpeed->text().toInt();
+    this->sendApiRequest("api/save/max/speed",data);
+    return ;
+}
+
+void MainWindow::SaveDefaultSpeed()
+{
+    qDebug() << "SaveDefaultSpeed";
+    QJsonObject data;
+    data["numSpeed"]=ui->lineEditSaveDefSpeed->text().toInt();
+    this->sendApiRequest("api/save/default/speed",data);
+    return ;
+}
+
+void MainWindow::SaveAccel()
+{
+    qDebug() << "SaveAccel";
+    QJsonObject data;
+    data["numAccel"]=ui->lineEditSaveAccel->text().toInt();
+    this->sendApiRequest("api/save/accel",data);
+    return ;
+}
+
+void MainWindow::SaveDecel()
+{
+    qDebug() << "SaveDecel";
+    QJsonObject data;
+    data["numDecel"]=ui->lineEditSaveDecel->text().toInt();
+    this->sendApiRequest("api/save/decel",data);
+    return ;
+}
+
+void MainWindow::SaveDelta()
+{
+    qDebug() << "SaveDelta";
+    QJsonObject data;
+    data["numDelta"]=ui->lineEditSaveDelta->text().toInt();
+    this->sendApiRequest("api/save/delta",data);
     return ;
 }
 

@@ -20,10 +20,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>231</width>
-      <height>348</height>
+      <x>10</x>
+      <y>10</y>
+      <width>468</width>
+      <height>540</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -51,6 +51,34 @@
        </property>
       </widget>
      </item>
+     <item row="10" column="1">
+      <widget class="QPushButton" name="pushButtonRezervOn">
+       <property name="text">
+        <string>RezervOn</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="0">
+      <widget class="QPushButton" name="pushButtonSaveNumBoard">
+       <property name="text">
+        <string>SaveNumBoard</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="0">
+      <widget class="QPushButton" name="pushButtonSaveStartPos">
+       <property name="text">
+        <string>SaveStartPos</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QPushButton" name="pushButtonRezervOff">
+       <property name="text">
+        <string>RezervOff</string>
+       </property>
+      </widget>
+     </item>
      <item row="9" column="0">
       <widget class="QPushButton" name="pushButtonBrakeOff">
        <property name="text">
@@ -65,8 +93,34 @@
        </property>
       </widget>
      </item>
+     <item row="13" column="1">
+      <widget class="QLineEdit" name="lineEditSaveNumBoard"/>
+     </item>
+     <item row="15" column="1">
+      <widget class="QLineEdit" name="lineEditSaveStartPos"/>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="pushButtonSaveMaxSpeed">
+       <property name="text">
+        <string>SaveMaxSpeed</string>
+       </property>
+      </widget>
+     </item>
      <item row="2" column="1">
       <widget class="QLineEdit" name="lineEditSteps"/>
+     </item>
+     <item row="16" column="1">
+      <widget class="QLineEdit" name="lineEditSaveEndPos"/>
+     </item>
+     <item row="12" column="0">
+      <widget class="QPushButton" name="pushButtoncurrentPos">
+       <property name="text">
+        <string>currentPos</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLineEdit" name="lineEditcurrentPos"/>
      </item>
      <item row="7" column="0">
       <widget class="QPushButton" name="pushButtonHomingZero">
@@ -113,13 +167,41 @@
        </property>
       </widget>
      </item>
+     <item row="14" column="0">
+      <widget class="QPushButton" name="pushButtonSaveNumGroup">
+       <property name="text">
+        <string>SaveNumGroup</string>
+       </property>
+      </widget>
+     </item>
      <item row="5" column="1">
       <widget class="QLineEdit" name="lineEditDecel"/>
+     </item>
+     <item row="11" column="0">
+      <widget class="QPushButton" name="pushButtonAlarmResetOn">
+       <property name="text">
+        <string>AlarmResetOn</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QPushButton" name="pushButtonAlarmResetOff">
+       <property name="text">
+        <string>AlarmResetOff</string>
+       </property>
+      </widget>
      </item>
      <item row="7" column="1">
       <widget class="QPushButton" name="pushButtonHomingMax">
        <property name="text">
         <string>HomingMax</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="0">
+      <widget class="QPushButton" name="pushButtonSaveEndPos">
+       <property name="text">
+        <string>SaveEndPos</string>
        </property>
       </widget>
      </item>
@@ -129,6 +211,25 @@
         <string>speed</string>
        </property>
       </widget>
+     </item>
+     <item row="14" column="1">
+      <widget class="QLineEdit" name="lineEditSaveNumGroup"/>
+     </item>
+     <item row="0" column="2">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
      <item row="3" column="1">
       <widget class="QLineEdit" name="lineEditSpeed"/>
@@ -140,19 +241,48 @@
        </property>
       </widget>
      </item>
-     <item row="10" column="0">
-      <widget class="QPushButton" name="pushButtonRezervOff">
+     <item row="0" column="4">
+      <widget class="QLineEdit" name="lineEditSaveMaxSpeed"/>
+     </item>
+     <item row="1" column="3">
+      <widget class="QPushButton" name="pushButtonSaveDefSpeed">
        <property name="text">
-        <string>RezervOff</string>
+        <string>SaveDefSpeed</string>
        </property>
       </widget>
      </item>
-     <item row="10" column="1">
-      <widget class="QPushButton" name="pushButtonRezervOn">
+     <item row="1" column="4">
+      <widget class="QLineEdit" name="lineEditSaveDefSpeed"/>
+     </item>
+     <item row="2" column="3">
+      <widget class="QPushButton" name="pushButtonSaveAccel">
        <property name="text">
-        <string>RezervOn</string>
+        <string>SaveAccel</string>
        </property>
       </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLineEdit" name="lineEditSaveAccel"/>
+     </item>
+     <item row="3" column="3">
+      <widget class="QPushButton" name="pushButtonSaveDecel">
+       <property name="text">
+        <string>SaveDecel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QLineEdit" name="lineEditSaveDecel"/>
+     </item>
+     <item row="4" column="3">
+      <widget class="QPushButton" name="pushButtonSaveDelta">
+       <property name="text">
+        <string>SaveDelta</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="4">
+      <widget class="QLineEdit" name="lineEditSaveDelta"/>
      </item>
     </layout>
    </widget>

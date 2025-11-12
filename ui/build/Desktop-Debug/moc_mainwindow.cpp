@@ -27,7 +27,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MainWindow_t {
-    uint offsetsAndSizes[52];
+    uint offsetsAndSizes[76];
     char stringdata0[11];
     char stringdata1[14];
     char stringdata2[1];
@@ -46,14 +46,26 @@ struct qt_meta_stringdata_MainWindow_t {
     char stringdata15[8];
     char stringdata16[10];
     char stringdata17[9];
-    char stringdata18[15];
-    char stringdata19[9];
-    char stringdata20[5];
-    char stringdata21[19];
-    char stringdata22[15];
-    char stringdata23[6];
-    char stringdata24[13];
-    char stringdata25[6];
+    char stringdata18[13];
+    char stringdata19[14];
+    char stringdata20[11];
+    char stringdata21[13];
+    char stringdata22[13];
+    char stringdata23[13];
+    char stringdata24[11];
+    char stringdata25[13];
+    char stringdata26[17];
+    char stringdata27[10];
+    char stringdata28[10];
+    char stringdata29[10];
+    char stringdata30[15];
+    char stringdata31[9];
+    char stringdata32[5];
+    char stringdata33[19];
+    char stringdata34[15];
+    char stringdata35[6];
+    char stringdata36[13];
+    char stringdata37[6];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MainWindow_t::offsetsAndSizes) + ofs), len 
@@ -77,14 +89,26 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
         QT_MOC_LITERAL(180, 7),  // "BrakeOn"
         QT_MOC_LITERAL(188, 9),  // "RezervOff"
         QT_MOC_LITERAL(198, 8),  // "RezervOn"
-        QT_MOC_LITERAL(207, 14),  // "sendApiRequest"
-        QT_MOC_LITERAL(222, 8),  // "endpoint"
-        QT_MOC_LITERAL(231, 4),  // "data"
-        QT_MOC_LITERAL(236, 18),  // "onApiReplyFinished"
-        QT_MOC_LITERAL(255, 14),  // "QNetworkReply*"
-        QT_MOC_LITERAL(270, 5),  // "reply"
-        QT_MOC_LITERAL(276, 12),  // "showApiError"
-        QT_MOC_LITERAL(289, 5)   // "error"
+        QT_MOC_LITERAL(207, 12),  // "AlarmResetOn"
+        QT_MOC_LITERAL(220, 13),  // "AlarmResetOff"
+        QT_MOC_LITERAL(234, 10),  // "CurrentPos"
+        QT_MOC_LITERAL(245, 12),  // "SaveNumBoard"
+        QT_MOC_LITERAL(258, 12),  // "SaveNumGroup"
+        QT_MOC_LITERAL(271, 12),  // "SaveStartPos"
+        QT_MOC_LITERAL(284, 10),  // "SaveEndPos"
+        QT_MOC_LITERAL(295, 12),  // "SaveMaxSpeed"
+        QT_MOC_LITERAL(308, 16),  // "SaveDefaultSpeed"
+        QT_MOC_LITERAL(325, 9),  // "SaveAccel"
+        QT_MOC_LITERAL(335, 9),  // "SaveDecel"
+        QT_MOC_LITERAL(345, 9),  // "SaveDelta"
+        QT_MOC_LITERAL(355, 14),  // "sendApiRequest"
+        QT_MOC_LITERAL(370, 8),  // "endpoint"
+        QT_MOC_LITERAL(379, 4),  // "data"
+        QT_MOC_LITERAL(384, 18),  // "onApiReplyFinished"
+        QT_MOC_LITERAL(403, 14),  // "QNetworkReply*"
+        QT_MOC_LITERAL(418, 5),  // "reply"
+        QT_MOC_LITERAL(424, 12),  // "showApiError"
+        QT_MOC_LITERAL(437, 5)   // "error"
     },
     "MainWindow",
     "ButtonConnect",
@@ -104,6 +128,18 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
     "BrakeOn",
     "RezervOff",
     "RezervOn",
+    "AlarmResetOn",
+    "AlarmResetOff",
+    "CurrentPos",
+    "SaveNumBoard",
+    "SaveNumGroup",
+    "SaveStartPos",
+    "SaveEndPos",
+    "SaveMaxSpeed",
+    "SaveDefaultSpeed",
+    "SaveAccel",
+    "SaveDecel",
+    "SaveDelta",
     "sendApiRequest",
     "endpoint",
     "data",
@@ -122,7 +158,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      20,   14, // methods
+      32,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -130,26 +166,38 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  134,    2, 0x0a,    1 /* Public */,
-       3,    0,  135,    2, 0x0a,    2 /* Public */,
-       4,    0,  136,    2, 0x0a,    3 /* Public */,
-       5,    0,  137,    2, 0x0a,    4 /* Public */,
-       6,    0,  138,    2, 0x0a,    5 /* Public */,
-       7,    0,  139,    2, 0x0a,    6 /* Public */,
-       8,    0,  140,    2, 0x0a,    7 /* Public */,
-       9,    0,  141,    2, 0x0a,    8 /* Public */,
-      10,    0,  142,    2, 0x0a,    9 /* Public */,
-      11,    0,  143,    2, 0x0a,   10 /* Public */,
-      12,    0,  144,    2, 0x0a,   11 /* Public */,
-      13,    0,  145,    2, 0x0a,   12 /* Public */,
-      14,    0,  146,    2, 0x0a,   13 /* Public */,
-      15,    0,  147,    2, 0x0a,   14 /* Public */,
-      16,    0,  148,    2, 0x0a,   15 /* Public */,
-      17,    0,  149,    2, 0x0a,   16 /* Public */,
-      18,    2,  150,    2, 0x0a,   17 /* Public */,
-      18,    1,  155,    2, 0x2a,   20 /* Public | MethodCloned */,
-      21,    1,  158,    2, 0x0a,   22 /* Public */,
-      24,    1,  161,    2, 0x0a,   24 /* Public */,
+       1,    0,  206,    2, 0x0a,    1 /* Public */,
+       3,    0,  207,    2, 0x0a,    2 /* Public */,
+       4,    0,  208,    2, 0x0a,    3 /* Public */,
+       5,    0,  209,    2, 0x0a,    4 /* Public */,
+       6,    0,  210,    2, 0x0a,    5 /* Public */,
+       7,    0,  211,    2, 0x0a,    6 /* Public */,
+       8,    0,  212,    2, 0x0a,    7 /* Public */,
+       9,    0,  213,    2, 0x0a,    8 /* Public */,
+      10,    0,  214,    2, 0x0a,    9 /* Public */,
+      11,    0,  215,    2, 0x0a,   10 /* Public */,
+      12,    0,  216,    2, 0x0a,   11 /* Public */,
+      13,    0,  217,    2, 0x0a,   12 /* Public */,
+      14,    0,  218,    2, 0x0a,   13 /* Public */,
+      15,    0,  219,    2, 0x0a,   14 /* Public */,
+      16,    0,  220,    2, 0x0a,   15 /* Public */,
+      17,    0,  221,    2, 0x0a,   16 /* Public */,
+      18,    0,  222,    2, 0x0a,   17 /* Public */,
+      19,    0,  223,    2, 0x0a,   18 /* Public */,
+      20,    0,  224,    2, 0x0a,   19 /* Public */,
+      21,    0,  225,    2, 0x0a,   20 /* Public */,
+      22,    0,  226,    2, 0x0a,   21 /* Public */,
+      23,    0,  227,    2, 0x0a,   22 /* Public */,
+      24,    0,  228,    2, 0x0a,   23 /* Public */,
+      25,    0,  229,    2, 0x0a,   24 /* Public */,
+      26,    0,  230,    2, 0x0a,   25 /* Public */,
+      27,    0,  231,    2, 0x0a,   26 /* Public */,
+      28,    0,  232,    2, 0x0a,   27 /* Public */,
+      29,    0,  233,    2, 0x0a,   28 /* Public */,
+      30,    2,  234,    2, 0x0a,   29 /* Public */,
+      30,    1,  239,    2, 0x2a,   32 /* Public | MethodCloned */,
+      33,    1,  242,    2, 0x0a,   34 /* Public */,
+      36,    1,  245,    2, 0x0a,   36 /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -168,10 +216,22 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject,   19,   20,
-    QMetaType::Void, QMetaType::QString,   19,
-    QMetaType::Void, 0x80000000 | 22,   23,
-    QMetaType::Void, QMetaType::QString,   25,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject,   31,   32,
+    QMetaType::Void, QMetaType::QString,   31,
+    QMetaType::Void, 0x80000000 | 34,   35,
+    QMetaType::Void, QMetaType::QString,   37,
 
        0        // eod
 };
@@ -217,6 +277,30 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'RezervOn'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'AlarmResetOn'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'AlarmResetOff'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'CurrentPos'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'SaveNumBoard'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'SaveNumGroup'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'SaveStartPos'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'SaveEndPos'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'SaveMaxSpeed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'SaveDefaultSpeed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'SaveAccel'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'SaveDecel'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'SaveDelta'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'sendApiRequest'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
@@ -256,16 +340,28 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 13: _t->BrakeOn(); break;
         case 14: _t->RezervOff(); break;
         case 15: _t->RezervOn(); break;
-        case 16: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2]))); break;
-        case 17: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 18: _t->onApiReplyFinished((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
-        case 19: _t->showApiError((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 16: _t->AlarmResetOn(); break;
+        case 17: _t->AlarmResetOff(); break;
+        case 18: _t->CurrentPos(); break;
+        case 19: _t->SaveNumBoard(); break;
+        case 20: _t->SaveNumGroup(); break;
+        case 21: _t->SaveStartPos(); break;
+        case 22: _t->SaveEndPos(); break;
+        case 23: _t->SaveMaxSpeed(); break;
+        case 24: _t->SaveDefaultSpeed(); break;
+        case 25: _t->SaveAccel(); break;
+        case 26: _t->SaveDecel(); break;
+        case 27: _t->SaveDelta(); break;
+        case 28: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2]))); break;
+        case 29: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 30: _t->onApiReplyFinished((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
+        case 31: _t->showApiError((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 18:
+        case 30:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -295,13 +391,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 20)
+        if (_id < 32)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 20;
+        _id -= 32;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 20)
+        if (_id < 32)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 20;
+        _id -= 32;
     }
     return _id;
 }
