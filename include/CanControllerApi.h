@@ -102,11 +102,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonOpenCOM_Click();
-			response.send(Pistache::Http::Code::Ok, "Connected");
 			BOOST_LOG_TRIVIAL(info) << "buttonOpenCOM_Click";
+			response.send(Pistache::Http::Code::Ok, "Connected");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "Connection failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonOpenCOM_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Connection failed");
 		}
 	}
 
@@ -114,11 +114,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonDebugOn_Click();
-			response.send(Pistache::Http::Code::Ok, "Debug ON");
 			BOOST_LOG_TRIVIAL(info) << "buttonDebugOn_Click";
+			response.send(Pistache::Http::Code::Ok, "Debug ON");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "Connection failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonDebugOn_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Connection failed");
 		}
 	}
 
@@ -129,11 +129,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numBoard"].as_int64();
 			controller.buttonNumBoard_Click(val);
-			response.send(Pistache::Http::Code::Ok, "Board Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonNumBoard_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "Board Set");
 		} catch (const std::exception& e){ 
-			response.send(Pistache::Http::Code::Internal_Server_Error, "Board Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonNumBoard_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Board Set failed");
 		}
 	}
 
@@ -144,11 +144,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numSteps"].as_int64();
 			controller.buttonNumSteps_Click(val);
-			response.send(Pistache::Http::Code::Ok, "Steps Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonNumSteps_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "Steps Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "Steps Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonNumSteps_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Steps Set failed");
 		}
 	}
 
@@ -159,11 +159,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numSpeed"].as_int64();
 			controller.buttonSpeed_Click(val);
-			response.send(Pistache::Http::Code::Ok, "Speed Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonSpeed_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "Speed Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "Speed Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonSpeed_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Speed Set failed");
 		}
 	}
 
@@ -174,11 +174,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numAccel"].as_int64();
 			controller.buttonAccel_Click(val);
-			response.send(Pistache::Http::Code::Ok, "Acceleration Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonAccel_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "Acceleration Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "Acceleration Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonAccel_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Acceleration Set failed");
 		}
 	}
 
@@ -189,11 +189,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numDecel"].as_int64();
 			controller.buttonDecel_Click(val);
-			response.send(Pistache::Http::Code::Ok, "Deceleration Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonDecel_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "Deceleration Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "Deceleration Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonDecel_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Deceleration Set failed");
 		}
 	}
 
@@ -201,11 +201,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonMoveForward_Click();
-			response.send(Pistache::Http::Code::Ok, "Moving Borward");
 			BOOST_LOG_TRIVIAL(info) << "buttonMoveForward_Click";
+			response.send(Pistache::Http::Code::Ok, "Moving Borward");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "Moving Forward failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonMoveForward_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Moving Forward failed");
 		}
 	}
 
@@ -213,11 +213,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonMoveBackward_Click();
-			response.send(Pistache::Http::Code::Ok, "Moving Backward");
 			BOOST_LOG_TRIVIAL(info) << "buttonMoveBackward_Click";
+			response.send(Pistache::Http::Code::Ok, "Moving Backward");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "Moving Backward failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonMoveBackward_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Moving Backward failed");
 		}
 	}
 
@@ -225,11 +225,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonHomingZero_Click();
-			response.send(Pistache::Http::Code::Ok, "Homig Zero");
 			BOOST_LOG_TRIVIAL(info) << "buttonHomingZero_Click";
+			response.send(Pistache::Http::Code::Ok, "Homig Zero");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "Homig Zero failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonHomingZero_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Homig Zero failed");
 		}
 	}
 
@@ -237,11 +237,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonHomingMax_Click();
-			response.send(Pistache::Http::Code::Ok, "Homig Max");
 			BOOST_LOG_TRIVIAL(info) << "buttonHomingMax_Click";
+			response.send(Pistache::Http::Code::Ok, "Homig Max");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "Homig Max failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonHomingMax_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Homig Max failed");
 		}
 	}
 
@@ -249,11 +249,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonResetDRVError_Click();
-			response.send(Pistache::Http::Code::Ok, "ResetDRVError");
 			BOOST_LOG_TRIVIAL(info) << "buttonResetDRVError_Click";
+			response.send(Pistache::Http::Code::Ok, "ResetDRVError");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "ResetDRVError failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonResetDRVError_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "ResetDRVError failed");
 		}
 	}
 
@@ -261,11 +261,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonBrakeOff_Click();
-			response.send(Pistache::Http::Code::Ok, "brakeOff");
 			BOOST_LOG_TRIVIAL(info) << "buttonBrakeOff_Click";
+			response.send(Pistache::Http::Code::Ok, "brakeOff");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "brakeOff failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonBrakeOff_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "brakeOff failed");
 		}
 	}
 
@@ -273,11 +273,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonBrakeOn_Click();
-			response.send(Pistache::Http::Code::Ok, "brakeOn");
 			BOOST_LOG_TRIVIAL(info) << "buttonBrakeOn_Click";
+			response.send(Pistache::Http::Code::Ok, "brakeOn");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "brakeOn failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonBrakeOn_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "brakeOn failed");
 		}
 	}
 
@@ -285,11 +285,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonRezervOff_Click();
-			response.send(Pistache::Http::Code::Ok, "rezervOff");
 			BOOST_LOG_TRIVIAL(info) << "buttonRezervOff_Click";
+			response.send(Pistache::Http::Code::Ok, "rezervOff");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "rezervOff failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonRezervOff_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "rezervOff failed");
 		}
 	}
 
@@ -297,11 +297,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonRezervOn_Click();
-			response.send(Pistache::Http::Code::Ok, "rezervOn");
 			BOOST_LOG_TRIVIAL(info) << "buttonRezervOn_Click";
+			response.send(Pistache::Http::Code::Ok, "rezervOn");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "rezervOn failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonRezervOn_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "rezervOn failed");
 		}
 	}
 
@@ -309,11 +309,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonAlarmResetOff_Click();
-			response.send(Pistache::Http::Code::Ok, "AlarmResetOff");
 			BOOST_LOG_TRIVIAL(info) << "buttonAlarmResetOff_Click";
+			response.send(Pistache::Http::Code::Ok, "AlarmResetOff");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "AlarmResetOff failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonAlarmResetOff_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "AlarmResetOff failed");
 		}
 	}
 
@@ -321,11 +321,11 @@ private:
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonAlarmResetOn_Click();
-			response.send(Pistache::Http::Code::Ok, "AlarmResetOn");
 			BOOST_LOG_TRIVIAL(info) << "buttonAlarmResetOn_Click";
+			response.send(Pistache::Http::Code::Ok, "AlarmResetOn");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "AlarmResetOn failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonAlarmResetOn_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "AlarmResetOn failed");
 		}
 	}
 
@@ -336,11 +336,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numPos"].as_int64();
 			controller.buttonCurrentPositionSet_Click(val);
-			response.send(Pistache::Http::Code::Ok, "CurrentPosition Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonCurrentPositionSet_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "CurrentPosition Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "CurrentPosition Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonCurrentPositionSet_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "CurrentPosition Set failed");
 		}
 	}
 
@@ -351,11 +351,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numBoard"].as_int64();
 			controller.buttonNumBoardSave_Click(val);
-			response.send(Pistache::Http::Code::Ok, "saveNumBoard Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonNumBoardSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "saveNumBoard Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "saveNumBoard Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonNumBoardSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "saveNumBoard Set failed");
 		}
 	}
 
@@ -366,11 +366,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numGroup"].as_int64();
 			controller.buttonNumGroupSave_Click(val);
-			response.send(Pistache::Http::Code::Ok, "saveNumGroup Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonNumGroupSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "saveNumGroup Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "saveNumGroup Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonNumGroupSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "saveNumGroup Set failed");
 		}
 	}
 
@@ -381,11 +381,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numPos"].as_int64();
 			controller.buttonStartPositionSave_Click(val);
-			response.send(Pistache::Http::Code::Ok, "saveStartPos Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonStartPositionSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "saveStartPos Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "saveStartPos Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonStartPositionSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "saveStartPos Set failed");
 		}
 	}
 
@@ -396,11 +396,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numPos"].as_int64();
 			controller.buttonEndPositionSave_Click(val);
-			response.send(Pistache::Http::Code::Ok, "saveEndPos Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonEndPositionSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "saveEndPos Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "saveEndPos Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonEndPositionSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "saveEndPos Set failed");
 		}
 	}
 
@@ -411,11 +411,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numSpeed"].as_int64();
 			controller.buttonMaxSpeedSave_Click(val);
-			response.send(Pistache::Http::Code::Ok, "saveMaxSpeed Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonMaxSpeedSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "saveMaxSpeed Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "saveMaxSpeed Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonMaxSpeedSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "saveMaxSpeed Set failed");
 		}
 	}
 
@@ -426,11 +426,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numSpeed"].as_int64();
 			controller.buttonDefaultSpeedSave_Click(val);
-			response.send(Pistache::Http::Code::Ok, "saveDefaultSpeed Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonDefaultSpeedSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "saveDefaultSpeed Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "saveDefaultSpeed Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonDefaultSpeedSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "saveDefaultSpeed Set failed");
 		}
 	}
 
@@ -441,11 +441,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numAccel"].as_int64();
 			controller.buttonAccelSave_Click(val);
-			response.send(Pistache::Http::Code::Ok, "saveAccel Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonAccelSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "saveAccel Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "saveAccel Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonAccelSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "saveAccel Set failed");
 		}
 	}
 
@@ -456,11 +456,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numDecel"].as_int64();
 			controller.buttonDecelSave_Click(val);
-			response.send(Pistache::Http::Code::Ok, "saveDecel Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonDecelSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "saveDecel Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "saveDecel Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonDecelSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "saveDecel Set failed");
 		}
 	}
 
@@ -471,11 +471,11 @@ private:
 			boost::json::object obj=json_data.as_object();
 			int64_t val=obj["numDelta"].as_int64();
 			controller.buttonDeltaSave_Click(val);
-			response.send(Pistache::Http::Code::Ok, "saveDelta Set");
 			BOOST_LOG_TRIVIAL(info) << "buttonDeltaSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "saveDelta Set");
 		} catch (const std::exception& e){
-			response.send(Pistache::Http::Code::Internal_Server_Error, "saveDelta Set failed");
 			BOOST_LOG_TRIVIAL(error) << "buttonDeltaSave_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "saveDelta Set failed");
 		}
 	}
 
