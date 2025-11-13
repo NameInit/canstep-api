@@ -94,6 +94,10 @@ private:
 		Pistache::Rest::Routes::Post(router, "/api/save/accel", Pistache::Rest::Routes::bind(&CanControllerApi::saveAccel, this));
 		Pistache::Rest::Routes::Post(router, "/api/save/decel", Pistache::Rest::Routes::bind(&CanControllerApi::saveDecel, this));
 		Pistache::Rest::Routes::Post(router, "/api/save/delta", Pistache::Rest::Routes::bind(&CanControllerApi::saveDelta, this));
+		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/1", Pistache::Rest::Routes::bind(&CanControllerApi::sensor1Polarity, this));
+		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/2", Pistache::Rest::Routes::bind(&CanControllerApi::sensor2Polarity, this));
+		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/3", Pistache::Rest::Routes::bind(&CanControllerApi::sensor3Polarity, this));
+		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/4", Pistache::Rest::Routes::bind(&CanControllerApi::sensor4Polarity, this));
 		
 		Pistache::Rest::Routes::Get(router, "/health", Pistache::Rest::Routes::bind(&CanControllerApi::health, this));
 	}
@@ -476,6 +480,70 @@ private:
 		} catch (const std::exception& e){
 			BOOST_LOG_TRIVIAL(error) << "buttonDeltaSave_Click" << " JSON: " << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Internal_Server_Error, "saveDelta Set failed");
+		}
+	}
+
+	void sensor1Polarity(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			uint8_t val=static_cast<uint8_t>(obj["numInverting"].as_int64());
+			std::cout << static_cast<int>(val) << std::endl;
+			// controller.buttonSensor1Polarity_Click(val); segmentation error, need to check with connect
+			BOOST_LOG_TRIVIAL(info) << "buttonSensor1Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "sensor1Polarity Set");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonSensor1Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "sensor1Polarity Set failed");
+		}
+	}
+
+	void sensor2Polarity(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			uint8_t val=static_cast<uint8_t>(obj["numInverting"].as_int64());
+			std::cout << static_cast<int>(val) << std::endl;
+			// controller.buttonSensor2Polarity_Click(val); segmentation error, need to check with connect
+			BOOST_LOG_TRIVIAL(info) << "buttonSensor2Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "sensor2Polarity Set");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonSensor2Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "sensor2Polarity Set failed");
+		}
+	}
+
+	void sensor3Polarity(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			uint8_t val=static_cast<uint8_t>(obj["numInverting"].as_int64());
+			std::cout << static_cast<int>(val) << std::endl;
+			// controller.buttonSensor3Polarity_Click(val); segmentation error, need to check with connect
+			BOOST_LOG_TRIVIAL(info) << "buttonSensor3Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "sensor3Polarity Set");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonSensor3Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "sensor3Polarity Set failed");
+		}
+	}
+
+	void sensor4Polarity(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			uint8_t val=static_cast<uint8_t>(obj["numInverting"].as_int64());
+			std::cout << static_cast<int>(val) << std::endl;
+			// controller.buttonSensor4Polarity_Click(val); segmentation error, need to check with connect
+			BOOST_LOG_TRIVIAL(info) << "buttonSensor4Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "sensor4Polarity Set");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonSensor4Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "sensor4Polarity Set failed");
 		}
 	}
 

@@ -56,6 +56,10 @@ public slots:
     void SaveAccel();
     void SaveDecel();
     void SaveDelta();
+    void Sensor1Polarity();
+    void Sensor2Polarity();
+    void Sensor3Polarity();
+    void Sensor4Polarity();
 
     void sendApiRequest(const QString &endpoint, const QJsonObject &data = QJsonObject());
     void onApiReplyFinished(QNetworkReply *reply);

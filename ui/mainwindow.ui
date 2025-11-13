@@ -22,8 +22,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>468</width>
-      <height>540</height>
+      <width>497</width>
+      <height>558</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -283,6 +283,46 @@
      </item>
      <item row="4" column="4">
       <widget class="QLineEdit" name="lineEditSaveDelta"/>
+     </item>
+     <item row="5" column="3">
+      <widget class="QPushButton" name="pushButtonSensor1Polarity">
+       <property name="text">
+        <string>Sensor1Polarity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="4">
+      <widget class="QLineEdit" name="lineEditSensor1Polarity"/>
+     </item>
+     <item row="6" column="3">
+      <widget class="QPushButton" name="pushButtonSensor2Polarity">
+       <property name="text">
+        <string>Sensor2Polarity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="4">
+      <widget class="QLineEdit" name="lineEditSensor2Polarity"/>
+     </item>
+     <item row="7" column="3">
+      <widget class="QPushButton" name="pushButtonSensor3Polarity">
+       <property name="text">
+        <string>Sensor3Polarity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="4">
+      <widget class="QLineEdit" name="lineEditSensor3Polarity"/>
+     </item>
+     <item row="8" column="3">
+      <widget class="QPushButton" name="pushButtonSensor4Polarity">
+       <property name="text">
+        <string>Sensor4Polarity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="4">
+      <widget class="QLineEdit" name="lineEditSensor4Polarity"/>
      </item>
     </layout>
    </widget>

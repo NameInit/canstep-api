@@ -36,6 +36,10 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonSaveAccel, &QPushButton::clicked, this, &MainWindow::SaveAccel);
     QObject::connect(ui->pushButtonSaveDecel, &QPushButton::clicked, this, &MainWindow::SaveDecel);
     QObject::connect(ui->pushButtonSaveDelta, &QPushButton::clicked, this, &MainWindow::SaveDelta);
+    QObject::connect(ui->pushButtonSensor1Polarity, &QPushButton::clicked, this, &MainWindow::Sensor1Polarity);
+    QObject::connect(ui->pushButtonSensor2Polarity, &QPushButton::clicked, this, &MainWindow::Sensor2Polarity);
+    QObject::connect(ui->pushButtonSensor3Polarity, &QPushButton::clicked, this, &MainWindow::Sensor3Polarity);
+    QObject::connect(ui->pushButtonSensor4Polarity, &QPushButton::clicked, this, &MainWindow::Sensor4Polarity);
 
     QObject::connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onApiReplyFinished);
 }
@@ -267,6 +271,38 @@ void MainWindow::SaveDelta()
     QJsonObject data;
     data["numDelta"]=ui->lineEditSaveDelta->text().toInt();
     this->sendApiRequest("api/save/delta",data);
+    return ;
+}
+
+void MainWindow::Sensor1Polarity(){
+    qDebug() << "Sensor1Polarity";
+    QJsonObject data;
+    data["numInverting"]=ui->lineEditSensor1Polarity->text().toInt();
+    this->sendApiRequest("api/sensor/polarity/1",data);
+    return ;
+}
+
+void MainWindow::Sensor2Polarity(){
+    qDebug() << "Sensor2Polarity";
+    QJsonObject data;
+    data["numInverting"]=ui->lineEditSensor2Polarity->text().toInt();
+    this->sendApiRequest("api/sensor/polarity/2",data);
+    return ;
+}
+
+void MainWindow::Sensor3Polarity(){
+    qDebug() << "Sensor3Polarity";
+    QJsonObject data;
+    data["numInverting"]=ui->lineEditSensor3Polarity->text().toInt();
+    this->sendApiRequest("api/sensor/polarity/3",data);
+    return ;
+}
+
+void MainWindow::Sensor4Polarity(){
+    qDebug() << "Sensor4Polarity";
+    QJsonObject data;
+    data["numInverting"]=ui->lineEditSensor4Polarity->text().toInt();
+    this->sendApiRequest("api/sensor/polarity/4",data);
     return ;
 }
 

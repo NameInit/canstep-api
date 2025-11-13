@@ -72,6 +72,14 @@ public:
     QLineEdit *lineEditSaveDecel;
     QPushButton *pushButtonSaveDelta;
     QLineEdit *lineEditSaveDelta;
+    QPushButton *pushButtonSensor1Polarity;
+    QLineEdit *lineEditSensor1Polarity;
+    QPushButton *pushButtonSensor2Polarity;
+    QLineEdit *lineEditSensor2Polarity;
+    QPushButton *pushButtonSensor3Polarity;
+    QLineEdit *lineEditSensor3Polarity;
+    QPushButton *pushButtonSensor4Polarity;
+    QLineEdit *lineEditSensor4Polarity;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -85,7 +93,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(10, 10, 468, 540));
+        layoutWidget->setGeometry(QRect(10, 10, 497, 558));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName("gridLayout");
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -308,6 +316,46 @@ public:
 
         gridLayout->addWidget(lineEditSaveDelta, 4, 4, 1, 1);
 
+        pushButtonSensor1Polarity = new QPushButton(layoutWidget);
+        pushButtonSensor1Polarity->setObjectName("pushButtonSensor1Polarity");
+
+        gridLayout->addWidget(pushButtonSensor1Polarity, 5, 3, 1, 1);
+
+        lineEditSensor1Polarity = new QLineEdit(layoutWidget);
+        lineEditSensor1Polarity->setObjectName("lineEditSensor1Polarity");
+
+        gridLayout->addWidget(lineEditSensor1Polarity, 5, 4, 1, 1);
+
+        pushButtonSensor2Polarity = new QPushButton(layoutWidget);
+        pushButtonSensor2Polarity->setObjectName("pushButtonSensor2Polarity");
+
+        gridLayout->addWidget(pushButtonSensor2Polarity, 6, 3, 1, 1);
+
+        lineEditSensor2Polarity = new QLineEdit(layoutWidget);
+        lineEditSensor2Polarity->setObjectName("lineEditSensor2Polarity");
+
+        gridLayout->addWidget(lineEditSensor2Polarity, 6, 4, 1, 1);
+
+        pushButtonSensor3Polarity = new QPushButton(layoutWidget);
+        pushButtonSensor3Polarity->setObjectName("pushButtonSensor3Polarity");
+
+        gridLayout->addWidget(pushButtonSensor3Polarity, 7, 3, 1, 1);
+
+        lineEditSensor3Polarity = new QLineEdit(layoutWidget);
+        lineEditSensor3Polarity->setObjectName("lineEditSensor3Polarity");
+
+        gridLayout->addWidget(lineEditSensor3Polarity, 7, 4, 1, 1);
+
+        pushButtonSensor4Polarity = new QPushButton(layoutWidget);
+        pushButtonSensor4Polarity->setObjectName("pushButtonSensor4Polarity");
+
+        gridLayout->addWidget(pushButtonSensor4Polarity, 8, 3, 1, 1);
+
+        lineEditSensor4Polarity = new QLineEdit(layoutWidget);
+        lineEditSensor4Polarity->setObjectName("lineEditSensor4Polarity");
+
+        gridLayout->addWidget(lineEditSensor4Polarity, 8, 4, 1, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -353,6 +401,10 @@ public:
         pushButtonSaveAccel->setText(QCoreApplication::translate("MainWindow", "SaveAccel", nullptr));
         pushButtonSaveDecel->setText(QCoreApplication::translate("MainWindow", "SaveDecel", nullptr));
         pushButtonSaveDelta->setText(QCoreApplication::translate("MainWindow", "SaveDelta", nullptr));
+        pushButtonSensor1Polarity->setText(QCoreApplication::translate("MainWindow", "Sensor1Polarity", nullptr));
+        pushButtonSensor2Polarity->setText(QCoreApplication::translate("MainWindow", "Sensor2Polarity", nullptr));
+        pushButtonSensor3Polarity->setText(QCoreApplication::translate("MainWindow", "Sensor3Polarity", nullptr));
+        pushButtonSensor4Polarity->setText(QCoreApplication::translate("MainWindow", "Sensor4Polarity", nullptr));
     } // retranslateUi
 
 };
