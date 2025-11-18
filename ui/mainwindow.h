@@ -65,10 +65,20 @@ public slots:
     void SaveAccel();
     void SaveDecel();
     void SaveDelta();
+    void MicroSteps();
+    void StepsTurn();
     void Sensor1Polarity();
     void Sensor2Polarity();
     void Sensor3Polarity();
     void Sensor4Polarity();
+    void Sensor1Dir();
+    void Sensor2Dir();
+    void Sensor3Dir();
+    void Sensor4Dir();
+    void SRVRDYPolarity();
+    void INPOSPolarity();
+    void FAULTPolarity();
+    void BrakePolarity();
 
     void sendApiRequest(const QString &endpoint, const QJsonObject &data = QJsonObject());
     void onApiReplyFinished(QNetworkReply *reply);

@@ -27,7 +27,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MainWindow_t {
-    uint offsetsAndSizes[102];
+    uint offsetsAndSizes[122];
     char stringdata0[11];
     char stringdata1[14];
     char stringdata2[1];
@@ -67,18 +67,28 @@ struct qt_meta_stringdata_MainWindow_t {
     char stringdata36[10];
     char stringdata37[10];
     char stringdata38[10];
-    char stringdata39[16];
-    char stringdata40[16];
+    char stringdata39[11];
+    char stringdata40[10];
     char stringdata41[16];
     char stringdata42[16];
-    char stringdata43[15];
-    char stringdata44[9];
-    char stringdata45[5];
-    char stringdata46[19];
-    char stringdata47[15];
-    char stringdata48[6];
-    char stringdata49[13];
-    char stringdata50[6];
+    char stringdata43[16];
+    char stringdata44[16];
+    char stringdata45[11];
+    char stringdata46[11];
+    char stringdata47[11];
+    char stringdata48[11];
+    char stringdata49[15];
+    char stringdata50[14];
+    char stringdata51[14];
+    char stringdata52[14];
+    char stringdata53[15];
+    char stringdata54[9];
+    char stringdata55[5];
+    char stringdata56[19];
+    char stringdata57[15];
+    char stringdata58[6];
+    char stringdata59[13];
+    char stringdata60[6];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MainWindow_t::offsetsAndSizes) + ofs), len 
@@ -123,18 +133,28 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
         QT_MOC_LITERAL(423, 9),  // "SaveAccel"
         QT_MOC_LITERAL(433, 9),  // "SaveDecel"
         QT_MOC_LITERAL(443, 9),  // "SaveDelta"
-        QT_MOC_LITERAL(453, 15),  // "Sensor1Polarity"
-        QT_MOC_LITERAL(469, 15),  // "Sensor2Polarity"
-        QT_MOC_LITERAL(485, 15),  // "Sensor3Polarity"
-        QT_MOC_LITERAL(501, 15),  // "Sensor4Polarity"
-        QT_MOC_LITERAL(517, 14),  // "sendApiRequest"
-        QT_MOC_LITERAL(532, 8),  // "endpoint"
-        QT_MOC_LITERAL(541, 4),  // "data"
-        QT_MOC_LITERAL(546, 18),  // "onApiReplyFinished"
-        QT_MOC_LITERAL(565, 14),  // "QNetworkReply*"
-        QT_MOC_LITERAL(580, 5),  // "reply"
-        QT_MOC_LITERAL(586, 12),  // "showApiError"
-        QT_MOC_LITERAL(599, 5)   // "error"
+        QT_MOC_LITERAL(453, 10),  // "MicroSteps"
+        QT_MOC_LITERAL(464, 9),  // "StepsTurn"
+        QT_MOC_LITERAL(474, 15),  // "Sensor1Polarity"
+        QT_MOC_LITERAL(490, 15),  // "Sensor2Polarity"
+        QT_MOC_LITERAL(506, 15),  // "Sensor3Polarity"
+        QT_MOC_LITERAL(522, 15),  // "Sensor4Polarity"
+        QT_MOC_LITERAL(538, 10),  // "Sensor1Dir"
+        QT_MOC_LITERAL(549, 10),  // "Sensor2Dir"
+        QT_MOC_LITERAL(560, 10),  // "Sensor3Dir"
+        QT_MOC_LITERAL(571, 10),  // "Sensor4Dir"
+        QT_MOC_LITERAL(582, 14),  // "SRVRDYPolarity"
+        QT_MOC_LITERAL(597, 13),  // "INPOSPolarity"
+        QT_MOC_LITERAL(611, 13),  // "FAULTPolarity"
+        QT_MOC_LITERAL(625, 13),  // "BrakePolarity"
+        QT_MOC_LITERAL(639, 14),  // "sendApiRequest"
+        QT_MOC_LITERAL(654, 8),  // "endpoint"
+        QT_MOC_LITERAL(663, 4),  // "data"
+        QT_MOC_LITERAL(668, 18),  // "onApiReplyFinished"
+        QT_MOC_LITERAL(687, 14),  // "QNetworkReply*"
+        QT_MOC_LITERAL(702, 5),  // "reply"
+        QT_MOC_LITERAL(708, 12),  // "showApiError"
+        QT_MOC_LITERAL(721, 5)   // "error"
     },
     "MainWindow",
     "ButtonConnect",
@@ -175,10 +195,20 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
     "SaveAccel",
     "SaveDecel",
     "SaveDelta",
+    "MicroSteps",
+    "StepsTurn",
     "Sensor1Polarity",
     "Sensor2Polarity",
     "Sensor3Polarity",
     "Sensor4Polarity",
+    "Sensor1Dir",
+    "Sensor2Dir",
+    "Sensor3Dir",
+    "Sensor4Dir",
+    "SRVRDYPolarity",
+    "INPOSPolarity",
+    "FAULTPolarity",
+    "BrakePolarity",
     "sendApiRequest",
     "endpoint",
     "data",
@@ -197,7 +227,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      45,   14, // methods
+      55,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -205,51 +235,61 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  284,    2, 0x0a,    1 /* Public */,
-       3,    0,  285,    2, 0x0a,    2 /* Public */,
-       4,    0,  286,    2, 0x0a,    3 /* Public */,
-       5,    0,  287,    2, 0x0a,    4 /* Public */,
-       6,    0,  288,    2, 0x0a,    5 /* Public */,
-       7,    0,  289,    2, 0x0a,    6 /* Public */,
-       8,    0,  290,    2, 0x0a,    7 /* Public */,
-       9,    0,  291,    2, 0x0a,    8 /* Public */,
-      10,    0,  292,    2, 0x0a,    9 /* Public */,
-      11,    0,  293,    2, 0x0a,   10 /* Public */,
-      12,    0,  294,    2, 0x0a,   11 /* Public */,
-      13,    0,  295,    2, 0x0a,   12 /* Public */,
-      14,    0,  296,    2, 0x0a,   13 /* Public */,
-      15,    0,  297,    2, 0x0a,   14 /* Public */,
-      16,    0,  298,    2, 0x0a,   15 /* Public */,
-      17,    0,  299,    2, 0x0a,   16 /* Public */,
-      18,    0,  300,    2, 0x0a,   17 /* Public */,
-      19,    0,  301,    2, 0x0a,   18 /* Public */,
-      20,    0,  302,    2, 0x0a,   19 /* Public */,
-      21,    0,  303,    2, 0x0a,   20 /* Public */,
-      22,    0,  304,    2, 0x0a,   21 /* Public */,
-      23,    0,  305,    2, 0x0a,   22 /* Public */,
-      24,    0,  306,    2, 0x0a,   23 /* Public */,
-      25,    0,  307,    2, 0x0a,   24 /* Public */,
-      26,    0,  308,    2, 0x0a,   25 /* Public */,
-      27,    0,  309,    2, 0x0a,   26 /* Public */,
-      28,    0,  310,    2, 0x0a,   27 /* Public */,
-      29,    0,  311,    2, 0x0a,   28 /* Public */,
-      30,    0,  312,    2, 0x0a,   29 /* Public */,
-      31,    0,  313,    2, 0x0a,   30 /* Public */,
-      32,    0,  314,    2, 0x0a,   31 /* Public */,
-      33,    0,  315,    2, 0x0a,   32 /* Public */,
-      34,    0,  316,    2, 0x0a,   33 /* Public */,
-      35,    0,  317,    2, 0x0a,   34 /* Public */,
-      36,    0,  318,    2, 0x0a,   35 /* Public */,
-      37,    0,  319,    2, 0x0a,   36 /* Public */,
-      38,    0,  320,    2, 0x0a,   37 /* Public */,
-      39,    0,  321,    2, 0x0a,   38 /* Public */,
-      40,    0,  322,    2, 0x0a,   39 /* Public */,
-      41,    0,  323,    2, 0x0a,   40 /* Public */,
-      42,    0,  324,    2, 0x0a,   41 /* Public */,
-      43,    2,  325,    2, 0x0a,   42 /* Public */,
-      43,    1,  330,    2, 0x2a,   45 /* Public | MethodCloned */,
-      46,    1,  333,    2, 0x0a,   47 /* Public */,
-      49,    1,  336,    2, 0x0a,   49 /* Public */,
+       1,    0,  344,    2, 0x0a,    1 /* Public */,
+       3,    0,  345,    2, 0x0a,    2 /* Public */,
+       4,    0,  346,    2, 0x0a,    3 /* Public */,
+       5,    0,  347,    2, 0x0a,    4 /* Public */,
+       6,    0,  348,    2, 0x0a,    5 /* Public */,
+       7,    0,  349,    2, 0x0a,    6 /* Public */,
+       8,    0,  350,    2, 0x0a,    7 /* Public */,
+       9,    0,  351,    2, 0x0a,    8 /* Public */,
+      10,    0,  352,    2, 0x0a,    9 /* Public */,
+      11,    0,  353,    2, 0x0a,   10 /* Public */,
+      12,    0,  354,    2, 0x0a,   11 /* Public */,
+      13,    0,  355,    2, 0x0a,   12 /* Public */,
+      14,    0,  356,    2, 0x0a,   13 /* Public */,
+      15,    0,  357,    2, 0x0a,   14 /* Public */,
+      16,    0,  358,    2, 0x0a,   15 /* Public */,
+      17,    0,  359,    2, 0x0a,   16 /* Public */,
+      18,    0,  360,    2, 0x0a,   17 /* Public */,
+      19,    0,  361,    2, 0x0a,   18 /* Public */,
+      20,    0,  362,    2, 0x0a,   19 /* Public */,
+      21,    0,  363,    2, 0x0a,   20 /* Public */,
+      22,    0,  364,    2, 0x0a,   21 /* Public */,
+      23,    0,  365,    2, 0x0a,   22 /* Public */,
+      24,    0,  366,    2, 0x0a,   23 /* Public */,
+      25,    0,  367,    2, 0x0a,   24 /* Public */,
+      26,    0,  368,    2, 0x0a,   25 /* Public */,
+      27,    0,  369,    2, 0x0a,   26 /* Public */,
+      28,    0,  370,    2, 0x0a,   27 /* Public */,
+      29,    0,  371,    2, 0x0a,   28 /* Public */,
+      30,    0,  372,    2, 0x0a,   29 /* Public */,
+      31,    0,  373,    2, 0x0a,   30 /* Public */,
+      32,    0,  374,    2, 0x0a,   31 /* Public */,
+      33,    0,  375,    2, 0x0a,   32 /* Public */,
+      34,    0,  376,    2, 0x0a,   33 /* Public */,
+      35,    0,  377,    2, 0x0a,   34 /* Public */,
+      36,    0,  378,    2, 0x0a,   35 /* Public */,
+      37,    0,  379,    2, 0x0a,   36 /* Public */,
+      38,    0,  380,    2, 0x0a,   37 /* Public */,
+      39,    0,  381,    2, 0x0a,   38 /* Public */,
+      40,    0,  382,    2, 0x0a,   39 /* Public */,
+      41,    0,  383,    2, 0x0a,   40 /* Public */,
+      42,    0,  384,    2, 0x0a,   41 /* Public */,
+      43,    0,  385,    2, 0x0a,   42 /* Public */,
+      44,    0,  386,    2, 0x0a,   43 /* Public */,
+      45,    0,  387,    2, 0x0a,   44 /* Public */,
+      46,    0,  388,    2, 0x0a,   45 /* Public */,
+      47,    0,  389,    2, 0x0a,   46 /* Public */,
+      48,    0,  390,    2, 0x0a,   47 /* Public */,
+      49,    0,  391,    2, 0x0a,   48 /* Public */,
+      50,    0,  392,    2, 0x0a,   49 /* Public */,
+      51,    0,  393,    2, 0x0a,   50 /* Public */,
+      52,    0,  394,    2, 0x0a,   51 /* Public */,
+      53,    2,  395,    2, 0x0a,   52 /* Public */,
+      53,    1,  400,    2, 0x2a,   55 /* Public | MethodCloned */,
+      56,    1,  403,    2, 0x0a,   57 /* Public */,
+      59,    1,  406,    2, 0x0a,   59 /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -293,10 +333,20 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject,   44,   45,
-    QMetaType::Void, QMetaType::QString,   44,
-    QMetaType::Void, 0x80000000 | 47,   48,
-    QMetaType::Void, QMetaType::QString,   50,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject,   54,   55,
+    QMetaType::Void, QMetaType::QString,   54,
+    QMetaType::Void, 0x80000000 | 57,   58,
+    QMetaType::Void, QMetaType::QString,   60,
 
        0        // eod
 };
@@ -384,6 +434,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'SaveDelta'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'MicroSteps'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'StepsTurn'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'Sensor1Polarity'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'Sensor2Polarity'
@@ -391,6 +445,22 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'Sensor3Polarity'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'Sensor4Polarity'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'Sensor1Dir'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'Sensor2Dir'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'Sensor3Dir'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'Sensor4Dir'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'SRVRDYPolarity'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'INPOSPolarity'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'FAULTPolarity'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'BrakePolarity'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'sendApiRequest'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -452,20 +522,30 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 34: _t->SaveAccel(); break;
         case 35: _t->SaveDecel(); break;
         case 36: _t->SaveDelta(); break;
-        case 37: _t->Sensor1Polarity(); break;
-        case 38: _t->Sensor2Polarity(); break;
-        case 39: _t->Sensor3Polarity(); break;
-        case 40: _t->Sensor4Polarity(); break;
-        case 41: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2]))); break;
-        case 42: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 43: _t->onApiReplyFinished((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
-        case 44: _t->showApiError((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 37: _t->MicroSteps(); break;
+        case 38: _t->StepsTurn(); break;
+        case 39: _t->Sensor1Polarity(); break;
+        case 40: _t->Sensor2Polarity(); break;
+        case 41: _t->Sensor3Polarity(); break;
+        case 42: _t->Sensor4Polarity(); break;
+        case 43: _t->Sensor1Dir(); break;
+        case 44: _t->Sensor2Dir(); break;
+        case 45: _t->Sensor3Dir(); break;
+        case 46: _t->Sensor4Dir(); break;
+        case 47: _t->SRVRDYPolarity(); break;
+        case 48: _t->INPOSPolarity(); break;
+        case 49: _t->FAULTPolarity(); break;
+        case 50: _t->BrakePolarity(); break;
+        case 51: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2]))); break;
+        case 52: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 53: _t->onApiReplyFinished((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
+        case 54: _t->showApiError((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 43:
+        case 53:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -495,13 +575,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 45)
+        if (_id < 55)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 45;
+        _id -= 55;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 45)
+        if (_id < 55)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 45;
+        _id -= 55;
     }
     return _id;
 }

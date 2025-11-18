@@ -247,3 +247,153 @@
 [2025-11-18 15:53:09.725018] [info] buttonStop_Click
 [2025-11-18 15:53:10.885106] [info] buttonStop_Click
 [2025-11-18 15:53:11.229063] [info] buttonStop_Click
+[2025-11-18 16:05:32.276189] [info] buttonOpenCOM_Click
+[2025-11-18 16:05:40.997306] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-18 16:05:41.433435] [info] buttonNumSteps_Click JSON: {"numSteps":1000}
+[2025-11-18 16:05:41.825533] [info] buttonSpeed_Click JSON: {"numSpeed":10}
+[2025-11-18 16:05:42.217613] [info] buttonAccel_Click JSON: {"numAccel":10}
+[2025-11-18 16:05:42.593728] [info] buttonDecel_Click JSON: {"numDecel":10}
+[2025-11-18 16:05:43.049811] [info] buttonMoveForward_Click
+[2025-11-18 16:05:43.593925] [info] buttonMoveBackward_Click
+[2025-11-18 16:05:44.322102] [info] buttonMoveBackward_Click
+[2025-11-18 16:43:53.530189] [info] buttonOpenCOM_Click
+[2025-11-18 16:44:02.585628] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-18 16:44:08.853688] [info] button_MicroSteps_Click JSON: {"numSteps":1}
+[2025-11-18 16:44:12.685770] [info] button_StepsTurn_Click JSON: {"numSteps":2}
+[2025-11-18 16:44:21.325866] [info] buttonNumSteps_Click JSON: {"numSteps":1000}
+[2025-11-18 16:44:21.829884] [info] buttonSpeed_Click JSON: {"numSpeed":10}
+[2025-11-18 16:44:22.389897] [info] buttonAccel_Click JSON: {"numAccel":10}
+[2025-11-18 16:44:22.829931] [info] buttonDecel_Click JSON: {"numDecel":10}
+[2025-11-18 16:44:23.277908] [info] buttonMoveForward_Click
+[2025-11-18 16:44:25.061931] [info] buttonMoveBackward_Click
+[2025-11-18 16:44:25.405938] [info] buttonMoveForward_Click
+[2025-11-18 16:44:27.173945] [info] buttonMoveBackward_Click
+[2025-11-18 16:44:27.597957] [info] buttonMoveForward_Click
+[2025-11-18 16:44:28.926014] [info] buttonMoveForward_Click
+[2025-11-18 16:44:29.150001] [info] buttonMoveBackward_Click
+[2025-11-18 16:44:30.598030] [info] buttonMoveBackward_Click
+[2025-11-18 16:44:32.246058] [info] buttonMoveForward_Click
+[2025-11-18 16:44:33.742100] [info] buttonMoveBackward_Click
+[2025-11-18 16:44:34.406062] [info] buttonMoveBackward_Click
+[2025-11-18 16:44:36.390097] [info] buttonMoveForward_Click
+[2025-11-18 16:44:38.174141] [info] buttonMoveBackward_Click
+[2025-11-18 16:44:41.222195] [info] buttonMoveForward_Click
+[2025-11-18 16:44:42.910223] [info] buttonHomingZero_Click
+[2025-11-18 16:44:46.774302] [info] buttonStop_Click
+[2025-11-18 16:44:47.574281] [info] buttonMoveBackward_Click
+[2025-11-18 16:44:51.854359] [info] buttonStop_Click
+[2025-11-18 16:44:52.398358] [info] buttonMoveBackward_Click
+[2025-11-18 16:45:03.198528] [info] buttonMoveBackward_Click
+[2025-11-18 16:45:05.414558] [info] buttonMoveForward_Click
+[2025-11-18 16:45:08.470621] [info] buttonStop_Click
+[2025-11-18 16:45:09.202620] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-18 16:45:09.534641] [info] buttonNumSteps_Click JSON: {"numSteps":1000}
+[2025-11-18 16:45:09.910673] [info] buttonSpeed_Click JSON: {"numSpeed":10}
+[2025-11-18 16:45:10.270654] [info] buttonAccel_Click JSON: {"numAccel":10}
+[2025-11-18 16:45:10.598646] [info] buttonDecel_Click JSON: {"numDecel":10}
+[2025-11-18 16:45:11.070666] [info] buttonMoveForward_Click
+[2025-11-18 16:45:12.654692] [info] buttonMoveBackward_Click
+[2025-11-18 16:45:14.782720] [info] buttonMoveForward_Click
+[2025-11-18 16:45:16.550767] [info] buttonMoveBackward_Click
+[2025-11-18 16:48:34.697151] [info] buttonOpenCOM_Click
+[2025-11-18 16:48:37.832700] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-18 16:48:42.196652] [info] buttonSensor1Polarity_Click JSON: {"numInverting":0}
+[2025-11-18 16:48:47.668638] [info] buttonSensor1Polarity_Click JSON: {"numInverting":1}
+[2025-11-18 16:56:25.586163] [info] buttonOpenCOM_Click
+[2025-11-18 16:59:48.109200] [info] buttonOpenCOM_Click
+[2025-11-18 17:01:09.038610] [info] buttonOpenCOM_Click
+[2025-11-18 17:01:12.260400] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-18 17:01:14.261378] [error] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:09:25.925193] [info] buttonOpenCOM_Click
+[2025-11-18 17:09:29.682975] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-18 17:09:35.211985] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:11:16.350201] [info] buttonOpenCOM_Click
+[2025-11-18 17:11:19.612578] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-18 17:11:21.256614] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:11:22.136622] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:11:23.184642] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:11:24.976662] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:11:27.712707] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"NotInverted"}
+[2025-11-18 17:11:28.792724] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"NotInverted"}
+[2025-11-18 17:11:32.440778] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"UnknownInverted"}
+[2025-11-18 17:11:33.392791] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"UnknownInverted"}
+[2025-11-18 17:15:22.657509] [info] buttonOpenCOM_Click
+[2025-11-18 17:15:26.424359] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-18 17:15:29.412407] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:15:31.516468] [info] buttonSensor2Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:15:32.412438] [info] buttonSensor2Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:15:34.820494] [info] buttonSensor2Polarity_Click JSON: {"statusInverting":"NotInverted"}
+[2025-11-18 17:15:36.476505] [info] buttonSensor2Polarity_Click JSON: {"statusInverting":"NotInverted"}
+[2025-11-18 17:15:42.068610] [info] buttonSensor2Polarity_Click JSON: {"statusInverting":"UnknownInverted"}
+[2025-11-18 17:15:43.100617] [info] buttonSensor2Polarity_Click JSON: {"statusInverting":"UnknownInverted"}
+[2025-11-18 17:15:46.004652] [info] buttonSensor3Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:15:47.740694] [info] buttonSensor3Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:15:50.908745] [info] buttonSensor3Polarity_Click JSON: {"statusInverting":"NotInverted"}
+[2025-11-18 17:15:51.812749] [info] buttonSensor3Polarity_Click JSON: {"statusInverting":"NotInverted"}
+[2025-11-18 17:15:54.724806] [info] buttonSensor3Polarity_Click JSON: {"statusInverting":"UnknownInverted"}
+[2025-11-18 17:15:55.524816] [info] buttonSensor3Polarity_Click JSON: {"statusInverting":"UnknownInverted"}
+[2025-11-18 17:15:57.396850] [info] buttonSensor4Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:15:59.428861] [info] buttonSensor4Polarity_Click JSON: {"statusInverting":"NotInverted"}
+[2025-11-18 17:16:03.868956] [info] buttonSensor4Polarity_Click JSON: {"statusInverting":"UnknownInverted"}
+[2025-11-18 17:16:04.700945] [info] buttonSensor4Polarity_Click JSON: {"statusInverting":"UnknownInverted"}
+[2025-11-18 17:41:51.824209] [info] buttonOpenCOM_Click
+[2025-11-18 17:41:55.382397] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-18 17:42:05.554342] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:42:06.018375] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:42:06.434341] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:42:06.794369] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:42:07.306346] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:42:07.770336] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:42:08.482341] [info] buttonSensor1Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:42:09.570320] [info] buttonSensor2Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:42:11.370347] [info] buttonSensor3Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:42:13.058344] [info] buttonSensor4Polarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 17:42:14.914324] [info] buttonSensor1Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:42:15.826296] [info] buttonSensor1Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:42:17.226323] [info] buttonSensor2Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:42:17.986277] [info] buttonSensor2Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:42:19.378291] [info] buttonSensor3Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:42:20.186271] [info] buttonSensor3Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:42:21.050265] [info] buttonSensor3Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:42:22.426659] [info] buttonSensor4Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:42:23.170274] [info] buttonSensor4Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:42:28.114244] [info] buttonSensor4Dir_Click JSON: {"statusInverting":"Forward"}
+[2025-11-18 17:42:29.386226] [info] buttonSensor3Dir_Click JSON: {"statusInverting":"Forward"}
+[2025-11-18 17:42:30.562238] [info] buttonSensor2Dir_Click JSON: {"statusInverting":"Forward"}
+[2025-11-18 17:42:31.802214] [info] buttonSensor1Dir_Click JSON: {"statusInverting":"Forward"}
+[2025-11-18 17:42:37.946196] [info] buttonSensor1Dir_Click JSON: {"statusInverting":"Backward"}
+[2025-11-18 17:42:39.162190] [info] buttonSensor2Dir_Click JSON: {"statusInverting":"Backward"}
+[2025-11-18 17:42:40.482193] [info] buttonSensor3Dir_Click JSON: {"statusInverting":"Backward"}
+[2025-11-18 17:42:41.954238] [info] buttonSensor4Dir_Click JSON: {"statusInverting":"Backward"}
+[2025-11-18 17:43:06.642083] [info] buttonSensor1Dir_Click JSON: {"statusInverting":"Forward"}
+[2025-11-18 17:43:07.994064] [info] buttonSensor2Dir_Click JSON: {"statusInverting":"Forward"}
+[2025-11-18 17:43:09.298070] [info] buttonSensor3Dir_Click JSON: {"statusInverting":"Forward"}
+[2025-11-18 17:43:10.450056] [info] buttonSensor4Dir_Click JSON: {"statusInverting":"Forward"}
+[2025-11-18 17:43:19.578050] [info] buttonSensor1Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:43:20.810055] [info] buttonSensor2Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:43:22.106012] [info] buttonSensor3Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:43:23.506015] [info] buttonSensor4Dir_Click JSON: {"statusInverting":"None"}
+[2025-11-18 17:43:47.543173] [info] buttonOpenCOM_Click
+[2025-11-18 17:44:12.335199] [info] buttonOpenCOM_Click
+[2025-11-18 17:44:15.581856] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-18 17:44:21.105803] [info] buttonNumSteps_Click JSON: {"numSteps":1000}
+[2025-11-18 17:44:22.657796] [info] buttonSpeed_Click JSON: {"numSpeed":10}
+[2025-11-18 17:44:23.673782] [info] buttonAccel_Click JSON: {"numAccel":10}
+[2025-11-18 17:44:24.057782] [info] buttonDecel_Click JSON: {"numDecel":10}
+[2025-11-18 17:44:24.625794] [info] buttonMoveForward_Click
+[2025-11-18 17:44:26.305792] [info] buttonMoveBackward_Click
+[2025-11-18 18:06:33.700696] [info] buttonOpenCOM_Click
+[2025-11-18 18:07:33.076154] [info] buttonOpenCOM_Click
+[2025-11-18 18:07:42.146857] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-18 18:07:44.118843] [info] buttonSRVRDYPolarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 18:07:45.886847] [info] buttonINPOSPolarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 18:07:47.238859] [info] buttonFAULTPolarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 18:07:48.711447] [info] buttonBrakePolarity_Click JSON: {"statusInverting":"Inverted"}
+[2025-11-18 18:07:54.110878] [info] buttonSRVRDYPolarity_Click JSON: {"statusInverting":"NotInverted"}
+[2025-11-18 18:07:55.646880] [info] buttonINPOSPolarity_Click JSON: {"statusInverting":"NotInverted"}
+[2025-11-18 18:07:57.006851] [info] buttonFAULTPolarity_Click JSON: {"statusInverting":"NotInverted"}
+[2025-11-18 18:07:58.182842] [info] buttonBrakePolarity_Click JSON: {"statusInverting":"NotInverted"}
+[2025-11-18 18:08:04.318870] [info] buttonSRVRDYPolarity_Click JSON: {"statusInverting":"UnknownInverted"}
+[2025-11-18 18:08:05.878853] [info] buttonINPOSPolarity_Click JSON: {"statusInverting":"UnknownInverted"}
+[2025-11-18 18:08:11.262845] [info] buttonFAULTPolarity_Click JSON: {"statusInverting":"UnknownInverted"}
+[2025-11-18 18:08:12.454880] [info] buttonBrakePolarity_Click JSON: {"statusInverting":"UnknownInverted"}

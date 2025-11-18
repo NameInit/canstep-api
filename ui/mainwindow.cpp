@@ -45,10 +45,20 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonSaveAccel, &QPushButton::clicked, this, &MainWindow::SaveAccel);
     QObject::connect(ui->pushButtonSaveDecel, &QPushButton::clicked, this, &MainWindow::SaveDecel);
     QObject::connect(ui->pushButtonSaveDelta, &QPushButton::clicked, this, &MainWindow::SaveDelta);
+    QObject::connect(ui->pushButtonMicroSteps, &QPushButton::clicked, this, &MainWindow::MicroSteps);
+    QObject::connect(ui->pushButtonStepsTurn, &QPushButton::clicked, this, &MainWindow::StepsTurn);
     QObject::connect(ui->pushButtonSensor1Polarity, &QPushButton::clicked, this, &MainWindow::Sensor1Polarity);
     QObject::connect(ui->pushButtonSensor2Polarity, &QPushButton::clicked, this, &MainWindow::Sensor2Polarity);
     QObject::connect(ui->pushButtonSensor3Polarity, &QPushButton::clicked, this, &MainWindow::Sensor3Polarity);
     QObject::connect(ui->pushButtonSensor4Polarity, &QPushButton::clicked, this, &MainWindow::Sensor4Polarity);
+    QObject::connect(ui->pushButtonSensor1Dir, &QPushButton::clicked, this, &MainWindow::Sensor1Dir);
+    QObject::connect(ui->pushButtonSensor2Dir, &QPushButton::clicked, this, &MainWindow::Sensor2Dir);
+    QObject::connect(ui->pushButtonSensor3Dir, &QPushButton::clicked, this, &MainWindow::Sensor3Dir);
+    QObject::connect(ui->pushButtonSensor4Dir, &QPushButton::clicked, this, &MainWindow::Sensor4Dir);
+    QObject::connect(ui->pushButtonSRVRDYPolarity, &QPushButton::clicked, this, &MainWindow::SRVRDYPolarity);
+    QObject::connect(ui->pushButtonINPOSPolarity, &QPushButton::clicked, this, &MainWindow::INPOSPolarity);
+    QObject::connect(ui->pushButtonFAULTPolarity, &QPushButton::clicked, this, &MainWindow::FAULTPolarity);
+    QObject::connect(ui->pushButtonBrakePolarity, &QPushButton::clicked, this, &MainWindow::BrakePolarity);
 
     QObject::connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onApiReplyFinished);
 }
@@ -347,10 +357,28 @@ void MainWindow::SaveDelta()
     return ;
 }
 
+void MainWindow::MicroSteps()
+{
+    qDebug() << "MicroSteps";
+    QJsonObject data;
+    data["numSteps"]=ui->lineEditMicroSteps->text().toInt();
+    this->sendApiRequest("api/steps/micro/set",data);
+    return ;
+}
+
+void MainWindow::StepsTurn()
+{
+    qDebug() << "StepsTurn";
+    QJsonObject data;
+    data["numSteps"]=ui->lineEditStepsTurn->text().toInt();
+    this->sendApiRequest("api/steps/turn/set",data);
+    return ;
+}
+
 void MainWindow::Sensor1Polarity(){
     qDebug() << "Sensor1Polarity";
     QJsonObject data;
-    data["numInverting"]=ui->lineEditSensor1Polarity->text().toInt();
+    data["statusInverting"]=ui->comboBoxSensor1Polarity->currentText();
     this->sendApiRequest("api/sensor/polarity/1",data);
     return ;
 }
@@ -358,7 +386,7 @@ void MainWindow::Sensor1Polarity(){
 void MainWindow::Sensor2Polarity(){
     qDebug() << "Sensor2Polarity";
     QJsonObject data;
-    data["numInverting"]=ui->lineEditSensor2Polarity->text().toInt();
+    data["statusInverting"]=ui->comboBoxSensor2Polarity->currentText();
     this->sendApiRequest("api/sensor/polarity/2",data);
     return ;
 }
@@ -366,7 +394,7 @@ void MainWindow::Sensor2Polarity(){
 void MainWindow::Sensor3Polarity(){
     qDebug() << "Sensor3Polarity";
     QJsonObject data;
-    data["numInverting"]=ui->lineEditSensor3Polarity->text().toInt();
+    data["statusInverting"]=ui->comboBoxSensor3Polarity->currentText();
     this->sendApiRequest("api/sensor/polarity/3",data);
     return ;
 }
@@ -374,10 +402,75 @@ void MainWindow::Sensor3Polarity(){
 void MainWindow::Sensor4Polarity(){
     qDebug() << "Sensor4Polarity";
     QJsonObject data;
-    data["numInverting"]=ui->lineEditSensor4Polarity->text().toInt();
+    data["statusInverting"]=ui->comboBoxSensor4Polarity->currentText();
     this->sendApiRequest("api/sensor/polarity/4",data);
     return ;
 }
+
+void MainWindow::Sensor1Dir(){
+    qDebug() << "Sensor1Dir";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxSensor1Dir->currentText();
+    this->sendApiRequest("api/sensor/direction/1",data);
+    return ;
+}
+
+void MainWindow::Sensor2Dir(){
+    qDebug() << "Sensor2Dir";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxSensor2Dir->currentText();
+    this->sendApiRequest("api/sensor/direction/2",data);
+    return ;
+}
+
+void MainWindow::Sensor3Dir(){
+    qDebug() << "Sensor3Dir";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxSensor3Dir->currentText();
+    this->sendApiRequest("api/sensor/direction/3",data);
+    return ;
+}
+
+void MainWindow::Sensor4Dir(){
+    qDebug() << "Sensor4Dir";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxSensor4Dir->currentText();
+    this->sendApiRequest("api/sensor/direction/4",data);
+    return ;
+}
+
+void MainWindow::SRVRDYPolarity(){
+    qDebug() << "SRVRDYPolarity";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxSRVRDYPolarity->currentText();
+    this->sendApiRequest("api/sensor/polarity/srvrdy",data);
+    return ;
+}
+
+void MainWindow::INPOSPolarity(){
+    qDebug() << "INPOSPolarity";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxINPOSPolarity->currentText();
+    this->sendApiRequest("api/sensor/polarity/inpos",data);
+    return ;
+}
+
+void MainWindow::FAULTPolarity(){
+    qDebug() << "FAULTPolarity";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxFAULTPolarity->currentText();
+    this->sendApiRequest("api/sensor/polarity/fault",data);
+    return ;
+}
+
+void MainWindow::BrakePolarity(){
+    qDebug() << "BrakePolarity";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxBrakePolarity->currentText();
+    this->sendApiRequest("api/sensor/polarity/brake",data);
+    return ;
+}
+
 
 void MainWindow::sendApiRequest(const QString &endpoint, const QJsonObject &data)
 {
