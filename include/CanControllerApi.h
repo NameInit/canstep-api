@@ -68,23 +68,32 @@ private:
 	void setupRoutes(){
 		Pistache::Rest::Routes::Get(router, "/api/connect", Pistache::Rest::Routes::bind(&CanControllerApi::connect, this));
 		Pistache::Rest::Routes::Get(router, "/api/debug/on", Pistache::Rest::Routes::bind(&CanControllerApi::debugOn, this));
-		Pistache::Rest::Routes::Post(router, "/api/board", Pistache::Rest::Routes::bind(&CanControllerApi::board, this));
-		Pistache::Rest::Routes::Post(router, "/api/steps", Pistache::Rest::Routes::bind(&CanControllerApi::steps, this));
-		Pistache::Rest::Routes::Post(router, "/api/speed", Pistache::Rest::Routes::bind(&CanControllerApi::speed, this));
-		Pistache::Rest::Routes::Post(router, "/api/accel", Pistache::Rest::Routes::bind(&CanControllerApi::accel, this));
-		Pistache::Rest::Routes::Post(router, "/api/decel", Pistache::Rest::Routes::bind(&CanControllerApi::decel, this));
+		Pistache::Rest::Routes::Post(router, "/api/board/set", Pistache::Rest::Routes::bind(&CanControllerApi::board, this));
+		Pistache::Rest::Routes::Post(router, "/api/steps/set", Pistache::Rest::Routes::bind(&CanControllerApi::steps, this));
+		Pistache::Rest::Routes::Post(router, "/api/speed/set", Pistache::Rest::Routes::bind(&CanControllerApi::speed, this));
+		Pistache::Rest::Routes::Post(router, "/api/accel/set", Pistache::Rest::Routes::bind(&CanControllerApi::accel, this));
+		Pistache::Rest::Routes::Post(router, "/api/decel/set", Pistache::Rest::Routes::bind(&CanControllerApi::decel, this));
 		Pistache::Rest::Routes::Get(router, "/api/move/forward", Pistache::Rest::Routes::bind(&CanControllerApi::forward, this));
 		Pistache::Rest::Routes::Get(router, "/api/move/backward", Pistache::Rest::Routes::bind(&CanControllerApi::backward, this));
 		Pistache::Rest::Routes::Get(router, "/api/homing/zero", Pistache::Rest::Routes::bind(&CanControllerApi::homingZero, this));
 		Pistache::Rest::Routes::Get(router, "/api/homing/max", Pistache::Rest::Routes::bind(&CanControllerApi::homingMax, this));
 		Pistache::Rest::Routes::Get(router, "/api/reset/driver/error", Pistache::Rest::Routes::bind(&CanControllerApi::resetDRVError, this));
+		Pistache::Rest::Routes::Get(router, "/api/move/stop", Pistache::Rest::Routes::bind(&CanControllerApi::stop, this));
 		Pistache::Rest::Routes::Get(router, "/api/brake/off", Pistache::Rest::Routes::bind(&CanControllerApi::brakeOff, this));
 		Pistache::Rest::Routes::Get(router, "/api/brake/on", Pistache::Rest::Routes::bind(&CanControllerApi::brakeOn, this));
 		Pistache::Rest::Routes::Get(router, "/api/rezerv/off", Pistache::Rest::Routes::bind(&CanControllerApi::rezervOff, this));
 		Pistache::Rest::Routes::Get(router, "/api/rezerv/on", Pistache::Rest::Routes::bind(&CanControllerApi::rezervOn, this));
-		Pistache::Rest::Routes::Get(router, "/api/alarm/reset/off", Pistache::Rest::Routes::bind(&CanControllerApi::AlarmResetOff, this));
-		Pistache::Rest::Routes::Get(router, "/api/alarm/reset/on", Pistache::Rest::Routes::bind(&CanControllerApi::AlarmResetOn, this));
+		Pistache::Rest::Routes::Get(router, "/api/alarm/reset/off", Pistache::Rest::Routes::bind(&CanControllerApi::alarmResetOff, this));
+		Pistache::Rest::Routes::Get(router, "/api/alarm/reset/on", Pistache::Rest::Routes::bind(&CanControllerApi::alarmResetOn, this));
 		Pistache::Rest::Routes::Post(router, "/api/current/pos", Pistache::Rest::Routes::bind(&CanControllerApi::currentPos, this));
+		Pistache::Rest::Routes::Get(router, "/api/reset/canstep", Pistache::Rest::Routes::bind(&CanControllerApi::resetCANStep, this));
+		Pistache::Rest::Routes::Get(router, "/api/driver/on", Pistache::Rest::Routes::bind(&CanControllerApi::driverOn, this));
+		Pistache::Rest::Routes::Get(router, "/api/driver/off", Pistache::Rest::Routes::bind(&CanControllerApi::driverOff, this));
+		Pistache::Rest::Routes::Get(router, "/api/lostcounters/reset", Pistache::Rest::Routes::bind(&CanControllerApi::resetLostCounters, this));
+		Pistache::Rest::Routes::Get(router, "/api/motor/torque", Pistache::Rest::Routes::bind(&CanControllerApi::motorTorque, this));
+		Pistache::Rest::Routes::Get(router, "/api/motor/speed", Pistache::Rest::Routes::bind(&CanControllerApi::motorSpeed, this));
+		Pistache::Rest::Routes::Get(router, "/api/pos/absolute", Pistache::Rest::Routes::bind(&CanControllerApi::absolutePositionRotorUint, this));
+		Pistache::Rest::Routes::Get(router, "/api/alarm/code", Pistache::Rest::Routes::bind(&CanControllerApi::alarmCode, this));
 		Pistache::Rest::Routes::Post(router, "/api/save/board", Pistache::Rest::Routes::bind(&CanControllerApi::saveNumBoard, this));
 		Pistache::Rest::Routes::Post(router, "/api/save/group", Pistache::Rest::Routes::bind(&CanControllerApi::saveNumGroup, this));
 		Pistache::Rest::Routes::Post(router, "/api/save/start/pos", Pistache::Rest::Routes::bind(&CanControllerApi::saveStartPos, this));
@@ -261,6 +270,18 @@ private:
 		}
 	}
 
+	void stop(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonStop_Click();
+			BOOST_LOG_TRIVIAL(info) << "buttonStop_Click";
+			response.send(Pistache::Http::Code::Ok, "Moving Stop");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonStop_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Moving Stop failed");
+		}
+	}
+
 	void brakeOff(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
@@ -309,7 +330,7 @@ private:
 		}
 	}
 
-	void AlarmResetOff(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+	void alarmResetOff(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonAlarmResetOff_Click();
@@ -321,7 +342,7 @@ private:
 		}
 	}
 
-	void AlarmResetOn(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+	void alarmResetOn(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
 		std::lock_guard<std::mutex> lock(controller_mutex);
 		try{
 			controller.buttonAlarmResetOn_Click();
@@ -345,6 +366,102 @@ private:
 		} catch (const std::exception& e){
 			BOOST_LOG_TRIVIAL(error) << "buttonCurrentPositionSet_Click" << " JSON: " << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Internal_Server_Error, "CurrentPosition Set failed");
+		}
+	}
+
+	void resetCANStep(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonResetCANStep_Click();
+			BOOST_LOG_TRIVIAL(info) << "buttonResetCANStep_Click";
+			response.send(Pistache::Http::Code::Ok, "ResetCANStep");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonResetCANStep_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "ResetCANStep failed");
+		}
+	}
+
+	void driverOn(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonDriverOn_Click();
+			BOOST_LOG_TRIVIAL(info) << "buttonDriverOn_Click";
+			response.send(Pistache::Http::Code::Ok, "DriverOn");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonDriverOn_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "DriverOn failed");
+		}
+	}
+
+	void driverOff(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonDriverOff_Click();
+			BOOST_LOG_TRIVIAL(info) << "buttonDriverOff_Click";
+			response.send(Pistache::Http::Code::Ok, "DriverOff");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonDriverOff_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "DriverOff failed");
+		}
+	}
+
+	void resetLostCounters(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.resetLostCounters_Click();
+			BOOST_LOG_TRIVIAL(info) << "resetLostCounters_Click";
+			response.send(Pistache::Http::Code::Ok, "resetLostCounters");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "resetLostCounters_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "resetLostCounters failed");
+		}
+	}
+	
+	void motorTorque(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonMotorTorque_Click();
+			BOOST_LOG_TRIVIAL(info) << "buttonMotorTorque_Click";
+			response.send(Pistache::Http::Code::Ok, "motorTorque");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonMotorTorque_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "motorTorque failed");
+		}
+	}
+
+	void motorSpeed(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonMotorSpeed_Click();
+			BOOST_LOG_TRIVIAL(info) << "buttonMotorSpeed_Click";
+			response.send(Pistache::Http::Code::Ok, "motorSpeed");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonMotorSpeed_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "motorSpeed failed");
+		}
+	}
+
+	void absolutePositionRotorUint(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonAbsolutePositionRotorUint_Click();
+			BOOST_LOG_TRIVIAL(info) << "buttonAbsolutePositionRotorUint_Click";
+			response.send(Pistache::Http::Code::Ok, "absolutePositionRotorUint");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonAbsolutePositionRotorUint_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "absolutePositionRotorUint failed");
+		}
+	}
+
+	void alarmCode(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		try{
+			controller.buttonAlarmCode_Click();
+			BOOST_LOG_TRIVIAL(info) << "buttonAlarmCode_Click";
+			response.send(Pistache::Http::Code::Ok, "alarmCode");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonAlarmCode_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "alarmCode failed");
 		}
 	}
 
@@ -489,8 +606,6 @@ private:
 		try{
 			boost::json::object obj=json_data.as_object();
 			uint8_t val=static_cast<uint8_t>(obj["numInverting"].as_int64());
-			std::cout << static_cast<int>(val) << std::endl;
-			// controller.buttonSensor1Polarity_Click(val); segmentation error, need to check with connect
 			BOOST_LOG_TRIVIAL(info) << "buttonSensor1Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Ok, "sensor1Polarity Set");
 		} catch (const std::exception& e){
@@ -505,8 +620,6 @@ private:
 		try{
 			boost::json::object obj=json_data.as_object();
 			uint8_t val=static_cast<uint8_t>(obj["numInverting"].as_int64());
-			std::cout << static_cast<int>(val) << std::endl;
-			// controller.buttonSensor2Polarity_Click(val); segmentation error, need to check with connect
 			BOOST_LOG_TRIVIAL(info) << "buttonSensor2Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Ok, "sensor2Polarity Set");
 		} catch (const std::exception& e){
@@ -521,8 +634,6 @@ private:
 		try{
 			boost::json::object obj=json_data.as_object();
 			uint8_t val=static_cast<uint8_t>(obj["numInverting"].as_int64());
-			std::cout << static_cast<int>(val) << std::endl;
-			// controller.buttonSensor3Polarity_Click(val); segmentation error, need to check with connect
 			BOOST_LOG_TRIVIAL(info) << "buttonSensor3Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Ok, "sensor3Polarity Set");
 		} catch (const std::exception& e){
@@ -537,8 +648,6 @@ private:
 		try{
 			boost::json::object obj=json_data.as_object();
 			uint8_t val=static_cast<uint8_t>(obj["numInverting"].as_int64());
-			std::cout << static_cast<int>(val) << std::endl;
-			// controller.buttonSensor4Polarity_Click(val); segmentation error, need to check with connect
 			BOOST_LOG_TRIVIAL(info) << "buttonSensor4Polarity_Click" << " JSON: " << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Ok, "sensor4Polarity Set");
 		} catch (const std::exception& e){

@@ -40,6 +40,7 @@ public slots:
     void ButtonHomZero();
     void ButtonHomMax();
     void ResetDRVRError();
+    void Stop();
     void BrakeOff();
     void BrakeOn();
     void RezervOff();
@@ -47,6 +48,14 @@ public slots:
     void AlarmResetOn();
     void AlarmResetOff();
     void CurrentPos();
+    void ResetCANStep();
+    void DriverOn();
+    void DriverOff();
+    void ResetLostCounters();
+    void MotorTorque();
+    void MotorSpeed();
+    void AbsPosRot();
+    void AlarmCode();
     void SaveNumBoard();
     void SaveNumGroup();
     void SaveStartPos();

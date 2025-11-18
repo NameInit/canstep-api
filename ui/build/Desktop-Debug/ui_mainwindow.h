@@ -80,6 +80,15 @@ public:
     QLineEdit *lineEditSensor3Polarity;
     QPushButton *pushButtonSensor4Polarity;
     QLineEdit *lineEditSensor4Polarity;
+    QPushButton *pushButtonStop;
+    QPushButton *pushButtonResetCANStep;
+    QPushButton *pushButtonDriverOn;
+    QPushButton *pushButtonDriverOff;
+    QPushButton *pushButtonResetLostCntrs;
+    QPushButton *pushButtonMotorTorque;
+    QPushButton *pushButtonMotorSpeed;
+    QPushButton *pushButtonAbsPosRot;
+    QPushButton *pushButtonAlarmCode;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -87,7 +96,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(800, 623);
         MainWindow->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
@@ -356,6 +365,51 @@ public:
 
         gridLayout->addWidget(lineEditSensor4Polarity, 8, 4, 1, 1);
 
+        pushButtonStop = new QPushButton(layoutWidget);
+        pushButtonStop->setObjectName("pushButtonStop");
+
+        gridLayout->addWidget(pushButtonStop, 8, 1, 1, 1);
+
+        pushButtonResetCANStep = new QPushButton(layoutWidget);
+        pushButtonResetCANStep->setObjectName("pushButtonResetCANStep");
+
+        gridLayout->addWidget(pushButtonResetCANStep, 9, 3, 1, 1);
+
+        pushButtonDriverOn = new QPushButton(layoutWidget);
+        pushButtonDriverOn->setObjectName("pushButtonDriverOn");
+
+        gridLayout->addWidget(pushButtonDriverOn, 10, 3, 1, 1);
+
+        pushButtonDriverOff = new QPushButton(layoutWidget);
+        pushButtonDriverOff->setObjectName("pushButtonDriverOff");
+
+        gridLayout->addWidget(pushButtonDriverOff, 10, 4, 1, 1);
+
+        pushButtonResetLostCntrs = new QPushButton(layoutWidget);
+        pushButtonResetLostCntrs->setObjectName("pushButtonResetLostCntrs");
+
+        gridLayout->addWidget(pushButtonResetLostCntrs, 9, 4, 1, 1);
+
+        pushButtonMotorTorque = new QPushButton(layoutWidget);
+        pushButtonMotorTorque->setObjectName("pushButtonMotorTorque");
+
+        gridLayout->addWidget(pushButtonMotorTorque, 11, 3, 1, 1);
+
+        pushButtonMotorSpeed = new QPushButton(layoutWidget);
+        pushButtonMotorSpeed->setObjectName("pushButtonMotorSpeed");
+
+        gridLayout->addWidget(pushButtonMotorSpeed, 11, 4, 1, 1);
+
+        pushButtonAbsPosRot = new QPushButton(layoutWidget);
+        pushButtonAbsPosRot->setObjectName("pushButtonAbsPosRot");
+
+        gridLayout->addWidget(pushButtonAbsPosRot, 12, 3, 1, 1);
+
+        pushButtonAlarmCode = new QPushButton(layoutWidget);
+        pushButtonAlarmCode->setObjectName("pushButtonAlarmCode");
+
+        gridLayout->addWidget(pushButtonAlarmCode, 12, 4, 1, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -405,6 +459,15 @@ public:
         pushButtonSensor2Polarity->setText(QCoreApplication::translate("MainWindow", "Sensor2Polarity", nullptr));
         pushButtonSensor3Polarity->setText(QCoreApplication::translate("MainWindow", "Sensor3Polarity", nullptr));
         pushButtonSensor4Polarity->setText(QCoreApplication::translate("MainWindow", "Sensor4Polarity", nullptr));
+        pushButtonStop->setText(QCoreApplication::translate("MainWindow", "stop", nullptr));
+        pushButtonResetCANStep->setText(QCoreApplication::translate("MainWindow", "ResetCANStep", nullptr));
+        pushButtonDriverOn->setText(QCoreApplication::translate("MainWindow", "DriverOn", nullptr));
+        pushButtonDriverOff->setText(QCoreApplication::translate("MainWindow", "DriverOff", nullptr));
+        pushButtonResetLostCntrs->setText(QCoreApplication::translate("MainWindow", "ResetLostCntrs", nullptr));
+        pushButtonMotorTorque->setText(QCoreApplication::translate("MainWindow", "MotorTorque", nullptr));
+        pushButtonMotorSpeed->setText(QCoreApplication::translate("MainWindow", "MotorSpeed", nullptr));
+        pushButtonAbsPosRot->setText(QCoreApplication::translate("MainWindow", "AbsPosRot", nullptr));
+        pushButtonAlarmCode->setText(QCoreApplication::translate("MainWindow", "AlarmCode", nullptr));
     } // retranslateUi
 
 };

@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonHomingZero, &QPushButton::clicked, this, &MainWindow::ButtonHomZero);
     QObject::connect(ui->pushButtonHomingMax, &QPushButton::clicked, this, &MainWindow::ButtonHomMax);
     QObject::connect(ui->pushButtonReserDRVRErr, &QPushButton::clicked, this, &MainWindow::ResetDRVRError);
+    QObject::connect(ui->pushButtonStop, &QPushButton::clicked, this, &MainWindow::Stop);
     QObject::connect(ui->pushButtonBrakeOff, &QPushButton::clicked, this, &MainWindow::BrakeOff);
     QObject::connect(ui->pushButtonBrakeOn, &QPushButton::clicked, this, &MainWindow::BrakeOn);
     QObject::connect(ui->pushButtonRezervOff, &QPushButton::clicked, this, &MainWindow::RezervOff);
@@ -27,6 +28,14 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonAlarmResetOn, &QPushButton::clicked, this, &MainWindow::AlarmResetOn);
     QObject::connect(ui->pushButtonAlarmResetOff, &QPushButton::clicked, this, &MainWindow::AlarmResetOff);
     QObject::connect(ui->pushButtoncurrentPos, &QPushButton::clicked, this, &MainWindow::CurrentPos);
+    QObject::connect(ui->pushButtonResetCANStep, &QPushButton::clicked, this, &MainWindow::ResetCANStep);
+    QObject::connect(ui->pushButtonDriverOn, &QPushButton::clicked, this, &MainWindow::DriverOn);
+    QObject::connect(ui->pushButtonDriverOff, &QPushButton::clicked, this, &MainWindow::DriverOff);
+    QObject::connect(ui->pushButtonResetLostCntrs, &QPushButton::clicked, this, &MainWindow::ResetLostCounters);
+    QObject::connect(ui->pushButtonMotorTorque, &QPushButton::clicked, this, &MainWindow::MotorTorque);
+    QObject::connect(ui->pushButtonMotorSpeed, &QPushButton::clicked, this, &MainWindow::MotorSpeed);
+    QObject::connect(ui->pushButtonAbsPosRot, &QPushButton::clicked, this, &MainWindow::AbsPosRot);
+    QObject::connect(ui->pushButtonAlarmCode, &QPushButton::clicked, this, &MainWindow::AlarmCode);
     QObject::connect(ui->pushButtonSaveNumBoard, &QPushButton::clicked, this, &MainWindow::SaveNumBoard);
     QObject::connect(ui->pushButtonSaveNumGroup, &QPushButton::clicked, this, &MainWindow::SaveNumGroup);
     QObject::connect(ui->pushButtonSaveStartPos, &QPushButton::clicked, this, &MainWindow::SaveStartPos);
@@ -67,7 +76,7 @@ void MainWindow::ButtonBoard(){
     qDebug() << "ButtonBoard";
     QJsonObject data;
     data["numBoard"]=ui->lineEditBoard->text().toInt();
-    this->sendApiRequest("api/board",data);
+    this->sendApiRequest("api/board/set",data);
     return ;
 }
 
@@ -76,7 +85,7 @@ void MainWindow::ButtonSteps()
     qDebug() << "ButtonSteps";
     QJsonObject data;
     data["numSteps"]=ui->lineEditSteps->text().toInt();
-    this->sendApiRequest("api/steps",data);
+    this->sendApiRequest("api/steps/set",data);
     return ;
 }
 
@@ -85,7 +94,7 @@ void MainWindow::ButtonSpeed()
     qDebug() << "ButtonSpeed";
     QJsonObject data;
     data["numSpeed"]=ui->lineEditSpeed->text().toInt();
-    this->sendApiRequest("api/speed",data);
+    this->sendApiRequest("api/speed/set",data);
     return ;
 }
 
@@ -94,7 +103,7 @@ void MainWindow::ButtonAccel()
     qDebug() << "ButtonAccel";
     QJsonObject data;
     data["numAccel"]=ui->lineEditAccel->text().toInt();
-    this->sendApiRequest("api/accel",data);
+    this->sendApiRequest("api/accel/set",data);
     return ;
 }
 
@@ -103,7 +112,7 @@ void MainWindow::ButtonDecel()
     qDebug() << "ButtonDecel";
     QJsonObject data;
     data["numDecel"]=ui->lineEditDecel->text().toInt();
-    this->sendApiRequest("api/decel",data);
+    this->sendApiRequest("api/decel/set",data);
     return ;
 }
 
@@ -139,6 +148,13 @@ void MainWindow::ResetDRVRError()
 {
     qDebug() << "ResetDRVRError";
     this->sendApiRequest("api/reset/driver/error");
+    return ;
+}
+
+void MainWindow::Stop()
+{
+    qDebug() << "Stop";
+    this->sendApiRequest("api/move/stop");
     return ;
 }
 
@@ -192,6 +208,63 @@ void MainWindow::CurrentPos()
     this->sendApiRequest("api/current/pos",data);
     return ;
 }
+
+void MainWindow::ResetCANStep()
+{
+    qDebug() << "ResetCANStep";
+    this->sendApiRequest("api/reset/canstep");
+    return ;
+}
+
+void MainWindow::DriverOn()
+{
+    qDebug() << "DriverOn";
+    this->sendApiRequest("api/driver/on");
+    return ;
+}
+
+void MainWindow::DriverOff()
+{
+    qDebug() << "DriverOff";
+    this->sendApiRequest("api/driver/off");
+    return ;
+}
+
+void MainWindow::ResetLostCounters()
+{
+    qDebug() << "ResetLostCounters";
+    this->sendApiRequest("api/lostcounters/reset");
+    return ;
+}
+
+void MainWindow::MotorTorque()
+{
+    qDebug() << "MotorTorque";
+    this->sendApiRequest("api/motor/torque");
+    return ;
+}
+
+void MainWindow::MotorSpeed()
+{
+    qDebug() << "MotorSpeed";
+    this->sendApiRequest("api/motor/speed");
+    return ;
+}
+
+void MainWindow::AbsPosRot()
+{
+    qDebug() << "AbsPosRot";
+    this->sendApiRequest("api/pos/absolute");
+    return ;
+}
+
+void MainWindow::AlarmCode()
+{
+    qDebug() << "AlarmCode";
+    this->sendApiRequest("api/alarm/code");
+    return ;
+}
+
 
 void MainWindow::SaveNumBoard()
 {
