@@ -65,7 +65,11 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEditSteps"/>
+      <widget class="QLineEdit" name="lineEditSteps">
+       <property name="text">
+        <string>1000</string>
+       </property>
+      </widget>
      </item>
      <item row="12" column="6">
       <widget class="QPushButton" name="pushButtonAl_CLRPolarity">
@@ -427,10 +431,18 @@
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="lineEditSpeed"/>
+      <widget class="QLineEdit" name="lineEditSpeed">
+       <property name="text">
+        <string>10</string>
+       </property>
+      </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEditBoard"/>
+      <widget class="QLineEdit" name="lineEditBoard">
+       <property name="text">
+        <string>16</string>
+       </property>
+      </widget>
      </item>
      <item row="13" column="0">
       <widget class="QPushButton" name="pushButtonSaveNumBoard">
@@ -440,7 +452,11 @@
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QLineEdit" name="lineEditAccel"/>
+      <widget class="QLineEdit" name="lineEditAccel">
+       <property name="text">
+        <string>10</string>
+       </property>
+      </widget>
      </item>
      <item row="16" column="1">
       <widget class="QLineEdit" name="lineEditSaveEndPos"/>
@@ -675,7 +691,11 @@
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QLineEdit" name="lineEditDecel"/>
+      <widget class="QLineEdit" name="lineEditDecel">
+       <property name="text">
+        <string>10</string>
+       </property>
+      </widget>
      </item>
      <item row="12" column="0">
       <widget class="QPushButton" name="pushButtoncurrentPos">
@@ -894,6 +914,49 @@
         <string>EncoderConfig</string>
        </property>
       </widget>
+     </item>
+     <item row="15" column="6">
+      <widget class="QPushButton" name="pushButtonAutosender">
+       <property name="text">
+        <string>Autosender</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="7">
+      <layout class="QHBoxLayout" name="horizontalLayoutAutosenderType">
+       <item>
+        <widget class="QLabel" name="labelAutosenderType">
+         <property name="text">
+          <string>Type</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEditAutosenderType">
+         <property name="text">
+          <string>3</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="16" column="7">
+      <layout class="QHBoxLayout" name="horizontalLayoutAutosenderMs">
+       <item>
+        <widget class="QLabel" name="labelAutosenderMs">
+         <property name="text">
+          <string>Ms</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEditAutosenderMs">
+         <property name="text">
+          <string>10</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>

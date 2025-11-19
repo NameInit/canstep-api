@@ -28,6 +28,7 @@ private:
     QNetworkAccessManager *networkManager;
 
 public slots:
+    void ButtonAutosender();
     void ButtonConnect();
     void ButtonDebugOn();
     void ButtonBoard();

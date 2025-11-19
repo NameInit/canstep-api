@@ -66,6 +66,7 @@ private:
 	}
 
 	void setupRoutes(){
+		Pistache::Rest::Routes::Post(router, "/api/autosender", Pistache::Rest::Routes::bind(&CanControllerApi::autosender, this));
 		Pistache::Rest::Routes::Get(router, "/api/connect", Pistache::Rest::Routes::bind(&CanControllerApi::connect, this));
 		Pistache::Rest::Routes::Get(router, "/api/debug/on", Pistache::Rest::Routes::bind(&CanControllerApi::debugOn, this));
 		Pistache::Rest::Routes::Post(router, "/api/board/set", Pistache::Rest::Routes::bind(&CanControllerApi::board, this));
@@ -126,6 +127,22 @@ private:
 		Pistache::Rest::Routes::Post(router, "/api/sensor/encoder/config", Pistache::Rest::Routes::bind(&CanControllerApi::encoderConfig, this));
 
 		Pistache::Rest::Routes::Get(router, "/health", Pistache::Rest::Routes::bind(&CanControllerApi::health, this));
+	}
+
+	void autosender(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			int64_t type=obj["numType"].as_int64();
+			int64_t ms=obj["numMs"].as_int64();
+			controller.buttonAutosender_Click(type,ms);
+			BOOST_LOG_TRIVIAL(info) << "buttonAutosender_Click";
+			response.send(Pistache::Http::Code::Ok, "Autosender");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonAutosender_Click";
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Autosender failed");
+		}
 	}
 
 	void connect(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){

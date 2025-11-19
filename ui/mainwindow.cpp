@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    QObject::connect(ui->pushButtonAutosender, &QPushButton::clicked, this, &MainWindow::ButtonAutosender);
     QObject::connect(ui->pushButtonConnect, &QPushButton::clicked, this, &MainWindow::ButtonConnect);
     QObject::connect(ui->pushButtonDebugOn, &QPushButton::clicked, this, &MainWindow::ButtonDebugOn);
     QObject::connect(ui->pushButtonBoard, &QPushButton::clicked, this, &MainWindow::ButtonBoard);
@@ -73,6 +74,15 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::ButtonAutosender(){
+    qDebug() << "ButtonAutosender";
+    QJsonObject data;
+    data["numType"]=ui->lineEditAutosenderType->text().toInt();
+    data["numMs"]=ui->lineEditAutosenderMs->text().toInt();
+    this->sendApiRequest("api/autosender",data);
+    return ;
 }
 
 void MainWindow::ButtonConnect()

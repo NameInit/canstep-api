@@ -135,6 +135,13 @@ public:
     QPushButton *pushButtonResetCANStep;
     QLineEdit *lineEditStepsTurn;
     QPushButton *pushButtonEncoderConfig;
+    QPushButton *pushButtonAutosender;
+    QHBoxLayout *horizontalLayoutAutosenderType;
+    QLabel *labelAutosenderType;
+    QLineEdit *lineEditAutosenderType;
+    QHBoxLayout *horizontalLayoutAutosenderMs;
+    QLabel *labelAutosenderMs;
+    QLineEdit *lineEditAutosenderMs;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -142,7 +149,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(983, 646);
+        MainWindow->resize(1271, 646);
         MainWindow->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
@@ -723,10 +730,45 @@ public:
 
         gridLayout->addWidget(pushButtonEncoderConfig, 15, 3, 1, 1);
 
+        pushButtonAutosender = new QPushButton(layoutWidget);
+        pushButtonAutosender->setObjectName("pushButtonAutosender");
+
+        gridLayout->addWidget(pushButtonAutosender, 15, 6, 1, 1);
+
+        horizontalLayoutAutosenderType = new QHBoxLayout();
+        horizontalLayoutAutosenderType->setObjectName("horizontalLayoutAutosenderType");
+        labelAutosenderType = new QLabel(layoutWidget);
+        labelAutosenderType->setObjectName("labelAutosenderType");
+
+        horizontalLayoutAutosenderType->addWidget(labelAutosenderType);
+
+        lineEditAutosenderType = new QLineEdit(layoutWidget);
+        lineEditAutosenderType->setObjectName("lineEditAutosenderType");
+
+        horizontalLayoutAutosenderType->addWidget(lineEditAutosenderType);
+
+
+        gridLayout->addLayout(horizontalLayoutAutosenderType, 15, 7, 1, 1);
+
+        horizontalLayoutAutosenderMs = new QHBoxLayout();
+        horizontalLayoutAutosenderMs->setObjectName("horizontalLayoutAutosenderMs");
+        labelAutosenderMs = new QLabel(layoutWidget);
+        labelAutosenderMs->setObjectName("labelAutosenderMs");
+
+        horizontalLayoutAutosenderMs->addWidget(labelAutosenderMs);
+
+        lineEditAutosenderMs = new QLineEdit(layoutWidget);
+        lineEditAutosenderMs->setObjectName("lineEditAutosenderMs");
+
+        horizontalLayoutAutosenderMs->addWidget(lineEditAutosenderMs);
+
+
+        gridLayout->addLayout(horizontalLayoutAutosenderMs, 16, 7, 1, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 983, 23));
+        menubar->setGeometry(QRect(0, 0, 1271, 23));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -872,6 +914,9 @@ public:
         pushButtonSensor1Polarity->setText(QCoreApplication::translate("MainWindow", "Sensor1Polarity", nullptr));
         pushButtonResetCANStep->setText(QCoreApplication::translate("MainWindow", "ResetCANStep", nullptr));
         pushButtonEncoderConfig->setText(QCoreApplication::translate("MainWindow", "EncoderConfig", nullptr));
+        pushButtonAutosender->setText(QCoreApplication::translate("MainWindow", "Autosender", nullptr));
+        labelAutosenderType->setText(QCoreApplication::translate("MainWindow", "Type", nullptr));
+        labelAutosenderMs->setText(QCoreApplication::translate("MainWindow", "Ms", nullptr));
     } // retranslateUi
 
 };
