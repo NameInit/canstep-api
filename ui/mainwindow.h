@@ -79,6 +79,13 @@ public slots:
     void INPOSPolarity();
     void FAULTPolarity();
     void BrakePolarity();
+    void DirPolarity();
+    void EnPolarity();
+    void Al_CLRPolarity();
+    void Al_OBrakePolarity();
+    void Al_ORezervPolarity();
+    void EncoderActive();
+    void EncoderConfig();
 
     void sendApiRequest(const QString &endpoint, const QJsonObject &data = QJsonObject());
     void onApiReplyFinished(QNetworkReply *reply);

@@ -59,6 +59,13 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonINPOSPolarity, &QPushButton::clicked, this, &MainWindow::INPOSPolarity);
     QObject::connect(ui->pushButtonFAULTPolarity, &QPushButton::clicked, this, &MainWindow::FAULTPolarity);
     QObject::connect(ui->pushButtonBrakePolarity, &QPushButton::clicked, this, &MainWindow::BrakePolarity);
+    QObject::connect(ui->pushButtonDirPolarity, &QPushButton::clicked, this, &MainWindow::DirPolarity);
+    QObject::connect(ui->pushButtonEnPolarity, &QPushButton::clicked, this, &MainWindow::EnPolarity);
+    QObject::connect(ui->pushButtonAl_CLRPolarity, &QPushButton::clicked, this, &MainWindow::Al_CLRPolarity);
+    QObject::connect(ui->pushButtonAl_OBrakePolarity, &QPushButton::clicked, this, &MainWindow::Al_OBrakePolarity);
+    QObject::connect(ui->pushButtonAl_ORezervPolarity, &QPushButton::clicked, this, &MainWindow::Al_ORezervPolarity);
+    QObject::connect(ui->pushButtonEncoderActive, &QPushButton::clicked, this, &MainWindow::EncoderActive);
+    QObject::connect(ui->pushButtonEncoderConfig, &QPushButton::clicked, this, &MainWindow::EncoderConfig);
 
     QObject::connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onApiReplyFinished);
 }
@@ -471,6 +478,65 @@ void MainWindow::BrakePolarity(){
     return ;
 }
 
+void MainWindow::DirPolarity(){
+    qDebug() << "DirPolarity";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxDirPolarity->currentText();
+    this->sendApiRequest("api/sensor/polarity/direction",data);
+    return ;
+}
+
+void MainWindow::EnPolarity(){
+    qDebug() << "EnPolarity";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxEnPolarity->currentText();
+    this->sendApiRequest("api/sensor/polarity/en",data);
+    return ;
+}
+
+void MainWindow::Al_CLRPolarity(){
+    qDebug() << "Al_CLRPolarity";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxAl_CLRPolarity->currentText();
+    this->sendApiRequest("api/sensor/polarity/al_clr",data);
+    return ;
+}
+
+void MainWindow::Al_OBrakePolarity(){
+    qDebug() << "Al_OBrakePolarity";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxAl_OBrakePolarity->currentText();
+    this->sendApiRequest("api/sensor/polarity/al_obrake",data);
+    return ;
+}
+
+void MainWindow::Al_ORezervPolarity(){
+    qDebug() << "Al_ORezervPolarity";
+    QJsonObject data;
+    data["statusInverting"]=ui->comboBoxAl_ORezervPolarity->currentText();
+    this->sendApiRequest("api/sensor/polarity/al_orezerv",data);
+    return ;
+}
+
+void MainWindow::EncoderActive()
+{
+    qDebug() << "EncoderActive";
+    QJsonObject data;
+    data["statusActive"]=ui->comboBoxEncoderActive->currentText()=="True" ? true : false;
+    this->sendApiRequest("api/sensor/encoder/active",data);
+    return ;
+}
+
+void MainWindow::EncoderConfig()
+{
+    qDebug() << "EncoderConfig";
+    QJsonObject data;
+    data["numPolarity"]=ui->lineEditPolarity->text().toInt();
+    data["numDelta"]=ui->lineEditDelta->text().toInt();
+    data["numTurnData"]=ui->lineEditTurnData->text().toInt();
+    this->sendApiRequest("api/sensor/encoder/config",data);
+    return ;
+}
 
 void MainWindow::sendApiRequest(const QString &endpoint, const QJsonObject &data)
 {

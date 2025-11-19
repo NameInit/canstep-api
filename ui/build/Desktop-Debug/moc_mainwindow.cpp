@@ -27,7 +27,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MainWindow_t {
-    uint offsetsAndSizes[122];
+    uint offsetsAndSizes[136];
     char stringdata0[11];
     char stringdata1[14];
     char stringdata2[1];
@@ -81,14 +81,21 @@ struct qt_meta_stringdata_MainWindow_t {
     char stringdata50[14];
     char stringdata51[14];
     char stringdata52[14];
-    char stringdata53[15];
-    char stringdata54[9];
-    char stringdata55[5];
-    char stringdata56[19];
-    char stringdata57[15];
-    char stringdata58[6];
-    char stringdata59[13];
-    char stringdata60[6];
+    char stringdata53[12];
+    char stringdata54[11];
+    char stringdata55[15];
+    char stringdata56[18];
+    char stringdata57[19];
+    char stringdata58[14];
+    char stringdata59[14];
+    char stringdata60[15];
+    char stringdata61[9];
+    char stringdata62[5];
+    char stringdata63[19];
+    char stringdata64[15];
+    char stringdata65[6];
+    char stringdata66[13];
+    char stringdata67[6];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MainWindow_t::offsetsAndSizes) + ofs), len 
@@ -147,14 +154,21 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
         QT_MOC_LITERAL(597, 13),  // "INPOSPolarity"
         QT_MOC_LITERAL(611, 13),  // "FAULTPolarity"
         QT_MOC_LITERAL(625, 13),  // "BrakePolarity"
-        QT_MOC_LITERAL(639, 14),  // "sendApiRequest"
-        QT_MOC_LITERAL(654, 8),  // "endpoint"
-        QT_MOC_LITERAL(663, 4),  // "data"
-        QT_MOC_LITERAL(668, 18),  // "onApiReplyFinished"
-        QT_MOC_LITERAL(687, 14),  // "QNetworkReply*"
-        QT_MOC_LITERAL(702, 5),  // "reply"
-        QT_MOC_LITERAL(708, 12),  // "showApiError"
-        QT_MOC_LITERAL(721, 5)   // "error"
+        QT_MOC_LITERAL(639, 11),  // "DirPolarity"
+        QT_MOC_LITERAL(651, 10),  // "EnPolarity"
+        QT_MOC_LITERAL(662, 14),  // "Al_CLRPolarity"
+        QT_MOC_LITERAL(677, 17),  // "Al_OBrakePolarity"
+        QT_MOC_LITERAL(695, 18),  // "Al_ORezervPolarity"
+        QT_MOC_LITERAL(714, 13),  // "EncoderActive"
+        QT_MOC_LITERAL(728, 13),  // "EncoderConfig"
+        QT_MOC_LITERAL(742, 14),  // "sendApiRequest"
+        QT_MOC_LITERAL(757, 8),  // "endpoint"
+        QT_MOC_LITERAL(766, 4),  // "data"
+        QT_MOC_LITERAL(771, 18),  // "onApiReplyFinished"
+        QT_MOC_LITERAL(790, 14),  // "QNetworkReply*"
+        QT_MOC_LITERAL(805, 5),  // "reply"
+        QT_MOC_LITERAL(811, 12),  // "showApiError"
+        QT_MOC_LITERAL(824, 5)   // "error"
     },
     "MainWindow",
     "ButtonConnect",
@@ -209,6 +223,13 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
     "INPOSPolarity",
     "FAULTPolarity",
     "BrakePolarity",
+    "DirPolarity",
+    "EnPolarity",
+    "Al_CLRPolarity",
+    "Al_OBrakePolarity",
+    "Al_ORezervPolarity",
+    "EncoderActive",
+    "EncoderConfig",
     "sendApiRequest",
     "endpoint",
     "data",
@@ -227,7 +248,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      55,   14, // methods
+      62,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -235,61 +256,68 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  344,    2, 0x0a,    1 /* Public */,
-       3,    0,  345,    2, 0x0a,    2 /* Public */,
-       4,    0,  346,    2, 0x0a,    3 /* Public */,
-       5,    0,  347,    2, 0x0a,    4 /* Public */,
-       6,    0,  348,    2, 0x0a,    5 /* Public */,
-       7,    0,  349,    2, 0x0a,    6 /* Public */,
-       8,    0,  350,    2, 0x0a,    7 /* Public */,
-       9,    0,  351,    2, 0x0a,    8 /* Public */,
-      10,    0,  352,    2, 0x0a,    9 /* Public */,
-      11,    0,  353,    2, 0x0a,   10 /* Public */,
-      12,    0,  354,    2, 0x0a,   11 /* Public */,
-      13,    0,  355,    2, 0x0a,   12 /* Public */,
-      14,    0,  356,    2, 0x0a,   13 /* Public */,
-      15,    0,  357,    2, 0x0a,   14 /* Public */,
-      16,    0,  358,    2, 0x0a,   15 /* Public */,
-      17,    0,  359,    2, 0x0a,   16 /* Public */,
-      18,    0,  360,    2, 0x0a,   17 /* Public */,
-      19,    0,  361,    2, 0x0a,   18 /* Public */,
-      20,    0,  362,    2, 0x0a,   19 /* Public */,
-      21,    0,  363,    2, 0x0a,   20 /* Public */,
-      22,    0,  364,    2, 0x0a,   21 /* Public */,
-      23,    0,  365,    2, 0x0a,   22 /* Public */,
-      24,    0,  366,    2, 0x0a,   23 /* Public */,
-      25,    0,  367,    2, 0x0a,   24 /* Public */,
-      26,    0,  368,    2, 0x0a,   25 /* Public */,
-      27,    0,  369,    2, 0x0a,   26 /* Public */,
-      28,    0,  370,    2, 0x0a,   27 /* Public */,
-      29,    0,  371,    2, 0x0a,   28 /* Public */,
-      30,    0,  372,    2, 0x0a,   29 /* Public */,
-      31,    0,  373,    2, 0x0a,   30 /* Public */,
-      32,    0,  374,    2, 0x0a,   31 /* Public */,
-      33,    0,  375,    2, 0x0a,   32 /* Public */,
-      34,    0,  376,    2, 0x0a,   33 /* Public */,
-      35,    0,  377,    2, 0x0a,   34 /* Public */,
-      36,    0,  378,    2, 0x0a,   35 /* Public */,
-      37,    0,  379,    2, 0x0a,   36 /* Public */,
-      38,    0,  380,    2, 0x0a,   37 /* Public */,
-      39,    0,  381,    2, 0x0a,   38 /* Public */,
-      40,    0,  382,    2, 0x0a,   39 /* Public */,
-      41,    0,  383,    2, 0x0a,   40 /* Public */,
-      42,    0,  384,    2, 0x0a,   41 /* Public */,
-      43,    0,  385,    2, 0x0a,   42 /* Public */,
-      44,    0,  386,    2, 0x0a,   43 /* Public */,
-      45,    0,  387,    2, 0x0a,   44 /* Public */,
-      46,    0,  388,    2, 0x0a,   45 /* Public */,
-      47,    0,  389,    2, 0x0a,   46 /* Public */,
-      48,    0,  390,    2, 0x0a,   47 /* Public */,
-      49,    0,  391,    2, 0x0a,   48 /* Public */,
-      50,    0,  392,    2, 0x0a,   49 /* Public */,
-      51,    0,  393,    2, 0x0a,   50 /* Public */,
-      52,    0,  394,    2, 0x0a,   51 /* Public */,
-      53,    2,  395,    2, 0x0a,   52 /* Public */,
-      53,    1,  400,    2, 0x2a,   55 /* Public | MethodCloned */,
-      56,    1,  403,    2, 0x0a,   57 /* Public */,
-      59,    1,  406,    2, 0x0a,   59 /* Public */,
+       1,    0,  386,    2, 0x0a,    1 /* Public */,
+       3,    0,  387,    2, 0x0a,    2 /* Public */,
+       4,    0,  388,    2, 0x0a,    3 /* Public */,
+       5,    0,  389,    2, 0x0a,    4 /* Public */,
+       6,    0,  390,    2, 0x0a,    5 /* Public */,
+       7,    0,  391,    2, 0x0a,    6 /* Public */,
+       8,    0,  392,    2, 0x0a,    7 /* Public */,
+       9,    0,  393,    2, 0x0a,    8 /* Public */,
+      10,    0,  394,    2, 0x0a,    9 /* Public */,
+      11,    0,  395,    2, 0x0a,   10 /* Public */,
+      12,    0,  396,    2, 0x0a,   11 /* Public */,
+      13,    0,  397,    2, 0x0a,   12 /* Public */,
+      14,    0,  398,    2, 0x0a,   13 /* Public */,
+      15,    0,  399,    2, 0x0a,   14 /* Public */,
+      16,    0,  400,    2, 0x0a,   15 /* Public */,
+      17,    0,  401,    2, 0x0a,   16 /* Public */,
+      18,    0,  402,    2, 0x0a,   17 /* Public */,
+      19,    0,  403,    2, 0x0a,   18 /* Public */,
+      20,    0,  404,    2, 0x0a,   19 /* Public */,
+      21,    0,  405,    2, 0x0a,   20 /* Public */,
+      22,    0,  406,    2, 0x0a,   21 /* Public */,
+      23,    0,  407,    2, 0x0a,   22 /* Public */,
+      24,    0,  408,    2, 0x0a,   23 /* Public */,
+      25,    0,  409,    2, 0x0a,   24 /* Public */,
+      26,    0,  410,    2, 0x0a,   25 /* Public */,
+      27,    0,  411,    2, 0x0a,   26 /* Public */,
+      28,    0,  412,    2, 0x0a,   27 /* Public */,
+      29,    0,  413,    2, 0x0a,   28 /* Public */,
+      30,    0,  414,    2, 0x0a,   29 /* Public */,
+      31,    0,  415,    2, 0x0a,   30 /* Public */,
+      32,    0,  416,    2, 0x0a,   31 /* Public */,
+      33,    0,  417,    2, 0x0a,   32 /* Public */,
+      34,    0,  418,    2, 0x0a,   33 /* Public */,
+      35,    0,  419,    2, 0x0a,   34 /* Public */,
+      36,    0,  420,    2, 0x0a,   35 /* Public */,
+      37,    0,  421,    2, 0x0a,   36 /* Public */,
+      38,    0,  422,    2, 0x0a,   37 /* Public */,
+      39,    0,  423,    2, 0x0a,   38 /* Public */,
+      40,    0,  424,    2, 0x0a,   39 /* Public */,
+      41,    0,  425,    2, 0x0a,   40 /* Public */,
+      42,    0,  426,    2, 0x0a,   41 /* Public */,
+      43,    0,  427,    2, 0x0a,   42 /* Public */,
+      44,    0,  428,    2, 0x0a,   43 /* Public */,
+      45,    0,  429,    2, 0x0a,   44 /* Public */,
+      46,    0,  430,    2, 0x0a,   45 /* Public */,
+      47,    0,  431,    2, 0x0a,   46 /* Public */,
+      48,    0,  432,    2, 0x0a,   47 /* Public */,
+      49,    0,  433,    2, 0x0a,   48 /* Public */,
+      50,    0,  434,    2, 0x0a,   49 /* Public */,
+      51,    0,  435,    2, 0x0a,   50 /* Public */,
+      52,    0,  436,    2, 0x0a,   51 /* Public */,
+      53,    0,  437,    2, 0x0a,   52 /* Public */,
+      54,    0,  438,    2, 0x0a,   53 /* Public */,
+      55,    0,  439,    2, 0x0a,   54 /* Public */,
+      56,    0,  440,    2, 0x0a,   55 /* Public */,
+      57,    0,  441,    2, 0x0a,   56 /* Public */,
+      58,    0,  442,    2, 0x0a,   57 /* Public */,
+      59,    0,  443,    2, 0x0a,   58 /* Public */,
+      60,    2,  444,    2, 0x0a,   59 /* Public */,
+      60,    1,  449,    2, 0x2a,   62 /* Public | MethodCloned */,
+      63,    1,  452,    2, 0x0a,   64 /* Public */,
+      66,    1,  455,    2, 0x0a,   66 /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -343,10 +371,17 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject,   54,   55,
-    QMetaType::Void, QMetaType::QString,   54,
-    QMetaType::Void, 0x80000000 | 57,   58,
-    QMetaType::Void, QMetaType::QString,   60,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject,   61,   62,
+    QMetaType::Void, QMetaType::QString,   61,
+    QMetaType::Void, 0x80000000 | 64,   65,
+    QMetaType::Void, QMetaType::QString,   67,
 
        0        // eod
 };
@@ -462,6 +497,20 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'BrakePolarity'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'DirPolarity'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'EnPolarity'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'Al_CLRPolarity'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'Al_OBrakePolarity'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'Al_ORezervPolarity'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'EncoderActive'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'EncoderConfig'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'sendApiRequest'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
@@ -536,16 +585,23 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 48: _t->INPOSPolarity(); break;
         case 49: _t->FAULTPolarity(); break;
         case 50: _t->BrakePolarity(); break;
-        case 51: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2]))); break;
-        case 52: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 53: _t->onApiReplyFinished((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
-        case 54: _t->showApiError((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 51: _t->DirPolarity(); break;
+        case 52: _t->EnPolarity(); break;
+        case 53: _t->Al_CLRPolarity(); break;
+        case 54: _t->Al_OBrakePolarity(); break;
+        case 55: _t->Al_ORezervPolarity(); break;
+        case 56: _t->EncoderActive(); break;
+        case 57: _t->EncoderConfig(); break;
+        case 58: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2]))); break;
+        case 59: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 60: _t->onApiReplyFinished((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
+        case 61: _t->showApiError((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 53:
+        case 60:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -575,13 +631,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 55)
+        if (_id < 62)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 55;
+        _id -= 62;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 55)
+        if (_id < 62)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 55;
+        _id -= 62;
     }
     return _id;
 }

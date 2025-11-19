@@ -117,7 +117,14 @@ private:
 		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/inpos", Pistache::Rest::Routes::bind(&CanControllerApi::INPOSPolarity, this));
 		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/fault", Pistache::Rest::Routes::bind(&CanControllerApi::FAULTPolarity, this));
 		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/brake", Pistache::Rest::Routes::bind(&CanControllerApi::BrakePolarity, this));
-		
+		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/direction", Pistache::Rest::Routes::bind(&CanControllerApi::DirPolarity, this));
+		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/en", Pistache::Rest::Routes::bind(&CanControllerApi::EnPolarity, this));
+		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/al_clr", Pistache::Rest::Routes::bind(&CanControllerApi::Al_CLRPolarity, this));
+		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/al_obrake", Pistache::Rest::Routes::bind(&CanControllerApi::Al_OBrakePolarity, this));
+		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/al_orezerv", Pistache::Rest::Routes::bind(&CanControllerApi::Al_ORezervPolarity, this));
+		Pistache::Rest::Routes::Post(router, "/api/sensor/encoder/active", Pistache::Rest::Routes::bind(&CanControllerApi::EncoderActive, this));
+		Pistache::Rest::Routes::Post(router, "/api/sensor/encoder/config", Pistache::Rest::Routes::bind(&CanControllerApi::encoderConfig, this));
+
 		Pistache::Rest::Routes::Get(router, "/health", Pistache::Rest::Routes::bind(&CanControllerApi::health, this));
 	}
 
@@ -819,7 +826,114 @@ private:
 			response.send(Pistache::Http::Code::Internal_Server_Error, "BrakePolarity Set failed");
 		}
 	}
-	
+
+	void DirPolarity(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			std::string val = static_cast<std::string>(obj["statusInverting"].as_string());
+			controller.buttonDirPolarity_Click(val);
+			BOOST_LOG_TRIVIAL(info) << "buttonDirPolarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "DirPolarity Set");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonDirPolarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "DirPolarity Set failed");
+		}
+	}
+
+	void EnPolarity(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			std::string val = static_cast<std::string>(obj["statusInverting"].as_string());
+			controller.buttonEnPolarity_Click(val);
+			BOOST_LOG_TRIVIAL(info) << "buttonEnPolarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "EnPolarity Set");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonEnPolarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "EnPolarity Set failed");
+		}
+	}
+
+	void Al_CLRPolarity(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			std::string val = static_cast<std::string>(obj["statusInverting"].as_string());
+			controller.buttonAl_CLRPolarity_Click(val);
+			BOOST_LOG_TRIVIAL(info) << "buttonAl_CLRPolarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "Al_CLRPolarity Set");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonAl_CLRPolarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Al_CLRPolarity Set failed");
+		}
+	}
+
+	void Al_OBrakePolarity(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			std::string val = static_cast<std::string>(obj["statusInverting"].as_string());
+			controller.buttonAl_OBrakePolarity_Click(val);
+			BOOST_LOG_TRIVIAL(info) << "buttonAl_OBrakePolarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "Al_OBrakePolarity Set");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonAl_OBrakePolarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Al_OBrakePolarity Set failed");
+		}
+	}
+
+	void Al_ORezervPolarity(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			std::string val = static_cast<std::string>(obj["statusInverting"].as_string());
+			controller.buttonAl_ORezervPolarity_Click(val);
+			BOOST_LOG_TRIVIAL(info) << "buttonAl_ORezervPolarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "Al_ORezervPolarity Set");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonAl_ORezervPolarity_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Al_ORezervPolarity Set failed");
+		}
+	}
+
+	void EncoderActive(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			bool val = static_cast<bool>(obj["statusActive"].as_bool());
+			controller.setEncoderActive(val);
+			BOOST_LOG_TRIVIAL(info) << "setEncoderActive" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "setEncoderActive Set");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "setEncoderActive" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "setEncoderActive Set failed");
+		}
+	}
+
+	void encoderConfig(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controller_mutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			int64_t polarity = obj["numPolarity"].as_int64();
+			int64_t delta = obj["numDelta"].as_int64();
+			int64_t turnData = obj["numTurnData"].as_int64();
+			controller.buttonEncoderConfig_Click(polarity,delta,turnData);
+			BOOST_LOG_TRIVIAL(info) << "buttonEncoderConfig_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "encoderConfig Set");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << "buttonEncoderConfig_Click" << " JSON: " << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "encoderConfig Set failed");
+		}
+	}
+
 	void health(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
 		BOOST_LOG_TRIVIAL(info) << "health check";
 		response.send(Pistache::Http::Code::Ok, "OK");

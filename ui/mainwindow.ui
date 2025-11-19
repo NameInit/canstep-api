@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>983</width>
+    <width>1271</width>
     <height>646</height>
    </rect>
   </property>
@@ -22,61 +22,15 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>835</width>
+      <width>859</width>
       <height>572</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="8" column="3">
-      <widget class="QPushButton" name="pushButtonSensor4Polarity">
+     <item row="9" column="1">
+      <widget class="QPushButton" name="pushButtonBrakeOn">
        <property name="text">
-        <string>Sensor4Polarity</string>
-       </property>
-      </widget>
-     </item>
-     <item row="13" column="4">
-      <widget class="QLineEdit" name="lineEditMicroSteps"/>
-     </item>
-     <item row="15" column="0">
-      <widget class="QPushButton" name="pushButtonSaveStartPos">
-       <property name="text">
-        <string>SaveStartPos</string>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="0">
-      <widget class="QPushButton" name="pushButtonRezervOff">
-       <property name="text">
-        <string>RezervOff</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="4">
-      <widget class="QComboBox" name="comboBoxSensor2Polarity">
-       <item>
-        <property name="text">
-         <string>Inverted</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>NotInverted</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>UnknownInverted</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="0" column="4">
-      <widget class="QLineEdit" name="lineEditSaveMaxSpeed"/>
-     </item>
-     <item row="6" column="1">
-      <widget class="QPushButton" name="pushButtonBackward">
-       <property name="text">
-        <string>backward</string>
+        <string>BrakeOn</string>
        </property>
       </widget>
      </item>
@@ -103,34 +57,277 @@
        </property>
       </widget>
      </item>
-     <item row="14" column="1">
-      <widget class="QLineEdit" name="lineEditSaveNumGroup"/>
-     </item>
-     <item row="13" column="3">
-      <widget class="QPushButton" name="pushButtonMicroSteps">
+     <item row="14" column="6">
+      <widget class="QPushButton" name="pushButtonAl_ORezervPolarity">
        <property name="text">
-        <string>MicroSteps</string>
+        <string>Al_ORezervPolarity</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="3">
-      <widget class="QPushButton" name="pushButtonSensor2Polarity">
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="lineEditSteps"/>
+     </item>
+     <item row="12" column="6">
+      <widget class="QPushButton" name="pushButtonAl_CLRPolarity">
        <property name="text">
-        <string>Sensor2Polarity</string>
+        <string>Al_CLRPolarity</string>
        </property>
       </widget>
      </item>
-     <item row="8" column="1">
-      <widget class="QPushButton" name="pushButtonStop">
+     <item row="8" column="6">
+      <widget class="QPushButton" name="pushButtonSensor4Dir">
        <property name="text">
-        <string>stop</string>
+        <string>SensorDir4</string>
        </property>
       </widget>
      </item>
-     <item row="10" column="4">
-      <widget class="QPushButton" name="pushButtonDriverOff">
+     <item row="8" column="0">
+      <widget class="QPushButton" name="pushButtonReserDRVRErr">
        <property name="text">
-        <string>DriverOff</string>
+        <string>ReserDRVRErr</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QPushButton" name="pushButtonHomingMax">
+       <property name="text">
+        <string>HomingMax</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="6">
+      <widget class="QPushButton" name="pushButtonAl_OBrakePolarity">
+       <property name="text">
+        <string>Al_OBrakePolarity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="3">
+      <layout class="QHBoxLayout" name="horizontalLayoutTrunData">
+       <item>
+        <widget class="QLabel" name="labelTurnData">
+         <property name="text">
+          <string>TurnData:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEditTurnData"/>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLineEdit" name="lineEditSaveMaxSpeed"/>
+     </item>
+     <item row="8" column="7">
+      <widget class="QComboBox" name="comboBoxSensor4Dir">
+       <item>
+        <property name="text">
+         <string>None</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Forward</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Backward</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="2" column="6">
+      <widget class="QPushButton" name="pushButtonFAULTPolarity">
+       <property name="text">
+        <string>FAULTPolarity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="4">
+      <widget class="QPushButton" name="pushButtonMotorSpeed">
+       <property name="text">
+        <string>MotorSpeed</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="7">
+      <widget class="QComboBox" name="comboBoxEnPolarity">
+       <item>
+        <property name="text">
+         <string>Inverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NotInverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>UnknownInverted</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QPushButton" name="pushButtonSaveDefSpeed">
+       <property name="text">
+        <string>SaveDefSpeed</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="4" column="4">
+      <widget class="QLineEdit" name="lineEditSaveDelta"/>
+     </item>
+     <item row="14" column="3">
+      <widget class="QPushButton" name="pushButtonStepsTurn">
+       <property name="text">
+        <string>StepsTurn</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="6">
+      <widget class="QPushButton" name="pushButtonSensor1Dir">
+       <property name="text">
+        <string>Sensor1Dir</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="6">
+      <widget class="QPushButton" name="pushButtonSRVRDYPolarity">
+       <property name="text">
+        <string>SRVRDYPolarity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="6">
+      <widget class="QPushButton" name="pushButtonSensor3Dir">
+       <property name="text">
+        <string>SensorDir3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="7">
+      <widget class="QComboBox" name="comboBoxBrakePolarity">
+       <item>
+        <property name="text">
+         <string>Inverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NotInverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>UnknownInverted</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="3" column="6">
+      <widget class="QPushButton" name="pushButtonBrakePolarity">
+       <property name="text">
+        <string>BrakePolarity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="7">
+      <widget class="QComboBox" name="comboBoxFAULTPolarity">
+       <item>
+        <property name="text">
+         <string>Inverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NotInverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>UnknownInverted</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QPushButton" name="pushButtonSaveAccel">
+       <property name="text">
+        <string>SaveAccel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="7">
+      <widget class="QComboBox" name="comboBoxSensor2Dir">
+       <item>
+        <property name="text">
+         <string>None</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Forward</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Backward</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="15" column="4">
+      <layout class="QHBoxLayout" name="horizontalLayoutPolarity">
+       <item>
+        <widget class="QLabel" name="labelPolarity">
+         <property name="text">
+          <string>Pol:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEditPolarity"/>
+       </item>
+      </layout>
+     </item>
+     <item row="4" column="7">
+      <widget class="QComboBox" name="comboBoxEncoderActive">
+       <item>
+        <property name="text">
+         <string>True</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>False</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="8" column="3">
+      <widget class="QPushButton" name="pushButtonSensor4Polarity">
+       <property name="text">
+        <string>Sensor4Polarity</string>
        </property>
       </widget>
      </item>
@@ -153,6 +350,58 @@
        </item>
       </widget>
      </item>
+     <item row="7" column="0">
+      <widget class="QPushButton" name="pushButtonHomingZero">
+       <property name="text">
+        <string>HomingZero</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="pushButtonSpeed">
+       <property name="text">
+        <string>speed</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="6">
+      <widget class="QPushButton" name="pushButtonEnPolarity">
+       <property name="text">
+        <string>EnPolarity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="6">
+      <widget class="QPushButton" name="pushButtonSensor2Dir">
+       <property name="text">
+        <string>SensorDir2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="4">
+      <widget class="QLineEdit" name="lineEditMicroSteps"/>
+     </item>
+     <item row="1" column="6">
+      <widget class="QPushButton" name="pushButtonINPOSPolarity">
+       <property name="text">
+        <string>INPOSPolarity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="3">
+      <widget class="QPushButton" name="pushButtonSensor2Polarity">
+       <property name="text">
+        <string>Sensor2Polarity</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="3">
+      <widget class="QPushButton" name="pushButtonSensor3Polarity">
+       <property name="text">
+        <string>Sensor3Polarity</string>
+       </property>
+      </widget>
+     </item>
      <item row="2" column="0">
       <widget class="QPushButton" name="pushButtonSteps">
        <property name="text">
@@ -160,21 +409,79 @@
        </property>
       </widget>
      </item>
-     <item row="9" column="4">
-      <widget class="QPushButton" name="pushButtonResetLostCntrs">
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButtonBoard">
        <property name="text">
-        <string>ResetLostCntrs</string>
+        <string>board</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="1">
+      <widget class="QLineEdit" name="lineEditSaveStartPos"/>
+     </item>
+     <item row="12" column="4">
+      <widget class="QPushButton" name="pushButtonAlarmCode">
+       <property name="text">
+        <string>AlarmCode</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="lineEditSpeed"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEditBoard"/>
+     </item>
+     <item row="13" column="0">
+      <widget class="QPushButton" name="pushButtonSaveNumBoard">
+       <property name="text">
+        <string>SaveNumBoard</string>
        </property>
       </widget>
      </item>
      <item row="4" column="1">
       <widget class="QLineEdit" name="lineEditAccel"/>
      </item>
-     <item row="15" column="1">
-      <widget class="QLineEdit" name="lineEditSaveStartPos"/>
+     <item row="16" column="1">
+      <widget class="QLineEdit" name="lineEditSaveEndPos"/>
+     </item>
+     <item row="11" column="3">
+      <widget class="QPushButton" name="pushButtonMotorTorque">
+       <property name="text">
+        <string>MotorTorque</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QPushButton" name="pushButtonRezervOff">
+       <property name="text">
+        <string>RezervOff</string>
+       </property>
+      </widget>
      </item>
      <item row="3" column="4">
       <widget class="QLineEdit" name="lineEditSaveDecel"/>
+     </item>
+     <item row="8" column="1">
+      <widget class="QPushButton" name="pushButtonStop">
+       <property name="text">
+        <string>stop</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="3">
+      <widget class="QPushButton" name="pushButtonDriverOn">
+       <property name="text">
+        <string>DriverOn</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QPushButton" name="pushButtonBrakeOff">
+       <property name="text">
+        <string>BrakeOff</string>
+       </property>
+      </widget>
      </item>
      <item row="7" column="4">
       <widget class="QComboBox" name="comboBoxSensor3Polarity">
@@ -195,18 +502,42 @@
        </item>
       </widget>
      </item>
-     <item row="16" column="1">
-      <widget class="QLineEdit" name="lineEditSaveEndPos"/>
+     <item row="1" column="4">
+      <widget class="QLineEdit" name="lineEditSaveDefSpeed"/>
      </item>
-     <item row="12" column="0">
-      <widget class="QPushButton" name="pushButtoncurrentPos">
+     <item row="15" column="0">
+      <widget class="QPushButton" name="pushButtonSaveStartPos">
        <property name="text">
-        <string>currentPos</string>
+        <string>SaveStartPos</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="4">
-      <widget class="QLineEdit" name="lineEditSaveDelta"/>
+     <item row="10" column="4">
+      <widget class="QPushButton" name="pushButtonDriverOff">
+       <property name="text">
+        <string>DriverOff</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLineEdit" name="lineEditcurrentPos"/>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLineEdit" name="lineEditSaveAccel"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButtonDebugOn">
+       <property name="text">
+        <string>debugOn</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0">
+      <widget class="QPushButton" name="pushButtonSaveNumGroup">
+       <property name="text">
+        <string>SaveNumGroup</string>
+       </property>
+      </widget>
      </item>
      <item row="3" column="3">
       <widget class="QPushButton" name="pushButtonSaveDecel">
@@ -215,15 +546,27 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="pushButtonBoard">
-       <property name="text">
-        <string>board</string>
-       </property>
-      </widget>
+     <item row="13" column="1">
+      <widget class="QLineEdit" name="lineEditSaveNumBoard"/>
      </item>
-     <item row="2" column="4">
-      <widget class="QLineEdit" name="lineEditSaveAccel"/>
+     <item row="6" column="4">
+      <widget class="QComboBox" name="comboBoxSensor2Polarity">
+       <item>
+        <property name="text">
+         <string>Inverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NotInverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>UnknownInverted</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item row="12" column="3">
       <widget class="QPushButton" name="pushButtonAbsPosRot">
@@ -231,6 +574,118 @@
         <string>AbsPosRot</string>
        </property>
       </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QPushButton" name="pushButtonDecel">
+       <property name="text">
+        <string>decel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="7">
+      <widget class="QComboBox" name="comboBoxSensor1Dir">
+       <item>
+        <property name="text">
+         <string>None</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Forward</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Backward</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="12" column="7">
+      <widget class="QComboBox" name="comboBoxAl_CLRPolarity">
+       <item>
+        <property name="text">
+         <string>Inverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NotInverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>UnknownInverted</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QPushButton" name="pushButtonBackward">
+       <property name="text">
+        <string>backward</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="0">
+      <widget class="QPushButton" name="pushButtonSaveEndPos">
+       <property name="text">
+        <string>SaveEndPos</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="7">
+      <widget class="QComboBox" name="comboBoxAl_OBrakePolarity">
+       <item>
+        <property name="text">
+         <string>Inverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NotInverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>UnknownInverted</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="4" column="3">
+      <widget class="QPushButton" name="pushButtonSaveDelta">
+       <property name="text">
+        <string>SaveDelta</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QPushButton" name="pushButtonAlarmResetOn">
+       <property name="text">
+        <string>AlarmResetOn</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QPushButton" name="pushButtonForward">
+       <property name="text">
+        <string>forward</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="lineEditDecel"/>
+     </item>
+     <item row="12" column="0">
+      <widget class="QPushButton" name="pushButtoncurrentPos">
+       <property name="text">
+        <string>currentPos</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
+      <widget class="QLineEdit" name="lineEditSaveNumGroup"/>
      </item>
      <item row="5" column="4">
       <widget class="QComboBox" name="comboBoxSensor1Polarity">
@@ -258,284 +713,33 @@
        </property>
       </widget>
      </item>
-     <item row="11" column="0">
-      <widget class="QPushButton" name="pushButtonAlarmResetOn">
+     <item row="10" column="6">
+      <widget class="QPushButton" name="pushButtonDirPolarity">
        <property name="text">
-        <string>AlarmResetOn</string>
+        <string>DirPolarity</string>
        </property>
       </widget>
      </item>
-     <item row="12" column="1">
-      <widget class="QLineEdit" name="lineEditcurrentPos"/>
-     </item>
-     <item row="7" column="3">
-      <widget class="QPushButton" name="pushButtonSensor3Polarity">
+     <item row="9" column="4">
+      <widget class="QPushButton" name="pushButtonResetLostCntrs">
        <property name="text">
-        <string>Sensor3Polarity</string>
+        <string>ResetLostCntrs</string>
        </property>
       </widget>
      </item>
-     <item row="16" column="0">
-      <widget class="QPushButton" name="pushButtonSaveEndPos">
-       <property name="text">
-        <string>SaveEndPos</string>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="3">
-      <widget class="QPushButton" name="pushButtonResetCANStep">
-       <property name="text">
-        <string>ResetCANStep</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QPushButton" name="pushButtonSpeed">
-       <property name="text">
-        <string>speed</string>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="3">
-      <widget class="QPushButton" name="pushButtonDriverOn">
-       <property name="text">
-        <string>DriverOn</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="3">
-      <widget class="QPushButton" name="pushButtonSensor1Polarity">
-       <property name="text">
-        <string>Sensor1Polarity</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="3">
-      <widget class="QPushButton" name="pushButtonSaveAccel">
-       <property name="text">
-        <string>SaveAccel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="12" column="4">
-      <widget class="QPushButton" name="pushButtonAlarmCode">
-       <property name="text">
-        <string>AlarmCode</string>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="1">
-      <widget class="QPushButton" name="pushButtonRezervOn">
-       <property name="text">
-        <string>RezervOn</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QPushButton" name="pushButtonSaveMaxSpeed">
-       <property name="text">
-        <string>SaveMaxSpeed</string>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="3">
-      <widget class="QPushButton" name="pushButtonMotorTorque">
-       <property name="text">
-        <string>MotorTorque</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLineEdit" name="lineEditSpeed"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="QPushButton" name="pushButtonDebugOn">
-       <property name="text">
-        <string>debugOn</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEditSteps"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEditBoard"/>
-     </item>
-     <item row="7" column="1">
-      <widget class="QPushButton" name="pushButtonHomingMax">
-       <property name="text">
-        <string>HomingMax</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="3">
-      <widget class="QPushButton" name="pushButtonSaveDelta">
-       <property name="text">
-        <string>SaveDelta</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="0">
-      <widget class="QPushButton" name="pushButtonHomingZero">
-       <property name="text">
-        <string>HomingZero</string>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="1">
-      <widget class="QPushButton" name="pushButtonBrakeOn">
-       <property name="text">
-        <string>BrakeOn</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="3">
-      <widget class="QPushButton" name="pushButtonSaveDefSpeed">
-       <property name="text">
-        <string>SaveDefSpeed</string>
-       </property>
-      </widget>
-     </item>
-     <item row="13" column="0">
-      <widget class="QPushButton" name="pushButtonSaveNumBoard">
-       <property name="text">
-        <string>SaveNumBoard</string>
-       </property>
-      </widget>
-     </item>
-     <item row="14" column="3">
-      <widget class="QPushButton" name="pushButtonStepsTurn">
-       <property name="text">
-        <string>StepsTurn</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="0">
-      <widget class="QPushButton" name="pushButtonForward">
-       <property name="text">
-        <string>forward</string>
-       </property>
-      </widget>
-     </item>
-     <item row="14" column="0">
-      <widget class="QPushButton" name="pushButtonSaveNumGroup">
-       <property name="text">
-        <string>SaveNumGroup</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QPushButton" name="pushButtonConnect">
-       <property name="text">
-        <string>connect</string>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="4">
-      <widget class="QPushButton" name="pushButtonMotorSpeed">
-       <property name="text">
-        <string>MotorSpeed</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QPushButton" name="pushButtonDecel">
-       <property name="text">
-        <string>decel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QLineEdit" name="lineEditDecel"/>
-     </item>
-     <item row="9" column="0">
-      <widget class="QPushButton" name="pushButtonBrakeOff">
-       <property name="text">
-        <string>BrakeOff</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="4">
-      <widget class="QLineEdit" name="lineEditSaveDefSpeed"/>
-     </item>
-     <item row="8" column="0">
-      <widget class="QPushButton" name="pushButtonReserDRVRErr">
-       <property name="text">
-        <string>ReserDRVRErr</string>
-       </property>
-      </widget>
-     </item>
-     <item row="14" column="4">
-      <widget class="QLineEdit" name="lineEditStepsTurn"/>
-     </item>
-     <item row="13" column="1">
-      <widget class="QLineEdit" name="lineEditSaveNumBoard"/>
-     </item>
-     <item row="5" column="6">
-      <widget class="QPushButton" name="pushButtonSensor1Dir">
-       <property name="text">
-        <string>Sensor1Dir</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="6">
-      <widget class="QPushButton" name="pushButtonSensor2Dir">
-       <property name="text">
-        <string>SensorDir2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="6">
-      <widget class="QPushButton" name="pushButtonSensor3Dir">
-       <property name="text">
-        <string>SensorDir3</string>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="6">
-      <widget class="QPushButton" name="pushButtonSensor4Dir">
-       <property name="text">
-        <string>SensorDir4</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="7">
-      <widget class="QComboBox" name="comboBoxSensor1Dir">
+     <item row="16" column="4">
+      <layout class="QHBoxLayout" name="horizontalLayoutDelta">
        <item>
-        <property name="text">
-         <string>None</string>
-        </property>
+        <widget class="QLabel" name="labelDelta">
+         <property name="text">
+          <string>Delta:</string>
+         </property>
+        </widget>
        </item>
        <item>
-        <property name="text">
-         <string>Forward</string>
-        </property>
+        <widget class="QLineEdit" name="lineEditDelta"/>
        </item>
-       <item>
-        <property name="text">
-         <string>Backward</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="6" column="7">
-      <widget class="QComboBox" name="comboBoxSensor2Dir">
-       <item>
-        <property name="text">
-         <string>None</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Forward</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Backward</string>
-        </property>
-       </item>
-      </widget>
+      </layout>
      </item>
      <item row="7" column="7">
       <widget class="QComboBox" name="comboBoxSensor3Dir">
@@ -556,43 +760,81 @@
        </item>
       </widget>
      </item>
-     <item row="8" column="7">
-      <widget class="QComboBox" name="comboBoxSensor4Dir">
+     <item row="14" column="7">
+      <widget class="QComboBox" name="comboBoxAl_ORezervPolarity">
        <item>
         <property name="text">
-         <string>None</string>
+         <string>Inverted</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Forward</string>
+         <string>NotInverted</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Backward</string>
+         <string>UnknownInverted</string>
         </property>
        </item>
       </widget>
      </item>
-     <item row="0" column="5">
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+     <item row="4" column="6">
+      <widget class="QPushButton" name="pushButtonEncoderActive">
+       <property name="text">
+        <string>EncoderActive</string>
        </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
+      </widget>
      </item>
      <item row="0" column="7">
       <widget class="QComboBox" name="comboBoxSRVRDYPolarity">
+       <item>
+        <property name="text">
+         <string>Inverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NotInverted</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>UnknownInverted</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="13" column="3">
+      <widget class="QPushButton" name="pushButtonMicroSteps">
+       <property name="text">
+        <string>MicroSteps</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QPushButton" name="pushButtonRezervOn">
+       <property name="text">
+        <string>RezervOn</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="pushButtonSaveMaxSpeed">
+       <property name="text">
+        <string>SaveMaxSpeed</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButtonConnect">
+       <property name="text">
+        <string>connect</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="7">
+      <widget class="QComboBox" name="comboBoxDirPolarity">
        <item>
         <property name="text">
          <string>Inverted</string>
@@ -629,69 +871,27 @@
        </item>
       </widget>
      </item>
-     <item row="2" column="7">
-      <widget class="QComboBox" name="comboBoxFAULTPolarity">
-       <item>
-        <property name="text">
-         <string>Inverted</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>NotInverted</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>UnknownInverted</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="3" column="7">
-      <widget class="QComboBox" name="comboBoxBrakePolarity">
-       <item>
-        <property name="text">
-         <string>Inverted</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>NotInverted</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>UnknownInverted</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="0" column="6">
-      <widget class="QPushButton" name="pushButtonSRVRDYPolarity">
+     <item row="5" column="3">
+      <widget class="QPushButton" name="pushButtonSensor1Polarity">
        <property name="text">
-        <string>SRVRDYPolarity</string>
+        <string>Sensor1Polarity</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="6">
-      <widget class="QPushButton" name="pushButtonINPOSPolarity">
+     <item row="9" column="3">
+      <widget class="QPushButton" name="pushButtonResetCANStep">
        <property name="text">
-        <string>INPOSPolarity</string>
+        <string>ResetCANStep</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="6">
-      <widget class="QPushButton" name="pushButtonFAULTPolarity">
-       <property name="text">
-        <string>FAULTPolarity</string>
-       </property>
-      </widget>
+     <item row="14" column="4">
+      <widget class="QLineEdit" name="lineEditStepsTurn"/>
      </item>
-     <item row="3" column="6">
-      <widget class="QPushButton" name="pushButtonBrakePolarity">
+     <item row="15" column="3">
+      <widget class="QPushButton" name="pushButtonEncoderConfig">
        <property name="text">
-        <string>BrakePolarity</string>
+        <string>EncoderConfig</string>
        </property>
       </widget>
      </item>
@@ -703,7 +903,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>983</width>
+     <width>1271</width>
      <height>23</height>
     </rect>
    </property>

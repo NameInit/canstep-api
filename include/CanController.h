@@ -66,11 +66,11 @@ public:
     void buttonSensor2Dir_Click(const std::string& u8Inverting);
     void buttonSensor3Dir_Click(const std::string& u8Inverting);
     void buttonSensor4Dir_Click(const std::string& u8Inverting);
-    void buttonEnPolarity_Click(uint8_t u8Inverting);
-    void buttonAl_CLRPolarity_Click(uint8_t u8Inverting);
-    void buttonAl_OBrakePolarity_Click(uint8_t u8Inverting);
-    void buttonAl_ORezervPolarity_Click(uint8_t u8Inverting);
-    void buttonDirPolarity_Click(uint8_t u8Inverting);
+    void buttonEnPolarity_Click(const std::string& u8Inverting);
+    void buttonAl_CLRPolarity_Click(const std::string& u8Inverting);
+    void buttonAl_OBrakePolarity_Click(const std::string& u8Inverting);
+    void buttonAl_ORezervPolarity_Click(const std::string& u8Inverting);
+    void buttonDirPolarity_Click(const std::string& u8Inverting);
     void buttonSRVRDYPolarity_Click(const std::string& u8Inverting);
     void buttonINPOSPolarity_Click(const std::string& u8Inverting);
     void buttonFAULTPolarity_Click(const std::string& u8Inverting);
@@ -182,6 +182,8 @@ public:
     void myAnswerControlCallback(uint8_t* pNumBoardParse, uint8_t* pRescCMD, uint8_t* pNumCMD, uint8_t* pStartMotor, uint8_t* pCmdInWork, uint8_t* ptmpErrors);
     void myAnswerConfigCallback(uint8_t* pNumBoardParse);
     void myAnswerCallback(uint8_t* pNumBoardParse, uint8_t* pStatus, uint8_t* pNumAnswer, uint8_t* p8Data, uint32_t* p32Data, float* pfData, uint8_t* p8Data1, uint8_t* p8Data2, uint8_t* p8Data3);
+
+    void setEncoderActive(bool set) { mechanismObj0->setEncoderActive(set); }
 
     void executeAllCommandsSilent() {
         std::thread executionThread([this]() {
@@ -353,11 +355,11 @@ void CanController::buttonSensor1Dir_Click(const std::string& sInverting){ uint8
 void CanController::buttonSensor2Dir_Click(const std::string& sInverting){ uint8_t u8Inverting=UnknownInverted; if(sInverting=="None") {u8Inverting==DirOff;} else if(sInverting=="Forward") {u8Inverting=DirFwd;} else if(sInverting=="Backward") {u8Inverting=DirBwd;} mechanismObj0->setHomingBDirection(u8Inverting); }
 void CanController::buttonSensor3Dir_Click(const std::string& sInverting){ uint8_t u8Inverting=UnknownInverted; if(sInverting=="None") {u8Inverting==DirOff;} else if(sInverting=="Forward") {u8Inverting=DirFwd;} else if(sInverting=="Backward") {u8Inverting=DirBwd;} mechanismObj0->setHomingCDirection(u8Inverting); }
 void CanController::buttonSensor4Dir_Click(const std::string& sInverting){ uint8_t u8Inverting=UnknownInverted; if(sInverting=="None") {u8Inverting==DirOff;} else if(sInverting=="Forward") {u8Inverting=DirFwd;} else if(sInverting=="Backward") {u8Inverting=DirBwd;} mechanismObj0->setHomingDDirection(u8Inverting); }
-void CanController::buttonEnPolarity_Click(uint8_t u8Inverting){ mechanismObj0->setEnPolarity(u8Inverting); }
-void CanController::buttonAl_CLRPolarity_Click(uint8_t u8Inverting){ mechanismObj0->setAL_CLRPolarity(u8Inverting); }
-void CanController::buttonAl_OBrakePolarity_Click(uint8_t u8Inverting){ mechanismObj0->setOBRAKEPolarity(u8Inverting); }
-void CanController::buttonAl_ORezervPolarity_Click(uint8_t u8Inverting){ mechanismObj0->setOReservPolarity(u8Inverting); }
-void CanController::buttonDirPolarity_Click(uint8_t u8Inverting){ mechanismObj0->setDIRPolarity(u8Inverting); }
+void CanController::buttonEnPolarity_Click(const std::string& sInverting){uint8_t u8Inverting=UnknownInverted; if(sInverting=="Inverted") {u8Inverting=Inverted;} else if(sInverting=="NotInverted") {u8Inverting=NotInverted;} mechanismObj0->setEnPolarity(u8Inverting); }
+void CanController::buttonAl_CLRPolarity_Click(const std::string& sInverting){uint8_t u8Inverting=UnknownInverted; if(sInverting=="Inverted") {u8Inverting=Inverted;} else if(sInverting=="NotInverted") {u8Inverting=NotInverted;} mechanismObj0->setAL_CLRPolarity(u8Inverting); }
+void CanController::buttonAl_OBrakePolarity_Click(const std::string& sInverting){uint8_t u8Inverting=UnknownInverted; if(sInverting=="Inverted") {u8Inverting=Inverted;} else if(sInverting=="NotInverted") {u8Inverting=NotInverted;} mechanismObj0->setOBRAKEPolarity(u8Inverting); }
+void CanController::buttonAl_ORezervPolarity_Click(const std::string& sInverting){uint8_t u8Inverting=UnknownInverted; if(sInverting=="Inverted") {u8Inverting=Inverted;} else if(sInverting=="NotInverted") {u8Inverting=NotInverted;} mechanismObj0->setOReservPolarity(u8Inverting); }
+void CanController::buttonDirPolarity_Click(const std::string& sInverting){uint8_t u8Inverting=UnknownInverted; if(sInverting=="Inverted") {u8Inverting=Inverted;} else if(sInverting=="NotInverted") {u8Inverting=NotInverted;} mechanismObj0->setDIRPolarity(u8Inverting); }
 void CanController::buttonSRVRDYPolarity_Click(const std::string& sInverting){ uint8_t u8Inverting=UnknownInverted; if(sInverting=="Inverted") {u8Inverting=Inverted;} else if(sInverting=="NotInverted") {u8Inverting=NotInverted;} mechanismObj0->setSRVRDYPolarity(u8Inverting); }
 void CanController::buttonINPOSPolarity_Click(const std::string& sInverting){ uint8_t u8Inverting=UnknownInverted; if(sInverting=="Inverted") {u8Inverting=Inverted;} else if(sInverting=="NotInverted") {u8Inverting=NotInverted;} mechanismObj0->setINPOSPolarity(u8Inverting); }
 void CanController::buttonFAULTPolarity_Click(const std::string& sInverting){ uint8_t u8Inverting=UnknownInverted; if(sInverting=="Inverted") {u8Inverting=Inverted;} else if(sInverting=="NotInverted") {u8Inverting=NotInverted;} mechanismObj0->setFAULTPolarity(u8Inverting); }
