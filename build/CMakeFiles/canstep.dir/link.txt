@@ -1,2 +1,2 @@
-/usr/bin/ar qc libcanstep.a CMakeFiles/canstep.dir/src/HidDevice.cpp.o
+/usr/bin/ar qc libcanstep.a CMakeFiles/canstep.dir/src/HidDevice.cpp.o CMakeFiles/canstep.dir/src/CanController.cpp.o CMakeFiles/canstep.dir/src/Mechanism.cpp.o CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o CMakeFiles/canstep.dir/src/Tensometer.cpp.o
 /usr/bin/ranlib libcanstep.a

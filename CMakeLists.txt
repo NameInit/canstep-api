@@ -6,14 +6,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(canstep STATIC
     src/HidDevice.cpp
+    src/CanController.cpp
+    src/Mechanism.cpp
+    src/ScenarioBuilder.cpp
+    src/Tensometer.cpp
 )
 
 target_include_directories(canstep PUBLIC include)
 
 target_link_libraries(canstep PUBLIC hidapi-hidraw)
+target_link_libraries(canstep PUBLIC pistache)
 find_package(Boost REQUIRED COMPONENTS json)
 find_package(Boost REQUIRED COMPONENTS log)
-target_link_libraries(canstep PUBLIC pistache)
 target_link_libraries(canstep PUBLIC Boost::json)
 target_link_libraries(canstep PUBLIC Boost::log)
 

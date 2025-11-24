@@ -83,17 +83,81 @@ CMakeFiles/canstep.dir/src/HidDevice.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/canstep.dir/src/HidDevice.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilya/Desktop/canstep-api/src/HidDevice.cpp -o CMakeFiles/canstep.dir/src/HidDevice.cpp.s
 
+CMakeFiles/canstep.dir/src/CanController.cpp.o: CMakeFiles/canstep.dir/flags.make
+CMakeFiles/canstep.dir/src/CanController.cpp.o: /home/ilya/Desktop/canstep-api/src/CanController.cpp
+CMakeFiles/canstep.dir/src/CanController.cpp.o: CMakeFiles/canstep.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilya/Desktop/canstep-api/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/canstep.dir/src/CanController.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/canstep.dir/src/CanController.cpp.o -MF CMakeFiles/canstep.dir/src/CanController.cpp.o.d -o CMakeFiles/canstep.dir/src/CanController.cpp.o -c /home/ilya/Desktop/canstep-api/src/CanController.cpp
+
+CMakeFiles/canstep.dir/src/CanController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/canstep.dir/src/CanController.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilya/Desktop/canstep-api/src/CanController.cpp > CMakeFiles/canstep.dir/src/CanController.cpp.i
+
+CMakeFiles/canstep.dir/src/CanController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/canstep.dir/src/CanController.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilya/Desktop/canstep-api/src/CanController.cpp -o CMakeFiles/canstep.dir/src/CanController.cpp.s
+
+CMakeFiles/canstep.dir/src/Mechanism.cpp.o: CMakeFiles/canstep.dir/flags.make
+CMakeFiles/canstep.dir/src/Mechanism.cpp.o: /home/ilya/Desktop/canstep-api/src/Mechanism.cpp
+CMakeFiles/canstep.dir/src/Mechanism.cpp.o: CMakeFiles/canstep.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilya/Desktop/canstep-api/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/canstep.dir/src/Mechanism.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/canstep.dir/src/Mechanism.cpp.o -MF CMakeFiles/canstep.dir/src/Mechanism.cpp.o.d -o CMakeFiles/canstep.dir/src/Mechanism.cpp.o -c /home/ilya/Desktop/canstep-api/src/Mechanism.cpp
+
+CMakeFiles/canstep.dir/src/Mechanism.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/canstep.dir/src/Mechanism.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilya/Desktop/canstep-api/src/Mechanism.cpp > CMakeFiles/canstep.dir/src/Mechanism.cpp.i
+
+CMakeFiles/canstep.dir/src/Mechanism.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/canstep.dir/src/Mechanism.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilya/Desktop/canstep-api/src/Mechanism.cpp -o CMakeFiles/canstep.dir/src/Mechanism.cpp.s
+
+CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o: CMakeFiles/canstep.dir/flags.make
+CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o: /home/ilya/Desktop/canstep-api/src/ScenarioBuilder.cpp
+CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o: CMakeFiles/canstep.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilya/Desktop/canstep-api/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o -MF CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o.d -o CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o -c /home/ilya/Desktop/canstep-api/src/ScenarioBuilder.cpp
+
+CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilya/Desktop/canstep-api/src/ScenarioBuilder.cpp > CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.i
+
+CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilya/Desktop/canstep-api/src/ScenarioBuilder.cpp -o CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.s
+
+CMakeFiles/canstep.dir/src/Tensometer.cpp.o: CMakeFiles/canstep.dir/flags.make
+CMakeFiles/canstep.dir/src/Tensometer.cpp.o: /home/ilya/Desktop/canstep-api/src/Tensometer.cpp
+CMakeFiles/canstep.dir/src/Tensometer.cpp.o: CMakeFiles/canstep.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilya/Desktop/canstep-api/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/canstep.dir/src/Tensometer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/canstep.dir/src/Tensometer.cpp.o -MF CMakeFiles/canstep.dir/src/Tensometer.cpp.o.d -o CMakeFiles/canstep.dir/src/Tensometer.cpp.o -c /home/ilya/Desktop/canstep-api/src/Tensometer.cpp
+
+CMakeFiles/canstep.dir/src/Tensometer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/canstep.dir/src/Tensometer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilya/Desktop/canstep-api/src/Tensometer.cpp > CMakeFiles/canstep.dir/src/Tensometer.cpp.i
+
+CMakeFiles/canstep.dir/src/Tensometer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/canstep.dir/src/Tensometer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilya/Desktop/canstep-api/src/Tensometer.cpp -o CMakeFiles/canstep.dir/src/Tensometer.cpp.s
+
 # Object files for target canstep
 canstep_OBJECTS = \
-"CMakeFiles/canstep.dir/src/HidDevice.cpp.o"
+"CMakeFiles/canstep.dir/src/HidDevice.cpp.o" \
+"CMakeFiles/canstep.dir/src/CanController.cpp.o" \
+"CMakeFiles/canstep.dir/src/Mechanism.cpp.o" \
+"CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o" \
+"CMakeFiles/canstep.dir/src/Tensometer.cpp.o"
 
 # External object files for target canstep
 canstep_EXTERNAL_OBJECTS =
 
 libcanstep.a: CMakeFiles/canstep.dir/src/HidDevice.cpp.o
+libcanstep.a: CMakeFiles/canstep.dir/src/CanController.cpp.o
+libcanstep.a: CMakeFiles/canstep.dir/src/Mechanism.cpp.o
+libcanstep.a: CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o
+libcanstep.a: CMakeFiles/canstep.dir/src/Tensometer.cpp.o
 libcanstep.a: CMakeFiles/canstep.dir/build.make
 libcanstep.a: CMakeFiles/canstep.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilya/Desktop/canstep-api/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libcanstep.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilya/Desktop/canstep-api/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libcanstep.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/canstep.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/canstep.dir/link.txt --verbose=$(VERBOSE)
 

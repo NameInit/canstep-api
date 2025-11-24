@@ -62,8 +62,6 @@ private:
 	void collect_controller_data(boost::json::object& data);
 };
 
-#include "WebSocketServer.h"
-
 WebSocketServer::WebSocketServer(unsigned short port, CanController& controller, std::mutex& controller_mutex)
 	: acceptor_(ioc_, {tcp::v4(), port})
 	, controller_(controller)

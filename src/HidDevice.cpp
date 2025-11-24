@@ -43,6 +43,8 @@ void HidDevice::Disconnect()
     isConnected = false;
 }
 
+bool HidDevice::IsConnected() const { return isConnected.load(); }
+
 bool HidDevice::SendData(const std::vector<uint8_t>& data)
 {
     if (!deviceHandle || !isConnected)

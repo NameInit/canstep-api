@@ -142,6 +142,30 @@ canstep-test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep-test.dir/build.make CMakeFiles/canstep-test.dir/build
 .PHONY : canstep-test/fast
 
+src/CanController.o: src/CanController.cpp.o
+.PHONY : src/CanController.o
+
+# target to build an object file
+src/CanController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/CanController.cpp.o
+.PHONY : src/CanController.cpp.o
+
+src/CanController.i: src/CanController.cpp.i
+.PHONY : src/CanController.i
+
+# target to preprocess a source file
+src/CanController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/CanController.cpp.i
+.PHONY : src/CanController.cpp.i
+
+src/CanController.s: src/CanController.cpp.s
+.PHONY : src/CanController.s
+
+# target to generate assembly for a file
+src/CanController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/CanController.cpp.s
+.PHONY : src/CanController.cpp.s
+
 src/HidDevice.o: src/HidDevice.cpp.o
 .PHONY : src/HidDevice.o
 
@@ -165,6 +189,78 @@ src/HidDevice.s: src/HidDevice.cpp.s
 src/HidDevice.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/HidDevice.cpp.s
 .PHONY : src/HidDevice.cpp.s
+
+src/Mechanism.o: src/Mechanism.cpp.o
+.PHONY : src/Mechanism.o
+
+# target to build an object file
+src/Mechanism.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/Mechanism.cpp.o
+.PHONY : src/Mechanism.cpp.o
+
+src/Mechanism.i: src/Mechanism.cpp.i
+.PHONY : src/Mechanism.i
+
+# target to preprocess a source file
+src/Mechanism.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/Mechanism.cpp.i
+.PHONY : src/Mechanism.cpp.i
+
+src/Mechanism.s: src/Mechanism.cpp.s
+.PHONY : src/Mechanism.s
+
+# target to generate assembly for a file
+src/Mechanism.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/Mechanism.cpp.s
+.PHONY : src/Mechanism.cpp.s
+
+src/ScenarioBuilder.o: src/ScenarioBuilder.cpp.o
+.PHONY : src/ScenarioBuilder.o
+
+# target to build an object file
+src/ScenarioBuilder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o
+.PHONY : src/ScenarioBuilder.cpp.o
+
+src/ScenarioBuilder.i: src/ScenarioBuilder.cpp.i
+.PHONY : src/ScenarioBuilder.i
+
+# target to preprocess a source file
+src/ScenarioBuilder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.i
+.PHONY : src/ScenarioBuilder.cpp.i
+
+src/ScenarioBuilder.s: src/ScenarioBuilder.cpp.s
+.PHONY : src/ScenarioBuilder.s
+
+# target to generate assembly for a file
+src/ScenarioBuilder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.s
+.PHONY : src/ScenarioBuilder.cpp.s
+
+src/Tensometer.o: src/Tensometer.cpp.o
+.PHONY : src/Tensometer.o
+
+# target to build an object file
+src/Tensometer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/Tensometer.cpp.o
+.PHONY : src/Tensometer.cpp.o
+
+src/Tensometer.i: src/Tensometer.cpp.i
+.PHONY : src/Tensometer.i
+
+# target to preprocess a source file
+src/Tensometer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/Tensometer.cpp.i
+.PHONY : src/Tensometer.cpp.i
+
+src/Tensometer.s: src/Tensometer.cpp.s
+.PHONY : src/Tensometer.s
+
+# target to generate assembly for a file
+src/Tensometer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/Tensometer.cpp.s
+.PHONY : src/Tensometer.cpp.s
 
 test/main.o: test/main.cpp.o
 .PHONY : test/main.o
@@ -200,9 +296,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... canstep"
 	@echo "... canstep-test"
+	@echo "... src/CanController.o"
+	@echo "... src/CanController.i"
+	@echo "... src/CanController.s"
 	@echo "... src/HidDevice.o"
 	@echo "... src/HidDevice.i"
 	@echo "... src/HidDevice.s"
+	@echo "... src/Mechanism.o"
+	@echo "... src/Mechanism.i"
+	@echo "... src/Mechanism.s"
+	@echo "... src/ScenarioBuilder.o"
+	@echo "... src/ScenarioBuilder.i"
+	@echo "... src/ScenarioBuilder.s"
+	@echo "... src/Tensometer.o"
+	@echo "... src/Tensometer.i"
+	@echo "... src/Tensometer.s"
 	@echo "... test/main.o"
 	@echo "... test/main.i"
 	@echo "... test/main.s"

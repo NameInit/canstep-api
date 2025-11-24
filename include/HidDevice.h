@@ -14,7 +14,6 @@
 
 #define USBD_BUF_SIZE 64U
 
-// Класс для работы с HID-устройством
 class HidDevice final
 {
 public:
@@ -27,12 +26,10 @@ public:
 	void Disconnect();
 	bool SendData(const std::vector<uint8_t>& data);
 
-	bool IsConnected() const { return isConnected.load(); }
+	bool IsConnected() const;
 
-	// Установка колбэка для обработки входящих данных
 	void SetDataReceivedHandler(DataReceivedHandler handler);
 
-	// Методы, аналогичные USB-CAN
 	void SetEmergancy(uint8_t* devID, uint8_t* Emergancy, uint8_t* Reload);
 
 	void ConvertUSBHIDToCAN(USBCANFrame* pTmpUSBCANFrame, USBHIDFrame* pTmpUSBHIDFrame);
@@ -43,7 +40,6 @@ private:
 	void ReadLoop();
 	void ProcessReceivedData(const uint8_t* buffer, size_t bytesRead);
 
-	// Вспомогательные функции
 	std::vector<uint8_t> StructToVector(const USBHIDFrame& frame);
 	void SetCanControlTensometerData(_CAN_Ask* pCan_Ask,
 									 _CAN_AskType* pAskType,
