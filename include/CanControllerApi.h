@@ -18,6 +18,7 @@
 #include <filesystem>
 
 #include "CanController.h"
+#include "WebSocketServer.h"
 
 class CanControllerApi
 {
@@ -25,21 +26,22 @@ private:
 	Pistache::Rest::Router router;
 	Pistache::Address addr;
 	std::unique_ptr<Pistache::Http::Endpoint> server;
+	std::unique_ptr<WebSocketServer> ws_server;
 	CanController controller;
 	std::mutex controller_mutex;
 
 	void initializeLogger() {
 		namespace logging = boost::log;
-        namespace keywords = boost::log::keywords;
-        namespace expr = boost::log::expressions;
-        namespace sinks = boost::log::sinks;
-		
+		namespace keywords = boost::log::keywords;
+		namespace expr = boost::log::expressions;
+		namespace sinks = boost::log::sinks;
+
 		std::filesystem::create_directories("logs");
-		
+
 		auto fmtTimeStamp = expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f");
 		auto fmtSeverity = expr::attr<logging::trivial::severity_level>("Severity");
 		auto fmtMessage = expr::smessage;
-		
+
 		auto fmt = expr::format("[%1%] [%2%] %3%")
 			% fmtTimeStamp
 			% fmtSeverity
@@ -957,7 +959,7 @@ private:
 	}
 
 public:
-	CanControllerApi(const uint16_t numPort=5000, const uint8_t numThread=2, const std::string host="127.0.0.1")
+	CanControllerApi(const uint16_t numPort=8080, const uint8_t numThread=2, const std::string host="127.0.0.1")
 	: addr(host, Pistache::Port(numPort))
 	{
 		initializeLogger();
@@ -966,12 +968,62 @@ public:
 		setupRoutes();
 		server->init(opts);
 		server->setHandler(router.handler());
+		ws_server=std::make_unique<WebSocketServer>(8081,controller,controller_mutex);
 	}
-	~CanControllerApi(){}
+	~CanControllerApi(){
+		if(ws_server){
+			stopWebSocketAutoUpdates();
+			ws_server->stop();
+		}
+	}
 	
 	void runServer(){
 		std::cout << "Run Server" << std::endl;
+		std::cout << "Run WebSocket Server on port " << 8081 << std::endl;
+
+		if (ws_server) {
+			ws_server->run();
+			startWebSocketAutoUpdates();
+		}
 
 		server->serve();
+	}
+
+//WebSocketServer methods
+private:
+	void startWebSocketAutoUpdates(int interval_ms=1000) {
+		if (ws_server) {
+			ws_server->start_auto_updates(interval_ms);
+			BOOST_LOG_TRIVIAL(info) << "WebSocket auto updates started with interval " << interval_ms << "ms";
+		} else {
+			BOOST_LOG_TRIVIAL(error) << "WebSocket server not initialized";
+		}
+	}
+
+	void stopWebSocketAutoUpdates() {
+	if (ws_server) {
+			ws_server->stop_auto_updates();
+			BOOST_LOG_TRIVIAL(info) << "WebSocket auto updates stopped";
+		}
+	}
+
+	void setWebSocketUpdateInterval(int interval_ms=1000) {
+		if (ws_server) {
+			ws_server->set_update_interval(interval_ms);
+		}
+	}
+
+	bool isWebSocketAutoUpdateEnabled() const {
+		return ws_server ? ws_server->is_auto_update_enabled() : false;
+	}
+
+	int getWebSocketUpdateInterval() const {
+		return ws_server ? ws_server->get_update_interval() : 0;
+	}
+
+	void sendSystemStatus() {
+		if (ws_server) {
+			ws_server->send_system_status();
+		}
 	}
 };

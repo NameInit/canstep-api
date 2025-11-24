@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = clang
 CXX           = clang++
-DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_WEBSOCKETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
-INCPATH       = -I../../../ui -I. -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtNetwork -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I. -I. -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-clang
+INCPATH       = -I../../../ui -I. -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtWebSockets -I/usr/include/x86_64-linux-gnu/qt6/QtNetwork -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I. -I. -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-clang
 QMAKE         = /usr/bin/qmake6
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = ui1.0.0
 DISTDIR = /home/ilya/Desktop/canstep-api/ui/build/Desktop-Debug/.tmp/ui1.0.0
 LINK          = clang++
 LFLAGS        = -ccc-gcc-name g++ -Wl,-rpath-link,/usr/lib/x86_64-linux-gnu
-LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt6Widgets.so /usr/lib/x86_64-linux-gnu/libQt6Gui.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libQt6Network.so /usr/lib/x86_64-linux-gnu/libQt6Core.so -lpthread -lGLX -lOpenGL   
+LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt6Widgets.so /usr/lib/x86_64-linux-gnu/libQt6Gui.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libQt6WebSockets.so /usr/lib/x86_64-linux-gnu/libQt6Network.so /usr/lib/x86_64-linux-gnu/libQt6Core.so -lpthread -lGLX -lOpenGL   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -115,6 +115,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_testlib_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_websockets.pri \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -216,6 +217,7 @@ Makefile: ../../ui.pro /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-clang/qmake.c
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_testlib_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_websockets.pri \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -249,6 +251,7 @@ Makefile: ../../ui.pro /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-clang/qmake.c
 		../../ui.pro \
 		/usr/lib/x86_64-linux-gnu/libQt6Widgets.prl \
 		/usr/lib/x86_64-linux-gnu/libQt6Gui.prl \
+		/usr/lib/x86_64-linux-gnu/libQt6WebSockets.prl \
 		/usr/lib/x86_64-linux-gnu/libQt6Network.prl \
 		/usr/lib/x86_64-linux-gnu/libQt6Core.prl
 	$(QMAKE) -o Makefile ../../ui.pro -spec linux-clang CONFIG+=debug CONFIG+=qml_debug
@@ -310,6 +313,7 @@ Makefile: ../../ui.pro /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-clang/qmake.c
 /usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_sql_private.pri:
 /usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_testlib.pri:
 /usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_testlib_private.pri:
+/usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_websockets.pri:
 /usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_widgets.pri:
 /usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_widgets_private.pri:
 /usr/lib/x86_64-linux-gnu/qt6/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
@@ -343,6 +347,7 @@ Makefile: ../../ui.pro /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-clang/qmake.c
 ../../ui.pro:
 /usr/lib/x86_64-linux-gnu/libQt6Widgets.prl:
 /usr/lib/x86_64-linux-gnu/libQt6Gui.prl:
+/usr/lib/x86_64-linux-gnu/libQt6WebSockets.prl:
 /usr/lib/x86_64-linux-gnu/libQt6Network.prl:
 /usr/lib/x86_64-linux-gnu/libQt6Core.prl:
 qmake: FORCE
@@ -400,7 +405,7 @@ compiler_moc_header_clean:
 moc_mainwindow.cpp: ../../mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
-	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/ilya/Desktop/canstep-api/ui/build/Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-clang -I/home/ilya/Desktop/canstep-api/ui -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtNetwork -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/llvm-18/lib/clang/18/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/ilya/Desktop/canstep-api/ui/build/Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-clang -I/home/ilya/Desktop/canstep-api/ui -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtWebSockets -I/usr/include/x86_64-linux-gnu/qt6/QtNetwork -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/llvm-18/lib/clang/18/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:

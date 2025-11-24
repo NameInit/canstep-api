@@ -785,6 +785,7 @@ public:
         pushButtonBrakeOn->setText(QCoreApplication::translate("MainWindow", "BrakeOn", nullptr));
         pushButtonAccel->setText(QCoreApplication::translate("MainWindow", "accel", nullptr));
         pushButtonAl_ORezervPolarity->setText(QCoreApplication::translate("MainWindow", "Al_ORezervPolarity", nullptr));
+        lineEditSteps->setText(QCoreApplication::translate("MainWindow", "1000", nullptr));
         pushButtonAl_CLRPolarity->setText(QCoreApplication::translate("MainWindow", "Al_CLRPolarity", nullptr));
         pushButtonSensor4Dir->setText(QCoreApplication::translate("MainWindow", "SensorDir4", nullptr));
         pushButtonReserDRVRErr->setText(QCoreApplication::translate("MainWindow", "ReserDRVRErr", nullptr));
@@ -839,7 +840,10 @@ public:
         pushButtonSteps->setText(QCoreApplication::translate("MainWindow", "steps", nullptr));
         pushButtonBoard->setText(QCoreApplication::translate("MainWindow", "board", nullptr));
         pushButtonAlarmCode->setText(QCoreApplication::translate("MainWindow", "AlarmCode", nullptr));
+        lineEditSpeed->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
+        lineEditBoard->setText(QCoreApplication::translate("MainWindow", "16", nullptr));
         pushButtonSaveNumBoard->setText(QCoreApplication::translate("MainWindow", "SaveNumBoard", nullptr));
+        lineEditAccel->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
         pushButtonMotorTorque->setText(QCoreApplication::translate("MainWindow", "MotorTorque", nullptr));
         pushButtonRezervOff->setText(QCoreApplication::translate("MainWindow", "RezervOff", nullptr));
         pushButtonStop->setText(QCoreApplication::translate("MainWindow", "stop", nullptr));
@@ -877,6 +881,7 @@ public:
         pushButtonSaveDelta->setText(QCoreApplication::translate("MainWindow", "SaveDelta", nullptr));
         pushButtonAlarmResetOn->setText(QCoreApplication::translate("MainWindow", "AlarmResetOn", nullptr));
         pushButtonForward->setText(QCoreApplication::translate("MainWindow", "forward", nullptr));
+        lineEditDecel->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
         pushButtoncurrentPos->setText(QCoreApplication::translate("MainWindow", "currentPos", nullptr));
         comboBoxSensor1Polarity->setItemText(0, QCoreApplication::translate("MainWindow", "Inverted", nullptr));
         comboBoxSensor1Polarity->setItemText(1, QCoreApplication::translate("MainWindow", "NotInverted", nullptr));
@@ -916,7 +921,9 @@ public:
         pushButtonEncoderConfig->setText(QCoreApplication::translate("MainWindow", "EncoderConfig", nullptr));
         pushButtonAutosender->setText(QCoreApplication::translate("MainWindow", "Autosender", nullptr));
         labelAutosenderType->setText(QCoreApplication::translate("MainWindow", "Type", nullptr));
+        lineEditAutosenderType->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
         labelAutosenderMs->setText(QCoreApplication::translate("MainWindow", "Ms", nullptr));
+        lineEditAutosenderMs->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
     } // retranslateUi
 
 };

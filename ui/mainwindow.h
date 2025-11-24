@@ -7,6 +7,8 @@
 #include <QNetworkReply>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QWebSocket>
+#include <QTimer>
 
 
 QT_BEGIN_NAMESPACE
@@ -26,6 +28,10 @@ public:
 private:
     Ui::MainWindow *ui;
     QNetworkAccessManager *networkManager;
+    QWebSocket *webSocket;
+
+private:
+    void processWebSocketMessage(const QJsonObject &message);
 
 public slots:
     void ButtonAutosender();
@@ -91,5 +97,10 @@ public slots:
     void sendApiRequest(const QString &endpoint, const QJsonObject &data = QJsonObject());
     void onApiReplyFinished(QNetworkReply *reply);
     void showApiError(const QString &error);
+
+    void onSocketConnected();
+    void onSocketDisconnected();
+    void onWebSocketTextMessageReceived(const QString &message);
+    void onSocketError(QAbstractSocket::SocketError error);
 };
 #endif // MAINWINDOW_H

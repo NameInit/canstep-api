@@ -1,0 +1,112 @@
+[2025-11-24 15:00:47.403393] [info] WebSocket server created on port 8081
+[2025-11-24 15:00:47.403664] [info] WebSocket server starting on port 8081
+[2025-11-24 15:00:47.403883] [info] Auto update worker started
+[2025-11-24 15:00:47.403975] [info] Started auto updates with interval 1000ms
+[2025-11-24 15:00:47.404016] [info] WebSocket auto updates started with interval 1000ms
+[2025-11-24 15:00:57.544270] [info] WebSocket client connected. Total clients: 1
+[2025-11-24 15:00:58.405604] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985658405,"clients_connected":1,"server_time":"2025-11-24 15:00:58"}
+[2025-11-24 15:00:59.405938] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985659405,"clients_connected":1,"server_time":"2025-11-24 15:00:59"}
+[2025-11-24 15:01:00.406225] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985660406,"clients_connected":1,"server_time":"2025-11-24 15:01:00"}
+[2025-11-24 15:01:01.406557] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985661406,"clients_connected":1,"server_time":"2025-11-24 15:01:01"}
+[2025-11-24 15:01:02.406864] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985662406,"clients_connected":1,"server_time":"2025-11-24 15:01:02"}
+[2025-11-24 15:01:03.407333] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985663407,"clients_connected":1,"server_time":"2025-11-24 15:01:03"}
+[2025-11-24 15:01:04.407716] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985664407,"clients_connected":1,"server_time":"2025-11-24 15:01:04"}
+[2025-11-24 15:01:05.408521] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985665408,"clients_connected":1,"server_time":"2025-11-24 15:01:05"}
+[2025-11-24 15:01:06.409248] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985666409,"clients_connected":1,"server_time":"2025-11-24 15:01:06"}
+[2025-11-24 15:01:07.409685] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985667409,"clients_connected":1,"server_time":"2025-11-24 15:01:07"}
+[2025-11-24 15:01:08.410501] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985668410,"clients_connected":1,"server_time":"2025-11-24 15:01:08"}
+[2025-11-24 15:01:09.411100] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985669410,"clients_connected":1,"server_time":"2025-11-24 15:01:09"}
+[2025-11-24 15:01:10.411866] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985670411,"clients_connected":1,"server_time":"2025-11-24 15:01:10"}
+[2025-11-24 15:01:11.412441] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985671412,"clients_connected":1,"server_time":"2025-11-24 15:01:11"}
+[2025-11-24 15:01:12.413255] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985672413,"clients_connected":1,"server_time":"2025-11-24 15:01:12"}
+[2025-11-24 15:01:13.414038] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985673413,"clients_connected":1,"server_time":"2025-11-24 15:01:13"}
+[2025-11-24 15:01:14.414589] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985674414,"clients_connected":1,"server_time":"2025-11-24 15:01:14"}
+[2025-11-24 15:01:15.415099] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985675414,"clients_connected":1,"server_time":"2025-11-24 15:01:15"}
+[2025-11-24 15:01:16.416117] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985676415,"clients_connected":1,"server_time":"2025-11-24 15:01:16"}
+[2025-11-24 15:01:17.416946] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985677416,"clients_connected":1,"server_time":"2025-11-24 15:01:17"}
+[2025-11-24 15:01:18.417504] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985678417,"clients_connected":1,"server_time":"2025-11-24 15:01:18"}
+[2025-11-24 15:01:19.417809] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985679417,"clients_connected":1,"server_time":"2025-11-24 15:01:19"}
+[2025-11-24 15:01:20.418463] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985680418,"clients_connected":1,"server_time":"2025-11-24 15:01:20"}
+[2025-11-24 15:01:21.419180] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985681419,"clients_connected":1,"server_time":"2025-11-24 15:01:21"}
+[2025-11-24 15:01:22.419606] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985682419,"clients_connected":1,"server_time":"2025-11-24 15:01:22"}
+[2025-11-24 15:01:22.912497] [info] buttonOpenCOM_Click
+[2025-11-24 15:01:23.420026] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985683419,"clients_connected":1,"server_time":"2025-11-24 15:01:23"}
+[2025-11-24 15:01:24.420592] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985684420,"clients_connected":1,"server_time":"2025-11-24 15:01:24"}
+[2025-11-24 15:01:25.407851] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-24 15:01:25.420857] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985685420,"clients_connected":1,"server_time":"2025-11-24 15:01:25"}
+[2025-11-24 15:01:25.835866] [info] buttonNumSteps_Click JSON: {"numSteps":1000}
+[2025-11-24 15:01:26.259859] [info] buttonSpeed_Click JSON: {"numSpeed":10}
+[2025-11-24 15:01:26.421446] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985686421,"clients_connected":1,"server_time":"2025-11-24 15:01:26"}
+[2025-11-24 15:01:26.827854] [info] buttonAccel_Click JSON: {"numAccel":10}
+[2025-11-24 15:01:27.131852] [info] buttonDecel_Click JSON: {"numDecel":10}
+[2025-11-24 15:01:27.421826] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985687421,"clients_connected":1,"server_time":"2025-11-24 15:01:27"}
+[2025-11-24 15:01:27.563864] [info] buttonMoveForward_Click
+[2025-11-24 15:01:28.422287] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985688422,"clients_connected":1,"server_time":"2025-11-24 15:01:28"}
+[2025-11-24 15:01:29.187844] [info] buttonMoveBackward_Click
+[2025-11-24 15:01:29.422706] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985689422,"clients_connected":1,"server_time":"2025-11-24 15:01:29"}
+[2025-11-24 15:01:30.422969] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985690422,"clients_connected":1,"server_time":"2025-11-24 15:01:30"}
+[2025-11-24 15:01:31.067847] [info] buttonMoveBackward_Click
+[2025-11-24 15:01:31.423558] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985691423,"clients_connected":1,"server_time":"2025-11-24 15:01:31"}
+[2025-11-24 15:01:32.424005] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985692423,"clients_connected":1,"server_time":"2025-11-24 15:01:32"}
+[2025-11-24 15:01:33.424362] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985693424,"clients_connected":1,"server_time":"2025-11-24 15:01:33"}
+[2025-11-24 15:01:34.424765] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985694424,"clients_connected":1,"server_time":"2025-11-24 15:01:34"}
+[2025-11-24 15:01:34.858398] [error] WebSocket read error: Transport endpoint is not connected
+[2025-11-24 15:01:35.425129] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985695425,"clients_connected":1,"server_time":"2025-11-24 15:01:35"}
+[2025-11-24 15:01:35.425437] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:01:36.425572] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985696425,"clients_connected":1,"server_time":"2025-11-24 15:01:36"}
+[2025-11-24 15:01:36.425692] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:01:37.425799] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985697425,"clients_connected":1,"server_time":"2025-11-24 15:01:37"}
+[2025-11-24 15:01:37.425926] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:01:38.426034] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985698425,"clients_connected":1,"server_time":"2025-11-24 15:01:38"}
+[2025-11-24 15:01:38.426170] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:01:39.426272] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985699426,"clients_connected":1,"server_time":"2025-11-24 15:01:39"}
+[2025-11-24 15:01:39.426421] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:01:40.426592] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985700426,"clients_connected":1,"server_time":"2025-11-24 15:01:40"}
+[2025-11-24 15:01:40.426879] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:05:25.301236] [info] WebSocket server created on port 8081
+[2025-11-24 15:05:25.301510] [info] Started auto updates with interval 1000ms
+[2025-11-24 15:05:25.301583] [info] WebSocket auto updates started with interval 1000ms
+[2025-11-24 15:05:25.301621] [info] WebSocket server starting on port 8081
+[2025-11-24 15:05:25.301671] [info] Auto update worker started
+[2025-11-24 15:05:28.069974] [info] WebSocket client connected. Total clients: 1
+[2025-11-24 15:05:28.302238] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985928302,"clients_connected":1,"server_time":"2025-11-24 15:05:28"}
+[2025-11-24 15:05:29.302549] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985929302,"clients_connected":1,"server_time":"2025-11-24 15:05:29"}
+[2025-11-24 15:05:30.302858] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985930302,"clients_connected":1,"server_time":"2025-11-24 15:05:30"}
+[2025-11-24 15:05:31.303146] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985931303,"clients_connected":1,"server_time":"2025-11-24 15:05:31"}
+[2025-11-24 15:05:32.303443] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985932303,"clients_connected":1,"server_time":"2025-11-24 15:05:32"}
+[2025-11-24 15:05:33.303756] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985933303,"clients_connected":1,"server_time":"2025-11-24 15:05:33"}
+[2025-11-24 15:05:34.304081] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985934304,"clients_connected":1,"server_time":"2025-11-24 15:05:34"}
+[2025-11-24 15:05:35.304398] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985935304,"clients_connected":1,"server_time":"2025-11-24 15:05:35"}
+[2025-11-24 15:05:35.680784] [info] buttonOpenCOM_Click
+[2025-11-24 15:05:36.304736] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985936304,"clients_connected":1,"server_time":"2025-11-24 15:05:36"}
+[2025-11-24 15:05:37.305086] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985937304,"clients_connected":1,"server_time":"2025-11-24 15:05:37"}
+[2025-11-24 15:05:38.305672] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985938305,"clients_connected":1,"server_time":"2025-11-24 15:05:38"}
+[2025-11-24 15:05:38.503925] [info] buttonNumBoard_Click JSON: {"numBoard":16}
+[2025-11-24 15:05:38.827915] [info] buttonNumSteps_Click JSON: {"numSteps":1000}
+[2025-11-24 15:05:39.187948] [info] buttonSpeed_Click JSON: {"numSpeed":10}
+[2025-11-24 15:05:39.306145] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985939306,"clients_connected":1,"server_time":"2025-11-24 15:05:39"}
+[2025-11-24 15:05:39.571899] [info] buttonAccel_Click JSON: {"numAccel":10}
+[2025-11-24 15:05:39.859896] [info] buttonDecel_Click JSON: {"numDecel":10}
+[2025-11-24 15:05:40.306551] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985940306,"clients_connected":1,"server_time":"2025-11-24 15:05:40"}
+[2025-11-24 15:05:40.403912] [info] buttonMoveForward_Click
+[2025-11-24 15:05:41.306894] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985941306,"clients_connected":1,"server_time":"2025-11-24 15:05:41"}
+[2025-11-24 15:05:42.091909] [info] buttonMoveBackward_Click
+[2025-11-24 15:05:42.307380] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985942307,"clients_connected":1,"server_time":"2025-11-24 15:05:42"}
+[2025-11-24 15:05:43.307949] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985943307,"clients_connected":1,"server_time":"2025-11-24 15:05:43"}
+[2025-11-24 15:05:44.308348] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985944308,"clients_connected":1,"server_time":"2025-11-24 15:05:44"}
+[2025-11-24 15:05:45.308659] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985945308,"clients_connected":1,"server_time":"2025-11-24 15:05:45"}
+[2025-11-24 15:05:45.832422] [error] WebSocket read error: Transport endpoint is not connected
+[2025-11-24 15:05:46.309157] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985946309,"clients_connected":1,"server_time":"2025-11-24 15:05:46"}
+[2025-11-24 15:05:46.309322] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:05:47.309406] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985947309,"clients_connected":1,"server_time":"2025-11-24 15:05:47"}
+[2025-11-24 15:05:47.309534] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:05:48.309631] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985948309,"clients_connected":1,"server_time":"2025-11-24 15:05:48"}
+[2025-11-24 15:05:48.309745] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:05:49.309845] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985949309,"clients_connected":1,"server_time":"2025-11-24 15:05:49"}
+[2025-11-24 15:05:49.309962] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:05:50.310075] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985950310,"clients_connected":1,"server_time":"2025-11-24 15:05:50"}
+[2025-11-24 15:05:50.310191] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:05:51.310290] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985951310,"clients_connected":1,"server_time":"2025-11-24 15:05:51"}
+[2025-11-24 15:05:51.310393] [error] WebSocket broadcast write error: Operation canceled
+[2025-11-24 15:05:52.310498] [debug] Broadcasting to 1 clients: {"type":"auto_update","timestamp":1763985952310,"clients_connected":1,"server_time":"2025-11-24 15:05:52"}
+[2025-11-24 15:05:52.310621] [error] WebSocket broadcast write error: Operation canceled

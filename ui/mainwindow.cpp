@@ -5,6 +5,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , networkManager(new QNetworkAccessManager(this))
+    , webSocket(new QWebSocket())
 {
     ui->setupUi(this);
 
@@ -69,10 +70,20 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonEncoderConfig, &QPushButton::clicked, this, &MainWindow::EncoderConfig);
 
     QObject::connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onApiReplyFinished);
+
+    QObject::connect(webSocket, &QWebSocket::connected, this, &MainWindow::onSocketConnected);
+    QObject::connect(webSocket, &QWebSocket::disconnected, this, &MainWindow::onSocketDisconnected);
+    QObject::connect(webSocket, &QWebSocket::textMessageReceived, this, &MainWindow::onWebSocketTextMessageReceived);
+    QObject::connect(webSocket, SIGNAL(error(QAbstractSocket::SocketError)),
+                     this, SLOT(onSocketError(QAbstractSocket::SocketError)));
+
+    // Подключаемся к WebSocket серверу
+    webSocket->open(QUrl("ws://localhost:8081/ws"));
 }
 
 MainWindow::~MainWindow()
 {
+    webSocket->close();
     delete ui;
 }
 
@@ -552,7 +563,7 @@ void MainWindow::sendApiRequest(const QString &endpoint, const QJsonObject &data
 {
     qDebug() << "Sending request to:" << endpoint;
 
-    QUrl url("http://localhost:5000/" + endpoint);
+    QUrl url("http://localhost:8080/" + endpoint);
     QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
@@ -576,12 +587,11 @@ void MainWindow::onApiReplyFinished(QNetworkReply *reply)
         QByteArray response = reply->readAll();
         qDebug() << "Response:" << response;
 
-        // Показываем ответ в статусбаре или message box
         ui->statusbar->showMessage("Success: " + QString(response), 3000);
     } else {
         QString error = reply->errorString();
         qDebug() << "Error:" << error;
-        ui->statusbar->showMessage("Error: " + error, 5000);
+        ui->statusbar->showMessage("Error: " + error, 8080);
     }
 
     reply->deleteLater();
@@ -590,6 +600,52 @@ void MainWindow::onApiReplyFinished(QNetworkReply *reply)
 void MainWindow::showApiError(const QString &error)
 {
     qDebug() << "showApiError";
+    qDebug() << error;
     return ;
 }
 
+void MainWindow::onSocketConnected()
+{
+    qDebug() << "WebSocket connected";
+    ui->statusbar->showMessage("WebSocket: Connected", 3000);
+
+    // Можно отправить приветственное сообщение или подписку
+    // webSocket->sendTextMessage("{\"type\":\"subscribe\",\"data\":\"status\"}");
+}
+
+void MainWindow::onSocketDisconnected()
+{
+    qDebug() << "WebSocket disconnected";
+    ui->statusbar->showMessage("WebSocket: Disconnected", 3000);
+
+    // Автопереподключение через 3 секунды
+    QTimer::singleShot(3000, this, [this]() {
+        qDebug() << "Attempting to reconnect WebSocket...";
+        webSocket->open(QUrl("ws://localhost:8080/ws"));
+    });
+}
+
+void MainWindow::onWebSocketTextMessageReceived(const QString &message)
+{
+    qDebug() << "WebSocket message received:" << message;
+
+    // Парсим JSON сообщение
+    QJsonDocument doc = QJsonDocument::fromJson(message.toUtf8());
+    if (!doc.isNull() && doc.isObject()) {
+        QJsonObject json = doc.object();
+        processWebSocketMessage(json);
+    } else {
+        qDebug() << "Invalid JSON received:" << message;
+    }
+}
+
+void MainWindow::onSocketError(QAbstractSocket::SocketError error)
+{
+    qDebug() << "WebSocket error:" << error << webSocket->errorString();
+    ui->statusbar->showMessage("WebSocket Error: " + webSocket->errorString(), 5000);
+}
+
+void MainWindow::processWebSocketMessage(const QJsonObject &message)
+{
+    qDebug()<<message;
+}

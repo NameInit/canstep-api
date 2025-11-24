@@ -27,7 +27,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MainWindow_t {
-    uint offsetsAndSizes[138];
+    uint offsetsAndSizes[150];
     char stringdata0[11];
     char stringdata1[17];
     char stringdata2[1];
@@ -97,6 +97,12 @@ struct qt_meta_stringdata_MainWindow_t {
     char stringdata66[6];
     char stringdata67[13];
     char stringdata68[6];
+    char stringdata69[18];
+    char stringdata70[21];
+    char stringdata71[31];
+    char stringdata72[8];
+    char stringdata73[14];
+    char stringdata74[29];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MainWindow_t::offsetsAndSizes) + ofs), len 
@@ -170,7 +176,13 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
         QT_MOC_LITERAL(807, 14),  // "QNetworkReply*"
         QT_MOC_LITERAL(822, 5),  // "reply"
         QT_MOC_LITERAL(828, 12),  // "showApiError"
-        QT_MOC_LITERAL(841, 5)   // "error"
+        QT_MOC_LITERAL(841, 5),  // "error"
+        QT_MOC_LITERAL(847, 17),  // "onSocketConnected"
+        QT_MOC_LITERAL(865, 20),  // "onSocketDisconnected"
+        QT_MOC_LITERAL(886, 30),  // "onWebSocketTextMessageReceived"
+        QT_MOC_LITERAL(917, 7),  // "message"
+        QT_MOC_LITERAL(925, 13),  // "onSocketError"
+        QT_MOC_LITERAL(939, 28)   // "QAbstractSocket::SocketError"
     },
     "MainWindow",
     "ButtonAutosender",
@@ -240,7 +252,13 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
     "QNetworkReply*",
     "reply",
     "showApiError",
-    "error"
+    "error",
+    "onSocketConnected",
+    "onSocketDisconnected",
+    "onWebSocketTextMessageReceived",
+    "message",
+    "onSocketError",
+    "QAbstractSocket::SocketError"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -251,7 +269,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      63,   14, // methods
+      67,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -259,69 +277,73 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  392,    2, 0x0a,    1 /* Public */,
-       3,    0,  393,    2, 0x0a,    2 /* Public */,
-       4,    0,  394,    2, 0x0a,    3 /* Public */,
-       5,    0,  395,    2, 0x0a,    4 /* Public */,
-       6,    0,  396,    2, 0x0a,    5 /* Public */,
-       7,    0,  397,    2, 0x0a,    6 /* Public */,
-       8,    0,  398,    2, 0x0a,    7 /* Public */,
-       9,    0,  399,    2, 0x0a,    8 /* Public */,
-      10,    0,  400,    2, 0x0a,    9 /* Public */,
-      11,    0,  401,    2, 0x0a,   10 /* Public */,
-      12,    0,  402,    2, 0x0a,   11 /* Public */,
-      13,    0,  403,    2, 0x0a,   12 /* Public */,
-      14,    0,  404,    2, 0x0a,   13 /* Public */,
-      15,    0,  405,    2, 0x0a,   14 /* Public */,
-      16,    0,  406,    2, 0x0a,   15 /* Public */,
-      17,    0,  407,    2, 0x0a,   16 /* Public */,
-      18,    0,  408,    2, 0x0a,   17 /* Public */,
-      19,    0,  409,    2, 0x0a,   18 /* Public */,
-      20,    0,  410,    2, 0x0a,   19 /* Public */,
-      21,    0,  411,    2, 0x0a,   20 /* Public */,
-      22,    0,  412,    2, 0x0a,   21 /* Public */,
-      23,    0,  413,    2, 0x0a,   22 /* Public */,
-      24,    0,  414,    2, 0x0a,   23 /* Public */,
-      25,    0,  415,    2, 0x0a,   24 /* Public */,
-      26,    0,  416,    2, 0x0a,   25 /* Public */,
-      27,    0,  417,    2, 0x0a,   26 /* Public */,
-      28,    0,  418,    2, 0x0a,   27 /* Public */,
-      29,    0,  419,    2, 0x0a,   28 /* Public */,
-      30,    0,  420,    2, 0x0a,   29 /* Public */,
-      31,    0,  421,    2, 0x0a,   30 /* Public */,
-      32,    0,  422,    2, 0x0a,   31 /* Public */,
-      33,    0,  423,    2, 0x0a,   32 /* Public */,
-      34,    0,  424,    2, 0x0a,   33 /* Public */,
-      35,    0,  425,    2, 0x0a,   34 /* Public */,
-      36,    0,  426,    2, 0x0a,   35 /* Public */,
-      37,    0,  427,    2, 0x0a,   36 /* Public */,
-      38,    0,  428,    2, 0x0a,   37 /* Public */,
-      39,    0,  429,    2, 0x0a,   38 /* Public */,
-      40,    0,  430,    2, 0x0a,   39 /* Public */,
-      41,    0,  431,    2, 0x0a,   40 /* Public */,
-      42,    0,  432,    2, 0x0a,   41 /* Public */,
-      43,    0,  433,    2, 0x0a,   42 /* Public */,
-      44,    0,  434,    2, 0x0a,   43 /* Public */,
-      45,    0,  435,    2, 0x0a,   44 /* Public */,
-      46,    0,  436,    2, 0x0a,   45 /* Public */,
-      47,    0,  437,    2, 0x0a,   46 /* Public */,
-      48,    0,  438,    2, 0x0a,   47 /* Public */,
-      49,    0,  439,    2, 0x0a,   48 /* Public */,
-      50,    0,  440,    2, 0x0a,   49 /* Public */,
-      51,    0,  441,    2, 0x0a,   50 /* Public */,
-      52,    0,  442,    2, 0x0a,   51 /* Public */,
-      53,    0,  443,    2, 0x0a,   52 /* Public */,
-      54,    0,  444,    2, 0x0a,   53 /* Public */,
-      55,    0,  445,    2, 0x0a,   54 /* Public */,
-      56,    0,  446,    2, 0x0a,   55 /* Public */,
-      57,    0,  447,    2, 0x0a,   56 /* Public */,
-      58,    0,  448,    2, 0x0a,   57 /* Public */,
-      59,    0,  449,    2, 0x0a,   58 /* Public */,
-      60,    0,  450,    2, 0x0a,   59 /* Public */,
-      61,    2,  451,    2, 0x0a,   60 /* Public */,
-      61,    1,  456,    2, 0x2a,   63 /* Public | MethodCloned */,
-      64,    1,  459,    2, 0x0a,   65 /* Public */,
-      67,    1,  462,    2, 0x0a,   67 /* Public */,
+       1,    0,  416,    2, 0x0a,    1 /* Public */,
+       3,    0,  417,    2, 0x0a,    2 /* Public */,
+       4,    0,  418,    2, 0x0a,    3 /* Public */,
+       5,    0,  419,    2, 0x0a,    4 /* Public */,
+       6,    0,  420,    2, 0x0a,    5 /* Public */,
+       7,    0,  421,    2, 0x0a,    6 /* Public */,
+       8,    0,  422,    2, 0x0a,    7 /* Public */,
+       9,    0,  423,    2, 0x0a,    8 /* Public */,
+      10,    0,  424,    2, 0x0a,    9 /* Public */,
+      11,    0,  425,    2, 0x0a,   10 /* Public */,
+      12,    0,  426,    2, 0x0a,   11 /* Public */,
+      13,    0,  427,    2, 0x0a,   12 /* Public */,
+      14,    0,  428,    2, 0x0a,   13 /* Public */,
+      15,    0,  429,    2, 0x0a,   14 /* Public */,
+      16,    0,  430,    2, 0x0a,   15 /* Public */,
+      17,    0,  431,    2, 0x0a,   16 /* Public */,
+      18,    0,  432,    2, 0x0a,   17 /* Public */,
+      19,    0,  433,    2, 0x0a,   18 /* Public */,
+      20,    0,  434,    2, 0x0a,   19 /* Public */,
+      21,    0,  435,    2, 0x0a,   20 /* Public */,
+      22,    0,  436,    2, 0x0a,   21 /* Public */,
+      23,    0,  437,    2, 0x0a,   22 /* Public */,
+      24,    0,  438,    2, 0x0a,   23 /* Public */,
+      25,    0,  439,    2, 0x0a,   24 /* Public */,
+      26,    0,  440,    2, 0x0a,   25 /* Public */,
+      27,    0,  441,    2, 0x0a,   26 /* Public */,
+      28,    0,  442,    2, 0x0a,   27 /* Public */,
+      29,    0,  443,    2, 0x0a,   28 /* Public */,
+      30,    0,  444,    2, 0x0a,   29 /* Public */,
+      31,    0,  445,    2, 0x0a,   30 /* Public */,
+      32,    0,  446,    2, 0x0a,   31 /* Public */,
+      33,    0,  447,    2, 0x0a,   32 /* Public */,
+      34,    0,  448,    2, 0x0a,   33 /* Public */,
+      35,    0,  449,    2, 0x0a,   34 /* Public */,
+      36,    0,  450,    2, 0x0a,   35 /* Public */,
+      37,    0,  451,    2, 0x0a,   36 /* Public */,
+      38,    0,  452,    2, 0x0a,   37 /* Public */,
+      39,    0,  453,    2, 0x0a,   38 /* Public */,
+      40,    0,  454,    2, 0x0a,   39 /* Public */,
+      41,    0,  455,    2, 0x0a,   40 /* Public */,
+      42,    0,  456,    2, 0x0a,   41 /* Public */,
+      43,    0,  457,    2, 0x0a,   42 /* Public */,
+      44,    0,  458,    2, 0x0a,   43 /* Public */,
+      45,    0,  459,    2, 0x0a,   44 /* Public */,
+      46,    0,  460,    2, 0x0a,   45 /* Public */,
+      47,    0,  461,    2, 0x0a,   46 /* Public */,
+      48,    0,  462,    2, 0x0a,   47 /* Public */,
+      49,    0,  463,    2, 0x0a,   48 /* Public */,
+      50,    0,  464,    2, 0x0a,   49 /* Public */,
+      51,    0,  465,    2, 0x0a,   50 /* Public */,
+      52,    0,  466,    2, 0x0a,   51 /* Public */,
+      53,    0,  467,    2, 0x0a,   52 /* Public */,
+      54,    0,  468,    2, 0x0a,   53 /* Public */,
+      55,    0,  469,    2, 0x0a,   54 /* Public */,
+      56,    0,  470,    2, 0x0a,   55 /* Public */,
+      57,    0,  471,    2, 0x0a,   56 /* Public */,
+      58,    0,  472,    2, 0x0a,   57 /* Public */,
+      59,    0,  473,    2, 0x0a,   58 /* Public */,
+      60,    0,  474,    2, 0x0a,   59 /* Public */,
+      61,    2,  475,    2, 0x0a,   60 /* Public */,
+      61,    1,  480,    2, 0x2a,   63 /* Public | MethodCloned */,
+      64,    1,  483,    2, 0x0a,   65 /* Public */,
+      67,    1,  486,    2, 0x0a,   67 /* Public */,
+      69,    0,  489,    2, 0x0a,   69 /* Public */,
+      70,    0,  490,    2, 0x0a,   70 /* Public */,
+      71,    1,  491,    2, 0x0a,   71 /* Public */,
+      73,    1,  494,    2, 0x0a,   73 /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -387,6 +409,10 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::QString,   62,
     QMetaType::Void, 0x80000000 | 65,   66,
     QMetaType::Void, QMetaType::QString,   68,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   72,
+    QMetaType::Void, 0x80000000 | 74,   68,
 
        0        // eod
 };
@@ -530,7 +556,17 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QNetworkReply *, std::false_type>,
         // method 'showApiError'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'onSocketConnected'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onSocketDisconnected'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onWebSocketTextMessageReceived'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'onSocketError'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QAbstractSocket::SocketError, std::false_type>
     >,
     nullptr
 } };
@@ -604,6 +640,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 60: _t->sendApiRequest((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 61: _t->onApiReplyFinished((*reinterpret_cast< std::add_pointer_t<QNetworkReply*>>(_a[1]))); break;
         case 62: _t->showApiError((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 63: _t->onSocketConnected(); break;
+        case 64: _t->onSocketDisconnected(); break;
+        case 65: _t->onWebSocketTextMessageReceived((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 66: _t->onSocketError((*reinterpret_cast< std::add_pointer_t<QAbstractSocket::SocketError>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -614,6 +654,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QNetworkReply* >(); break;
+            }
+            break;
+        case 66:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QAbstractSocket::SocketError >(); break;
             }
             break;
         }
@@ -639,13 +686,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 63)
+        if (_id < 67)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 63;
+        _id -= 67;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 63)
+        if (_id < 67)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 63;
+        _id -= 67;
     }
     return _id;
 }

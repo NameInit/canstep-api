@@ -2075,9 +2075,9 @@ public:
 		Byte8BitMask tmpNumOutZState = { 0 };
 		tmpNumOutZState.raw = NumOutZState;
 		if (_NumOut < 8) {
-            if (_TrueFalse) tmpNumOutZState.raw |= (1 << _NumOut);
-            else tmpNumOutZState.raw &= ~(1 << _NumOut);
-        }
+			if (_TrueFalse) tmpNumOutZState.raw |= (1 << _NumOut);
+			else tmpNumOutZState.raw &= ~(1 << _NumOut);
+		}
 		NumOutZState = tmpNumOutZState.raw;
 		return NumOutZState;
 	}
@@ -2085,9 +2085,9 @@ public:
 		Byte8BitMask tmpNumOutHiState = { 0 };
 		tmpNumOutHiState.raw = NumOutHiState;
 		if (_NumOut < 8) {
-            if (_TrueFalse) tmpNumOutHiState.raw |= (1 << _NumOut);
-            else tmpNumOutHiState.raw &= ~(1 << _NumOut);
-        }
+			if (_TrueFalse) tmpNumOutHiState.raw |= (1 << _NumOut);
+			else tmpNumOutHiState.raw &= ~(1 << _NumOut);
+		}
 		NumOutHiState = tmpNumOutHiState.raw;
 		return NumOutHiState;
 	}
@@ -2095,9 +2095,9 @@ public:
 		Byte8BitMask tmpNumOutLoState = { 0 };
 		tmpNumOutLoState.raw = NumOutLoState;
 		if (_NumOut < 8) {
-            if (_TrueFalse) tmpNumOutLoState.raw |= (1 << _NumOut);
-            else tmpNumOutLoState.raw &= ~(1 << _NumOut);
-        }
+			if (_TrueFalse) tmpNumOutLoState.raw |= (1 << _NumOut);
+			else tmpNumOutLoState.raw &= ~(1 << _NumOut);
+		}
 		NumOutLoState = tmpNumOutLoState.raw;
 		return NumOutZState;
 	}
@@ -2164,10 +2164,10 @@ public:
 		else { tmpNumOutLoState.raw = NumOutHiState; }
 		
 		if (_NumOut < 8) {
-            if ((tmpNumOutZState.raw >> _NumOut) & 1) return eNumOutZState;
-            if ((tmpNumOutHiState.raw >> _NumOut) & 1) return eNumOutHiState;
-            if ((tmpNumOutLoState.raw >> _NumOut) & 1) return eNumOutLoState;
-        }
+			if ((tmpNumOutZState.raw >> _NumOut) & 1) return eNumOutZState;
+			if ((tmpNumOutHiState.raw >> _NumOut) & 1) return eNumOutHiState;
+			if ((tmpNumOutLoState.raw >> _NumOut) & 1) return eNumOutLoState;
+		}
 		return eNumOutUnknownState;
 	}
 
@@ -2175,9 +2175,9 @@ public:
 		Byte16BitMask tmpNumInNoPullupDown = { 0 };
 		tmpNumInNoPullupDown.raw = NumInNoPullupDown;
 		if (_NumIn < 12) {
-            if (_TrueFalse) tmpNumInNoPullupDown.raw |= (1 << _NumIn);
-            else tmpNumInNoPullupDown.raw &= ~(1 << _NumIn);
-        }
+			if (_TrueFalse) tmpNumInNoPullupDown.raw |= (1 << _NumIn);
+			else tmpNumInNoPullupDown.raw &= ~(1 << _NumIn);
+		}
 		NumInNoPullupDown = tmpNumInNoPullupDown.raw;
 		return NumInNoPullupDown;
 	}
@@ -2186,9 +2186,9 @@ public:
 		Byte16BitMask tmpNumInPullUp = { 0 };
 		tmpNumInPullUp.raw = NumInPullUp;
 		if (_NumIn < 12) {
-            if (_TrueFalse) tmpNumInPullUp.raw |= (1 << _NumIn);
-            else tmpNumInPullUp.raw &= ~(1 << _NumIn);
-        }
+			if (_TrueFalse) tmpNumInPullUp.raw |= (1 << _NumIn);
+			else tmpNumInPullUp.raw &= ~(1 << _NumIn);
+		}
 		NumInPullUp = tmpNumInPullUp.raw;
 		return NumInPullUp;
 	}
@@ -2197,9 +2197,9 @@ public:
 		Byte16BitMask tmpNumInPullDown = { 0 };
 		tmpNumInPullDown.raw = NumInPullDown;
 		if (_NumIn < 12) {
-            if (_TrueFalse) tmpNumInPullDown.raw |= (1 << _NumIn);
-            else tmpNumInPullDown.raw &= ~(1 << _NumIn);
-        }
+			if (_TrueFalse) tmpNumInPullDown.raw |= (1 << _NumIn);
+			else tmpNumInPullDown.raw &= ~(1 << _NumIn);
+		}
 		NumInPullDown = tmpNumInPullDown.raw;
 		return NumInPullDown;
 	}
@@ -2268,10 +2268,10 @@ public:
 		else { tmpNumInPullDown.raw = NumInPullDown; }
 		
 		if (_NumIn < 12) {
-            if ((tmpNumInNoPullupDown.raw >> _NumIn) & 1) return eNumInNoPullupDown;
-            if ((tmpNumInPullUp.raw >> _NumIn) & 1) return eNumInPullUp;
-            if ((tmpNumInPullDown.raw >> _NumIn) & 1) return eNumInPullDown;
-        }
+			if ((tmpNumInNoPullupDown.raw >> _NumIn) & 1) return eNumInNoPullupDown;
+			if ((tmpNumInPullUp.raw >> _NumIn) & 1) return eNumInPullUp;
+			if ((tmpNumInPullDown.raw >> _NumIn) & 1) return eNumInPullDown;
+		}
 		return eNumInUnknownPullupDown;
 	}
 	void SetIHOLD(uint8_t _IHOLD, uint8_t _IRUN, uint8_t _IHOLDDELAY) {

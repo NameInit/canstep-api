@@ -37,9 +37,9 @@ private:
 	static uint32_t u32OUT_COM;
 
 public: 
-    HidDevice* pHidDevice;
+	HidDevice* pHidDevice;
 private: 
-    Tensometer_Callback_ANSWER_Delegate callbackTensometerAnswer;
+	Tensometer_Callback_ANSWER_Delegate callbackTensometerAnswer;
 public:
 	std::vector<uint8_t> StructToVector(const USBHIDFrame& frame)
 	{
@@ -401,9 +401,9 @@ private:
 	static uint32_t u32OUT_COM;
 
 public: 
-    HidDevice* pHidDevice;
+	HidDevice* pHidDevice;
 private: 
-    Tensometer_Callback_ANSWER_Delegate callbackTensometerAnswer;
+	Tensometer_Callback_ANSWER_Delegate callbackTensometerAnswer;
 public:
 	std::vector<uint8_t> StructToVector(const USBHIDFrame& frame)
 	{
