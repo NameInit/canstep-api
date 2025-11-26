@@ -3,6 +3,7 @@
 CanController::CanController() {
 	hidDevice = std::make_unique<HidDevice>();
 	scenarioBuilder = std::make_unique<ScenarioBuilder>();
+	createMechanismObj0(0,0);
 }
 
 CanController::~CanController() {

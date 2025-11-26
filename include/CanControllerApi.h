@@ -26,7 +26,7 @@ private:
 	Pistache::Rest::Router router;
 	Pistache::Address addr;
 	std::unique_ptr<Pistache::Http::Endpoint> server;
-	std::unique_ptr<WebSocketServer> ws_server;
+	std::unique_ptr<WebSocketServer> webSocketServer;
 	CanController controller;
 	std::mutex controller_mutex;
 
@@ -968,12 +968,12 @@ public:
 		setupRoutes();
 		server->init(opts);
 		server->setHandler(router.handler());
-		ws_server=std::make_unique<WebSocketServer>(8081,controller,controller_mutex);
+		webSocketServer=std::make_unique<WebSocketServer>(8081,controller,controller_mutex);
 	}
 	~CanControllerApi(){
-		if(ws_server){
+		if(webSocketServer){
 			stopWebSocketAutoUpdates();
-			ws_server->stop();
+			webSocketServer->stop();
 		}
 	}
 	
@@ -981,8 +981,8 @@ public:
 		std::cout << "Run Server" << std::endl;
 		std::cout << "Run WebSocket Server on port " << 8081 << std::endl;
 
-		if (ws_server) {
-			ws_server->run();
+		if (webSocketServer) {
+			webSocketServer->run();
 			startWebSocketAutoUpdates();
 		}
 
@@ -992,8 +992,8 @@ public:
 //WebSocketServer methods
 private:
 	void startWebSocketAutoUpdates(int interval_ms=1000) {
-		if (ws_server) {
-			ws_server->start_auto_updates(interval_ms);
+		if (webSocketServer) {
+			webSocketServer->startAutoUpdates(interval_ms);
 			BOOST_LOG_TRIVIAL(info) << "WebSocket auto updates started with interval " << interval_ms << "ms";
 		} else {
 			BOOST_LOG_TRIVIAL(error) << "WebSocket server not initialized";
@@ -1001,29 +1001,23 @@ private:
 	}
 
 	void stopWebSocketAutoUpdates() {
-	if (ws_server) {
-			ws_server->stop_auto_updates();
+	if (webSocketServer) {
+			webSocketServer->stopAutoUpdates();
 			BOOST_LOG_TRIVIAL(info) << "WebSocket auto updates stopped";
 		}
 	}
 
 	void setWebSocketUpdateInterval(int interval_ms=1000) {
-		if (ws_server) {
-			ws_server->set_update_interval(interval_ms);
+		if (webSocketServer) {
+			webSocketServer->setUpdateInterval(interval_ms);
 		}
 	}
 
 	bool isWebSocketAutoUpdateEnabled() const {
-		return ws_server ? ws_server->is_auto_update_enabled() : false;
+		return webSocketServer ? webSocketServer->isAutoUpdateEnabled() : false;
 	}
 
 	int getWebSocketUpdateInterval() const {
-		return ws_server ? ws_server->get_update_interval() : 0;
-	}
-
-	void sendSystemStatus() {
-		if (ws_server) {
-			ws_server->send_system_status();
-		}
+		return webSocketServer ? webSocketServer->getUpdateInterval() : 0;
 	}
 };

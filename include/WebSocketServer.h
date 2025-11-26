@@ -9,6 +9,7 @@
 #include <atomic>
 #include <mutex>
 #include <chrono>
+#include <cstdint>
 
 #include "WebSocketSession.h"
 #include "CanController.h"
@@ -18,55 +19,46 @@ using tcp = boost::asio::ip::tcp;
 
 class WebSocketServer {
 private:
-	asio::io_context ioc_;
-	tcp::acceptor acceptor_;
-	std::unordered_set<std::shared_ptr<WebSocketSession>> sessions_;
-	CanController& controller_;
-	std::mutex& controller_mutex_;
-	std::atomic<bool> running_{false};
-	std::atomic<bool> auto_update_enabled_{false};
-	std::thread server_thread_;
-	std::thread update_thread_;
-	unsigned short port_;
-	int update_interval_ms_{1000};
+	asio::io_context ioc;
+	tcp::acceptor acceptor;
+	std::unordered_set<std::shared_ptr<WebSocketSession>> sessions;
+	CanController& controller;
+	std::mutex& controllerMutex;
+	std::atomic<bool> running{false};
+	std::atomic<bool> autoUpdateEnabled{false};
+	std::thread serverThread;
+	std::thread updateThread;
+	uint16_t port;
+	int32_t updateIntervalMs{1000};
 
 public:
-	WebSocketServer(unsigned short port, CanController& controller, std::mutex& controller_mutex);
+	WebSocketServer(uint16_t port, CanController& controller, std::mutex& controllerMutex);
 	~WebSocketServer();
 
 	void run();
 	void stop();
 	void broadcast(const boost::json::object& message);
+
+	void startAutoUpdates(int32_t intervalMs = 1000);
+	void stopAutoUpdates();
+	void setUpdateInterval(int32_t intervalMs);
+	bool isAutoUpdateEnabled() const { return autoUpdateEnabled; }
+	int32_t getUpdateInterval() const { return updateIntervalMs; }
 	
-	// Вспомогательные методы для отправки специфичных сообщений
-	void send_motor_update(int torque, int speed, int position, int alarm_code = 0);
-	void send_alarm_update(int alarm_code, const std::string& alarm_message = "");
-	void send_connection_status(bool connected);
-	void send_movement_status(bool moving, const std::string& direction = "");
-	void send_driver_status(bool driver_on);
-	void send_system_status();
-	
-	// Методы для автоматического обновления
-	void start_auto_updates(int interval_ms = 1000);
-	void stop_auto_updates();
-	void set_update_interval(int interval_ms);
-	bool is_auto_update_enabled() const { return auto_update_enabled_; }
-	int get_update_interval() const { return update_interval_ms_; }
-	
-	unsigned short get_port() const { return port_; }
-	size_t get_client_count() const { return sessions_.size(); }
+	uint16_t getPort() const { return port; }
+	size_t getClientCount() const { return sessions.size(); }
 
 private:
-	void do_accept();
-	void auto_update_worker();
-	void collect_controller_data(boost::json::object& data);
+	void doAccept();
+	void autoUpdateWorker();
+	void collectControllerData(boost::json::object& data);
 };
 
-WebSocketServer::WebSocketServer(unsigned short port, CanController& controller, std::mutex& controller_mutex)
-	: acceptor_(ioc_, {tcp::v4(), port})
-	, controller_(controller)
-	, controller_mutex_(controller_mutex)
-	, port_(port) {
+WebSocketServer::WebSocketServer(uint16_t port, CanController& controller, std::mutex& controllerMutex)
+	: acceptor(ioc, {tcp::v4(), port})
+	, controller(controller)
+	, controllerMutex(controllerMutex)
+	, port(port) {
 	
 	BOOST_LOG_TRIVIAL(info) << "WebSocket server created on port " << port;
 }
@@ -77,18 +69,18 @@ WebSocketServer::~WebSocketServer() {
 }
 
 void WebSocketServer::run() {
-	if (running_) {
+	if (running) {
 		BOOST_LOG_TRIVIAL(warning) << "WebSocket server is already running";
 		return;
 	}
 	
-	running_ = true;
-	server_thread_ = std::thread([this]() {
-		BOOST_LOG_TRIVIAL(info) << "WebSocket server starting on port " << port_;
-		do_accept();
+	running = true;
+	serverThread = std::thread([this]() {
+		BOOST_LOG_TRIVIAL(info) << "WebSocket server starting on port " << port;
+		doAccept();
 		
 		try {
-			ioc_.run();
+			ioc.run();
 			BOOST_LOG_TRIVIAL(info) << "WebSocket server stopped";
 		} catch (const std::exception& e) {
 			BOOST_LOG_TRIVIAL(error) << "WebSocket server error: " << e.what();
@@ -97,77 +89,77 @@ void WebSocketServer::run() {
 }
 
 void WebSocketServer::stop() {
-	if (running_) {
-		running_ = false;
-		stop_auto_updates();
+	if (running) {
+		running = false;
+		stopAutoUpdates();
 		
 		// Закрываем все соединения
-		auto sessions_copy = sessions_;
-		for (auto& session : sessions_copy) {
-			// Сессии будут удалены из sessions_ в своих деструкторах
+		auto sessionsCopy = sessions;
+		for (auto& session : sessionsCopy) {
+			// Сессии будут удалены из sessions в своих деструкторах
 		}
-		sessions_.clear();
+		sessions.clear();
 		
-		ioc_.stop();
-		if (server_thread_.joinable()) {
-			server_thread_.join();
+		ioc.stop();
+		if (serverThread.joinable()) {
+			serverThread.join();
 		}
 		BOOST_LOG_TRIVIAL(info) << "WebSocket server stopped";
 	}
 }
 
-void WebSocketServer::start_auto_updates(int interval_ms) {
-	if (auto_update_enabled_) {
+void WebSocketServer::startAutoUpdates(int32_t intervalMs) {
+	if (autoUpdateEnabled) {
 		BOOST_LOG_TRIVIAL(warning) << "Auto updates are already enabled";
 		return;
 	}
 	
-	update_interval_ms_ = interval_ms;
-	auto_update_enabled_ = true;
+	updateIntervalMs = intervalMs;
+	autoUpdateEnabled = true;
 	
-	update_thread_ = std::thread([this]() {
-		auto_update_worker();
+	updateThread = std::thread([this]() {
+		autoUpdateWorker();
 	});
 	
-	BOOST_LOG_TRIVIAL(info) << "Started auto updates with interval " << interval_ms << "ms";
+	BOOST_LOG_TRIVIAL(info) << "Started auto updates with interval " << intervalMs << "ms";
 }
 
-void WebSocketServer::stop_auto_updates() {
-	if (auto_update_enabled_) {
-		auto_update_enabled_ = false;
-		if (update_thread_.joinable()) {
-			update_thread_.join();
+void WebSocketServer::stopAutoUpdates() {
+	if (autoUpdateEnabled) {
+		autoUpdateEnabled = false;
+		if (updateThread.joinable()) {
+			updateThread.join();
 		}
 		BOOST_LOG_TRIVIAL(info) << "Stopped auto updates";
 	}
 }
 
-void WebSocketServer::set_update_interval(int interval_ms) {
-	if (interval_ms < 10) {
+void WebSocketServer::setUpdateInterval(int32_t intervalMs) {
+	if (intervalMs < 10) {
 		BOOST_LOG_TRIVIAL(warning) << "Update interval too small, setting to minimum 10ms";
-		interval_ms = 10;
+		intervalMs = 10;
 	}
 	
-	update_interval_ms_ = interval_ms;
-	BOOST_LOG_TRIVIAL(info) << "Update interval set to " << interval_ms << "ms";
+	updateIntervalMs = intervalMs;
+	BOOST_LOG_TRIVIAL(info) << "Update interval set to " << intervalMs << "ms";
 }
 
-void WebSocketServer::auto_update_worker() {
+void WebSocketServer::autoUpdateWorker() {
 	BOOST_LOG_TRIVIAL(info) << "Auto update worker started";
 	
-	while (auto_update_enabled_ && running_) {
+	while (autoUpdateEnabled && running) {
 		try {
 			// Собираем данные с контроллера
 			boost::json::object data;
-			collect_controller_data(data);
+			collectControllerData(data);
 			
 			// Отправляем только если есть подключенные клиенты
-			if (!sessions_.empty()) {
+			if (!sessions.empty()) {
 				broadcast(data);
 			}
 			
 			// Ждем следующий интервал
-			std::this_thread::sleep_for(std::chrono::milliseconds(update_interval_ms_));
+			std::this_thread::sleep_for(std::chrono::milliseconds(updateIntervalMs));
 			
 		} catch (const std::exception& e) {
 			BOOST_LOG_TRIVIAL(error) << "Error in auto update worker: " << e.what();
@@ -178,49 +170,27 @@ void WebSocketServer::auto_update_worker() {
 	BOOST_LOG_TRIVIAL(info) << "Auto update worker stopped";
 }
 
-void WebSocketServer::collect_controller_data(boost::json::object& data) {
-	std::lock_guard<std::mutex> lock(controller_mutex_);
+void WebSocketServer::collectControllerData(boost::json::object& data) {
+	std::lock_guard<std::mutex> lock(controllerMutex);
 	
 	try {
 		auto now = std::chrono::system_clock::now();
-		auto timestamp = std::chrono::duration_cast<std::chrono::milliseconds>(
-			now.time_since_epoch()).count();
-		
-		// Базовые данные, которые всегда отправляем
-		data = {
-			{"type", "auto_update"},
-			{"timestamp", timestamp},
-			{"clients_connected", static_cast<int64_t>(sessions_.size())}
-		};
-		
-		// Здесь можно добавить вызовы реальных методов контроллера
-		// Для примера добавляем заглушки - в реальном коде замените на вызовы методов CanController
-		
-		// // Статус подключения (заглушка)
-		// data["connected"] = true;
-		
-		// // Данные мотора (заглушки)
-		// data["motor_torque"] = 0;
-		// data["motor_speed"] = 0;
-		// data["motor_position"] = 0;
-		// data["motor_temperature"] = 25;
-		
-		// // Статусы системы (заглушки)
-		// data["driver_enabled"] = false;
-		// data["moving"] = false;
-		// data["brake_engaged"] = true;
-		// data["alarm_active"] = false;
-		// data["alarm_code"] = 0;
-		
-		// // Информация о сервере
-		// data["update_interval_ms"] = update_interval_ms_;
-		// data["server_uptime_ms"] = timestamp; // В реальности нужно вычислять uptime
-		
-		// Добавляем системное время для отладки
-		std::time_t time_now = std::chrono::system_clock::to_time_t(now);
-		char time_str[100];
-		std::strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S", std::localtime(&time_now));
-		data["server_time"] = time_str;
+		auto timestamp = std::to_string(std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()).count());
+		std::time_t timeNow = std::chrono::system_clock::to_time_t(now);
+		char timeStr[100];
+		std::strftime(timeStr, sizeof(timeStr), "%Y-%m-%d %H:%M:%S", std::localtime(&timeNow));
+		data["server_time"] = timeStr;
+		data["timestamp"] = timestamp;
+		data["isConnected"] = controller.isConnected() ? "True" : "False";
+		data["running"] = controller.isRunningMech() ? "True" : "False";
+		data["numBoard"] = std::to_string(controller.getNumBoard());
+		data["numSteps"] = std::to_string(controller.getSteps());
+		data["numSpeed"] = std::to_string(controller.getSpeed());
+		data["numAccel"] = std::to_string(controller.getAccel());
+		data["numDecel"] = std::to_string(controller.getDecel());
+		data["currentPos"] = std::to_string(controller.getPosition());
+		data["startPos"] = std::to_string(controller.getStartPosition());
+		data["endPos"] = std::to_string(controller.getEndPosition());
 		
 	} catch (const std::exception& e) {
 		BOOST_LOG_TRIVIAL(error) << "Error collecting controller data: " << e.what();
@@ -228,10 +198,10 @@ void WebSocketServer::collect_controller_data(boost::json::object& data) {
 	}
 }
 
-void WebSocketServer::do_accept() {
-	acceptor_.async_accept(
+void WebSocketServer::doAccept() {
+	acceptor.async_accept(
 		[this](beast::error_code ec, tcp::socket socket) {
-			if (!running_) {
+			if (!running) {
 				return;
 			}
 			
@@ -239,91 +209,24 @@ void WebSocketServer::do_accept() {
 				BOOST_LOG_TRIVIAL(error) << "WebSocket accept error: " << ec.message();
 			} else {
 				std::make_shared<WebSocketSession>(
-					std::move(socket), sessions_, controller_, controller_mutex_)->run();
+					std::move(socket), sessions, controller, controllerMutex)->run();
 			}
 
-			if (running_) {
-				do_accept();
+			if (running) {
+				doAccept();
 			}
 		});
 }
 
 void WebSocketServer::broadcast(const boost::json::object& message) {
-	if (sessions_.empty()) {
+	if (sessions.empty()) {
 		return;
 	}
 	
-	auto json_str = boost::json::serialize(message);
-	BOOST_LOG_TRIVIAL(debug) << "Broadcasting to " << sessions_.size() << " clients: " << json_str;
+	auto jsonStr = boost::json::serialize(message);
+	BOOST_LOG_TRIVIAL(debug) << "Broadcasting to " << sessions.size() << " clients: " << jsonStr;
 	
-	for (auto& session : sessions_) {
-		session->send_broadcast_message(message);
+	for (auto& session : sessions) {
+		session->sendBroadcastMessage(message);
 	}
-}
-
-void WebSocketServer::send_motor_update(int torque, int speed, int position, int alarm_code) {
-	boost::json::object update = {
-		{"type", "motor_update"},
-		{"timestamp", std::chrono::duration_cast<std::chrono::milliseconds>(
-			std::chrono::system_clock::now().time_since_epoch()).count()},
-		{"torque", torque},
-		{"speed", speed},
-		{"position", position},
-		{"alarm_code", alarm_code}
-	};
-	
-	broadcast(update);
-}
-
-void WebSocketServer::send_alarm_update(int alarm_code, const std::string& alarm_message) {
-	boost::json::object update = {
-		{"type", "alarm_update"},
-		{"timestamp", std::chrono::duration_cast<std::chrono::milliseconds>(
-			std::chrono::system_clock::now().time_since_epoch()).count()},
-		{"alarm_code", alarm_code},
-		{"alarm_message", alarm_message}
-	};
-	
-	broadcast(update);
-}
-
-void WebSocketServer::send_connection_status(bool connected) {
-	boost::json::object update = {
-		{"type", "connection_status"},
-		{"timestamp", std::chrono::duration_cast<std::chrono::milliseconds>(
-			std::chrono::system_clock::now().time_since_epoch()).count()},
-		{"connected", connected}
-	};
-	
-	broadcast(update);
-}
-
-void WebSocketServer::send_movement_status(bool moving, const std::string& direction) {
-	boost::json::object update = {
-		{"type", "movement_status"},
-		{"timestamp", std::chrono::duration_cast<std::chrono::milliseconds>(
-			std::chrono::system_clock::now().time_since_epoch()).count()},
-		{"moving", moving},
-		{"direction", direction}
-	};
-	
-	broadcast(update);
-}
-
-void WebSocketServer::send_driver_status(bool driver_on) {
-	boost::json::object update = {
-		{"type", "driver_status"},
-		{"timestamp", std::chrono::duration_cast<std::chrono::milliseconds>(
-			std::chrono::system_clock::now().time_since_epoch()).count()},
-		{"driver_on", driver_on}
-	};
-	
-	broadcast(update);
-}
-
-void WebSocketServer::send_system_status() {
-	boost::json::object status;
-	collect_controller_data(status);
-	status["type"] = "system_status"; // Переопределяем тип
-	broadcast(status);
 }

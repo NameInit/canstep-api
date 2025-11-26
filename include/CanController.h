@@ -201,4 +201,17 @@ public:
 	uint16_t productId = 22399;
 
 	bool runningScenario;
+
+	//getters
+	public:
+		uint8_t getNumBoard() { return mechanismObj0->getNumBoard(); }
+		bool isConnected() { return hidDevice->IsConnected(); }
+		bool isRunningMech() { return false; }
+		uint32_t getSteps() { return mechanismObj0->getSteps(); }
+		float  getSpeed() { return mechanismObj0->getSpeed(0); }
+		uint32_t getStartPosition() { return mechanismObj0->getStartPosition(0); }
+		uint32_t getEndPosition() { return mechanismObj0->getEndPosition(0); }
+		uint32_t getPosition() { return mechanismObj0->GetPosition(0); }
+		uint8_t getAccel() { return mechanismObj0->getCurrAccel(0); }
+		uint8_t getDecel() { return mechanismObj0->getCurrDecel(0); }
 };

@@ -647,5 +647,70 @@ void MainWindow::onSocketError(QAbstractSocket::SocketError error)
 
 void MainWindow::processWebSocketMessage(const QJsonObject &message)
 {
-    qDebug()<<message;
+    qDebug()<<"message = " << message;
+
+    if (message.contains("server_time") && message["server_time"].isString()) {
+        QString serverTime = message["server_time"].toString();
+        ui->labelServerTimeInfo->setText(serverTime);
+    }
+
+    if (message.contains("timestamp") && message["timestamp"].isString()) {
+        QString timestamp = message["timestamp"].toString();
+        ui->labelTimestampInfo->setText(timestamp);
+    }
+
+    if (message.contains("isConnected") && message["isConnected"].isString()) {
+        QString isConnected = message["isConnected"].toString();
+        ui->labelIsConnectedInfo->setText(isConnected);
+    }
+
+    if (message.contains("running") && message["running"].isString()) {
+        QString running = message["running"].toString();
+        ui->labelRunningInfo->setText(running);
+    }
+
+    if (message.contains("numBoard") && message["numBoard"].isString()) {
+        QString numBoard = message["numBoard"].toString();
+        ui->labelNumBoardInfo->setText(numBoard);
+    }
+
+    if (message.contains("numSteps") && message["numSteps"].isString()) {
+        QString numSteps = message["numSteps"].toString();
+        ui->labelNumStepsInfo->setText(numSteps);
+    }
+
+    if (message.contains("numSpeed") && message["numSpeed"].isString()) {
+        QString numSpeed = message["numSpeed"].toString();
+        ui->labelNumSpeedInfo->setText(numSpeed);
+    }
+
+    if (message.contains("numAccel") && message["numAccel"].isString()) {
+        QString numAccel = message["numAccel"].toString();
+        ui->labelNumAccelInfo->setText(numAccel);
+    }
+
+    if (message.contains("numDecel") && message["numDecel"].isString()) {
+        QString numDecel = message["numDecel"].toString();
+        ui->labelNumDecelInfo->setText(numDecel);
+    }
+
+    if (message.contains("numBoard") && message["numBoard"].isString()) {
+        QString numBoard = message["numBoard"].toString();
+        ui->labelNumBoardInfo->setText(numBoard);
+    }
+
+    if (message.contains("currentPos") && message["currentPos"].isString()) {
+        QString currentPos = message["currentPos"].toString();
+        ui->labelCurrentPosInfo->setText(currentPos);
+    }
+
+    if (message.contains("startPos") && message["startPos"].isString()) {
+        QString startPos = message["startPos"].toString();
+        ui->labelStartPosInfo->setText(startPos);
+    }
+
+    if (message.contains("endPos") && message["endPos"].isString()) {
+        QString endPos = message["endPos"].toString();
+        ui->labelEndPosInfo->setText(endPos);
+    }
 }
