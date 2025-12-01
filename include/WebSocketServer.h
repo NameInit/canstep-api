@@ -23,7 +23,7 @@ private:
 	tcp::acceptor acceptor;
 	std::unordered_set<std::shared_ptr<WebSocketSession>> sessions;
 	CanController& controller;
-	std::mutex& controllerMutex;
+	std::mutex controllerMutex;
 	std::atomic<bool> running{false};
 	std::atomic<bool> autoUpdateEnabled{false};
 	std::thread serverThread;
@@ -32,11 +32,11 @@ private:
 	int32_t updateIntervalMs{1000};
 
 public:
-	WebSocketServer(uint16_t port, CanController& controller, std::mutex& controllerMutex);
+	WebSocketServer(CanController& controller, uint16_t port, const std::string host="127.0.0.1");
 	~WebSocketServer();
 
-	void run();
-	void stop();
+	void runServer();
+	void shutdownServer();
 	void broadcast(const boost::json::object& message);
 
 	void startAutoUpdates(int32_t intervalMs = 1000);
@@ -54,49 +54,48 @@ private:
 	void collectControllerData(boost::json::object& data);
 };
 
-WebSocketServer::WebSocketServer(uint16_t port, CanController& controller, std::mutex& controllerMutex)
-	: acceptor(ioc, {tcp::v4(), port})
+WebSocketServer::WebSocketServer(CanController& controller, uint16_t numPort, const std::string host)
+	: acceptor(ioc, {boost::asio::ip::address::from_string(host), numPort})
 	, controller(controller)
-	, controllerMutex(controllerMutex)
-	, port(port) {
+	, port(numPort) {
 	
-	BOOST_LOG_TRIVIAL(info) << "WebSocket server created on port " << port;
+	BOOST_LOG_TRIVIAL(info) << "WebSocketServer created on port " << numPort;
 }
 
 WebSocketServer::~WebSocketServer() {
-	stop();
-	BOOST_LOG_TRIVIAL(info) << "WebSocket server destroyed";
+	shutdownServer();
+	BOOST_LOG_TRIVIAL(info) << "WebSocketServer destroyed";
 }
 
-void WebSocketServer::run() {
+void WebSocketServer::runServer() {
 	if (running) {
-		BOOST_LOG_TRIVIAL(warning) << "WebSocket server is already running";
+		BOOST_LOG_TRIVIAL(warning) << "WebSocketServer is already running";
 		return;
 	}
 	
 	running = true;
 	serverThread = std::thread([this]() {
-		BOOST_LOG_TRIVIAL(info) << "WebSocket server starting on port " << port;
+		BOOST_LOG_TRIVIAL(info) << "WebSocketServer starting on port " << port;
 		doAccept();
 		
 		try {
 			ioc.run();
-			BOOST_LOG_TRIVIAL(info) << "WebSocket server stopped";
+			BOOST_LOG_TRIVIAL(info) << "WebSocketServer stopped";
 		} catch (const std::exception& e) {
-			BOOST_LOG_TRIVIAL(error) << "WebSocket server error: " << e.what();
+			BOOST_LOG_TRIVIAL(error) << "WebSocketServer error: " << e.what();
 		}
 	});
 }
 
-void WebSocketServer::stop() {
+void WebSocketServer::shutdownServer() {
 	if (running) {
 		running = false;
 		stopAutoUpdates();
 		
-		// Закрываем все соединения
+		// close all conectiion
 		auto sessionsCopy = sessions;
 		for (auto& session : sessionsCopy) {
-			// Сессии будут удалены из sessions в своих деструкторах
+			// Del sessions in destrucor
 		}
 		sessions.clear();
 		
@@ -104,13 +103,13 @@ void WebSocketServer::stop() {
 		if (serverThread.joinable()) {
 			serverThread.join();
 		}
-		BOOST_LOG_TRIVIAL(info) << "WebSocket server stopped";
+		BOOST_LOG_TRIVIAL(info) << "WebSocketServer stopped";
 	}
 }
 
 void WebSocketServer::startAutoUpdates(int32_t intervalMs) {
 	if (autoUpdateEnabled) {
-		BOOST_LOG_TRIVIAL(warning) << "Auto updates are already enabled";
+		BOOST_LOG_TRIVIAL(warning) << "WebSocketServer: Auto updates are already enabled";
 		return;
 	}
 	
@@ -121,7 +120,7 @@ void WebSocketServer::startAutoUpdates(int32_t intervalMs) {
 		autoUpdateWorker();
 	});
 	
-	BOOST_LOG_TRIVIAL(info) << "Started auto updates with interval " << intervalMs << "ms";
+	BOOST_LOG_TRIVIAL(info) << "WebSocketServer: Started auto updates with interval " << intervalMs << "ms";
 }
 
 void WebSocketServer::stopAutoUpdates() {
@@ -130,44 +129,42 @@ void WebSocketServer::stopAutoUpdates() {
 		if (updateThread.joinable()) {
 			updateThread.join();
 		}
-		BOOST_LOG_TRIVIAL(info) << "Stopped auto updates";
+		BOOST_LOG_TRIVIAL(info) << "WebSocketServer: Stopped auto updates";
 	}
 }
 
 void WebSocketServer::setUpdateInterval(int32_t intervalMs) {
 	if (intervalMs < 10) {
-		BOOST_LOG_TRIVIAL(warning) << "Update interval too small, setting to minimum 10ms";
+		BOOST_LOG_TRIVIAL(warning) << "WebSocketServer: Update interval too small, setting to minimum 10ms";
 		intervalMs = 10;
 	}
 	
 	updateIntervalMs = intervalMs;
-	BOOST_LOG_TRIVIAL(info) << "Update interval set to " << intervalMs << "ms";
+	BOOST_LOG_TRIVIAL(info) << "WebSocketServer: Update interval set to " << intervalMs << "ms";
 }
 
 void WebSocketServer::autoUpdateWorker() {
-	BOOST_LOG_TRIVIAL(info) << "Auto update worker started";
+	BOOST_LOG_TRIVIAL(info) << "WebSocketServer: Auto update worker started";
 	
 	while (autoUpdateEnabled && running) {
 		try {
-			// Собираем данные с контроллера
+			//create socket
 			boost::json::object data;
 			collectControllerData(data);
 			
-			// Отправляем только если есть подключенные клиенты
 			if (!sessions.empty()) {
 				broadcast(data);
 			}
 			
-			// Ждем следующий интервал
 			std::this_thread::sleep_for(std::chrono::milliseconds(updateIntervalMs));
 			
 		} catch (const std::exception& e) {
-			BOOST_LOG_TRIVIAL(error) << "Error in auto update worker: " << e.what();
+			BOOST_LOG_TRIVIAL(error) << "WebSocketServer: Error in auto update worker: " << e.what();
 			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 		}
 	}
 	
-	BOOST_LOG_TRIVIAL(info) << "Auto update worker stopped";
+	BOOST_LOG_TRIVIAL(info) << "WebSocketServer: Auto update worker stopped";
 }
 
 void WebSocketServer::collectControllerData(boost::json::object& data) {
@@ -193,7 +190,7 @@ void WebSocketServer::collectControllerData(boost::json::object& data) {
 		data["endPos"] = std::to_string(controller.getEndPosition());
 		
 	} catch (const std::exception& e) {
-		BOOST_LOG_TRIVIAL(error) << "Error collecting controller data: " << e.what();
+		BOOST_LOG_TRIVIAL(error) << "WebSocketServer: Error collecting controller data: " << e.what();
 		data["error"] = "Failed to collect controller data";
 	}
 }
@@ -206,7 +203,7 @@ void WebSocketServer::doAccept() {
 			}
 			
 			if (ec) {
-				BOOST_LOG_TRIVIAL(error) << "WebSocket accept error: " << ec.message();
+				BOOST_LOG_TRIVIAL(error) << "WebSocketServer accept error: " << ec.message();
 			} else {
 				std::make_shared<WebSocketSession>(
 					std::move(socket), sessions, controller, controllerMutex)->run();
@@ -224,7 +221,7 @@ void WebSocketServer::broadcast(const boost::json::object& message) {
 	}
 	
 	auto jsonStr = boost::json::serialize(message);
-	BOOST_LOG_TRIVIAL(debug) << "Broadcasting to " << sessions.size() << " clients: " << jsonStr;
+	BOOST_LOG_TRIVIAL(debug) << "WebSocketServer: Broadcasting to " << sessions.size() << " clients: " << jsonStr;
 	
 	for (auto& session : sessions) {
 		session->sendBroadcastMessage(message);

@@ -9,6 +9,7 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o
  /home/ilya/Desktop/canstep-api/include/DefsCANStep.h
  /home/ilya/Desktop/canstep-api/include/HidDevice.h
  /home/ilya/Desktop/canstep-api/include/Mechanism.h
+ /home/ilya/Desktop/canstep-api/include/RestApiServer.h
  /home/ilya/Desktop/canstep-api/include/ScenarioBuilder.h
  /home/ilya/Desktop/canstep-api/include/Typedefs.h
  /home/ilya/Desktop/canstep-api/include/Types.h
