@@ -143,7 +143,7 @@ public:
     QHBoxLayout *horizontalLayoutAutosenderMs;
     QLabel *labelAutosenderMs;
     QLineEdit *lineEditAutosenderMs;
-    QWidget *widget;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
     QLabel *labelServerTime;
@@ -154,9 +154,6 @@ public:
     QHBoxLayout *horizontalLayout_13;
     QLabel *labelIsConnected;
     QLabel *labelIsConnectedInfo;
-    QHBoxLayout *horizontalLayout_3;
-    QLabel *labelRunning;
-    QLabel *labelRunningInfo;
     QHBoxLayout *horizontalLayout_4;
     QLabel *labelNumBoard;
     QLabel *labelNumBoardInfo;
@@ -804,20 +801,20 @@ public:
 
         gridLayout->addLayout(horizontalLayoutAutosenderMs, 16, 7, 1, 1);
 
-        widget = new QWidget(centralwidget);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(890, 20, 251, 334));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget1 = new QWidget(centralwidget);
+        layoutWidget1->setObjectName("layoutWidget1");
+        layoutWidget1->setGeometry(QRect(880, 10, 251, 301));
+        verticalLayout = new QVBoxLayout(layoutWidget1);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        labelServerTime = new QLabel(widget);
+        labelServerTime = new QLabel(layoutWidget1);
         labelServerTime->setObjectName("labelServerTime");
 
         horizontalLayout_2->addWidget(labelServerTime);
 
-        labelServerTimeInfo = new QLabel(widget);
+        labelServerTimeInfo = new QLabel(layoutWidget1);
         labelServerTimeInfo->setObjectName("labelServerTimeInfo");
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
@@ -832,12 +829,12 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        labelTimestamp = new QLabel(widget);
+        labelTimestamp = new QLabel(layoutWidget1);
         labelTimestamp->setObjectName("labelTimestamp");
 
         horizontalLayout->addWidget(labelTimestamp);
 
-        labelTimestampInfo = new QLabel(widget);
+        labelTimestampInfo = new QLabel(layoutWidget1);
         labelTimestampInfo->setObjectName("labelTimestampInfo");
         sizePolicy.setHeightForWidth(labelTimestampInfo->sizePolicy().hasHeightForWidth());
         labelTimestampInfo->setSizePolicy(sizePolicy);
@@ -849,12 +846,12 @@ public:
 
         horizontalLayout_13 = new QHBoxLayout();
         horizontalLayout_13->setObjectName("horizontalLayout_13");
-        labelIsConnected = new QLabel(widget);
+        labelIsConnected = new QLabel(layoutWidget1);
         labelIsConnected->setObjectName("labelIsConnected");
 
         horizontalLayout_13->addWidget(labelIsConnected);
 
-        labelIsConnectedInfo = new QLabel(widget);
+        labelIsConnectedInfo = new QLabel(layoutWidget1);
         labelIsConnectedInfo->setObjectName("labelIsConnectedInfo");
         sizePolicy.setHeightForWidth(labelIsConnectedInfo->sizePolicy().hasHeightForWidth());
         labelIsConnectedInfo->setSizePolicy(sizePolicy);
@@ -864,31 +861,14 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_13);
 
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
-        labelRunning = new QLabel(widget);
-        labelRunning->setObjectName("labelRunning");
-
-        horizontalLayout_3->addWidget(labelRunning);
-
-        labelRunningInfo = new QLabel(widget);
-        labelRunningInfo->setObjectName("labelRunningInfo");
-        sizePolicy.setHeightForWidth(labelRunningInfo->sizePolicy().hasHeightForWidth());
-        labelRunningInfo->setSizePolicy(sizePolicy);
-
-        horizontalLayout_3->addWidget(labelRunningInfo);
-
-
-        verticalLayout->addLayout(horizontalLayout_3);
-
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName("horizontalLayout_4");
-        labelNumBoard = new QLabel(widget);
+        labelNumBoard = new QLabel(layoutWidget1);
         labelNumBoard->setObjectName("labelNumBoard");
 
         horizontalLayout_4->addWidget(labelNumBoard);
 
-        labelNumBoardInfo = new QLabel(widget);
+        labelNumBoardInfo = new QLabel(layoutWidget1);
         labelNumBoardInfo->setObjectName("labelNumBoardInfo");
         sizePolicy.setHeightForWidth(labelNumBoardInfo->sizePolicy().hasHeightForWidth());
         labelNumBoardInfo->setSizePolicy(sizePolicy);
@@ -900,12 +880,12 @@ public:
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName("horizontalLayout_5");
-        labelNumSteps = new QLabel(widget);
+        labelNumSteps = new QLabel(layoutWidget1);
         labelNumSteps->setObjectName("labelNumSteps");
 
         horizontalLayout_5->addWidget(labelNumSteps);
 
-        labelNumStepsInfo = new QLabel(widget);
+        labelNumStepsInfo = new QLabel(layoutWidget1);
         labelNumStepsInfo->setObjectName("labelNumStepsInfo");
         sizePolicy.setHeightForWidth(labelNumStepsInfo->sizePolicy().hasHeightForWidth());
         labelNumStepsInfo->setSizePolicy(sizePolicy);
@@ -917,12 +897,12 @@ public:
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName("horizontalLayout_6");
-        labelNumSpeed = new QLabel(widget);
+        labelNumSpeed = new QLabel(layoutWidget1);
         labelNumSpeed->setObjectName("labelNumSpeed");
 
         horizontalLayout_6->addWidget(labelNumSpeed);
 
-        labelNumSpeedInfo = new QLabel(widget);
+        labelNumSpeedInfo = new QLabel(layoutWidget1);
         labelNumSpeedInfo->setObjectName("labelNumSpeedInfo");
         sizePolicy.setHeightForWidth(labelNumSpeedInfo->sizePolicy().hasHeightForWidth());
         labelNumSpeedInfo->setSizePolicy(sizePolicy);
@@ -934,12 +914,12 @@ public:
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName("horizontalLayout_7");
-        labelNumAccel = new QLabel(widget);
+        labelNumAccel = new QLabel(layoutWidget1);
         labelNumAccel->setObjectName("labelNumAccel");
 
         horizontalLayout_7->addWidget(labelNumAccel);
 
-        labelNumAccelInfo = new QLabel(widget);
+        labelNumAccelInfo = new QLabel(layoutWidget1);
         labelNumAccelInfo->setObjectName("labelNumAccelInfo");
         sizePolicy.setHeightForWidth(labelNumAccelInfo->sizePolicy().hasHeightForWidth());
         labelNumAccelInfo->setSizePolicy(sizePolicy);
@@ -951,12 +931,12 @@ public:
 
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName("horizontalLayout_8");
-        labelNumDecel = new QLabel(widget);
+        labelNumDecel = new QLabel(layoutWidget1);
         labelNumDecel->setObjectName("labelNumDecel");
 
         horizontalLayout_8->addWidget(labelNumDecel);
 
-        labelNumDecelInfo = new QLabel(widget);
+        labelNumDecelInfo = new QLabel(layoutWidget1);
         labelNumDecelInfo->setObjectName("labelNumDecelInfo");
         sizePolicy.setHeightForWidth(labelNumDecelInfo->sizePolicy().hasHeightForWidth());
         labelNumDecelInfo->setSizePolicy(sizePolicy);
@@ -968,12 +948,12 @@ public:
 
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setObjectName("horizontalLayout_10");
-        labelCurrentPos = new QLabel(widget);
+        labelCurrentPos = new QLabel(layoutWidget1);
         labelCurrentPos->setObjectName("labelCurrentPos");
 
         horizontalLayout_10->addWidget(labelCurrentPos);
 
-        labelCurrentPosInfo = new QLabel(widget);
+        labelCurrentPosInfo = new QLabel(layoutWidget1);
         labelCurrentPosInfo->setObjectName("labelCurrentPosInfo");
         sizePolicy.setHeightForWidth(labelCurrentPosInfo->sizePolicy().hasHeightForWidth());
         labelCurrentPosInfo->setSizePolicy(sizePolicy);
@@ -985,12 +965,12 @@ public:
 
         horizontalLayout_12 = new QHBoxLayout();
         horizontalLayout_12->setObjectName("horizontalLayout_12");
-        labelStartPos = new QLabel(widget);
+        labelStartPos = new QLabel(layoutWidget1);
         labelStartPos->setObjectName("labelStartPos");
 
         horizontalLayout_12->addWidget(labelStartPos);
 
-        labelStartPosInfo = new QLabel(widget);
+        labelStartPosInfo = new QLabel(layoutWidget1);
         labelStartPosInfo->setObjectName("labelStartPosInfo");
         sizePolicy.setHeightForWidth(labelStartPosInfo->sizePolicy().hasHeightForWidth());
         labelStartPosInfo->setSizePolicy(sizePolicy);
@@ -1002,12 +982,12 @@ public:
 
         horizontalLayout_11 = new QHBoxLayout();
         horizontalLayout_11->setObjectName("horizontalLayout_11");
-        labelEndPos = new QLabel(widget);
+        labelEndPos = new QLabel(layoutWidget1);
         labelEndPos->setObjectName("labelEndPos");
 
         horizontalLayout_11->addWidget(labelEndPos);
 
-        labelEndPosInfo = new QLabel(widget);
+        labelEndPosInfo = new QLabel(layoutWidget1);
         labelEndPosInfo->setObjectName("labelEndPosInfo");
         sizePolicy.setHeightForWidth(labelEndPosInfo->sizePolicy().hasHeightForWidth());
         labelEndPosInfo->setSizePolicy(sizePolicy);
@@ -1182,8 +1162,6 @@ public:
         labelTimestampInfo->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         labelIsConnected->setText(QCoreApplication::translate("MainWindow", "IsConnected:", nullptr));
         labelIsConnectedInfo->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
-        labelRunning->setText(QCoreApplication::translate("MainWindow", "Running:", nullptr));
-        labelRunningInfo->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         labelNumBoard->setText(QCoreApplication::translate("MainWindow", "NumBoard:", nullptr));
         labelNumBoardInfo->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         labelNumSteps->setText(QCoreApplication::translate("MainWindow", "NumSteps:", nullptr));

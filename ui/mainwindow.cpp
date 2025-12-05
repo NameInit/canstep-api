@@ -664,11 +664,6 @@ void MainWindow::processWebSocketMessage(const QJsonObject &message)
         ui->labelIsConnectedInfo->setText(isConnected);
     }
 
-    if (message.contains("running") && message["running"].isString()) {
-        QString running = message["running"].toString();
-        ui->labelRunningInfo->setText(running);
-    }
-
     if (message.contains("numBoard") && message["numBoard"].isString()) {
         QString numBoard = message["numBoard"].toString();
         ui->labelNumBoardInfo->setText(numBoard);

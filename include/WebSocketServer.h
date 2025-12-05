@@ -179,7 +179,6 @@ void WebSocketServer::collectControllerData(boost::json::object& data) {
 		data["server_time"] = timeStr;
 		data["timestamp"] = timestamp;
 		data["isConnected"] = controller.isConnected() ? "True" : "False";
-		data["running"] = controller.isRunningMech() ? "True" : "False";
 		data["numBoard"] = std::to_string(controller.getNumBoard());
 		data["numSteps"] = std::to_string(controller.getSteps());
 		data["numSpeed"] = std::to_string(controller.getSpeed());

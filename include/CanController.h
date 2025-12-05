@@ -206,7 +206,6 @@ public:
 	public:
 		uint8_t getNumBoard() { return mechanismObj0->getNumBoard(); }
 		bool isConnected() { return hidDevice->IsConnected(); }
-		bool isRunningMech() { return false; }
 		uint32_t getSteps() { return mechanismObj0->getSteps(); }
 		float  getSpeed() { return mechanismObj0->getSpeed(0); }
 		uint32_t getStartPosition() { return mechanismObj0->getStartPosition(0); }
