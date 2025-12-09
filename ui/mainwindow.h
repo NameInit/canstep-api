@@ -93,6 +93,7 @@ public slots:
     void Al_ORezervPolarity();
     void EncoderActive();
     void EncoderConfig();
+    void startFLASH();
 
     void sendApiRequest(const QString &endpoint, const QJsonObject &data = QJsonObject());
     void onApiReplyFinished(QNetworkReply *reply);

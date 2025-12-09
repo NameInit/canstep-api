@@ -21,17 +21,67 @@ void CanController::createMechanismObj0(uint8_t boardId, uint8_t groupId) {
 		mechanismObj0->SetCallbackAnswerControl(std::bind(&CanController::myAnswerControlCallback, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5, std::placeholders::_6));
 		
 		mechanismObj0->SetHidDevice(hidDevice.get());
+
+		mechanismObj0->SetAsk(AskPosition);
+		mechanismObj0->SetAsk(AskHomings);
+		mechanismObj0->SetAsk(AskInputs);
+		mechanismObj0->SetAsk(AskCurrOutputs);
+		mechanismObj0->SetAsk(AskGroup);
+
+		mechanismObj0->SetAsk(AskCurrSpeed);
+		mechanismObj0->SetAsk(AskCurrAccel);
+		mechanismObj0->SetAsk(AskCurrDecel);
+
+		mechanismObj0->SetAsk(AskHomingAPolarity);
+		mechanismObj0->SetAsk(AskHomingBPolarity);
+		mechanismObj0->SetAsk(AskHomingCPolarity);
+		mechanismObj0->SetAsk(AskHomingDPolarity);
+		mechanismObj0->SetAsk(AskHomingADirection);
+		mechanismObj0->SetAsk(AskHomingBDirection);
+		mechanismObj0->SetAsk(AskHomingCDirection);
+		mechanismObj0->SetAsk(AskHomingDDirection);
+		mechanismObj0->SetAsk(AskDeltaPosition);
+
+		bootLoader->ClearNameFirmware();
+		mechanismObj0->AddOneTaskAsk(boardId,AskNameFirmware);
+		bootLoader->ClearVersionFirmware();
+		mechanismObj0->AddOneTaskAsk(boardId,AskVersionFirmware);
+		bootLoader->ClearDateFirmware();
+		mechanismObj0->AddOneTaskAsk(boardId,AskDateFirmware);
+		mechanismObj0->AddOneTaskAsk(boardId,AskBoardType);
 	} else {
 		mechanismObj0->changeNumBoard(boardId);
-	}
+		mechanismObj0->ClrAsks();
+		usleep(10000);
+		
+		mechanismObj0->SetAsk(AskPosition);
+		mechanismObj0->SetAsk(AskHomings);
+		mechanismObj0->SetAsk(AskInputs);
+		mechanismObj0->SetAsk(AskCurrOutputs);
+		mechanismObj0->SetAsk(AskGroup);
 	
-	mechanismObj0->ClrAsks();
-	usleep(10000);
-	mechanismObj0->SetAsk(AskPosition);
-	mechanismObj0->SetAsk(AskHomings);
-	mechanismObj0->SetAsk(AskInputs);
-	mechanismObj0->SetAsk(AskCurrOutputs);
-	mechanismObj0->SetAsk(AskGroup);
+		mechanismObj0->SetAsk(AskCurrSpeed);
+		mechanismObj0->SetAsk(AskCurrAccel);
+		mechanismObj0->SetAsk(AskCurrDecel);
+
+		mechanismObj0->SetAsk(AskHomingAPolarity);
+		mechanismObj0->SetAsk(AskHomingBPolarity);
+		mechanismObj0->SetAsk(AskHomingCPolarity);
+		mechanismObj0->SetAsk(AskHomingDPolarity);
+		mechanismObj0->SetAsk(AskHomingADirection);
+		mechanismObj0->SetAsk(AskHomingBDirection);
+		mechanismObj0->SetAsk(AskHomingCDirection);
+		mechanismObj0->SetAsk(AskHomingDDirection);
+		mechanismObj0->SetAsk(AskDeltaPosition);
+
+		bootLoader->ClearNameFirmware();
+		mechanismObj0->AddOneTaskAsk(boardId,AskNameFirmware);
+		bootLoader->ClearVersionFirmware();
+		mechanismObj0->AddOneTaskAsk(boardId,AskVersionFirmware);
+		bootLoader->ClearDateFirmware();
+		mechanismObj0->AddOneTaskAsk(boardId,AskDateFirmware);
+		mechanismObj0->AddOneTaskAsk(boardId,AskBoardType);
+	}
 }
 
 void CanController::buttonOpenCOM_Click(uint16_t vendorId, uint16_t productId) {
@@ -321,8 +371,6 @@ void CanController::addMechButton_Click(const std::string& mechName, uint8_t boa
 	scenarioBuilder->mechanisms[mechName]->SetAsk(_AskEnum::AskHomings);
 	scenarioBuilder->mechanisms[mechName]->SetAsk(_AskEnum::AskInputs);
 	scenarioBuilder->mechanisms[mechName]->SetAsk(_AskEnum::AskCurrOutputs);
-	
-	// LoadMechanisms();
 	return ;
 }
 
@@ -731,4 +779,84 @@ void CanController::executeAllCommandsThread() {
 	}
 // 	resetCommandHighlight();
 	runningScenario = false;
+}
+
+void CanController::LoadBootDataFromFile(const std::string& filename){
+	bootLoader->SetNumBoard(mechanismObj0->getNumBoard());
+	bootLoader->loadBootDataFromFile(filename);
+	return ;
+}
+
+void CanController::LoadBootDataFromFileThread(const std::string& filename){
+	
+	return ;
+}
+
+void CanController::buttonBoot_Click(){
+	if (bootLoader == nullptr) {
+		bootLoader = std::make_unique<Bootloader>(0);
+		bootLoader->SetHidDevice(hidDevice);
+	}
+	std::string filename = "../firmware/STM32F103C8T6CAN_Step_v2.bin";
+	auto bootLoaderThread = std::thread([this, filename](){LoadBootDataFromFile(filename);});
+	bootLoaderThread.detach();
+	return ;
+}
+
+void CanController::buttonResetBoot_Click(){
+	bootLoader->ResetCANBootloader();
+	
+	return ;
+}
+
+void CanController::buttonTypeBootSet_Click(const std::string &type){
+	if (bootLoader) {
+		if (bootLoader->GetNumBoard() != mechanismObj0->getNumBoard()) {
+			bootLoader->SetNumBoard(mechanismObj0->getNumBoard());
+		}
+		if (type == "CAN-STEP") {
+			bootLoader->SetTypeBoard(eCAN_STEP);
+		}
+		else if (type == "USB-CAN") {
+			bootLoader->SetTypeBoard(eUSB_CAN);
+		}
+		else if (type == "TractorESC") {
+			bootLoader->SetTypeBoard(eTractorESC);
+		}
+		else if (type == "Tensometer") {
+			bootLoader->SetTypeBoard(eTensometer);
+		}
+		else {
+			bootLoader->SetTypeBoard(eNoTypeBoard);
+		}
+	}
+	return ;
+}
+
+void CanController::buttonTypeBootSave_Click(const std::string &type){
+	if (bootLoader) {
+		if (bootLoader->GetNumBoard() != mechanismObj0->getNumBoard()) {
+			bootLoader->SetNumBoard(mechanismObj0->getNumBoard());
+		}
+		if (type == "CAN-STEP") {
+			bootLoader->SetTypeBoard(eCAN_STEP);
+			bootLoader->SaveTypeBoard();
+		}
+		else if (type == "USB-CAN") {
+			bootLoader->SetTypeBoard(eUSB_CAN);
+			bootLoader->SaveTypeBoard();
+		}
+		else if (type == "TractorESC") {
+			bootLoader->SetTypeBoard(eTractorESC);
+			bootLoader->SaveTypeBoard();
+		}
+		else if (type == "Tensometer") {
+			bootLoader->SetTypeBoard(eTensometer);
+			bootLoader->SaveTypeBoard();
+		}
+		else {
+			bootLoader->SetTypeBoard(eNoTypeBoard);
+		}
+	}
+	return ;
 }

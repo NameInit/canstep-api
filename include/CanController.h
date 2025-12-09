@@ -191,6 +191,13 @@ public:
 	void executeAllCommands();
 	void executeAllCommandsThread();
 
+	void LoadBootDataFromFile(const std::string& filename);
+	void LoadBootDataFromFileThread(const std::string& filename);
+	void buttonBoot_Click();
+	void buttonResetBoot_Click();
+	void buttonTypeBootSet_Click(const std::string &type);
+	void buttonTypeBootSave_Click(const std::string &type);
+
 	std::shared_ptr<HidDevice> hidDevice;
 	std::unique_ptr<Mechanism> mechanismObj0;
 	std::unique_ptr<ScenarioBuilder> scenarioBuilder;

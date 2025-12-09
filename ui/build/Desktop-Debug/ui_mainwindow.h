@@ -143,6 +143,7 @@ public:
     QHBoxLayout *horizontalLayoutAutosenderMs;
     QLabel *labelAutosenderMs;
     QLineEdit *lineEditAutosenderMs;
+    QPushButton *pushButtonFLASH;
     QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
@@ -801,6 +802,11 @@ public:
 
         gridLayout->addLayout(horizontalLayoutAutosenderMs, 16, 7, 1, 1);
 
+        pushButtonFLASH = new QPushButton(layoutWidget);
+        pushButtonFLASH->setObjectName("pushButtonFLASH");
+
+        gridLayout->addWidget(pushButtonFLASH, 16, 6, 1, 1);
+
         layoutWidget1 = new QWidget(centralwidget);
         layoutWidget1->setObjectName("layoutWidget1");
         layoutWidget1->setGeometry(QRect(880, 10, 251, 301));
@@ -1156,6 +1162,7 @@ public:
         lineEditAutosenderType->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
         labelAutosenderMs->setText(QCoreApplication::translate("MainWindow", "Ms", nullptr));
         lineEditAutosenderMs->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
+        pushButtonFLASH->setText(QCoreApplication::translate("MainWindow", "FLASH", nullptr));
         labelServerTime->setText(QCoreApplication::translate("MainWindow", "ServerTime:", nullptr));
         labelServerTimeInfo->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         labelTimestamp->setText(QCoreApplication::translate("MainWindow", "Timestamp:", nullptr));

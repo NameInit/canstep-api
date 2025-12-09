@@ -68,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonAl_ORezervPolarity, &QPushButton::clicked, this, &MainWindow::Al_ORezervPolarity);
     QObject::connect(ui->pushButtonEncoderActive, &QPushButton::clicked, this, &MainWindow::EncoderActive);
     QObject::connect(ui->pushButtonEncoderConfig, &QPushButton::clicked, this, &MainWindow::EncoderConfig);
-
+    QObject::connect(ui->pushButtonFLASH, &QPushButton::clicked, this, &MainWindow::startFLASH);
     QObject::connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onApiReplyFinished);
 
     QObject::connect(webSocket, &QWebSocket::connected, this, &MainWindow::onSocketConnected);
@@ -556,6 +556,15 @@ void MainWindow::EncoderConfig()
     data["numDelta"]=ui->lineEditDelta->text().toInt();
     data["numTurnData"]=ui->lineEditTurnData->text().toInt();
     this->sendApiRequest("api/sensor/encoder/config",data);
+    return ;
+}
+
+void MainWindow::startFLASH()
+{
+    qDebug() << "EncoderConfig";
+    QJsonObject data;
+    data["test"]="123";
+    this->sendApiRequest("api/flash/run",data);
     return ;
 }
 

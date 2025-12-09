@@ -958,6 +958,13 @@
        </item>
       </layout>
      </item>
+     <item row="16" column="6">
+      <widget class="QPushButton" name="pushButtonFLASH">
+       <property name="text">
+        <string>FLASH</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">

@@ -84,6 +84,7 @@ private:
 		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/al_orezerv", Pistache::Rest::Routes::bind(&RestApiServer::Al_ORezervPolarity, this));
 		Pistache::Rest::Routes::Post(router, "/api/sensor/encoder/active", Pistache::Rest::Routes::bind(&RestApiServer::EncoderActive, this));
 		Pistache::Rest::Routes::Post(router, "/api/sensor/encoder/config", Pistache::Rest::Routes::bind(&RestApiServer::encoderConfig, this));
+		Pistache::Rest::Routes::Post(router, "/api/flash/run", Pistache::Rest::Routes::bind(&RestApiServer::flash, this));
 
 		Pistache::Rest::Routes::Get(router, "/health", Pistache::Rest::Routes::bind(&RestApiServer::health, this));
 	}
@@ -907,6 +908,18 @@ private:
 		} catch (const std::exception& e){
 			BOOST_LOG_TRIVIAL(error) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Internal_Server_Error, "encoderConfig Set failed");
+		}
+	}
+
+	void flash(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controllerMutex);
+		try{
+			controller.buttonBoot_Click();
+			BOOST_LOG_TRIVIAL(info) << request.method() << ' ' << request.resource();
+			response.send(Pistache::Http::Code::Ok, "Flash");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << request.method() << ' ' << request.resource();
+			response.send(Pistache::Http::Code::Internal_Server_Error, "Flash failed");
 		}
 	}
 
