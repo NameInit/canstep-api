@@ -247,4 +247,7 @@ CMakeFiles/canstep.dir/src/CanController.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/map \
  /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/chrono
+ /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/chrono \
+ /home/ilya/Desktop/canstep-api/include/Bootloader.h \
+ /home/ilya/Desktop/canstep-api/include/TypesBoot.h \
+ /home/ilya/Desktop/canstep-api/include/CRC.h

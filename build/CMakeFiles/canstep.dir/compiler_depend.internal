@@ -3,6 +3,8 @@
 
 CMakeFiles/canstep.dir/src/CanController.cpp.o
  /home/ilya/Desktop/canstep-api/src/CanController.cpp
+ /home/ilya/Desktop/canstep-api/include/Bootloader.h
+ /home/ilya/Desktop/canstep-api/include/CRC.h
  /home/ilya/Desktop/canstep-api/include/CanController.h
  /home/ilya/Desktop/canstep-api/include/Defs.h
  /home/ilya/Desktop/canstep-api/include/DefsCANStep.h
@@ -11,6 +13,7 @@ CMakeFiles/canstep.dir/src/CanController.cpp.o
  /home/ilya/Desktop/canstep-api/include/ScenarioBuilder.h
  /home/ilya/Desktop/canstep-api/include/Typedefs.h
  /home/ilya/Desktop/canstep-api/include/Types.h
+ /home/ilya/Desktop/canstep-api/include/TypesBoot.h
  /home/ilya/Desktop/canstep-api/include/TypesCANStep.h
  /home/ilya/Desktop/canstep-api/include/TypesTenso.h
  /usr/include/alloca.h

@@ -1,8 +1,10 @@
 #include "CanController.h"
 
 CanController::CanController() {
-	hidDevice = std::make_unique<HidDevice>();
+	hidDevice = std::make_shared<HidDevice>();
 	scenarioBuilder = std::make_unique<ScenarioBuilder>();
+	bootLoader = std::make_unique<Bootloader>(0);
+	bootLoader->SetHidDevice(hidDevice);
 	createMechanismObj0(0,0);
 }
 

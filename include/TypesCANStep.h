@@ -119,6 +119,10 @@ typedef enum AskEnum {
 	AskGroup,
 	AskOuts0_7,
 	AskInputs0_11,
+	AskNameFirmware = 57,
+	AskVersionFirmware = 58,
+	AskDateFirmware = 59,
+	AskBoardType = 60,
 	AskTest = 254,
 	AskNull = 255
 } _AskEnum;
@@ -178,6 +182,10 @@ typedef enum OutTypeEnum {
 	OutGLOBAL_SCALER,
 	OutEncoderRaw,
 	OutVActual,
+	OutNameFirmware = 57,
+	OutVersionFirmware = 58,
+	OutDateFirmware = 59,
+	OutBoardType = 60,
 	OutTest = 254,
 	OutNull = 255,
 } _OutTypeEnum;

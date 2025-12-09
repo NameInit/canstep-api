@@ -2244,6 +2244,9 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: \
  /home/ilya/Desktop/canstep-api/test/../include/HidDevice.h \
  /usr/include/hidapi/hidapi.h \
  /home/ilya/Desktop/canstep-api/test/../include/TypesTenso.h \
+ /home/ilya/Desktop/canstep-api/test/../include/Bootloader.h \
+ /home/ilya/Desktop/canstep-api/test/../include/TypesBoot.h \
+ /home/ilya/Desktop/canstep-api/test/../include/CRC.h \
  /home/ilya/Desktop/canstep-api/test/../include/WebSocketServer.h \
  /usr/include/boost/asio.hpp \
  /usr/include/boost/asio/any_completion_executor.hpp \

@@ -19,6 +19,7 @@
 #include "Mechanism.h"
 #include "HidDevice.h"
 #include "DefsCANStep.h"
+#include "Bootloader.h"
 
 
 class CanController : public std::enable_shared_from_this<CanController> {
@@ -190,9 +191,10 @@ public:
 	void executeAllCommands();
 	void executeAllCommandsThread();
 
-	std::unique_ptr<HidDevice> hidDevice;
+	std::shared_ptr<HidDevice> hidDevice;
 	std::unique_ptr<Mechanism> mechanismObj0;
 	std::unique_ptr<ScenarioBuilder> scenarioBuilder;
+	std::unique_ptr<Bootloader> bootLoader;
 
 	std::thread updateThread;
 	std::atomic<bool> isRunning{false};
