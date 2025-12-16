@@ -84,7 +84,9 @@ private:
 		Pistache::Rest::Routes::Post(router, "/api/sensor/polarity/al_orezerv", Pistache::Rest::Routes::bind(&RestApiServer::Al_ORezervPolarity, this));
 		Pistache::Rest::Routes::Post(router, "/api/sensor/encoder/active", Pistache::Rest::Routes::bind(&RestApiServer::EncoderActive, this));
 		Pistache::Rest::Routes::Post(router, "/api/sensor/encoder/config", Pistache::Rest::Routes::bind(&RestApiServer::encoderConfig, this));
-		Pistache::Rest::Routes::Post(router, "/api/flash/run", Pistache::Rest::Routes::bind(&RestApiServer::flash, this));
+		Pistache::Rest::Routes::Post(router, "/api/flash/run", Pistache::Rest::Routes::bind(&RestApiServer::flashBoot, this));
+		Pistache::Rest::Routes::Post(router, "/api/flash/type/set", Pistache::Rest::Routes::bind(&RestApiServer::flashTypeBootSet, this));
+		Pistache::Rest::Routes::Post(router, "/api/flash/type/save", Pistache::Rest::Routes::bind(&RestApiServer::flashTypeBootSave, this));
 
 		Pistache::Rest::Routes::Get(router, "/health", Pistache::Rest::Routes::bind(&RestApiServer::health, this));
 	}
@@ -911,15 +913,48 @@ private:
 		}
 	}
 
-	void flash(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+	void flashBoot(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
 		std::lock_guard<std::mutex> lock(controllerMutex);
+		boost::json::value json_data = boost::json::parse(request.body());
 		try{
+			boost::json::object obj=json_data.as_object();
+			std::string filename = static_cast<std::string>(obj["filename"].as_string());
 			controller.buttonBoot_Click();
-			BOOST_LOG_TRIVIAL(info) << request.method() << ' ' << request.resource();
+			BOOST_LOG_TRIVIAL(info) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Ok, "Flash");
 		} catch (const std::exception& e){
-			BOOST_LOG_TRIVIAL(error) << request.method() << ' ' << request.resource();
+			BOOST_LOG_TRIVIAL(error) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Internal_Server_Error, "Flash failed");
+		}
+	}
+
+	void flashTypeBootSet(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controllerMutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			std::string type = static_cast<std::string>(obj["type"].as_string());
+			controller.buttonTypeBootSet_Click(type);
+			BOOST_LOG_TRIVIAL(info) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "flashTypeBootSet");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "flashTypeBootSet failed");
+		}
+	}
+
+	void flashTypeBootSave(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controllerMutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			std::string type = static_cast<std::string>(obj["type"].as_string());
+			controller.buttonTypeBootSave_Click(type);
+			BOOST_LOG_TRIVIAL(info) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "flashTypeBootSave");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "flashTypeBootSave failed");
 		}
 	}
 

@@ -349,7 +349,7 @@ public:
         memcpy(data.data(), &TmpUSBHIDFrameTS, sizeof(USBHIDFrame));
         
         if (!pHidDevice->SendData(data)) {
-            std::cerr << "Error when Firmware transmit" << std::endl;
+            std::cerr << "Error when Firmware transmit1" << std::endl;
         }
     }
     
@@ -377,7 +377,7 @@ public:
         memcpy(data.data(), &TmpUSBHIDFrameTS, sizeof(USBHIDFrame));
         
         if (!pHidDevice->SendData(data)) {
-            std::cerr << "Error when Firmware transmit" << std::endl;
+            std::cerr << "Error when Firmware transmit2" << std::endl;
         }
     }
     

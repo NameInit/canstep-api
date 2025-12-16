@@ -94,6 +94,8 @@ public slots:
     void EncoderActive();
     void EncoderConfig();
     void startFLASH();
+    void startINSTALL();
+    void startSAVE();
 
     void sendApiRequest(const QString &endpoint, const QJsonObject &data = QJsonObject());
     void onApiReplyFinished(QNetworkReply *reply);

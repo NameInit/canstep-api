@@ -69,6 +69,9 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonEncoderActive, &QPushButton::clicked, this, &MainWindow::EncoderActive);
     QObject::connect(ui->pushButtonEncoderConfig, &QPushButton::clicked, this, &MainWindow::EncoderConfig);
     QObject::connect(ui->pushButtonFLASH, &QPushButton::clicked, this, &MainWindow::startFLASH);
+    QObject::connect(ui->pushButtonINSTALL, &QPushButton::clicked, this, &MainWindow::startINSTALL);
+    QObject::connect(ui->pushButtonSAVE, &QPushButton::clicked, this, &MainWindow::startSAVE);
+
     QObject::connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onApiReplyFinished);
 
     QObject::connect(webSocket, &QWebSocket::connected, this, &MainWindow::onSocketConnected);
@@ -563,8 +566,24 @@ void MainWindow::startFLASH()
 {
     qDebug() << "EncoderConfig";
     QJsonObject data;
-    data["test"]="123";
+    data["filename"]="../../..";
     this->sendApiRequest("api/flash/run",data);
+    return ;
+}
+
+void MainWindow::startINSTALL(){
+    qDebug() << "startINSTALL";
+    QJsonObject data;
+    data["type"]=ui->comboBoxFLASH->currentText();
+    this->sendApiRequest("api/flash/type/set",data);
+    return ;
+}
+
+void MainWindow::startSAVE(){
+    qDebug() << "startSAVE";
+    QJsonObject data;
+    data["type"]=ui->comboBoxFLASH->currentText();
+    this->sendApiRequest("api/flash/type/save",data);
     return ;
 }
 
