@@ -792,12 +792,12 @@ void CanController::LoadBootDataFromFileThread(const std::string& filename){
 	return ;
 }
 
-void CanController::buttonBoot_Click(){
+void CanController::buttonBoot_Click(const std::string& filename){
 	if (bootLoader == nullptr) {
 		bootLoader = std::make_unique<Bootloader>(0);
 		bootLoader->SetHidDevice(hidDevice);
 	}
-	std::string filename = "../firmware/STM32F103C8T6CAN_Step_v2_166.bin";
+
 	auto bootLoaderThread = std::thread([this, filename](){LoadBootDataFromFile(filename);});
 	bootLoaderThread.detach();
 	return ;

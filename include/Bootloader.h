@@ -109,11 +109,7 @@ public:
         delete pBootloaderAnswer;
     }
 
-    void SetFlagCorrectDataSet(bool bData) { 
-        if (bData) {
-            bFlagCorrectDataSet = true;
-        }
-    }
+    void SetFlagCorrectDataSet(bool bData) { bFlagCorrectDataSet = bData ? true : false; }
     
     bool GetFlagCorrectData(void) { return bFlagCorrectDataSet; }
     void ClrlagCorrectData(void) { bFlagCorrectDataSet = false; }
@@ -382,7 +378,7 @@ public:
     }
     
     void WaitForConfirmation(void) {
-        uint16_t u16TimeoutExit = 1000;
+        uint16_t u16TimeoutExit = 250;
         auto start = std::chrono::steady_clock::now();
         
         while ((!GetFlagCorrectData()) && (u16TimeoutExit)) {
@@ -466,10 +462,11 @@ public:
             
             tmpCMDBootMod = eStartCANStepCMDBootMod;
             SetTypeCMDBootMod(tmpCMDBootMod);
-            
+            std::cout << pos << " " << static_cast<int>(packedData) << std::endl;
             do {
                 ClrlagCorrectData();
                 SetBootloaderData(packedData);
+
                 WaitForConfirmation();
                 
                 if (GetFlagErrorCRC8() || GetFlagErrorTypeBoard()) {

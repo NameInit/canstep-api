@@ -566,7 +566,7 @@ void MainWindow::startFLASH()
 {
     qDebug() << "EncoderConfig";
     QJsonObject data;
-    data["filename"]="../../..";
+    data["filename"]=ui->lineEditFilename->text();
     this->sendApiRequest("api/flash/run",data);
     return ;
 }

@@ -919,7 +919,7 @@ private:
 		try{
 			boost::json::object obj=json_data.as_object();
 			std::string filename = static_cast<std::string>(obj["filename"].as_string());
-			controller.buttonBoot_Click();
+			controller.buttonBoot_Click(filename);
 			BOOST_LOG_TRIVIAL(info) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Ok, "Flash");
 		} catch (const std::exception& e){

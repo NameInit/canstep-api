@@ -193,7 +193,7 @@ public:
 
 	void LoadBootDataFromFile(const std::string& filename);
 	void LoadBootDataFromFileThread(const std::string& filename);
-	void buttonBoot_Click();
+	void buttonBoot_Click(const std::string& filename);
 	void buttonResetBoot_Click();
 	void buttonTypeBootSet_Click(const std::string &type);
 	void buttonTypeBootSave_Click(const std::string &type);

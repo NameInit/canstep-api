@@ -178,12 +178,14 @@ public:
     QHBoxLayout *horizontalLayout_11;
     QLabel *labelEndPos;
     QLabel *labelEndPosInfo;
-    QWidget *widget;
+    QWidget *layoutWidget2;
     QGridLayout *gridLayout_2;
+    QPushButton *pushButtonSAVE;
     QPushButton *pushButtonFLASH;
     QComboBox *comboBoxFLASH;
     QPushButton *pushButtonINSTALL;
-    QPushButton *pushButtonSAVE;
+    QLabel *labelFilename;
+    QLineEdit *lineEditFilename;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -1003,18 +1005,23 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_11);
 
-        widget = new QWidget(centralwidget);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(900, 340, 200, 60));
-        gridLayout_2 = new QGridLayout(widget);
+        layoutWidget2 = new QWidget(centralwidget);
+        layoutWidget2->setObjectName("layoutWidget2");
+        layoutWidget2->setGeometry(QRect(900, 340, 200, 92));
+        gridLayout_2 = new QGridLayout(layoutWidget2);
         gridLayout_2->setObjectName("gridLayout_2");
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        pushButtonFLASH = new QPushButton(widget);
+        pushButtonSAVE = new QPushButton(layoutWidget2);
+        pushButtonSAVE->setObjectName("pushButtonSAVE");
+
+        gridLayout_2->addWidget(pushButtonSAVE, 1, 1, 1, 1);
+
+        pushButtonFLASH = new QPushButton(layoutWidget2);
         pushButtonFLASH->setObjectName("pushButtonFLASH");
 
         gridLayout_2->addWidget(pushButtonFLASH, 0, 0, 1, 1);
 
-        comboBoxFLASH = new QComboBox(widget);
+        comboBoxFLASH = new QComboBox(layoutWidget2);
         comboBoxFLASH->addItem(QString());
         comboBoxFLASH->addItem(QString());
         comboBoxFLASH->addItem(QString());
@@ -1024,15 +1031,20 @@ public:
 
         gridLayout_2->addWidget(comboBoxFLASH, 0, 1, 1, 1);
 
-        pushButtonINSTALL = new QPushButton(widget);
+        pushButtonINSTALL = new QPushButton(layoutWidget2);
         pushButtonINSTALL->setObjectName("pushButtonINSTALL");
 
         gridLayout_2->addWidget(pushButtonINSTALL, 1, 0, 1, 1);
 
-        pushButtonSAVE = new QPushButton(widget);
-        pushButtonSAVE->setObjectName("pushButtonSAVE");
+        labelFilename = new QLabel(layoutWidget2);
+        labelFilename->setObjectName("labelFilename");
 
-        gridLayout_2->addWidget(pushButtonSAVE, 1, 1, 1, 1);
+        gridLayout_2->addWidget(labelFilename, 2, 0, 1, 1);
+
+        lineEditFilename = new QLineEdit(layoutWidget2);
+        lineEditFilename->setObjectName("lineEditFilename");
+
+        gridLayout_2->addWidget(lineEditFilename, 2, 1, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -1110,7 +1122,7 @@ public:
         pushButtonBoard->setText(QCoreApplication::translate("MainWindow", "board", nullptr));
         pushButtonAlarmCode->setText(QCoreApplication::translate("MainWindow", "AlarmCode", nullptr));
         lineEditSpeed->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
-        lineEditBoard->setText(QCoreApplication::translate("MainWindow", "16", nullptr));
+        lineEditBoard->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         pushButtonSaveNumBoard->setText(QCoreApplication::translate("MainWindow", "SaveNumBoard", nullptr));
         lineEditAccel->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
         pushButtonMotorTorque->setText(QCoreApplication::translate("MainWindow", "MotorTorque", nullptr));
@@ -1215,6 +1227,7 @@ public:
         labelStartPosInfo->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         labelEndPos->setText(QCoreApplication::translate("MainWindow", "EndPos:", nullptr));
         labelEndPosInfo->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
+        pushButtonSAVE->setText(QCoreApplication::translate("MainWindow", "SAVE", nullptr));
         pushButtonFLASH->setText(QCoreApplication::translate("MainWindow", "FLASH", nullptr));
         comboBoxFLASH->setItemText(0, QCoreApplication::translate("MainWindow", "Unknown", nullptr));
         comboBoxFLASH->setItemText(1, QCoreApplication::translate("MainWindow", "CAN-STEP", nullptr));
@@ -1223,7 +1236,8 @@ public:
         comboBoxFLASH->setItemText(4, QCoreApplication::translate("MainWindow", "Tensometer", nullptr));
 
         pushButtonINSTALL->setText(QCoreApplication::translate("MainWindow", "INSTALL", nullptr));
-        pushButtonSAVE->setText(QCoreApplication::translate("MainWindow", "SAVE", nullptr));
+        labelFilename->setText(QCoreApplication::translate("MainWindow", "Filename:", nullptr));
+        lineEditFilename->setText(QCoreApplication::translate("MainWindow", "../firmware/STM32F103C8T6CAN_Step_v2_166.bin", nullptr));
     } // retranslateUi
 
 };
