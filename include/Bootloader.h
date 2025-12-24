@@ -462,7 +462,7 @@ public:
             
             tmpCMDBootMod = eStartCANStepCMDBootMod;
             SetTypeCMDBootMod(tmpCMDBootMod);
-            std::cout << pos << " " << static_cast<int>(packedData) << std::endl;
+            // std::cout << pos << " " << static_cast<int>(packedData) << std::endl;
             do {
                 ClrlagCorrectData();
                 SetBootloaderData(packedData);
@@ -486,8 +486,9 @@ public:
                 UploadTime = std::chrono::duration_cast<std::chrono::microseconds>(now - startTime);
                 RealDelayTime = std::chrono::duration_cast<std::chrono::microseconds>(now - lastTime);
                 lastTime = now;
-                
-            } while ((!GetFlagCorrectData()) || GetFlagErrorCRC8() || GetFlagErrorLostCRC8());
+                std::cout << pos << " " << static_cast<int>(buffer[0]) << " " << static_cast<int>(buffer[1]) << " " << static_cast<int>(buffer[2]) << " " << static_cast<int>(buffer[3]) << std::endl;
+                // std::cout << (!GetFlagCorrectData()) << " " << GetFlagErrorCRC8() << " " << GetFlagErrorLostCRC8() << std::endl;
+            } while (GetFlagErrorCRC8() || GetFlagErrorLostCRC8()); //del (!GetFlagCorrectData()) || 
             
             std::cout << "Firmware send data number: " << pos 
                       << " (0x" << std::hex << pos << std::dec << ")" << std::endl;
@@ -501,21 +502,22 @@ public:
         tmpCMDBootMod = eEndCANStepCMDBootMod;
         SetTypeCMDBootMod(tmpCMDBootMod);
         
-        do {
-            ClrlagCorrectData();
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
-            SetBootloaderData(crc);
-            WaitForConfirmation();
+        // do {
+        //     ClrlagCorrectData();
+        //     std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        //     SetBootloaderData(crc);
+        //     // WaitForConfirmation();
             
-            auto now = std::chrono::steady_clock::now();
-            UploadTime = std::chrono::duration_cast<std::chrono::microseconds>(now - startTime);
+        //     auto now = std::chrono::steady_clock::now();
+        //     UploadTime = std::chrono::duration_cast<std::chrono::microseconds>(now - startTime);
             
-            if (u32ErrorTimeout) { 
-                u32ErrorTimeout--; 
-            } else { 
-                SetBootloaderNeedOut(true); 
-            }
-        } while (!GetFlagCorrectData());
+        //     if (u32ErrorTimeout) { 
+        //         u32ErrorTimeout--; 
+        //     } else { 
+        //         SetBootloaderNeedOut(true); 
+        //     }
+        // } while (!GetFlagCorrectData());
+        ClrlagCorrectData();
         
         auto stopTime = std::chrono::steady_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stopTime - startTime);
