@@ -51,7 +51,9 @@ private:
 	std::atomic<bool> isConnected;
 	std::atomic<bool> isReading;
 	std::thread readThread;
-	DataReceivedHandler onDataReceived;
-
+	
 	static constexpr size_t ReportLength = USBD_BUF_SIZE;
+
+public:
+	DataReceivedHandler onDataReceived;
 };

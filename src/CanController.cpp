@@ -2,6 +2,10 @@
 
 CanController::CanController() {
 	hidDevice = std::make_shared<HidDevice>();
+	hidDevice->onDataReceived = [this](const std::vector<uint8_t>& data){
+		this->onDataReceived(data);
+	};
+
 	scenarioBuilder = std::make_unique<ScenarioBuilder>();
 	bootLoader = std::make_unique<Bootloader>(0);
 	bootLoader->SetHidDevice(hidDevice);
@@ -787,11 +791,6 @@ void CanController::LoadBootDataFromFile(const std::string& filename){
 	return ;
 }
 
-void CanController::LoadBootDataFromFileThread(const std::string& filename){
-	
-	return ;
-}
-
 void CanController::buttonBoot_Click(const std::string& filename){
 	if (bootLoader == nullptr) {
 		bootLoader = std::make_unique<Bootloader>(0);
@@ -858,5 +857,26 @@ void CanController::buttonTypeBootSave_Click(const std::string &type){
 			bootLoader->SetTypeBoard(eNoTypeBoard);
 		}
 	}
+	return ;
+}
+
+void CanController::onDataReceived(const std::vector<uint8_t>& data){
+	 USBCANFrame TmpUSBCANFrame;
+	USBHIDFrame TmpUSBHIDFrame;
+
+	if (data.size() < sizeof(USBHIDFrame))
+	{
+		std::cerr << "error len" << std::endl;
+	}
+	
+	memcpy(&TmpUSBHIDFrame, &data[0], sizeof(USBHIDFrame));
+	hidDevice->ConvertUSBHIDToCAN(&TmpUSBCANFrame, &TmpUSBHIDFrame);
+	//USB Errors
+	u8LastUsbError = TmpUSBCANFrame.USB_CAN_Frame.LastError;
+	u32NumUsbErrors = TmpUSBHIDFrame.eNumUSBTxErrors;
+	//Parsers
+	//tensometer->TensometerParsing(&TmpUSBCANFrame);
+	mechanismObj0->CAN_Parsing_Out(&TmpUSBCANFrame.b128USBCANFrame.u8Mask[0]);
+	bootLoader->BootloaderParsing(&TmpUSBCANFrame);
 	return ;
 }

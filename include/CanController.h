@@ -192,11 +192,11 @@ public:
 	void executeAllCommandsThread();
 
 	void LoadBootDataFromFile(const std::string& filename);
-	void LoadBootDataFromFileThread(const std::string& filename);
 	void buttonBoot_Click(const std::string& filename);
 	void buttonResetBoot_Click();
 	void buttonTypeBootSet_Click(const std::string &type);
 	void buttonTypeBootSave_Click(const std::string &type);
+	void onDataReceived(const std::vector<uint8_t>& data);
 
 	std::shared_ptr<HidDevice> hidDevice;
 	std::unique_ptr<Mechanism> mechanismObj0;
@@ -208,6 +208,9 @@ public:
 
 	uint16_t vendorId = 1155;
 	uint16_t productId = 22399;
+
+	uint32_t u8LastUsbError;
+	uint8_t u32NumUsbErrors;
 
 	bool runningScenario;
 

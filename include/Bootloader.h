@@ -243,6 +243,7 @@ public:
     }
     
     void BootloaderParsing(USBCANFrame* pUSBCANFrame) {
+        std::cout << "I'm work" << std::endl;
         USBCANFrame NewUSBCANFrame = { 0 };
         memcpy(&NewUSBCANFrame.b128USBCANFrame.u8Mask[0], pUSBCANFrame, USB_CAN_FRAME_Num);
         
@@ -267,6 +268,8 @@ public:
             
             CallbackBootloaderAnswer(&NumBoardIn, &CMDBootModIn, &u8NumDataIn, 
                                     &u8CRCDataIn, &u8ErrorsIn);
+
+            std::cout << "flag eq " << bCorrectDataSet << std::endl;
         }
         
         if (NewUSBCANFrame.USB_CAN_Frame.eCAN_DEV_ID == CAN_ID_ANSWER) {
