@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.4.2
+** Created by: Qt User Interface Compiler version 5.15.13
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -192,19 +192,19 @@ public:
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName("MainWindow");
+            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(1549, 670);
         MainWindow->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(MainWindow);
-        centralwidget->setObjectName("centralwidget");
+        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         layoutWidget = new QWidget(centralwidget);
-        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(10, 10, 859, 572));
         gridLayout = new QGridLayout(layoutWidget);
-        gridLayout->setObjectName("gridLayout");
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
         pushButtonBrakeOn = new QPushButton(layoutWidget);
-        pushButtonBrakeOn->setObjectName("pushButtonBrakeOn");
+        pushButtonBrakeOn->setObjectName(QString::fromUtf8("pushButtonBrakeOn"));
 
         gridLayout->addWidget(pushButtonBrakeOn, 9, 1, 1, 1);
 
@@ -213,54 +213,54 @@ public:
         gridLayout->addItem(horizontalSpacer, 0, 2, 1, 1);
 
         pushButtonAccel = new QPushButton(layoutWidget);
-        pushButtonAccel->setObjectName("pushButtonAccel");
+        pushButtonAccel->setObjectName(QString::fromUtf8("pushButtonAccel"));
 
         gridLayout->addWidget(pushButtonAccel, 4, 0, 1, 1);
 
         pushButtonAl_ORezervPolarity = new QPushButton(layoutWidget);
-        pushButtonAl_ORezervPolarity->setObjectName("pushButtonAl_ORezervPolarity");
+        pushButtonAl_ORezervPolarity->setObjectName(QString::fromUtf8("pushButtonAl_ORezervPolarity"));
 
         gridLayout->addWidget(pushButtonAl_ORezervPolarity, 14, 6, 1, 1);
 
         lineEditSteps = new QLineEdit(layoutWidget);
-        lineEditSteps->setObjectName("lineEditSteps");
+        lineEditSteps->setObjectName(QString::fromUtf8("lineEditSteps"));
 
         gridLayout->addWidget(lineEditSteps, 2, 1, 1, 1);
 
         pushButtonAl_CLRPolarity = new QPushButton(layoutWidget);
-        pushButtonAl_CLRPolarity->setObjectName("pushButtonAl_CLRPolarity");
+        pushButtonAl_CLRPolarity->setObjectName(QString::fromUtf8("pushButtonAl_CLRPolarity"));
 
         gridLayout->addWidget(pushButtonAl_CLRPolarity, 12, 6, 1, 1);
 
         pushButtonSensor4Dir = new QPushButton(layoutWidget);
-        pushButtonSensor4Dir->setObjectName("pushButtonSensor4Dir");
+        pushButtonSensor4Dir->setObjectName(QString::fromUtf8("pushButtonSensor4Dir"));
 
         gridLayout->addWidget(pushButtonSensor4Dir, 8, 6, 1, 1);
 
         pushButtonReserDRVRErr = new QPushButton(layoutWidget);
-        pushButtonReserDRVRErr->setObjectName("pushButtonReserDRVRErr");
+        pushButtonReserDRVRErr->setObjectName(QString::fromUtf8("pushButtonReserDRVRErr"));
 
         gridLayout->addWidget(pushButtonReserDRVRErr, 8, 0, 1, 1);
 
         pushButtonHomingMax = new QPushButton(layoutWidget);
-        pushButtonHomingMax->setObjectName("pushButtonHomingMax");
+        pushButtonHomingMax->setObjectName(QString::fromUtf8("pushButtonHomingMax"));
 
         gridLayout->addWidget(pushButtonHomingMax, 7, 1, 1, 1);
 
         pushButtonAl_OBrakePolarity = new QPushButton(layoutWidget);
-        pushButtonAl_OBrakePolarity->setObjectName("pushButtonAl_OBrakePolarity");
+        pushButtonAl_OBrakePolarity->setObjectName(QString::fromUtf8("pushButtonAl_OBrakePolarity"));
 
         gridLayout->addWidget(pushButtonAl_OBrakePolarity, 13, 6, 1, 1);
 
         horizontalLayoutTrunData = new QHBoxLayout();
-        horizontalLayoutTrunData->setObjectName("horizontalLayoutTrunData");
+        horizontalLayoutTrunData->setObjectName(QString::fromUtf8("horizontalLayoutTrunData"));
         labelTurnData = new QLabel(layoutWidget);
-        labelTurnData->setObjectName("labelTurnData");
+        labelTurnData->setObjectName(QString::fromUtf8("labelTurnData"));
 
         horizontalLayoutTrunData->addWidget(labelTurnData);
 
         lineEditTurnData = new QLineEdit(layoutWidget);
-        lineEditTurnData->setObjectName("lineEditTurnData");
+        lineEditTurnData->setObjectName(QString::fromUtf8("lineEditTurnData"));
 
         horizontalLayoutTrunData->addWidget(lineEditTurnData);
 
@@ -268,7 +268,7 @@ public:
         gridLayout->addLayout(horizontalLayoutTrunData, 16, 3, 1, 1);
 
         lineEditSaveMaxSpeed = new QLineEdit(layoutWidget);
-        lineEditSaveMaxSpeed->setObjectName("lineEditSaveMaxSpeed");
+        lineEditSaveMaxSpeed->setObjectName(QString::fromUtf8("lineEditSaveMaxSpeed"));
 
         gridLayout->addWidget(lineEditSaveMaxSpeed, 0, 4, 1, 1);
 
@@ -276,17 +276,17 @@ public:
         comboBoxSensor4Dir->addItem(QString());
         comboBoxSensor4Dir->addItem(QString());
         comboBoxSensor4Dir->addItem(QString());
-        comboBoxSensor4Dir->setObjectName("comboBoxSensor4Dir");
+        comboBoxSensor4Dir->setObjectName(QString::fromUtf8("comboBoxSensor4Dir"));
 
         gridLayout->addWidget(comboBoxSensor4Dir, 8, 7, 1, 1);
 
         pushButtonFAULTPolarity = new QPushButton(layoutWidget);
-        pushButtonFAULTPolarity->setObjectName("pushButtonFAULTPolarity");
+        pushButtonFAULTPolarity->setObjectName(QString::fromUtf8("pushButtonFAULTPolarity"));
 
         gridLayout->addWidget(pushButtonFAULTPolarity, 2, 6, 1, 1);
 
         pushButtonMotorSpeed = new QPushButton(layoutWidget);
-        pushButtonMotorSpeed->setObjectName("pushButtonMotorSpeed");
+        pushButtonMotorSpeed->setObjectName(QString::fromUtf8("pushButtonMotorSpeed"));
 
         gridLayout->addWidget(pushButtonMotorSpeed, 11, 4, 1, 1);
 
@@ -294,12 +294,12 @@ public:
         comboBoxEnPolarity->addItem(QString());
         comboBoxEnPolarity->addItem(QString());
         comboBoxEnPolarity->addItem(QString());
-        comboBoxEnPolarity->setObjectName("comboBoxEnPolarity");
+        comboBoxEnPolarity->setObjectName(QString::fromUtf8("comboBoxEnPolarity"));
 
         gridLayout->addWidget(comboBoxEnPolarity, 11, 7, 1, 1);
 
         pushButtonSaveDefSpeed = new QPushButton(layoutWidget);
-        pushButtonSaveDefSpeed->setObjectName("pushButtonSaveDefSpeed");
+        pushButtonSaveDefSpeed->setObjectName(QString::fromUtf8("pushButtonSaveDefSpeed"));
 
         gridLayout->addWidget(pushButtonSaveDefSpeed, 1, 3, 1, 1);
 
@@ -308,27 +308,27 @@ public:
         gridLayout->addItem(horizontalSpacer_3, 0, 5, 1, 1);
 
         lineEditSaveDelta = new QLineEdit(layoutWidget);
-        lineEditSaveDelta->setObjectName("lineEditSaveDelta");
+        lineEditSaveDelta->setObjectName(QString::fromUtf8("lineEditSaveDelta"));
 
         gridLayout->addWidget(lineEditSaveDelta, 4, 4, 1, 1);
 
         pushButtonStepsTurn = new QPushButton(layoutWidget);
-        pushButtonStepsTurn->setObjectName("pushButtonStepsTurn");
+        pushButtonStepsTurn->setObjectName(QString::fromUtf8("pushButtonStepsTurn"));
 
         gridLayout->addWidget(pushButtonStepsTurn, 14, 3, 1, 1);
 
         pushButtonSensor1Dir = new QPushButton(layoutWidget);
-        pushButtonSensor1Dir->setObjectName("pushButtonSensor1Dir");
+        pushButtonSensor1Dir->setObjectName(QString::fromUtf8("pushButtonSensor1Dir"));
 
         gridLayout->addWidget(pushButtonSensor1Dir, 5, 6, 1, 1);
 
         pushButtonSRVRDYPolarity = new QPushButton(layoutWidget);
-        pushButtonSRVRDYPolarity->setObjectName("pushButtonSRVRDYPolarity");
+        pushButtonSRVRDYPolarity->setObjectName(QString::fromUtf8("pushButtonSRVRDYPolarity"));
 
         gridLayout->addWidget(pushButtonSRVRDYPolarity, 0, 6, 1, 1);
 
         pushButtonSensor3Dir = new QPushButton(layoutWidget);
-        pushButtonSensor3Dir->setObjectName("pushButtonSensor3Dir");
+        pushButtonSensor3Dir->setObjectName(QString::fromUtf8("pushButtonSensor3Dir"));
 
         gridLayout->addWidget(pushButtonSensor3Dir, 7, 6, 1, 1);
 
@@ -336,12 +336,12 @@ public:
         comboBoxBrakePolarity->addItem(QString());
         comboBoxBrakePolarity->addItem(QString());
         comboBoxBrakePolarity->addItem(QString());
-        comboBoxBrakePolarity->setObjectName("comboBoxBrakePolarity");
+        comboBoxBrakePolarity->setObjectName(QString::fromUtf8("comboBoxBrakePolarity"));
 
         gridLayout->addWidget(comboBoxBrakePolarity, 3, 7, 1, 1);
 
         pushButtonBrakePolarity = new QPushButton(layoutWidget);
-        pushButtonBrakePolarity->setObjectName("pushButtonBrakePolarity");
+        pushButtonBrakePolarity->setObjectName(QString::fromUtf8("pushButtonBrakePolarity"));
 
         gridLayout->addWidget(pushButtonBrakePolarity, 3, 6, 1, 1);
 
@@ -349,12 +349,12 @@ public:
         comboBoxFAULTPolarity->addItem(QString());
         comboBoxFAULTPolarity->addItem(QString());
         comboBoxFAULTPolarity->addItem(QString());
-        comboBoxFAULTPolarity->setObjectName("comboBoxFAULTPolarity");
+        comboBoxFAULTPolarity->setObjectName(QString::fromUtf8("comboBoxFAULTPolarity"));
 
         gridLayout->addWidget(comboBoxFAULTPolarity, 2, 7, 1, 1);
 
         pushButtonSaveAccel = new QPushButton(layoutWidget);
-        pushButtonSaveAccel->setObjectName("pushButtonSaveAccel");
+        pushButtonSaveAccel->setObjectName(QString::fromUtf8("pushButtonSaveAccel"));
 
         gridLayout->addWidget(pushButtonSaveAccel, 2, 3, 1, 1);
 
@@ -362,19 +362,19 @@ public:
         comboBoxSensor2Dir->addItem(QString());
         comboBoxSensor2Dir->addItem(QString());
         comboBoxSensor2Dir->addItem(QString());
-        comboBoxSensor2Dir->setObjectName("comboBoxSensor2Dir");
+        comboBoxSensor2Dir->setObjectName(QString::fromUtf8("comboBoxSensor2Dir"));
 
         gridLayout->addWidget(comboBoxSensor2Dir, 6, 7, 1, 1);
 
         horizontalLayoutPolarity = new QHBoxLayout();
-        horizontalLayoutPolarity->setObjectName("horizontalLayoutPolarity");
+        horizontalLayoutPolarity->setObjectName(QString::fromUtf8("horizontalLayoutPolarity"));
         labelPolarity = new QLabel(layoutWidget);
-        labelPolarity->setObjectName("labelPolarity");
+        labelPolarity->setObjectName(QString::fromUtf8("labelPolarity"));
 
         horizontalLayoutPolarity->addWidget(labelPolarity);
 
         lineEditPolarity = new QLineEdit(layoutWidget);
-        lineEditPolarity->setObjectName("lineEditPolarity");
+        lineEditPolarity->setObjectName(QString::fromUtf8("lineEditPolarity"));
 
         horizontalLayoutPolarity->addWidget(lineEditPolarity);
 
@@ -384,12 +384,12 @@ public:
         comboBoxEncoderActive = new QComboBox(layoutWidget);
         comboBoxEncoderActive->addItem(QString());
         comboBoxEncoderActive->addItem(QString());
-        comboBoxEncoderActive->setObjectName("comboBoxEncoderActive");
+        comboBoxEncoderActive->setObjectName(QString::fromUtf8("comboBoxEncoderActive"));
 
         gridLayout->addWidget(comboBoxEncoderActive, 4, 7, 1, 1);
 
         pushButtonSensor4Polarity = new QPushButton(layoutWidget);
-        pushButtonSensor4Polarity->setObjectName("pushButtonSensor4Polarity");
+        pushButtonSensor4Polarity->setObjectName(QString::fromUtf8("pushButtonSensor4Polarity"));
 
         gridLayout->addWidget(pushButtonSensor4Polarity, 8, 3, 1, 1);
 
@@ -397,122 +397,122 @@ public:
         comboBoxSensor4Polarity->addItem(QString());
         comboBoxSensor4Polarity->addItem(QString());
         comboBoxSensor4Polarity->addItem(QString());
-        comboBoxSensor4Polarity->setObjectName("comboBoxSensor4Polarity");
+        comboBoxSensor4Polarity->setObjectName(QString::fromUtf8("comboBoxSensor4Polarity"));
 
         gridLayout->addWidget(comboBoxSensor4Polarity, 8, 4, 1, 1);
 
         pushButtonHomingZero = new QPushButton(layoutWidget);
-        pushButtonHomingZero->setObjectName("pushButtonHomingZero");
+        pushButtonHomingZero->setObjectName(QString::fromUtf8("pushButtonHomingZero"));
 
         gridLayout->addWidget(pushButtonHomingZero, 7, 0, 1, 1);
 
         pushButtonSpeed = new QPushButton(layoutWidget);
-        pushButtonSpeed->setObjectName("pushButtonSpeed");
+        pushButtonSpeed->setObjectName(QString::fromUtf8("pushButtonSpeed"));
 
         gridLayout->addWidget(pushButtonSpeed, 3, 0, 1, 1);
 
         pushButtonEnPolarity = new QPushButton(layoutWidget);
-        pushButtonEnPolarity->setObjectName("pushButtonEnPolarity");
+        pushButtonEnPolarity->setObjectName(QString::fromUtf8("pushButtonEnPolarity"));
 
         gridLayout->addWidget(pushButtonEnPolarity, 11, 6, 1, 1);
 
         pushButtonSensor2Dir = new QPushButton(layoutWidget);
-        pushButtonSensor2Dir->setObjectName("pushButtonSensor2Dir");
+        pushButtonSensor2Dir->setObjectName(QString::fromUtf8("pushButtonSensor2Dir"));
 
         gridLayout->addWidget(pushButtonSensor2Dir, 6, 6, 1, 1);
 
         lineEditMicroSteps = new QLineEdit(layoutWidget);
-        lineEditMicroSteps->setObjectName("lineEditMicroSteps");
+        lineEditMicroSteps->setObjectName(QString::fromUtf8("lineEditMicroSteps"));
 
         gridLayout->addWidget(lineEditMicroSteps, 13, 4, 1, 1);
 
         pushButtonINPOSPolarity = new QPushButton(layoutWidget);
-        pushButtonINPOSPolarity->setObjectName("pushButtonINPOSPolarity");
+        pushButtonINPOSPolarity->setObjectName(QString::fromUtf8("pushButtonINPOSPolarity"));
 
         gridLayout->addWidget(pushButtonINPOSPolarity, 1, 6, 1, 1);
 
         pushButtonSensor2Polarity = new QPushButton(layoutWidget);
-        pushButtonSensor2Polarity->setObjectName("pushButtonSensor2Polarity");
+        pushButtonSensor2Polarity->setObjectName(QString::fromUtf8("pushButtonSensor2Polarity"));
 
         gridLayout->addWidget(pushButtonSensor2Polarity, 6, 3, 1, 1);
 
         pushButtonSensor3Polarity = new QPushButton(layoutWidget);
-        pushButtonSensor3Polarity->setObjectName("pushButtonSensor3Polarity");
+        pushButtonSensor3Polarity->setObjectName(QString::fromUtf8("pushButtonSensor3Polarity"));
 
         gridLayout->addWidget(pushButtonSensor3Polarity, 7, 3, 1, 1);
 
         pushButtonSteps = new QPushButton(layoutWidget);
-        pushButtonSteps->setObjectName("pushButtonSteps");
+        pushButtonSteps->setObjectName(QString::fromUtf8("pushButtonSteps"));
 
         gridLayout->addWidget(pushButtonSteps, 2, 0, 1, 1);
 
         pushButtonBoard = new QPushButton(layoutWidget);
-        pushButtonBoard->setObjectName("pushButtonBoard");
+        pushButtonBoard->setObjectName(QString::fromUtf8("pushButtonBoard"));
 
         gridLayout->addWidget(pushButtonBoard, 1, 0, 1, 1);
 
         lineEditSaveStartPos = new QLineEdit(layoutWidget);
-        lineEditSaveStartPos->setObjectName("lineEditSaveStartPos");
+        lineEditSaveStartPos->setObjectName(QString::fromUtf8("lineEditSaveStartPos"));
 
         gridLayout->addWidget(lineEditSaveStartPos, 15, 1, 1, 1);
 
         pushButtonAlarmCode = new QPushButton(layoutWidget);
-        pushButtonAlarmCode->setObjectName("pushButtonAlarmCode");
+        pushButtonAlarmCode->setObjectName(QString::fromUtf8("pushButtonAlarmCode"));
 
         gridLayout->addWidget(pushButtonAlarmCode, 12, 4, 1, 1);
 
         lineEditSpeed = new QLineEdit(layoutWidget);
-        lineEditSpeed->setObjectName("lineEditSpeed");
+        lineEditSpeed->setObjectName(QString::fromUtf8("lineEditSpeed"));
 
         gridLayout->addWidget(lineEditSpeed, 3, 1, 1, 1);
 
         lineEditBoard = new QLineEdit(layoutWidget);
-        lineEditBoard->setObjectName("lineEditBoard");
+        lineEditBoard->setObjectName(QString::fromUtf8("lineEditBoard"));
 
         gridLayout->addWidget(lineEditBoard, 1, 1, 1, 1);
 
         pushButtonSaveNumBoard = new QPushButton(layoutWidget);
-        pushButtonSaveNumBoard->setObjectName("pushButtonSaveNumBoard");
+        pushButtonSaveNumBoard->setObjectName(QString::fromUtf8("pushButtonSaveNumBoard"));
 
         gridLayout->addWidget(pushButtonSaveNumBoard, 13, 0, 1, 1);
 
         lineEditAccel = new QLineEdit(layoutWidget);
-        lineEditAccel->setObjectName("lineEditAccel");
+        lineEditAccel->setObjectName(QString::fromUtf8("lineEditAccel"));
 
         gridLayout->addWidget(lineEditAccel, 4, 1, 1, 1);
 
         lineEditSaveEndPos = new QLineEdit(layoutWidget);
-        lineEditSaveEndPos->setObjectName("lineEditSaveEndPos");
+        lineEditSaveEndPos->setObjectName(QString::fromUtf8("lineEditSaveEndPos"));
 
         gridLayout->addWidget(lineEditSaveEndPos, 16, 1, 1, 1);
 
         pushButtonMotorTorque = new QPushButton(layoutWidget);
-        pushButtonMotorTorque->setObjectName("pushButtonMotorTorque");
+        pushButtonMotorTorque->setObjectName(QString::fromUtf8("pushButtonMotorTorque"));
 
         gridLayout->addWidget(pushButtonMotorTorque, 11, 3, 1, 1);
 
         pushButtonRezervOff = new QPushButton(layoutWidget);
-        pushButtonRezervOff->setObjectName("pushButtonRezervOff");
+        pushButtonRezervOff->setObjectName(QString::fromUtf8("pushButtonRezervOff"));
 
         gridLayout->addWidget(pushButtonRezervOff, 10, 0, 1, 1);
 
         lineEditSaveDecel = new QLineEdit(layoutWidget);
-        lineEditSaveDecel->setObjectName("lineEditSaveDecel");
+        lineEditSaveDecel->setObjectName(QString::fromUtf8("lineEditSaveDecel"));
 
         gridLayout->addWidget(lineEditSaveDecel, 3, 4, 1, 1);
 
         pushButtonStop = new QPushButton(layoutWidget);
-        pushButtonStop->setObjectName("pushButtonStop");
+        pushButtonStop->setObjectName(QString::fromUtf8("pushButtonStop"));
 
         gridLayout->addWidget(pushButtonStop, 8, 1, 1, 1);
 
         pushButtonDriverOn = new QPushButton(layoutWidget);
-        pushButtonDriverOn->setObjectName("pushButtonDriverOn");
+        pushButtonDriverOn->setObjectName(QString::fromUtf8("pushButtonDriverOn"));
 
         gridLayout->addWidget(pushButtonDriverOn, 10, 3, 1, 1);
 
         pushButtonBrakeOff = new QPushButton(layoutWidget);
-        pushButtonBrakeOff->setObjectName("pushButtonBrakeOff");
+        pushButtonBrakeOff->setObjectName(QString::fromUtf8("pushButtonBrakeOff"));
 
         gridLayout->addWidget(pushButtonBrakeOff, 9, 0, 1, 1);
 
@@ -520,52 +520,52 @@ public:
         comboBoxSensor3Polarity->addItem(QString());
         comboBoxSensor3Polarity->addItem(QString());
         comboBoxSensor3Polarity->addItem(QString());
-        comboBoxSensor3Polarity->setObjectName("comboBoxSensor3Polarity");
+        comboBoxSensor3Polarity->setObjectName(QString::fromUtf8("comboBoxSensor3Polarity"));
 
         gridLayout->addWidget(comboBoxSensor3Polarity, 7, 4, 1, 1);
 
         lineEditSaveDefSpeed = new QLineEdit(layoutWidget);
-        lineEditSaveDefSpeed->setObjectName("lineEditSaveDefSpeed");
+        lineEditSaveDefSpeed->setObjectName(QString::fromUtf8("lineEditSaveDefSpeed"));
 
         gridLayout->addWidget(lineEditSaveDefSpeed, 1, 4, 1, 1);
 
         pushButtonSaveStartPos = new QPushButton(layoutWidget);
-        pushButtonSaveStartPos->setObjectName("pushButtonSaveStartPos");
+        pushButtonSaveStartPos->setObjectName(QString::fromUtf8("pushButtonSaveStartPos"));
 
         gridLayout->addWidget(pushButtonSaveStartPos, 15, 0, 1, 1);
 
         pushButtonDriverOff = new QPushButton(layoutWidget);
-        pushButtonDriverOff->setObjectName("pushButtonDriverOff");
+        pushButtonDriverOff->setObjectName(QString::fromUtf8("pushButtonDriverOff"));
 
         gridLayout->addWidget(pushButtonDriverOff, 10, 4, 1, 1);
 
         lineEditcurrentPos = new QLineEdit(layoutWidget);
-        lineEditcurrentPos->setObjectName("lineEditcurrentPos");
+        lineEditcurrentPos->setObjectName(QString::fromUtf8("lineEditcurrentPos"));
 
         gridLayout->addWidget(lineEditcurrentPos, 12, 1, 1, 1);
 
         lineEditSaveAccel = new QLineEdit(layoutWidget);
-        lineEditSaveAccel->setObjectName("lineEditSaveAccel");
+        lineEditSaveAccel->setObjectName(QString::fromUtf8("lineEditSaveAccel"));
 
         gridLayout->addWidget(lineEditSaveAccel, 2, 4, 1, 1);
 
         pushButtonDebugOn = new QPushButton(layoutWidget);
-        pushButtonDebugOn->setObjectName("pushButtonDebugOn");
+        pushButtonDebugOn->setObjectName(QString::fromUtf8("pushButtonDebugOn"));
 
         gridLayout->addWidget(pushButtonDebugOn, 0, 1, 1, 1);
 
         pushButtonSaveNumGroup = new QPushButton(layoutWidget);
-        pushButtonSaveNumGroup->setObjectName("pushButtonSaveNumGroup");
+        pushButtonSaveNumGroup->setObjectName(QString::fromUtf8("pushButtonSaveNumGroup"));
 
         gridLayout->addWidget(pushButtonSaveNumGroup, 14, 0, 1, 1);
 
         pushButtonSaveDecel = new QPushButton(layoutWidget);
-        pushButtonSaveDecel->setObjectName("pushButtonSaveDecel");
+        pushButtonSaveDecel->setObjectName(QString::fromUtf8("pushButtonSaveDecel"));
 
         gridLayout->addWidget(pushButtonSaveDecel, 3, 3, 1, 1);
 
         lineEditSaveNumBoard = new QLineEdit(layoutWidget);
-        lineEditSaveNumBoard->setObjectName("lineEditSaveNumBoard");
+        lineEditSaveNumBoard->setObjectName(QString::fromUtf8("lineEditSaveNumBoard"));
 
         gridLayout->addWidget(lineEditSaveNumBoard, 13, 1, 1, 1);
 
@@ -573,17 +573,17 @@ public:
         comboBoxSensor2Polarity->addItem(QString());
         comboBoxSensor2Polarity->addItem(QString());
         comboBoxSensor2Polarity->addItem(QString());
-        comboBoxSensor2Polarity->setObjectName("comboBoxSensor2Polarity");
+        comboBoxSensor2Polarity->setObjectName(QString::fromUtf8("comboBoxSensor2Polarity"));
 
         gridLayout->addWidget(comboBoxSensor2Polarity, 6, 4, 1, 1);
 
         pushButtonAbsPosRot = new QPushButton(layoutWidget);
-        pushButtonAbsPosRot->setObjectName("pushButtonAbsPosRot");
+        pushButtonAbsPosRot->setObjectName(QString::fromUtf8("pushButtonAbsPosRot"));
 
         gridLayout->addWidget(pushButtonAbsPosRot, 12, 3, 1, 1);
 
         pushButtonDecel = new QPushButton(layoutWidget);
-        pushButtonDecel->setObjectName("pushButtonDecel");
+        pushButtonDecel->setObjectName(QString::fromUtf8("pushButtonDecel"));
 
         gridLayout->addWidget(pushButtonDecel, 5, 0, 1, 1);
 
@@ -591,7 +591,7 @@ public:
         comboBoxSensor1Dir->addItem(QString());
         comboBoxSensor1Dir->addItem(QString());
         comboBoxSensor1Dir->addItem(QString());
-        comboBoxSensor1Dir->setObjectName("comboBoxSensor1Dir");
+        comboBoxSensor1Dir->setObjectName(QString::fromUtf8("comboBoxSensor1Dir"));
 
         gridLayout->addWidget(comboBoxSensor1Dir, 5, 7, 1, 1);
 
@@ -599,17 +599,17 @@ public:
         comboBoxAl_CLRPolarity->addItem(QString());
         comboBoxAl_CLRPolarity->addItem(QString());
         comboBoxAl_CLRPolarity->addItem(QString());
-        comboBoxAl_CLRPolarity->setObjectName("comboBoxAl_CLRPolarity");
+        comboBoxAl_CLRPolarity->setObjectName(QString::fromUtf8("comboBoxAl_CLRPolarity"));
 
         gridLayout->addWidget(comboBoxAl_CLRPolarity, 12, 7, 1, 1);
 
         pushButtonBackward = new QPushButton(layoutWidget);
-        pushButtonBackward->setObjectName("pushButtonBackward");
+        pushButtonBackward->setObjectName(QString::fromUtf8("pushButtonBackward"));
 
         gridLayout->addWidget(pushButtonBackward, 6, 1, 1, 1);
 
         pushButtonSaveEndPos = new QPushButton(layoutWidget);
-        pushButtonSaveEndPos->setObjectName("pushButtonSaveEndPos");
+        pushButtonSaveEndPos->setObjectName(QString::fromUtf8("pushButtonSaveEndPos"));
 
         gridLayout->addWidget(pushButtonSaveEndPos, 16, 0, 1, 1);
 
@@ -617,37 +617,37 @@ public:
         comboBoxAl_OBrakePolarity->addItem(QString());
         comboBoxAl_OBrakePolarity->addItem(QString());
         comboBoxAl_OBrakePolarity->addItem(QString());
-        comboBoxAl_OBrakePolarity->setObjectName("comboBoxAl_OBrakePolarity");
+        comboBoxAl_OBrakePolarity->setObjectName(QString::fromUtf8("comboBoxAl_OBrakePolarity"));
 
         gridLayout->addWidget(comboBoxAl_OBrakePolarity, 13, 7, 1, 1);
 
         pushButtonSaveDelta = new QPushButton(layoutWidget);
-        pushButtonSaveDelta->setObjectName("pushButtonSaveDelta");
+        pushButtonSaveDelta->setObjectName(QString::fromUtf8("pushButtonSaveDelta"));
 
         gridLayout->addWidget(pushButtonSaveDelta, 4, 3, 1, 1);
 
         pushButtonAlarmResetOn = new QPushButton(layoutWidget);
-        pushButtonAlarmResetOn->setObjectName("pushButtonAlarmResetOn");
+        pushButtonAlarmResetOn->setObjectName(QString::fromUtf8("pushButtonAlarmResetOn"));
 
         gridLayout->addWidget(pushButtonAlarmResetOn, 11, 0, 1, 1);
 
         pushButtonForward = new QPushButton(layoutWidget);
-        pushButtonForward->setObjectName("pushButtonForward");
+        pushButtonForward->setObjectName(QString::fromUtf8("pushButtonForward"));
 
         gridLayout->addWidget(pushButtonForward, 6, 0, 1, 1);
 
         lineEditDecel = new QLineEdit(layoutWidget);
-        lineEditDecel->setObjectName("lineEditDecel");
+        lineEditDecel->setObjectName(QString::fromUtf8("lineEditDecel"));
 
         gridLayout->addWidget(lineEditDecel, 5, 1, 1, 1);
 
         pushButtoncurrentPos = new QPushButton(layoutWidget);
-        pushButtoncurrentPos->setObjectName("pushButtoncurrentPos");
+        pushButtoncurrentPos->setObjectName(QString::fromUtf8("pushButtoncurrentPos"));
 
         gridLayout->addWidget(pushButtoncurrentPos, 12, 0, 1, 1);
 
         lineEditSaveNumGroup = new QLineEdit(layoutWidget);
-        lineEditSaveNumGroup->setObjectName("lineEditSaveNumGroup");
+        lineEditSaveNumGroup->setObjectName(QString::fromUtf8("lineEditSaveNumGroup"));
 
         gridLayout->addWidget(lineEditSaveNumGroup, 14, 1, 1, 1);
 
@@ -655,34 +655,34 @@ public:
         comboBoxSensor1Polarity->addItem(QString());
         comboBoxSensor1Polarity->addItem(QString());
         comboBoxSensor1Polarity->addItem(QString());
-        comboBoxSensor1Polarity->setObjectName("comboBoxSensor1Polarity");
+        comboBoxSensor1Polarity->setObjectName(QString::fromUtf8("comboBoxSensor1Polarity"));
 
         gridLayout->addWidget(comboBoxSensor1Polarity, 5, 4, 1, 1);
 
         pushButtonAlarmResetOff = new QPushButton(layoutWidget);
-        pushButtonAlarmResetOff->setObjectName("pushButtonAlarmResetOff");
+        pushButtonAlarmResetOff->setObjectName(QString::fromUtf8("pushButtonAlarmResetOff"));
 
         gridLayout->addWidget(pushButtonAlarmResetOff, 11, 1, 1, 1);
 
         pushButtonDirPolarity = new QPushButton(layoutWidget);
-        pushButtonDirPolarity->setObjectName("pushButtonDirPolarity");
+        pushButtonDirPolarity->setObjectName(QString::fromUtf8("pushButtonDirPolarity"));
 
         gridLayout->addWidget(pushButtonDirPolarity, 10, 6, 1, 1);
 
         pushButtonResetLostCntrs = new QPushButton(layoutWidget);
-        pushButtonResetLostCntrs->setObjectName("pushButtonResetLostCntrs");
+        pushButtonResetLostCntrs->setObjectName(QString::fromUtf8("pushButtonResetLostCntrs"));
 
         gridLayout->addWidget(pushButtonResetLostCntrs, 9, 4, 1, 1);
 
         horizontalLayoutDelta = new QHBoxLayout();
-        horizontalLayoutDelta->setObjectName("horizontalLayoutDelta");
+        horizontalLayoutDelta->setObjectName(QString::fromUtf8("horizontalLayoutDelta"));
         labelDelta = new QLabel(layoutWidget);
-        labelDelta->setObjectName("labelDelta");
+        labelDelta->setObjectName(QString::fromUtf8("labelDelta"));
 
         horizontalLayoutDelta->addWidget(labelDelta);
 
         lineEditDelta = new QLineEdit(layoutWidget);
-        lineEditDelta->setObjectName("lineEditDelta");
+        lineEditDelta->setObjectName(QString::fromUtf8("lineEditDelta"));
 
         horizontalLayoutDelta->addWidget(lineEditDelta);
 
@@ -693,7 +693,7 @@ public:
         comboBoxSensor3Dir->addItem(QString());
         comboBoxSensor3Dir->addItem(QString());
         comboBoxSensor3Dir->addItem(QString());
-        comboBoxSensor3Dir->setObjectName("comboBoxSensor3Dir");
+        comboBoxSensor3Dir->setObjectName(QString::fromUtf8("comboBoxSensor3Dir"));
 
         gridLayout->addWidget(comboBoxSensor3Dir, 7, 7, 1, 1);
 
@@ -701,12 +701,12 @@ public:
         comboBoxAl_ORezervPolarity->addItem(QString());
         comboBoxAl_ORezervPolarity->addItem(QString());
         comboBoxAl_ORezervPolarity->addItem(QString());
-        comboBoxAl_ORezervPolarity->setObjectName("comboBoxAl_ORezervPolarity");
+        comboBoxAl_ORezervPolarity->setObjectName(QString::fromUtf8("comboBoxAl_ORezervPolarity"));
 
         gridLayout->addWidget(comboBoxAl_ORezervPolarity, 14, 7, 1, 1);
 
         pushButtonEncoderActive = new QPushButton(layoutWidget);
-        pushButtonEncoderActive->setObjectName("pushButtonEncoderActive");
+        pushButtonEncoderActive->setObjectName(QString::fromUtf8("pushButtonEncoderActive"));
 
         gridLayout->addWidget(pushButtonEncoderActive, 4, 6, 1, 1);
 
@@ -714,27 +714,27 @@ public:
         comboBoxSRVRDYPolarity->addItem(QString());
         comboBoxSRVRDYPolarity->addItem(QString());
         comboBoxSRVRDYPolarity->addItem(QString());
-        comboBoxSRVRDYPolarity->setObjectName("comboBoxSRVRDYPolarity");
+        comboBoxSRVRDYPolarity->setObjectName(QString::fromUtf8("comboBoxSRVRDYPolarity"));
 
         gridLayout->addWidget(comboBoxSRVRDYPolarity, 0, 7, 1, 1);
 
         pushButtonMicroSteps = new QPushButton(layoutWidget);
-        pushButtonMicroSteps->setObjectName("pushButtonMicroSteps");
+        pushButtonMicroSteps->setObjectName(QString::fromUtf8("pushButtonMicroSteps"));
 
         gridLayout->addWidget(pushButtonMicroSteps, 13, 3, 1, 1);
 
         pushButtonRezervOn = new QPushButton(layoutWidget);
-        pushButtonRezervOn->setObjectName("pushButtonRezervOn");
+        pushButtonRezervOn->setObjectName(QString::fromUtf8("pushButtonRezervOn"));
 
         gridLayout->addWidget(pushButtonRezervOn, 10, 1, 1, 1);
 
         pushButtonSaveMaxSpeed = new QPushButton(layoutWidget);
-        pushButtonSaveMaxSpeed->setObjectName("pushButtonSaveMaxSpeed");
+        pushButtonSaveMaxSpeed->setObjectName(QString::fromUtf8("pushButtonSaveMaxSpeed"));
 
         gridLayout->addWidget(pushButtonSaveMaxSpeed, 0, 3, 1, 1);
 
         pushButtonConnect = new QPushButton(layoutWidget);
-        pushButtonConnect->setObjectName("pushButtonConnect");
+        pushButtonConnect->setObjectName(QString::fromUtf8("pushButtonConnect"));
 
         gridLayout->addWidget(pushButtonConnect, 0, 0, 1, 1);
 
@@ -742,7 +742,7 @@ public:
         comboBoxDirPolarity->addItem(QString());
         comboBoxDirPolarity->addItem(QString());
         comboBoxDirPolarity->addItem(QString());
-        comboBoxDirPolarity->setObjectName("comboBoxDirPolarity");
+        comboBoxDirPolarity->setObjectName(QString::fromUtf8("comboBoxDirPolarity"));
 
         gridLayout->addWidget(comboBoxDirPolarity, 10, 7, 1, 1);
 
@@ -750,44 +750,44 @@ public:
         comboBoxINPOSPolarity->addItem(QString());
         comboBoxINPOSPolarity->addItem(QString());
         comboBoxINPOSPolarity->addItem(QString());
-        comboBoxINPOSPolarity->setObjectName("comboBoxINPOSPolarity");
+        comboBoxINPOSPolarity->setObjectName(QString::fromUtf8("comboBoxINPOSPolarity"));
 
         gridLayout->addWidget(comboBoxINPOSPolarity, 1, 7, 1, 1);
 
         pushButtonSensor1Polarity = new QPushButton(layoutWidget);
-        pushButtonSensor1Polarity->setObjectName("pushButtonSensor1Polarity");
+        pushButtonSensor1Polarity->setObjectName(QString::fromUtf8("pushButtonSensor1Polarity"));
 
         gridLayout->addWidget(pushButtonSensor1Polarity, 5, 3, 1, 1);
 
         pushButtonResetCANStep = new QPushButton(layoutWidget);
-        pushButtonResetCANStep->setObjectName("pushButtonResetCANStep");
+        pushButtonResetCANStep->setObjectName(QString::fromUtf8("pushButtonResetCANStep"));
 
         gridLayout->addWidget(pushButtonResetCANStep, 9, 3, 1, 1);
 
         lineEditStepsTurn = new QLineEdit(layoutWidget);
-        lineEditStepsTurn->setObjectName("lineEditStepsTurn");
+        lineEditStepsTurn->setObjectName(QString::fromUtf8("lineEditStepsTurn"));
 
         gridLayout->addWidget(lineEditStepsTurn, 14, 4, 1, 1);
 
         pushButtonEncoderConfig = new QPushButton(layoutWidget);
-        pushButtonEncoderConfig->setObjectName("pushButtonEncoderConfig");
+        pushButtonEncoderConfig->setObjectName(QString::fromUtf8("pushButtonEncoderConfig"));
 
         gridLayout->addWidget(pushButtonEncoderConfig, 15, 3, 1, 1);
 
         pushButtonAutosender = new QPushButton(layoutWidget);
-        pushButtonAutosender->setObjectName("pushButtonAutosender");
+        pushButtonAutosender->setObjectName(QString::fromUtf8("pushButtonAutosender"));
 
         gridLayout->addWidget(pushButtonAutosender, 15, 6, 1, 1);
 
         horizontalLayoutAutosenderType = new QHBoxLayout();
-        horizontalLayoutAutosenderType->setObjectName("horizontalLayoutAutosenderType");
+        horizontalLayoutAutosenderType->setObjectName(QString::fromUtf8("horizontalLayoutAutosenderType"));
         labelAutosenderType = new QLabel(layoutWidget);
-        labelAutosenderType->setObjectName("labelAutosenderType");
+        labelAutosenderType->setObjectName(QString::fromUtf8("labelAutosenderType"));
 
         horizontalLayoutAutosenderType->addWidget(labelAutosenderType);
 
         lineEditAutosenderType = new QLineEdit(layoutWidget);
-        lineEditAutosenderType->setObjectName("lineEditAutosenderType");
+        lineEditAutosenderType->setObjectName(QString::fromUtf8("lineEditAutosenderType"));
 
         horizontalLayoutAutosenderType->addWidget(lineEditAutosenderType);
 
@@ -795,14 +795,14 @@ public:
         gridLayout->addLayout(horizontalLayoutAutosenderType, 15, 7, 1, 1);
 
         horizontalLayoutAutosenderMs = new QHBoxLayout();
-        horizontalLayoutAutosenderMs->setObjectName("horizontalLayoutAutosenderMs");
+        horizontalLayoutAutosenderMs->setObjectName(QString::fromUtf8("horizontalLayoutAutosenderMs"));
         labelAutosenderMs = new QLabel(layoutWidget);
-        labelAutosenderMs->setObjectName("labelAutosenderMs");
+        labelAutosenderMs->setObjectName(QString::fromUtf8("labelAutosenderMs"));
 
         horizontalLayoutAutosenderMs->addWidget(labelAutosenderMs);
 
         lineEditAutosenderMs = new QLineEdit(layoutWidget);
-        lineEditAutosenderMs->setObjectName("lineEditAutosenderMs");
+        lineEditAutosenderMs->setObjectName(QString::fromUtf8("lineEditAutosenderMs"));
 
         horizontalLayoutAutosenderMs->addWidget(lineEditAutosenderMs);
 
@@ -810,20 +810,20 @@ public:
         gridLayout->addLayout(horizontalLayoutAutosenderMs, 16, 7, 1, 1);
 
         layoutWidget1 = new QWidget(centralwidget);
-        layoutWidget1->setObjectName("layoutWidget1");
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
         layoutWidget1->setGeometry(QRect(880, 10, 251, 301));
         verticalLayout = new QVBoxLayout(layoutWidget1);
-        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         labelServerTime = new QLabel(layoutWidget1);
-        labelServerTime->setObjectName("labelServerTime");
+        labelServerTime->setObjectName(QString::fromUtf8("labelServerTime"));
 
         horizontalLayout_2->addWidget(labelServerTime);
 
         labelServerTimeInfo = new QLabel(layoutWidget1);
-        labelServerTimeInfo->setObjectName("labelServerTimeInfo");
+        labelServerTimeInfo->setObjectName(QString::fromUtf8("labelServerTimeInfo"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -836,14 +836,14 @@ public:
         verticalLayout->addLayout(horizontalLayout_2);
 
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         labelTimestamp = new QLabel(layoutWidget1);
-        labelTimestamp->setObjectName("labelTimestamp");
+        labelTimestamp->setObjectName(QString::fromUtf8("labelTimestamp"));
 
         horizontalLayout->addWidget(labelTimestamp);
 
         labelTimestampInfo = new QLabel(layoutWidget1);
-        labelTimestampInfo->setObjectName("labelTimestampInfo");
+        labelTimestampInfo->setObjectName(QString::fromUtf8("labelTimestampInfo"));
         sizePolicy.setHeightForWidth(labelTimestampInfo->sizePolicy().hasHeightForWidth());
         labelTimestampInfo->setSizePolicy(sizePolicy);
 
@@ -853,14 +853,14 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
         horizontalLayout_13 = new QHBoxLayout();
-        horizontalLayout_13->setObjectName("horizontalLayout_13");
+        horizontalLayout_13->setObjectName(QString::fromUtf8("horizontalLayout_13"));
         labelIsConnected = new QLabel(layoutWidget1);
-        labelIsConnected->setObjectName("labelIsConnected");
+        labelIsConnected->setObjectName(QString::fromUtf8("labelIsConnected"));
 
         horizontalLayout_13->addWidget(labelIsConnected);
 
         labelIsConnectedInfo = new QLabel(layoutWidget1);
-        labelIsConnectedInfo->setObjectName("labelIsConnectedInfo");
+        labelIsConnectedInfo->setObjectName(QString::fromUtf8("labelIsConnectedInfo"));
         sizePolicy.setHeightForWidth(labelIsConnectedInfo->sizePolicy().hasHeightForWidth());
         labelIsConnectedInfo->setSizePolicy(sizePolicy);
 
@@ -870,14 +870,14 @@ public:
         verticalLayout->addLayout(horizontalLayout_13);
 
         horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName("horizontalLayout_4");
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         labelNumBoard = new QLabel(layoutWidget1);
-        labelNumBoard->setObjectName("labelNumBoard");
+        labelNumBoard->setObjectName(QString::fromUtf8("labelNumBoard"));
 
         horizontalLayout_4->addWidget(labelNumBoard);
 
         labelNumBoardInfo = new QLabel(layoutWidget1);
-        labelNumBoardInfo->setObjectName("labelNumBoardInfo");
+        labelNumBoardInfo->setObjectName(QString::fromUtf8("labelNumBoardInfo"));
         sizePolicy.setHeightForWidth(labelNumBoardInfo->sizePolicy().hasHeightForWidth());
         labelNumBoardInfo->setSizePolicy(sizePolicy);
 
@@ -887,14 +887,14 @@ public:
         verticalLayout->addLayout(horizontalLayout_4);
 
         horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName("horizontalLayout_5");
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         labelNumSteps = new QLabel(layoutWidget1);
-        labelNumSteps->setObjectName("labelNumSteps");
+        labelNumSteps->setObjectName(QString::fromUtf8("labelNumSteps"));
 
         horizontalLayout_5->addWidget(labelNumSteps);
 
         labelNumStepsInfo = new QLabel(layoutWidget1);
-        labelNumStepsInfo->setObjectName("labelNumStepsInfo");
+        labelNumStepsInfo->setObjectName(QString::fromUtf8("labelNumStepsInfo"));
         sizePolicy.setHeightForWidth(labelNumStepsInfo->sizePolicy().hasHeightForWidth());
         labelNumStepsInfo->setSizePolicy(sizePolicy);
 
@@ -904,14 +904,14 @@ public:
         verticalLayout->addLayout(horizontalLayout_5);
 
         horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setObjectName("horizontalLayout_6");
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
         labelNumSpeed = new QLabel(layoutWidget1);
-        labelNumSpeed->setObjectName("labelNumSpeed");
+        labelNumSpeed->setObjectName(QString::fromUtf8("labelNumSpeed"));
 
         horizontalLayout_6->addWidget(labelNumSpeed);
 
         labelNumSpeedInfo = new QLabel(layoutWidget1);
-        labelNumSpeedInfo->setObjectName("labelNumSpeedInfo");
+        labelNumSpeedInfo->setObjectName(QString::fromUtf8("labelNumSpeedInfo"));
         sizePolicy.setHeightForWidth(labelNumSpeedInfo->sizePolicy().hasHeightForWidth());
         labelNumSpeedInfo->setSizePolicy(sizePolicy);
 
@@ -921,14 +921,14 @@ public:
         verticalLayout->addLayout(horizontalLayout_6);
 
         horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setObjectName("horizontalLayout_7");
+        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
         labelNumAccel = new QLabel(layoutWidget1);
-        labelNumAccel->setObjectName("labelNumAccel");
+        labelNumAccel->setObjectName(QString::fromUtf8("labelNumAccel"));
 
         horizontalLayout_7->addWidget(labelNumAccel);
 
         labelNumAccelInfo = new QLabel(layoutWidget1);
-        labelNumAccelInfo->setObjectName("labelNumAccelInfo");
+        labelNumAccelInfo->setObjectName(QString::fromUtf8("labelNumAccelInfo"));
         sizePolicy.setHeightForWidth(labelNumAccelInfo->sizePolicy().hasHeightForWidth());
         labelNumAccelInfo->setSizePolicy(sizePolicy);
 
@@ -938,14 +938,14 @@ public:
         verticalLayout->addLayout(horizontalLayout_7);
 
         horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName("horizontalLayout_8");
+        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
         labelNumDecel = new QLabel(layoutWidget1);
-        labelNumDecel->setObjectName("labelNumDecel");
+        labelNumDecel->setObjectName(QString::fromUtf8("labelNumDecel"));
 
         horizontalLayout_8->addWidget(labelNumDecel);
 
         labelNumDecelInfo = new QLabel(layoutWidget1);
-        labelNumDecelInfo->setObjectName("labelNumDecelInfo");
+        labelNumDecelInfo->setObjectName(QString::fromUtf8("labelNumDecelInfo"));
         sizePolicy.setHeightForWidth(labelNumDecelInfo->sizePolicy().hasHeightForWidth());
         labelNumDecelInfo->setSizePolicy(sizePolicy);
 
@@ -955,14 +955,14 @@ public:
         verticalLayout->addLayout(horizontalLayout_8);
 
         horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setObjectName("horizontalLayout_10");
+        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
         labelCurrentPos = new QLabel(layoutWidget1);
-        labelCurrentPos->setObjectName("labelCurrentPos");
+        labelCurrentPos->setObjectName(QString::fromUtf8("labelCurrentPos"));
 
         horizontalLayout_10->addWidget(labelCurrentPos);
 
         labelCurrentPosInfo = new QLabel(layoutWidget1);
-        labelCurrentPosInfo->setObjectName("labelCurrentPosInfo");
+        labelCurrentPosInfo->setObjectName(QString::fromUtf8("labelCurrentPosInfo"));
         sizePolicy.setHeightForWidth(labelCurrentPosInfo->sizePolicy().hasHeightForWidth());
         labelCurrentPosInfo->setSizePolicy(sizePolicy);
 
@@ -972,14 +972,14 @@ public:
         verticalLayout->addLayout(horizontalLayout_10);
 
         horizontalLayout_12 = new QHBoxLayout();
-        horizontalLayout_12->setObjectName("horizontalLayout_12");
+        horizontalLayout_12->setObjectName(QString::fromUtf8("horizontalLayout_12"));
         labelStartPos = new QLabel(layoutWidget1);
-        labelStartPos->setObjectName("labelStartPos");
+        labelStartPos->setObjectName(QString::fromUtf8("labelStartPos"));
 
         horizontalLayout_12->addWidget(labelStartPos);
 
         labelStartPosInfo = new QLabel(layoutWidget1);
-        labelStartPosInfo->setObjectName("labelStartPosInfo");
+        labelStartPosInfo->setObjectName(QString::fromUtf8("labelStartPosInfo"));
         sizePolicy.setHeightForWidth(labelStartPosInfo->sizePolicy().hasHeightForWidth());
         labelStartPosInfo->setSizePolicy(sizePolicy);
 
@@ -989,14 +989,14 @@ public:
         verticalLayout->addLayout(horizontalLayout_12);
 
         horizontalLayout_11 = new QHBoxLayout();
-        horizontalLayout_11->setObjectName("horizontalLayout_11");
+        horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
         labelEndPos = new QLabel(layoutWidget1);
-        labelEndPos->setObjectName("labelEndPos");
+        labelEndPos->setObjectName(QString::fromUtf8("labelEndPos"));
 
         horizontalLayout_11->addWidget(labelEndPos);
 
         labelEndPosInfo = new QLabel(layoutWidget1);
-        labelEndPosInfo->setObjectName("labelEndPosInfo");
+        labelEndPosInfo->setObjectName(QString::fromUtf8("labelEndPosInfo"));
         sizePolicy.setHeightForWidth(labelEndPosInfo->sizePolicy().hasHeightForWidth());
         labelEndPosInfo->setSizePolicy(sizePolicy);
 
@@ -1006,18 +1006,18 @@ public:
         verticalLayout->addLayout(horizontalLayout_11);
 
         layoutWidget2 = new QWidget(centralwidget);
-        layoutWidget2->setObjectName("layoutWidget2");
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
         layoutWidget2->setGeometry(QRect(900, 340, 200, 92));
         gridLayout_2 = new QGridLayout(layoutWidget2);
-        gridLayout_2->setObjectName("gridLayout_2");
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
         pushButtonSAVE = new QPushButton(layoutWidget2);
-        pushButtonSAVE->setObjectName("pushButtonSAVE");
+        pushButtonSAVE->setObjectName(QString::fromUtf8("pushButtonSAVE"));
 
         gridLayout_2->addWidget(pushButtonSAVE, 1, 1, 1, 1);
 
         pushButtonFLASH = new QPushButton(layoutWidget2);
-        pushButtonFLASH->setObjectName("pushButtonFLASH");
+        pushButtonFLASH->setObjectName(QString::fromUtf8("pushButtonFLASH"));
 
         gridLayout_2->addWidget(pushButtonFLASH, 0, 0, 1, 1);
 
@@ -1027,32 +1027,32 @@ public:
         comboBoxFLASH->addItem(QString());
         comboBoxFLASH->addItem(QString());
         comboBoxFLASH->addItem(QString());
-        comboBoxFLASH->setObjectName("comboBoxFLASH");
+        comboBoxFLASH->setObjectName(QString::fromUtf8("comboBoxFLASH"));
 
         gridLayout_2->addWidget(comboBoxFLASH, 0, 1, 1, 1);
 
         pushButtonINSTALL = new QPushButton(layoutWidget2);
-        pushButtonINSTALL->setObjectName("pushButtonINSTALL");
+        pushButtonINSTALL->setObjectName(QString::fromUtf8("pushButtonINSTALL"));
 
         gridLayout_2->addWidget(pushButtonINSTALL, 1, 0, 1, 1);
 
         labelFilename = new QLabel(layoutWidget2);
-        labelFilename->setObjectName("labelFilename");
+        labelFilename->setObjectName(QString::fromUtf8("labelFilename"));
 
         gridLayout_2->addWidget(labelFilename, 2, 0, 1, 1);
 
         lineEditFilename = new QLineEdit(layoutWidget2);
-        lineEditFilename->setObjectName("lineEditFilename");
+        lineEditFilename->setObjectName(QString::fromUtf8("lineEditFilename"));
 
         gridLayout_2->addWidget(lineEditFilename, 2, 1, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName("menubar");
+        menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 1549, 23));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName("statusbar");
+        statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
@@ -1237,7 +1237,7 @@ public:
 
         pushButtonINSTALL->setText(QCoreApplication::translate("MainWindow", "INSTALL", nullptr));
         labelFilename->setText(QCoreApplication::translate("MainWindow", "Filename:", nullptr));
-        lineEditFilename->setText(QCoreApplication::translate("MainWindow", "../firmware/STM32F103C8T6CAN_Step_v2_166.bin", nullptr));
+        lineEditFilename->setText(QCoreApplication::translate("MainWindow", "../firmware/STM32F103C8T6CAN_Step_v2_5_297.bin", nullptr));
     } // retranslateUi
 
 };
