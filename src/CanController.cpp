@@ -5,6 +5,7 @@ CanController::CanController() {
 	hidDevice->onDataReceived = [this](const std::vector<uint8_t>& data){
 		this->onDataReceived(data);
 	};
+	hidDevice->StartAsyncRead();
 
 	scenarioBuilder = std::make_unique<ScenarioBuilder>();
 	bootLoader = std::make_unique<Bootloader>(0);

@@ -246,7 +246,7 @@ public:
         std::cout << "I'm work" << std::endl;
         USBCANFrame NewUSBCANFrame = { 0 };
         memcpy(&NewUSBCANFrame.b128USBCANFrame.u8Mask[0], pUSBCANFrame, USB_CAN_FRAME_Num);
-        
+        std::cout << NewUSBCANFrame.USB_CAN_Frame.eCAN_DEV_ID << " " << CAN_ID_BOOTLOADER_ANSWER_GLOBAL <<std::endl;
         if (NewUSBCANFrame.USB_CAN_Frame.eCAN_DEV_ID == CAN_ID_BOOTLOADER_ANSWER_GLOBAL) {
             if (NumBoard != NewUSBCANFrame.USB_CAN_Frame.eFrameData[0]) {
                 return;

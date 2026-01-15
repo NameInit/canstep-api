@@ -70,7 +70,7 @@ public:
 	{
 		initializeLogger();
 		restApiServer = std::make_unique<RestApiServer>(controller, numPortRest);
-		webSocketServer=std::make_unique<WebSocketServer>(controller, numPortWebSocket);
+		webSocketServer = std::make_unique<WebSocketServer>(controller, numPortWebSocket);
 	}
 	~CanControllerApi(){
 		if(restApiServer){

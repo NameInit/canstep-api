@@ -73,11 +73,17 @@ void HidDevice::StartAsyncRead()
 
 void HidDevice::ReadLoop()
 {
+	std::cout << "I'm work ReadLoop" << std::endl;
 	std::vector<uint8_t> buffer(ReportLength + 1);
 
 	while (isReading && deviceHandle)
 	{
 		int res = hid_read(deviceHandle, buffer.data(), buffer.size());
+		// std::cout << "Reading " << buffer.size() << " bytes | ";
+		// for(const auto &item : buffer){
+		// 	std::cout << static_cast<int>(item) << " ";
+		// }  
+		// std::cout << std::endl;
 		if (res > 0)
 		{
 			ProcessReceivedData(buffer.data(), static_cast<size_t>(res));

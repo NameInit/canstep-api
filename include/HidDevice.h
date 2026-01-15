@@ -35,8 +35,9 @@ public:
 	void ConvertUSBHIDToCAN(USBCANFrame* pTmpUSBCANFrame, USBHIDFrame* pTmpUSBHIDFrame);
 	void ConvertUSBCANToHID(USBCANFrame* pTmpUSBCANFrame, USBHIDFrame* pTmpUSBHIDFrame);
 
-private:
 	void StartAsyncRead();
+
+private:
 	void ReadLoop();
 	void ProcessReceivedData(const uint8_t* buffer, size_t bytesRead);
 
