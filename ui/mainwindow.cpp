@@ -72,8 +72,6 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonINSTALL, &QPushButton::clicked, this, &MainWindow::startINSTALL);
     QObject::connect(ui->pushButtonSAVE, &QPushButton::clicked, this, &MainWindow::startSAVE);
 
-    QObject::connect(ui->pushButtonGrpcForward, &QPushButton::clicked, this, &MainWindow::ButtonGrpcForward);
-
     QObject::connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onApiReplyFinished);
 
     QObject::connect(webSocket, &QWebSocket::connected, this, &MainWindow::onSocketConnected);
@@ -82,7 +80,6 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(webSocket, SIGNAL(error(QAbstractSocket::SocketError)),
                      this, SLOT(onSocketError(QAbstractSocket::SocketError)));
 
-    // Подключаемся к WebSocket серверу
     webSocket->open(QUrl("ws://localhost:8081/ws"));
 }
 
@@ -104,14 +101,24 @@ void MainWindow::ButtonAutosender(){
 void MainWindow::ButtonConnect()
 {
     qDebug() << "ButtonConnect";
-    this->sendApiRequest("api/connect");
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/connect");
+    }
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Connect");
+    }
     return ;
 }
 
 void MainWindow::ButtonDebugOn()
 {
     qDebug() << "ButtonDebugOn";
-    this->sendApiRequest("api/debug/on");
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/debug/on");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("DebugOn");
+    }
     return ;
 }
 
@@ -119,7 +126,13 @@ void MainWindow::ButtonBoard(){
     qDebug() << "ButtonBoard";
     QJsonObject data;
     data["numBoard"]=ui->lineEditBoard->text().toInt();
-    this->sendApiRequest("api/board/set",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/board/set",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Board", data);
+    }
     return ;
 }
 
@@ -128,7 +141,13 @@ void MainWindow::ButtonSteps()
     qDebug() << "ButtonSteps";
     QJsonObject data;
     data["numSteps"]=ui->lineEditSteps->text().toInt();
-    this->sendApiRequest("api/steps/set",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/steps/set",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Steps", data);
+    }
     return ;
 }
 
@@ -137,7 +156,13 @@ void MainWindow::ButtonSpeed()
     qDebug() << "ButtonSpeed";
     QJsonObject data;
     data["numSpeed"]=ui->lineEditSpeed->text().toInt();
-    this->sendApiRequest("api/speed/set",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/speed/set",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Speed", data);
+    }
     return ;
 }
 
@@ -146,7 +171,13 @@ void MainWindow::ButtonAccel()
     qDebug() << "ButtonAccel";
     QJsonObject data;
     data["numAccel"]=ui->lineEditAccel->text().toInt();
-    this->sendApiRequest("api/accel/set",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/accel/set",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Accel", data);
+    }
     return ;
 }
 
@@ -155,91 +186,169 @@ void MainWindow::ButtonDecel()
     qDebug() << "ButtonDecel";
     QJsonObject data;
     data["numDecel"]=ui->lineEditDecel->text().toInt();
-    this->sendApiRequest("api/decel/set",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/decel/set",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Decel", data);
+    }
     return ;
 }
 
 void MainWindow::ButtonForward()
 {
     qDebug() << "ButtonForward";
-    this->sendApiRequest("api/move/forward");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/move/forward");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Forward");
+    }
     return ;
 }
 
 void MainWindow::ButtonBackward()
 {
     qDebug() << "ButtonBackward";
-    this->sendApiRequest("api/move/backward");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/move/backward");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Backward");
+    }
     return ;
 }
 
 void MainWindow::ButtonHomZero()
 {
     qDebug() << "ButtonHomZero";
-    this->sendApiRequest("api/homing/zero");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/homing/zero");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("HomingZero");
+    }
     return ;
 }
 
 void MainWindow::ButtonHomMax()
 {
     qDebug() << "ButtonHomMax";
-    this->sendApiRequest("api/homing/max");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/homing/max");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("HomingMax");
+    }
     return ;
 }
 
 void MainWindow::ResetDRVRError()
 {
     qDebug() << "ResetDRVRError";
-    this->sendApiRequest("api/reset/driver/error");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/reset/driver/error");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("ResetDRVError");
+    }
     return ;
 }
 
 void MainWindow::Stop()
 {
     qDebug() << "Stop";
-    this->sendApiRequest("api/move/stop");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/move/stop");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Stop");
+    }
     return ;
 }
 
 void MainWindow::BrakeOff()
 {
     qDebug() << "BrakeOff";
-    this->sendApiRequest("api/brake/off");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/brake/off");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("BrakeOff");
+    }
     return ;
 }
 
 void MainWindow::BrakeOn()
 {
     qDebug() << "BrakeOn";
-    this->sendApiRequest("api/brake/on");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/brake/on");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("BrakeOn");
+    }
     return ;
 }
 
 void MainWindow::RezervOff()
 {
     qDebug() << "RezervOff";
-    this->sendApiRequest("api/rezerv/off");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/rezerv/off");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("RezervOff");
+    }
     return ;
 }
 
 void MainWindow::RezervOn()
 {
     qDebug() << "RezervOn";
-    this->sendApiRequest("api/rezerv/on");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/rezerv/on");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("RezervOn");
+    }
     return ;
 }
 
 void MainWindow::AlarmResetOn()
 {
     qDebug() << "AlarmResetOn";
-    this->sendApiRequest("api/alarm/reset/on");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/alarm/reset/on");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("AlarmResetOn");
+    }
     return ;
 }
 
 void MainWindow::AlarmResetOff()
 {
     qDebug() << "AlarmResetOff";
-    this->sendApiRequest("api/alarm/reset/off");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/alarm/reset/off");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("AlarmResetOff");
+    }
     return ;
 }
 
@@ -248,63 +357,117 @@ void MainWindow::CurrentPos()
     qDebug() << "CurrentPos";
     QJsonObject data;
     data["numPos"]=ui->lineEditcurrentPos->text().toInt();
-    this->sendApiRequest("api/current/pos",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/current/pos",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("CurrentPos",data);
+    }
     return ;
 }
 
 void MainWindow::ResetCANStep()
 {
     qDebug() << "ResetCANStep";
-    this->sendApiRequest("api/reset/canstep");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/reset/canstep");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("ResetCANStep");
+    }
     return ;
 }
 
 void MainWindow::DriverOn()
 {
     qDebug() << "DriverOn";
-    this->sendApiRequest("api/driver/on");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/driver/on");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("DriverOn");
+    }
     return ;
 }
 
 void MainWindow::DriverOff()
 {
     qDebug() << "DriverOff";
-    this->sendApiRequest("api/driver/off");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/driver/off");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("DriverOff");
+    }
     return ;
 }
 
 void MainWindow::ResetLostCounters()
 {
     qDebug() << "ResetLostCounters";
-    this->sendApiRequest("api/lostcounters/reset");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/lostcounters/reset");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("ResetLostCounters");
+    }
     return ;
 }
 
 void MainWindow::MotorTorque()
 {
     qDebug() << "MotorTorque";
-    this->sendApiRequest("api/motor/torque");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/motor/torque");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("MotorTorque");
+    }
     return ;
 }
 
 void MainWindow::MotorSpeed()
 {
     qDebug() << "MotorSpeed";
-    this->sendApiRequest("api/motor/speed");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/motor/speed");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("MotorSpeed");
+    }
     return ;
 }
 
 void MainWindow::AbsPosRot()
 {
     qDebug() << "AbsPosRot";
-    this->sendApiRequest("api/pos/absolute");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/pos/absolute");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("AbsolutePositionRotorUint");
+    }
     return ;
 }
 
 void MainWindow::AlarmCode()
 {
     qDebug() << "AlarmCode";
-    this->sendApiRequest("api/alarm/code");
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/alarm/code");
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("AlarmCode");
+    }
     return ;
 }
 
@@ -314,7 +477,13 @@ void MainWindow::SaveNumBoard()
     qDebug() << "SaveNumBoard";
     QJsonObject data;
     data["numBoard"]=ui->lineEditSaveNumBoard->text().toInt();
-    this->sendApiRequest("api/save/board",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/save/board",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("SaveNumBoard",data);
+    }
     return ;
 }
 
@@ -323,7 +492,13 @@ void MainWindow::SaveNumGroup()
     qDebug() << "SaveNumGroup";
     QJsonObject data;
     data["numGroup"]=ui->lineEditSaveNumGroup->text().toInt();
-    this->sendApiRequest("api/save/group",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/save/group",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("SaveNumGroup",data);
+    }
     return ;
 }
 
@@ -332,7 +507,13 @@ void MainWindow::SaveStartPos()
     qDebug() << "SaveStartPos";
     QJsonObject data;
     data["numPos"]=ui->lineEditSaveStartPos->text().toInt();
-    this->sendApiRequest("api/save/start/pos",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/save/start/pos",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("SaveStartPos",data);
+    }
     return ;
 }
 
@@ -341,7 +522,13 @@ void MainWindow::SaveEndPos()
     qDebug() << "SaveEndPos";
     QJsonObject data;
     data["numPos"]=ui->lineEditSaveEndPos->text().toInt();
-    this->sendApiRequest("api/save/end/pos",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/save/end/pos",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("SaveEndPos",data);
+    }
     return ;
 }
 
@@ -350,7 +537,13 @@ void MainWindow::SaveMaxSpeed()
     qDebug() << "SaveMaxSpeed";
     QJsonObject data;
     data["numSpeed"]=ui->lineEditSaveMaxSpeed->text().toInt();
-    this->sendApiRequest("api/save/max/speed",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/save/max/speed",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("SaveMaxSpeed",data);
+    }
     return ;
 }
 
@@ -359,7 +552,13 @@ void MainWindow::SaveDefaultSpeed()
     qDebug() << "SaveDefaultSpeed";
     QJsonObject data;
     data["numSpeed"]=ui->lineEditSaveDefSpeed->text().toInt();
-    this->sendApiRequest("api/save/default/speed",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/save/default/speed",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("SaveDefaultSpeed",data);
+    }
     return ;
 }
 
@@ -368,7 +567,13 @@ void MainWindow::SaveAccel()
     qDebug() << "SaveAccel";
     QJsonObject data;
     data["numAccel"]=ui->lineEditSaveAccel->text().toInt();
-    this->sendApiRequest("api/save/accel",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/save/accel",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("SaveAccel",data);
+    }
     return ;
 }
 
@@ -377,7 +582,13 @@ void MainWindow::SaveDecel()
     qDebug() << "SaveDecel";
     QJsonObject data;
     data["numDecel"]=ui->lineEditSaveDecel->text().toInt();
-    this->sendApiRequest("api/save/decel",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/save/decel",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("SaveDecel",data);
+    }
     return ;
 }
 
@@ -386,7 +597,13 @@ void MainWindow::SaveDelta()
     qDebug() << "SaveDelta";
     QJsonObject data;
     data["numDelta"]=ui->lineEditSaveDelta->text().toInt();
-    this->sendApiRequest("api/save/delta",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/save/delta",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("SaveDelta",data);
+    }
     return ;
 }
 
@@ -395,7 +612,13 @@ void MainWindow::MicroSteps()
     qDebug() << "MicroSteps";
     QJsonObject data;
     data["numSteps"]=ui->lineEditMicroSteps->text().toInt();
-    this->sendApiRequest("api/steps/micro/set",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/steps/micro/set",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("MicroSteps",data);
+    }
     return ;
 }
 
@@ -404,7 +627,13 @@ void MainWindow::StepsTurn()
     qDebug() << "StepsTurn";
     QJsonObject data;
     data["numSteps"]=ui->lineEditStepsTurn->text().toInt();
-    this->sendApiRequest("api/steps/turn/set",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/steps/turn/set",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("TurnSteps",data);
+    }
     return ;
 }
 
@@ -412,7 +641,13 @@ void MainWindow::Sensor1Polarity(){
     qDebug() << "Sensor1Polarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxSensor1Polarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/1",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/1",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Sensor1Polarity",data);
+    }
     return ;
 }
 
@@ -420,7 +655,13 @@ void MainWindow::Sensor2Polarity(){
     qDebug() << "Sensor2Polarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxSensor2Polarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/2",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/2",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Sensor2Polarity",data);
+    }
     return ;
 }
 
@@ -428,7 +669,13 @@ void MainWindow::Sensor3Polarity(){
     qDebug() << "Sensor3Polarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxSensor3Polarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/3",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/3",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Sensor3Polarity",data);
+    }
     return ;
 }
 
@@ -436,7 +683,13 @@ void MainWindow::Sensor4Polarity(){
     qDebug() << "Sensor4Polarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxSensor4Polarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/4",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/4",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Sensor4Polarity",data);
+    }
     return ;
 }
 
@@ -444,7 +697,13 @@ void MainWindow::Sensor1Dir(){
     qDebug() << "Sensor1Dir";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxSensor1Dir->currentText();
-    this->sendApiRequest("api/sensor/direction/1",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/direction/1",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Sensor1Dir",data);
+    }
     return ;
 }
 
@@ -452,7 +711,13 @@ void MainWindow::Sensor2Dir(){
     qDebug() << "Sensor2Dir";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxSensor2Dir->currentText();
-    this->sendApiRequest("api/sensor/direction/2",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/direction/2",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Sensor2Dir",data);
+    }
     return ;
 }
 
@@ -460,7 +725,13 @@ void MainWindow::Sensor3Dir(){
     qDebug() << "Sensor3Dir";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxSensor3Dir->currentText();
-    this->sendApiRequest("api/sensor/direction/3",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/direction/3",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Sensor3Dir",data);
+    }
     return ;
 }
 
@@ -468,7 +739,13 @@ void MainWindow::Sensor4Dir(){
     qDebug() << "Sensor4Dir";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxSensor4Dir->currentText();
-    this->sendApiRequest("api/sensor/direction/4",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/direction/4",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Sensor4Dir",data);
+    }
     return ;
 }
 
@@ -476,7 +753,13 @@ void MainWindow::SRVRDYPolarity(){
     qDebug() << "SRVRDYPolarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxSRVRDYPolarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/srvrdy",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/srvrdy",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("SRVRDYPolarity",data);
+    }
     return ;
 }
 
@@ -484,7 +767,13 @@ void MainWindow::INPOSPolarity(){
     qDebug() << "INPOSPolarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxINPOSPolarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/inpos",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/inpos",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("INPOSPolarity",data);
+    }
     return ;
 }
 
@@ -492,7 +781,13 @@ void MainWindow::FAULTPolarity(){
     qDebug() << "FAULTPolarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxFAULTPolarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/fault",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/fault",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("FAULTPolarity",data);
+    }
     return ;
 }
 
@@ -500,7 +795,13 @@ void MainWindow::BrakePolarity(){
     qDebug() << "BrakePolarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxBrakePolarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/brake",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/brake",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("BrakePolarity",data);
+    }
     return ;
 }
 
@@ -508,7 +809,13 @@ void MainWindow::DirPolarity(){
     qDebug() << "DirPolarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxDirPolarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/direction",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/direction",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("DirPolarity",data);
+    }
     return ;
 }
 
@@ -516,7 +823,13 @@ void MainWindow::EnPolarity(){
     qDebug() << "EnPolarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxEnPolarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/en",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/en",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("EnPolarity",data);
+    }
     return ;
 }
 
@@ -524,7 +837,13 @@ void MainWindow::Al_CLRPolarity(){
     qDebug() << "Al_CLRPolarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxAl_CLRPolarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/al_clr",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/al_clr",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Al_CLRPolarity",data);
+    }
     return ;
 }
 
@@ -532,7 +851,13 @@ void MainWindow::Al_OBrakePolarity(){
     qDebug() << "Al_OBrakePolarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxAl_OBrakePolarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/al_obrake",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/al_obrake",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Al_OBrakePolarity",data);
+    }
     return ;
 }
 
@@ -540,7 +865,13 @@ void MainWindow::Al_ORezervPolarity(){
     qDebug() << "Al_ORezervPolarity";
     QJsonObject data;
     data["statusInverting"]=ui->comboBoxAl_ORezervPolarity->currentText();
-    this->sendApiRequest("api/sensor/polarity/al_orezerv",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/polarity/al_orezerv",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Al_ORezervPolarity",data);
+    }
     return ;
 }
 
@@ -549,7 +880,13 @@ void MainWindow::EncoderActive()
     qDebug() << "EncoderActive";
     QJsonObject data;
     data["statusActive"]=ui->comboBoxEncoderActive->currentText()=="True" ? true : false;
-    this->sendApiRequest("api/sensor/encoder/active",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/encoder/active",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("EncoderActive",data);
+    }
     return ;
 }
 
@@ -560,7 +897,13 @@ void MainWindow::EncoderConfig()
     data["numPolarity"]=ui->lineEditPolarity->text().toInt();
     data["numDelta"]=ui->lineEditDelta->text().toInt();
     data["numTurnData"]=ui->lineEditTurnData->text().toInt();
-    this->sendApiRequest("api/sensor/encoder/config",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/sensor/encoder/config",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("EncoderConfig",data);
+    }
     return ;
 }
 
@@ -569,7 +912,13 @@ void MainWindow::startFLASH()
     qDebug() << "EncoderConfig";
     QJsonObject data;
     data["filename"]=ui->lineEditFilename->text();
-    this->sendApiRequest("api/flash/run",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/flash/run",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("FlashBoot",data);
+    }
     return ;
 }
 
@@ -577,7 +926,13 @@ void MainWindow::startINSTALL(){
     qDebug() << "startINSTALL";
     QJsonObject data;
     data["type"]=ui->comboBoxFLASH->currentText();
-    this->sendApiRequest("api/flash/type/set",data);
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/flash/type/set",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("FlashTypeBootSet",data);
+    }
     return ;
 }
 
@@ -585,14 +940,13 @@ void MainWindow::startSAVE(){
     qDebug() << "startSAVE";
     QJsonObject data;
     data["type"]=ui->comboBoxFLASH->currentText();
-    this->sendApiRequest("api/flash/type/save",data);
-    return ;
-}
 
-void MainWindow::ButtonGrpcForward()
-{
-    qDebug() << "GrpcForward";
-    // sendGrpcRequest("Forward");
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/flash/type/save",data);
+    }
+    if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("FlashTypeBootSave",data);
+    }
     return ;
 }
 
@@ -664,7 +1018,7 @@ void MainWindow::onSocketDisconnected()
 
 void MainWindow::onWebSocketTextMessageReceived(const QString &message)
 {
-    qDebug() << "WebSocket message received:" << message;
+    // qDebug() << "WebSocket message received:" << message;
 
     // Парсим JSON сообщение
     QJsonDocument doc = QJsonDocument::fromJson(message.toUtf8());
@@ -684,7 +1038,7 @@ void MainWindow::onSocketError(QAbstractSocket::SocketError error)
 
 void MainWindow::processWebSocketMessage(const QJsonObject &message)
 {
-    qDebug()<<"message = " << message;
+    // qDebug()<<"message = " << message;
 
     if (message.contains("server_time") && message["server_time"].isString()) {
         QString serverTime = message["server_time"].toString();
@@ -745,4 +1099,74 @@ void MainWindow::processWebSocketMessage(const QJsonObject &message)
         QString endPos = message["endPos"].toString();
         ui->labelEndPosInfo->setText(endPos);
     }
+}
+
+void MainWindow::sendGrpcViaConsole(const QString &methodName, const QJsonObject &data)
+{
+    qDebug() << "Executing grpcurl for method:" << methodName;
+
+    // 1. Создаем процесс
+    QProcess *process = new QProcess(this);
+
+    // 2. Формируем аргументы
+    // Команда: grpcurl
+    QString program = "grpcurl";
+
+    QStringList arguments;
+    arguments << "-plaintext"; // Без SSL
+
+    // Данные: -d '{"key": val}'
+    // Превращаем QJsonObject в строку
+    QJsonDocument doc(data);
+    QString jsonString = QString(doc.toJson(QJsonDocument::Compact));
+
+    // Если данных нет, grpcurl требует пустой объект '{}'
+    if (jsonString.isEmpty() || jsonString == "null") {
+        jsonString = "{}";
+    }
+
+    arguments << "-d" << jsonString;
+
+    // Адрес
+    arguments << "localhost:50051";
+
+    // Метод (Сервис/Метод)
+    // ВАЖНО: Убедитесь, что имя сервиса правильное.
+    // Судя по вашему выводу 'list', это cancontroller.CanControllerService
+    arguments << "cancontroller.CanControllerService/" + methodName;
+
+    // 3. Обработка результата (асинхронно)
+    connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
+            [this, process, methodName](int exitCode, QProcess::ExitStatus exitStatus) {
+
+                if (exitStatus == QProcess::NormalExit && exitCode == 0) {
+                    // Читаем ответ (стандартный вывод)
+                    QByteArray output = process->readAllStandardOutput();
+                    qDebug() << "gRPC Response:" << output;
+
+                    // Показываем в GUI
+                    // grpcurl обычно возвращает JSON, можно его распарсить
+                    QJsonDocument respDoc = QJsonDocument::fromJson(output);
+                    QJsonObject respJson = respDoc.object();
+
+                    if (respJson["success"].toBool()) {
+                        ui->statusbar->showMessage("gRPC OK: " + respJson["message"].toString(), 3000);
+                    } else {
+                        // Если grpcurl вернул ошибку сервера
+                        ui->statusbar->showMessage("gRPC Server Error: " + QString(output), 5000);
+                    }
+
+                } else {
+                    // Читаем ошибку (стандартный вывод ошибок)
+                    QByteArray error = process->readAllStandardError();
+                    qDebug() << "grpcurl execution failed:" << error;
+                    ui->statusbar->showMessage("grpcurl Error: " + QString(error), 5000);
+                }
+
+                process->deleteLater();
+            });
+
+    // 4. Запуск
+    process->start(program, arguments);
+    qDebug()<<arguments;
 }

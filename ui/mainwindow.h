@@ -9,6 +9,7 @@
 #include <QJsonDocument>
 #include <QWebSocket>
 #include <QTimer>
+#include <QProcess>
 
 
 QT_BEGIN_NAMESPACE
@@ -32,6 +33,7 @@ private:
 
 private:
     void processWebSocketMessage(const QJsonObject &message);
+    void sendGrpcViaConsole(const QString &methodName, const QJsonObject &data = QJsonObject());
 
 public slots:
     void ButtonAutosender();
@@ -96,8 +98,6 @@ public slots:
     void startFLASH();
     void startINSTALL();
     void startSAVE();
-
-    void ButtonGrpcForward();
 
     void sendApiRequest(const QString &endpoint, const QJsonObject &data = QJsonObject());
     void onApiReplyFinished(QNetworkReply *reply);

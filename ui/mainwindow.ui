@@ -1312,18 +1312,25 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButtonGrpcForward">
+   <widget class="QComboBox" name="comboBoxApiType">
     <property name="geometry">
      <rect>
-      <x>920</x>
-      <y>470</y>
-      <width>111</width>
-      <height>26</height>
+      <x>1160</x>
+      <y>10</y>
+      <width>121</width>
+      <height>51</height>
      </rect>
     </property>
-    <property name="text">
-     <string>GrpcForward</string>
-    </property>
+    <item>
+     <property name="text">
+      <string>REST</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>GRPC</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

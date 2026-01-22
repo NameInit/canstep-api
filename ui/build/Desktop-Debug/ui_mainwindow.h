@@ -186,7 +186,7 @@ public:
     QPushButton *pushButtonINSTALL;
     QLabel *labelFilename;
     QLineEdit *lineEditFilename;
-    QPushButton *pushButtonGrpcForward;
+    QComboBox *comboBoxApiType;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -1047,9 +1047,11 @@ public:
 
         gridLayout_2->addWidget(lineEditFilename, 2, 1, 1, 1);
 
-        pushButtonGrpcForward = new QPushButton(centralwidget);
-        pushButtonGrpcForward->setObjectName(QString::fromUtf8("pushButtonGrpcForward"));
-        pushButtonGrpcForward->setGeometry(QRect(920, 470, 111, 26));
+        comboBoxApiType = new QComboBox(centralwidget);
+        comboBoxApiType->addItem(QString());
+        comboBoxApiType->addItem(QString());
+        comboBoxApiType->setObjectName(QString::fromUtf8("comboBoxApiType"));
+        comboBoxApiType->setGeometry(QRect(1160, 10, 121, 51));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -1242,7 +1244,9 @@ public:
         pushButtonINSTALL->setText(QCoreApplication::translate("MainWindow", "INSTALL", nullptr));
         labelFilename->setText(QCoreApplication::translate("MainWindow", "Filename:", nullptr));
         lineEditFilename->setText(QCoreApplication::translate("MainWindow", "../firmware/STM32F103C8T6CAN_Step_v2_5_297.bin", nullptr));
-        pushButtonGrpcForward->setText(QCoreApplication::translate("MainWindow", "GrpcForward", nullptr));
+        comboBoxApiType->setItemText(0, QCoreApplication::translate("MainWindow", "REST", nullptr));
+        comboBoxApiType->setItemText(1, QCoreApplication::translate("MainWindow", "GRPC", nullptr));
+
     } // retranslateUi
 
 };
