@@ -10,6 +10,8 @@ add_library(canstep STATIC
     src/Mechanism.cpp
     src/ScenarioBuilder.cpp
     src/Tensometer.cpp
+    src/can_controller.grpc.pb.cc
+    src/can_controller.pb.cc
 )
 
 target_include_directories(canstep PUBLIC include)
@@ -20,6 +22,11 @@ find_package(Boost REQUIRED COMPONENTS json)
 find_package(Boost REQUIRED COMPONENTS log)
 target_link_libraries(canstep PUBLIC Boost::json)
 target_link_libraries(canstep PUBLIC Boost::log)
+find_package(Protobuf REQUIRED)
+find_package(gRPC REQUIRED)
+target_link_libraries(canstep PUBLIC gRPC::grpc++)
+target_link_libraries(canstep PUBLIC gRPC::grpc)
+target_link_libraries(canstep PUBLIC gRPC::grpc++_reflection)
 
 add_executable(canstep-test test/main.cpp)
 target_link_libraries(canstep-test canstep)

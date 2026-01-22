@@ -1312,6 +1312,19 @@
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="pushButtonGrpcForward">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>470</y>
+      <width>111</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>GrpcForward</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

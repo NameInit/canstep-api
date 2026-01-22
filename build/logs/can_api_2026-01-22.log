@@ -1,0 +1,274 @@
+[2026-01-22 14:01:14.858301] [info] RestApiServer created on port 8080
+[2026-01-22 14:01:14.858588] [info] WebSocketServer created on port 8081
+[2026-01-22 14:01:14.858722] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:01:14.858813] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:01:14.858836] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:01:14.858962] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:01:14.859093] [info] Run RestApiServer on port 8080
+[2026-01-22 14:01:14.861509] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:01:15.859137] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:01:15.859264] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:01:15.859340] [info] WebSocketServer stopped
+[2026-01-22 14:01:15.859416] [info] WebSocketServer stopped
+[2026-01-22 14:01:15.859490] [info] Shutdown gRPC Server
+[2026-01-22 14:01:15.860030] [info] Shutdown RestApiServer
+[2026-01-22 14:01:15.860168] [info] Shutdown gRPC Server
+[2026-01-22 14:01:15.860206] [info] GrpcApiServer destroyed
+[2026-01-22 14:01:15.863980] [info] WebSocketServer destroyed
+[2026-01-22 14:01:15.864067] [info] RestApiServer destroyed
+[2026-01-22 14:01:18.674022] [info] RestApiServer created on port 8080
+[2026-01-22 14:01:18.674180] [info] WebSocketServer created on port 8081
+[2026-01-22 14:01:18.674265] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:01:18.674378] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:01:18.674422] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:01:18.674468] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:01:18.674580] [info] Run RestApiServer on port 8080
+[2026-01-22 14:01:18.677917] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:01:19.674625] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:01:19.674759] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:01:19.674828] [info] WebSocketServer stopped
+[2026-01-22 14:01:19.674905] [info] WebSocketServer stopped
+[2026-01-22 14:01:19.674945] [info] Shutdown gRPC Server
+[2026-01-22 14:01:19.678534] [info] Shutdown RestApiServer
+[2026-01-22 14:01:19.678660] [info] Shutdown gRPC Server
+[2026-01-22 14:01:19.678690] [info] GrpcApiServer destroyed
+[2026-01-22 14:01:19.679160] [info] WebSocketServer destroyed
+[2026-01-22 14:01:19.679241] [info] RestApiServer destroyed
+[2026-01-22 14:01:20.634418] [info] RestApiServer created on port 8080
+[2026-01-22 14:01:20.634621] [info] WebSocketServer created on port 8081
+[2026-01-22 14:01:20.634740] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:01:20.634856] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:01:20.634992] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:01:20.635027] [info] Run RestApiServer on port 8080
+[2026-01-22 14:01:20.635101] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:01:20.635151] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:01:20.636269] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:01:20.636407] [info] WebSocketServer stopped
+[2026-01-22 14:01:20.636560] [info] WebSocketServer stopped
+[2026-01-22 14:01:20.637813] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:01:33.784655] [info] RestApiServer created on port 8080
+[2026-01-22 14:01:33.784864] [info] WebSocketServer created on port 8081
+[2026-01-22 14:01:33.784972] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:01:33.785053] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:01:33.785276] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:01:33.785335] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:01:33.785507] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:01:33.785623] [info] Run RestApiServer on port 8080
+[2026-01-22 14:01:33.785671] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:01:33.785715] [info] WebSocketServer stopped
+[2026-01-22 14:01:33.785766] [info] WebSocketServer stopped
+[2026-01-22 14:01:33.787764] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:01:42.325402] [info] GET /api/connect
+[2026-01-22 14:01:42.675096] [info] POST /api/board/set {"numBoard":0}
+[2026-01-22 14:01:42.975020] [info] POST /api/steps/set {"numSteps":1000}
+[2026-01-22 14:01:43.327017] [info] POST /api/speed/set {"numSpeed":10}
+[2026-01-22 14:01:43.567031] [info] POST /api/accel/set {"numAccel":10}
+[2026-01-22 14:01:43.887027] [info] POST /api/decel/set {"numDecel":10}
+[2026-01-22 14:01:44.151018] [info] GET /api/move/forward
+[2026-01-22 14:01:45.143012] [info] GET /api/move/backward
+[2026-01-22 14:01:56.593081] [info] RestApiServer created on port 8080
+[2026-01-22 14:01:56.593260] [info] WebSocketServer created on port 8081
+[2026-01-22 14:01:56.593376] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:01:56.593504] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:01:56.593488] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:01:56.593545] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:01:56.593687] [info] Run RestApiServer on port 8080
+[2026-01-22 14:01:56.595467] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:02:50.965173] [info] RestApiServer created on port 8080
+[2026-01-22 14:02:50.965385] [info] WebSocketServer created on port 8081
+[2026-01-22 14:02:50.965485] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:02:50.965582] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:02:50.965611] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:02:50.965651] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:02:50.965787] [info] Run RestApiServer on port 8080
+[2026-01-22 14:02:50.967823] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:02:51.965828] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:02:51.965971] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:02:51.966055] [info] WebSocketServer stopped
+[2026-01-22 14:02:51.966129] [info] WebSocketServer stopped
+[2026-01-22 14:02:51.966182] [info] Shutdown gRPC Server
+[2026-01-22 14:02:51.966658] [info] Shutdown RestApiServer
+[2026-01-22 14:02:51.966777] [info] Shutdown gRPC Server
+[2026-01-22 14:02:51.966818] [info] GrpcApiServer destroyed
+[2026-01-22 14:02:51.970556] [info] WebSocketServer destroyed
+[2026-01-22 14:02:51.970653] [info] RestApiServer destroyed
+[2026-01-22 14:02:56.872642] [info] RestApiServer created on port 8080
+[2026-01-22 14:02:56.872864] [info] WebSocketServer created on port 8081
+[2026-01-22 14:02:56.872972] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:02:56.873104] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:02:56.873123] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:02:56.873230] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:02:56.873974] [info] Run RestApiServer on port 8080
+[2026-01-22 14:02:56.876813] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:02:57.873320] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:02:57.873447] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:02:57.873577] [info] WebSocketServer stopped
+[2026-01-22 14:02:57.873652] [info] WebSocketServer stopped
+[2026-01-22 14:02:57.873756] [info] Shutdown gRPC Server
+[2026-01-22 14:02:57.874421] [info] Shutdown RestApiServer
+[2026-01-22 14:02:57.874551] [info] Shutdown gRPC Server
+[2026-01-22 14:02:57.874601] [info] GrpcApiServer destroyed
+[2026-01-22 14:02:57.878437] [info] WebSocketServer destroyed
+[2026-01-22 14:02:57.878527] [info] RestApiServer destroyed
+[2026-01-22 14:02:58.532253] [info] RestApiServer created on port 8080
+[2026-01-22 14:02:58.532552] [info] WebSocketServer created on port 8081
+[2026-01-22 14:02:58.532708] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:02:58.532836] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:02:58.532815] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:02:58.532890] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:02:58.532980] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:02:58.532977] [info] Run RestApiServer on port 8080
+[2026-01-22 14:02:58.533056] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:02:58.533104] [info] WebSocketServer stopped
+[2026-01-22 14:02:58.533168] [info] WebSocketServer stopped
+[2026-01-22 14:02:58.534962] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:03:37.276355] [info] RestApiServer created on port 8080
+[2026-01-22 14:03:37.276564] [info] WebSocketServer created on port 8081
+[2026-01-22 14:03:37.276671] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:03:37.276808] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:03:37.276808] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:03:37.276952] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:03:37.277096] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:03:37.277119] [info] Run RestApiServer on port 8080
+[2026-01-22 14:03:37.277188] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:03:37.277241] [info] WebSocketServer stopped
+[2026-01-22 14:03:37.277852] [info] WebSocketServer stopped
+[2026-01-22 14:03:37.281005] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:03:50.988439] [info] RestApiServer created on port 8080
+[2026-01-22 14:03:50.988665] [info] WebSocketServer created on port 8081
+[2026-01-22 14:03:50.988774] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:03:50.988903] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:03:50.989041] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:03:50.989168] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:03:50.989228] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:03:50.989220] [info] Run RestApiServer on port 8080
+[2026-01-22 14:03:50.990340] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:03:50.990407] [info] WebSocketServer stopped
+[2026-01-22 14:03:50.990461] [info] WebSocketServer stopped
+[2026-01-22 14:03:50.993082] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:03:53.356860] [info] RestApiServer created on port 8080
+[2026-01-22 14:03:53.357107] [info] WebSocketServer created on port 8081
+[2026-01-22 14:03:53.357212] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:03:53.357383] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:03:53.357502] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:03:53.357680] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:03:53.357738] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:03:53.357885] [info] Run RestApiServer on port 8080
+[2026-01-22 14:03:53.358944] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:03:53.359013] [info] WebSocketServer stopped
+[2026-01-22 14:03:53.359081] [info] WebSocketServer stopped
+[2026-01-22 14:03:53.361768] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:03:54.499711] [info] RestApiServer created on port 8080
+[2026-01-22 14:03:54.499918] [info] WebSocketServer created on port 8081
+[2026-01-22 14:03:54.500031] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:03:54.500122] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:03:54.500354] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:03:54.500409] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:03:54.500626] [info] Run RestApiServer on port 8080
+[2026-01-22 14:03:54.500623] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:03:54.501087] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:03:54.501263] [info] WebSocketServer stopped
+[2026-01-22 14:03:54.501532] [info] WebSocketServer stopped
+[2026-01-22 14:03:54.503300] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:03:55.450344] [info] RestApiServer created on port 8080
+[2026-01-22 14:03:55.450564] [info] WebSocketServer created on port 8081
+[2026-01-22 14:03:55.450719] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:03:55.450851] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:03:55.451427] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:03:55.451575] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:03:55.451628] [info] WebSocketServer: Auto update worker stopped
+[2026-01-22 14:03:55.451609] [info] Run RestApiServer on port 8080
+[2026-01-22 14:03:55.451692] [info] WebSocketServer: Stopped auto updates
+[2026-01-22 14:03:55.451746] [info] WebSocketServer stopped
+[2026-01-22 14:03:55.451800] [info] WebSocketServer stopped
+[2026-01-22 14:03:55.454658] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:04:44.273607] [info] RestApiServer created on port 8080
+[2026-01-22 14:04:44.273777] [info] WebSocketServer created on port 8081
+[2026-01-22 14:04:44.273865] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:04:44.273966] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:04:44.274001] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:04:44.274038] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:04:44.274096] [info] Run RestApiServer on port 8080
+[2026-01-22 14:04:44.276391] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:07:20.997353] [info] RestApiServer created on port 8080
+[2026-01-22 14:07:20.997534] [info] WebSocketServer created on port 8081
+[2026-01-22 14:07:20.997626] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:07:20.997747] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:07:20.997768] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:07:20.997811] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:07:20.997900] [info] Run RestApiServer on port 8080
+[2026-01-22 14:07:20.999757] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:07:34.405870] [info] WebSocket client connected. Total clients: 1
+[2026-01-22 14:07:34.999632] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:07:34","timestamp":"1769080054999","isConnected":"False","numBoard":"0","numSteps":"0","numSpeed":"2183310122989885888621013838308835328.000000","numAccel":"183","numDecel":"96","currentPos":"48","startPos":"2077401360","endPos":"24759"}
+[2026-01-22 14:07:36.000028] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:07:35","timestamp":"1769080055999","isConnected":"False","numBoard":"0","numSteps":"0","numSpeed":"2183310122989885888621013838308835328.000000","numAccel":"183","numDecel":"96","currentPos":"48","startPos":"2077401360","endPos":"24759"}
+[2026-01-22 14:07:36.317391] [info] GET /api/connect
+[2026-01-22 14:07:36.690508] [info] POST /api/board/set {"numBoard":0}
+[2026-01-22 14:07:36.974424] [info] POST /api/steps/set {"numSteps":1000}
+[2026-01-22 14:07:37.000355] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:07:37","timestamp":"1769080057000","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"2183310122989885888621013838308835328.000000","numAccel":"183","numDecel":"96","currentPos":"48","startPos":"2077401360","endPos":"24759"}
+[2026-01-22 14:07:37.358444] [info] POST /api/speed/set {"numSpeed":10}
+[2026-01-22 14:07:37.766425] [info] POST /api/accel/set {"numAccel":10}
+[2026-01-22 14:07:38.000670] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:07:38","timestamp":"1769080058000","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"96","currentPos":"48","startPos":"2077401360","endPos":"24759"}
+[2026-01-22 14:07:38.086405] [info] POST /api/decel/set {"numDecel":10}
+[2026-01-22 14:07:38.350409] [info] GET /api/move/forward
+[2026-01-22 14:07:39.000976] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:07:39","timestamp":"1769080059000","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"10","currentPos":"48","startPos":"2077401360","endPos":"24759"}
+[2026-01-22 14:07:39.294407] [info] GET /api/move/backward
+[2026-01-22 14:07:40.001277] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:07:40","timestamp":"1769080060001","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"10","currentPos":"48","startPos":"2077401360","endPos":"24759"}
+[2026-01-22 14:07:40.667711] [info] WebSocket client disconnected (ENOTCONN)
+[2026-01-22 14:07:40.667823] [info] Session removed. Active clients: 0
+[2026-01-22 14:07:40.667858] [info] WebSocket session destroyed
+[2026-01-22 14:17:55.834427] [info] RestApiServer created on port 8080
+[2026-01-22 14:17:55.834630] [info] WebSocketServer created on port 8081
+[2026-01-22 14:17:55.834737] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:17:55.834865] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:17:55.834854] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:17:55.834906] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:17:55.835025] [info] Run RestApiServer on port 8080
+[2026-01-22 14:17:55.837344] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:17:59.577151] [info] WebSocket client connected. Total clients: 1
+[2026-01-22 14:17:59.835479] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:17:59","timestamp":"1769080679835","isConnected":"False","numBoard":"0","numSteps":"0","numSpeed":"-0.000000","numAccel":"246","numDecel":"91","currentPos":"48","startPos":"2453119248","endPos":"23542"}
+[2026-01-22 14:18:00.835811] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:18:00","timestamp":"1769080680835","isConnected":"False","numBoard":"0","numSteps":"0","numSpeed":"-0.000000","numAccel":"246","numDecel":"91","currentPos":"48","startPos":"2453119248","endPos":"23542"}
+[2026-01-22 14:18:01.436428] [info] GET /api/connect
+[2026-01-22 14:18:01.836215] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:18:01","timestamp":"1769080681836","isConnected":"True","numBoard":"0","numSteps":"0","numSpeed":"-0.000000","numAccel":"246","numDecel":"91","currentPos":"48","startPos":"2453119248","endPos":"23542"}
+[2026-01-22 14:18:01.874121] [info] POST /api/board/set {"numBoard":0}
+[2026-01-22 14:18:02.134086] [info] POST /api/steps/set {"numSteps":1000}
+[2026-01-22 14:18:02.494089] [info] POST /api/speed/set {"numSpeed":10}
+[2026-01-22 14:18:02.798093] [info] POST /api/accel/set {"numAccel":10}
+[2026-01-22 14:18:02.836650] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:18:02","timestamp":"1769080682836","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"91","currentPos":"48","startPos":"2453119248","endPos":"23542"}
+[2026-01-22 14:18:03.078100] [info] POST /api/decel/set {"numDecel":10}
+[2026-01-22 14:18:03.366104] [info] GET /api/move/forward
+[2026-01-22 14:18:03.836974] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:18:03","timestamp":"1769080683836","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"10","currentPos":"48","startPos":"2453119248","endPos":"23542"}
+[2026-01-22 14:18:04.446102] [info] GET /api/move/backward
+[2026-01-22 14:18:04.837278] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:18:04","timestamp":"1769080684837","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"10","currentPos":"48","startPos":"2453119248","endPos":"23542"}
+[2026-01-22 14:18:05.837598] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:18:05","timestamp":"1769080685837","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"10","currentPos":"48","startPos":"2453119248","endPos":"23542"}
+[2026-01-22 14:18:06.837904] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:18:06","timestamp":"1769080686837","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"10","currentPos":"48","startPos":"2453119248","endPos":"23542"}
+[2026-01-22 14:18:07.051570] [info] WebSocket client disconnected (ENOTCONN)
+[2026-01-22 14:18:07.051673] [info] Session removed. Active clients: 0
+[2026-01-22 14:18:07.051702] [info] WebSocket session destroyed
+[2026-01-22 14:19:50.645428] [info] RestApiServer created on port 8080
+[2026-01-22 14:19:50.645635] [info] WebSocketServer created on port 8081
+[2026-01-22 14:19:50.645745] [info] GrpcApiServer created on port 50051
+[2026-01-22 14:19:50.645852] [info] WebSocketServer starting on port 8081
+[2026-01-22 14:19:50.645881] [info] WebSocketServer: Started auto updates with interval 1000ms
+[2026-01-22 14:19:50.645931] [info] WebSocketServer: Auto update worker started
+[2026-01-22 14:19:50.646044] [info] Run RestApiServer on port 8080
+[2026-01-22 14:19:50.647831] [info] Run gRPC Server on 0.0.0.0:50051
+[2026-01-22 14:19:55.402425] [info] gRPC Connect
+[2026-01-22 14:19:59.230581] [info] gRPC Board: 0
+[2026-01-22 14:20:03.627981] [info] WebSocket client connected. Total clients: 1
+[2026-01-22 14:20:03.647882] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:20:03","timestamp":"1769080803647","isConnected":"True","numBoard":"0","numSteps":"0","numSpeed":"-0.000000","numAccel":"232","numDecel":"85","currentPos":"48","startPos":"2974269712","endPos":"21992"}
+[2026-01-22 14:20:04.648296] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:20:04","timestamp":"1769080804648","isConnected":"True","numBoard":"0","numSteps":"0","numSpeed":"-0.000000","numAccel":"232","numDecel":"85","currentPos":"48","startPos":"2974269712","endPos":"21992"}
+[2026-01-22 14:20:04.878597] [info] POST /api/steps/set {"numSteps":1000}
+[2026-01-22 14:20:05.430605] [info] POST /api/speed/set {"numSpeed":10}
+[2026-01-22 14:20:05.648590] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:20:05","timestamp":"1769080805648","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"232","numDecel":"85","currentPos":"48","startPos":"2974269712","endPos":"21992"}
+[2026-01-22 14:20:05.846597] [info] POST /api/accel/set {"numAccel":10}
+[2026-01-22 14:20:06.166597] [info] POST /api/decel/set {"numDecel":10}
+[2026-01-22 14:20:06.518594] [info] GET /api/move/forward
+[2026-01-22 14:20:06.648857] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:20:06","timestamp":"1769080806648","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"10","currentPos":"48","startPos":"2974269712","endPos":"21992"}
+[2026-01-22 14:20:07.630601] [info] GET /api/move/backward
+[2026-01-22 14:20:07.649130] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:20:07","timestamp":"1769080807649","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"10","currentPos":"48","startPos":"2974269712","endPos":"21992"}
+[2026-01-22 14:20:08.649412] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:20:08","timestamp":"1769080808649","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"10","currentPos":"48","startPos":"2974269712","endPos":"21992"}
+[2026-01-22 14:20:09.649714] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:20:09","timestamp":"1769080809649","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"10","currentPos":"48","startPos":"2974269712","endPos":"21992"}
+[2026-01-22 14:20:10.649990] [debug] WebSocketServer: Broadcasting to 1 clients: {"server_time":"2026-01-22 14:20:10","timestamp":"1769080810649","isConnected":"True","numBoard":"0","numSteps":"1000","numSpeed":"10.000000","numAccel":"10","numDecel":"10","currentPos":"48","startPos":"2974269712","endPos":"21992"}
+[2026-01-22 14:20:10.939853] [info] WebSocket client disconnected (ENOTCONN)
+[2026-01-22 14:20:10.939962] [info] Session removed. Active clients: 0
+[2026-01-22 14:20:10.939996] [info] WebSocket session destroyed

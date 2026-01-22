@@ -1,0 +1,160 @@
+syntax = "proto3";
+
+package cancontroller;
+
+service CanControllerService {
+    // Основные команды
+    rpc Autosender (AutosenderRequest) returns (CommandResponse);
+    rpc Connect (Empty) returns (CommandResponse);
+    rpc DebugOn (Empty) returns (CommandResponse);
+    rpc Board (BoardRequest) returns (CommandResponse);
+    rpc Steps (StepsRequest) returns (CommandResponse);
+    rpc Speed (SpeedRequest) returns (CommandResponse);
+    rpc Accel (AccelRequest) returns (CommandResponse);
+    rpc Decel (DecelRequest) returns (CommandResponse);
+    rpc Forward (Empty) returns (CommandResponse);
+    rpc Backward (Empty) returns (CommandResponse);
+    rpc HomingZero (Empty) returns (CommandResponse);
+    rpc HomingMax (Empty) returns (CommandResponse);
+    rpc ResetDRVError (Empty) returns (CommandResponse);
+    rpc Stop (Empty) returns (CommandResponse);
+    rpc BrakeOff (Empty) returns (CommandResponse);
+    rpc BrakeOn (Empty) returns (CommandResponse);
+    rpc RezervOff (Empty) returns (CommandResponse);
+    rpc RezervOn (Empty) returns (CommandResponse);
+    rpc AlarmResetOff (Empty) returns (CommandResponse);
+    rpc AlarmResetOn (Empty) returns (CommandResponse);
+    rpc CurrentPos (PositionRequest) returns (CommandResponse);
+    rpc ResetCANStep (Empty) returns (CommandResponse);
+    rpc DriverOn (Empty) returns (CommandResponse);
+    rpc DriverOff (Empty) returns (CommandResponse);
+    rpc ResetLostCounters (Empty) returns (CommandResponse);
+    rpc MotorTorque (Empty) returns (CommandResponse);
+    rpc MotorSpeed (Empty) returns (CommandResponse);
+    rpc AbsolutePositionRotorUint (Empty) returns (CommandResponse);
+    rpc AlarmCode (Empty) returns (CommandResponse);
+    
+    // Сохранение параметров
+    rpc SaveNumBoard (BoardRequest) returns (CommandResponse);
+    rpc SaveNumGroup (GroupRequest) returns (CommandResponse);
+    rpc SaveStartPos (PositionRequest) returns (CommandResponse);
+    rpc SaveEndPos (PositionRequest) returns (CommandResponse);
+    rpc SaveMaxSpeed (SpeedRequest) returns (CommandResponse);
+    rpc SaveDefaultSpeed (SpeedRequest) returns (CommandResponse);
+    rpc SaveAccel (AccelRequest) returns (CommandResponse);
+    rpc SaveDecel (DecelRequest) returns (CommandResponse);
+    rpc SaveDelta (DeltaRequest) returns (CommandResponse);
+    
+    // Настройки шагов
+    rpc MicroSteps (StepsRequest) returns (CommandResponse);
+    rpc TurnSteps (StepsRequest) returns (CommandResponse);
+    
+    // Датчики
+    rpc Sensor1Polarity (SensorPolarityRequest) returns (CommandResponse);
+    rpc Sensor2Polarity (SensorPolarityRequest) returns (CommandResponse);
+    rpc Sensor3Polarity (SensorPolarityRequest) returns (CommandResponse);
+    rpc Sensor4Polarity (SensorPolarityRequest) returns (CommandResponse);
+    
+    rpc Sensor1Dir (SensorPolarityRequest) returns (CommandResponse);
+    rpc Sensor2Dir (SensorPolarityRequest) returns (CommandResponse);
+    rpc Sensor3Dir (SensorPolarityRequest) returns (CommandResponse);
+    rpc Sensor4Dir (SensorPolarityRequest) returns (CommandResponse);
+    
+    // Полярности
+    rpc SRVRDYPolarity (SensorPolarityRequest) returns (CommandResponse);
+    rpc INPOSPolarity (SensorPolarityRequest) returns (CommandResponse);
+    rpc FAULTPolarity (SensorPolarityRequest) returns (CommandResponse);
+    rpc BrakePolarity (SensorPolarityRequest) returns (CommandResponse);
+    rpc DirPolarity (SensorPolarityRequest) returns (CommandResponse);
+    rpc EnPolarity (SensorPolarityRequest) returns (CommandResponse);
+    rpc Al_CLRPolarity (SensorPolarityRequest) returns (CommandResponse);
+    rpc Al_OBrakePolarity (SensorPolarityRequest) returns (CommandResponse);
+    rpc Al_ORezervPolarity (SensorPolarityRequest) returns (CommandResponse);
+    
+    // Энкодер
+    rpc EncoderActive (EncoderActiveRequest) returns (CommandResponse);
+    rpc EncoderConfig (EncoderConfigRequest) returns (CommandResponse);
+    
+    // Flash операции
+    rpc FlashBoot (FlashBootRequest) returns (CommandResponse);
+    rpc FlashTypeBootSet (FlashTypeRequest) returns (CommandResponse);
+    rpc FlashTypeBootSave (FlashTypeRequest) returns (CommandResponse);
+    
+    // Health check
+    rpc Health (Empty) returns (HealthResponse);
+}
+
+// Запросы
+message AutosenderRequest {
+    int64 type = 1;
+    int64 ms = 2;
+}
+
+message BoardRequest {
+    int64 numBoard = 1;
+}
+
+message StepsRequest {
+    int64 numSteps = 1;
+}
+
+message SpeedRequest {
+    int64 numSpeed = 1;
+}
+
+message AccelRequest {
+    int64 numAccel = 1;
+}
+
+message DecelRequest {
+    int64 numDecel = 1;
+}
+
+message PositionRequest {
+    int64 numPos = 1;
+}
+
+message GroupRequest {
+    int64 numGroup = 1;
+}
+
+message DeltaRequest {
+    int64 numDelta = 1;
+}
+
+message SensorPolarityRequest {
+    string statusInverting = 1;
+}
+
+message EncoderActiveRequest {
+    bool statusActive = 1;
+}
+
+message EncoderConfigRequest {
+    int64 numPolarity = 1;
+    int64 numDelta = 2;
+    int64 numTurnData = 3;
+}
+
+message FlashBootRequest {
+    string filename = 1;
+}
+
+message FlashTypeRequest {
+    string type = 1;
+}
+
+// Ответы
+message CommandResponse {
+    bool success = 1;
+    string message = 2;
+    string error = 3;
+}
+
+message HealthResponse {
+    bool healthy = 1;
+    string status = 2;
+    int64 timestamp = 3;
+}
+
+message Empty {}

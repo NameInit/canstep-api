@@ -9,6 +9,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o.d"
   "CMakeFiles/canstep.dir/src/Tensometer.cpp.o"
   "CMakeFiles/canstep.dir/src/Tensometer.cpp.o.d"
+  "CMakeFiles/canstep.dir/src/can_controller.grpc.pb.cc.o"
+  "CMakeFiles/canstep.dir/src/can_controller.grpc.pb.cc.o.d"
+  "CMakeFiles/canstep.dir/src/can_controller.pb.cc.o"
+  "CMakeFiles/canstep.dir/src/can_controller.pb.cc.o.d"
   "libcanstep.a"
   "libcanstep.pdb"
 )

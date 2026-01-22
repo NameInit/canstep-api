@@ -262,6 +262,54 @@ src/Tensometer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/Tensometer.cpp.s
 .PHONY : src/Tensometer.cpp.s
 
+src/can_controller.grpc.pb.o: src/can_controller.grpc.pb.cc.o
+.PHONY : src/can_controller.grpc.pb.o
+
+# target to build an object file
+src/can_controller.grpc.pb.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/can_controller.grpc.pb.cc.o
+.PHONY : src/can_controller.grpc.pb.cc.o
+
+src/can_controller.grpc.pb.i: src/can_controller.grpc.pb.cc.i
+.PHONY : src/can_controller.grpc.pb.i
+
+# target to preprocess a source file
+src/can_controller.grpc.pb.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/can_controller.grpc.pb.cc.i
+.PHONY : src/can_controller.grpc.pb.cc.i
+
+src/can_controller.grpc.pb.s: src/can_controller.grpc.pb.cc.s
+.PHONY : src/can_controller.grpc.pb.s
+
+# target to generate assembly for a file
+src/can_controller.grpc.pb.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/can_controller.grpc.pb.cc.s
+.PHONY : src/can_controller.grpc.pb.cc.s
+
+src/can_controller.pb.o: src/can_controller.pb.cc.o
+.PHONY : src/can_controller.pb.o
+
+# target to build an object file
+src/can_controller.pb.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/can_controller.pb.cc.o
+.PHONY : src/can_controller.pb.cc.o
+
+src/can_controller.pb.i: src/can_controller.pb.cc.i
+.PHONY : src/can_controller.pb.i
+
+# target to preprocess a source file
+src/can_controller.pb.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/can_controller.pb.cc.i
+.PHONY : src/can_controller.pb.cc.i
+
+src/can_controller.pb.s: src/can_controller.pb.cc.s
+.PHONY : src/can_controller.pb.s
+
+# target to generate assembly for a file
+src/can_controller.pb.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/canstep.dir/build.make CMakeFiles/canstep.dir/src/can_controller.pb.cc.s
+.PHONY : src/can_controller.pb.cc.s
+
 test/main.o: test/main.cpp.o
 .PHONY : test/main.o
 
@@ -311,6 +359,12 @@ help:
 	@echo "... src/Tensometer.o"
 	@echo "... src/Tensometer.i"
 	@echo "... src/Tensometer.s"
+	@echo "... src/can_controller.grpc.pb.o"
+	@echo "... src/can_controller.grpc.pb.i"
+	@echo "... src/can_controller.grpc.pb.s"
+	@echo "... src/can_controller.pb.o"
+	@echo "... src/can_controller.pb.i"
+	@echo "... src/can_controller.pb.s"
 	@echo "... test/main.o"
 	@echo "... test/main.i"
 	@echo "... test/main.s"

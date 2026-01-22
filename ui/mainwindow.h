@@ -97,6 +97,8 @@ public slots:
     void startINSTALL();
     void startSAVE();
 
+    void ButtonGrpcForward();
+
     void sendApiRequest(const QString &endpoint, const QJsonObject &data = QJsonObject());
     void onApiReplyFinished(QNetworkReply *reply);
     void showApiError(const QString &error);

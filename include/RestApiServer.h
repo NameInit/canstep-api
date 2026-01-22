@@ -12,7 +12,6 @@
 #include <filesystem>
 
 #include "CanController.h"
-#include "WebSocketServer.h"
 
 class RestApiServer
 {

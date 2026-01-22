@@ -72,6 +72,8 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonINSTALL, &QPushButton::clicked, this, &MainWindow::startINSTALL);
     QObject::connect(ui->pushButtonSAVE, &QPushButton::clicked, this, &MainWindow::startSAVE);
 
+    QObject::connect(ui->pushButtonGrpcForward, &QPushButton::clicked, this, &MainWindow::ButtonGrpcForward);
+
     QObject::connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onApiReplyFinished);
 
     QObject::connect(webSocket, &QWebSocket::connected, this, &MainWindow::onSocketConnected);
@@ -584,6 +586,13 @@ void MainWindow::startSAVE(){
     QJsonObject data;
     data["type"]=ui->comboBoxFLASH->currentText();
     this->sendApiRequest("api/flash/type/save",data);
+    return ;
+}
+
+void MainWindow::ButtonGrpcForward()
+{
+    qDebug() << "GrpcForward";
+    // sendGrpcRequest("Forward");
     return ;
 }
 

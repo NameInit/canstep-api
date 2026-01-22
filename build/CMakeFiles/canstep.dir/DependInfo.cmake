@@ -13,6 +13,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ilya/Desktop/canstep-api/src/Mechanism.cpp" "CMakeFiles/canstep.dir/src/Mechanism.cpp.o" "gcc" "CMakeFiles/canstep.dir/src/Mechanism.cpp.o.d"
   "/home/ilya/Desktop/canstep-api/src/ScenarioBuilder.cpp" "CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o" "gcc" "CMakeFiles/canstep.dir/src/ScenarioBuilder.cpp.o.d"
   "/home/ilya/Desktop/canstep-api/src/Tensometer.cpp" "CMakeFiles/canstep.dir/src/Tensometer.cpp.o" "gcc" "CMakeFiles/canstep.dir/src/Tensometer.cpp.o.d"
+  "/home/ilya/Desktop/canstep-api/src/can_controller.grpc.pb.cc" "CMakeFiles/canstep.dir/src/can_controller.grpc.pb.cc.o" "gcc" "CMakeFiles/canstep.dir/src/can_controller.grpc.pb.cc.o.d"
+  "/home/ilya/Desktop/canstep-api/src/can_controller.pb.cc" "CMakeFiles/canstep.dir/src/can_controller.pb.cc.o" "gcc" "CMakeFiles/canstep.dir/src/can_controller.pb.cc.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
