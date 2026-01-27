@@ -3,7 +3,6 @@ syntax = "proto3";
 package cancontroller;
 
 service CanControllerService {
-    // Основные команды
     rpc Autosender (AutosenderRequest) returns (CommandResponse);
     rpc Connect (Empty) returns (CommandResponse);
     rpc DebugOn (Empty) returns (CommandResponse);
@@ -34,7 +33,6 @@ service CanControllerService {
     rpc AbsolutePositionRotorUint (Empty) returns (CommandResponse);
     rpc AlarmCode (Empty) returns (CommandResponse);
     
-    // Сохранение параметров
     rpc SaveNumBoard (BoardRequest) returns (CommandResponse);
     rpc SaveNumGroup (GroupRequest) returns (CommandResponse);
     rpc SaveStartPos (PositionRequest) returns (CommandResponse);
@@ -45,11 +43,9 @@ service CanControllerService {
     rpc SaveDecel (DecelRequest) returns (CommandResponse);
     rpc SaveDelta (DeltaRequest) returns (CommandResponse);
     
-    // Настройки шагов
     rpc MicroSteps (StepsRequest) returns (CommandResponse);
     rpc TurnSteps (StepsRequest) returns (CommandResponse);
-    
-    // Датчики
+
     rpc Sensor1Polarity (SensorPolarityRequest) returns (CommandResponse);
     rpc Sensor2Polarity (SensorPolarityRequest) returns (CommandResponse);
     rpc Sensor3Polarity (SensorPolarityRequest) returns (CommandResponse);
@@ -59,8 +55,7 @@ service CanControllerService {
     rpc Sensor2Dir (SensorPolarityRequest) returns (CommandResponse);
     rpc Sensor3Dir (SensorPolarityRequest) returns (CommandResponse);
     rpc Sensor4Dir (SensorPolarityRequest) returns (CommandResponse);
-    
-    // Полярности
+
     rpc SRVRDYPolarity (SensorPolarityRequest) returns (CommandResponse);
     rpc INPOSPolarity (SensorPolarityRequest) returns (CommandResponse);
     rpc FAULTPolarity (SensorPolarityRequest) returns (CommandResponse);
@@ -70,21 +65,17 @@ service CanControllerService {
     rpc Al_CLRPolarity (SensorPolarityRequest) returns (CommandResponse);
     rpc Al_OBrakePolarity (SensorPolarityRequest) returns (CommandResponse);
     rpc Al_ORezervPolarity (SensorPolarityRequest) returns (CommandResponse);
-    
-    // Энкодер
+
     rpc EncoderActive (EncoderActiveRequest) returns (CommandResponse);
     rpc EncoderConfig (EncoderConfigRequest) returns (CommandResponse);
-    
-    // Flash операции
+
     rpc FlashBoot (FlashBootRequest) returns (CommandResponse);
     rpc FlashTypeBootSet (FlashTypeRequest) returns (CommandResponse);
     rpc FlashTypeBootSave (FlashTypeRequest) returns (CommandResponse);
-    
-    // Health check
+
     rpc Health (Empty) returns (HealthResponse);
 }
 
-// Запросы
 message AutosenderRequest {
     int64 type = 1;
     int64 ms = 2;
@@ -144,7 +135,6 @@ message FlashTypeRequest {
     string type = 1;
 }
 
-// Ответы
 message CommandResponse {
     bool success = 1;
     string message = 2;

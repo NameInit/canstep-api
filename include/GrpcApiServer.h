@@ -77,12 +77,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonOpenCOM_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC Connect";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Connect";
             response->set_success(true);
             response->set_message("Connected");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Connect failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Connect failed: " << e.what();
             response->set_success(false);
             response->set_message("Connection failed");
             response->set_error(e.what());
@@ -95,12 +95,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonDebugOn_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC DebugOn";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/DebugOn";
             response->set_success(true);
             response->set_message("Debug ON");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC DebugOn failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/DebugOn failed: " << e.what();
             response->set_success(false);
             response->set_message("Debug ON failed");
             response->set_error(e.what());
@@ -113,12 +113,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonNumBoard_Click(request->numboard());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Board: " << request->numboard();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Board: " << request->numboard();
             response->set_success(true);
             response->set_message("Board Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Board failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Board failed: " << e.what();
             response->set_success(false);
             response->set_message("Board Set failed");
             response->set_error(e.what());
@@ -131,12 +131,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonNumSteps_Click(request->numsteps());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Steps: " << request->numsteps();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Steps: " << request->numsteps();
             response->set_success(true);
             response->set_message("Steps Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Steps failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Steps failed: " << e.what();
             response->set_success(false);
             response->set_message("Steps Set failed");
             response->set_error(e.what());
@@ -149,12 +149,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonSpeed_Click(request->numspeed());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Speed: " << request->numspeed();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Speed: " << request->numspeed();
             response->set_success(true);
             response->set_message("Speed Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Speed failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Speed failed: " << e.what();
             response->set_success(false);
             response->set_message("Speed Set failed");
             response->set_error(e.what());
@@ -167,12 +167,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonAccel_Click(request->numaccel());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Accel: " << request->numaccel();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Accel: " << request->numaccel();
             response->set_success(true);
             response->set_message("Acceleration Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Accel failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Accel failed: " << e.what();
             response->set_success(false);
             response->set_message("Acceleration Set failed");
             response->set_error(e.what());
@@ -185,12 +185,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonDecel_Click(request->numdecel());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Decel: " << request->numdecel();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Decel: " << request->numdecel();
             response->set_success(true);
             response->set_message("Deceleration Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Decel failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Decel failed: " << e.what();
             response->set_success(false);
             response->set_message("Deceleration Set failed");
             response->set_error(e.what());
@@ -203,12 +203,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonMoveForward_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC Forward";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Forward";
             response->set_success(true);
             response->set_message("Moving Forward");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Forward failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Forward failed: " << e.what();
             response->set_success(false);
             response->set_message("Moving Forward failed");
             response->set_error(e.what());
@@ -221,12 +221,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonMoveBackward_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC Backward";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Backward";
             response->set_success(true);
             response->set_message("Moving Backward");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Backward failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Backward failed: " << e.what();
             response->set_success(false);
             response->set_message("Moving Backward failed");
             response->set_error(e.what());
@@ -239,12 +239,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonHomingZero_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC HomingZero";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/HomingZero";
             response->set_success(true);
             response->set_message("Homing Zero");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC HomingZero failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/HomingZero failed: " << e.what();
             response->set_success(false);
             response->set_message("Homing Zero failed");
             response->set_error(e.what());
@@ -257,12 +257,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonHomingMax_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC HomingMax";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/HomingMax";
             response->set_success(true);
             response->set_message("Homing Max");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC HomingMax failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/HomingMax failed: " << e.what();
             response->set_success(false);
             response->set_message("Homing Max failed");
             response->set_error(e.what());
@@ -275,12 +275,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonResetDRVError_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC ResetDRVError";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/ResetDRVError";
             response->set_success(true);
             response->set_message("ResetDRVError");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC ResetDRVError failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/ResetDRVError failed: " << e.what();
             response->set_success(false);
             response->set_message("ResetDRVError failed");
             response->set_error(e.what());
@@ -293,12 +293,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonStop_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC Stop";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Stop";
             response->set_success(true);
             response->set_message("Moving Stop");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Stop failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Stop failed: " << e.what();
             response->set_success(false);
             response->set_message("Moving Stop failed");
             response->set_error(e.what());
@@ -311,12 +311,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonBrakeOff_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC BrakeOff";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/BrakeOff";
             response->set_success(true);
             response->set_message("brakeOff");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC BrakeOff failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/BrakeOff failed: " << e.what();
             response->set_success(false);
             response->set_message("brakeOff failed");
             response->set_error(e.what());
@@ -329,12 +329,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonBrakeOn_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC BrakeOn";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/BrakeOn";
             response->set_success(true);
             response->set_message("brakeOn");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC BrakeOn failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/BrakeOn failed: " << e.what();
             response->set_success(false);
             response->set_message("brakeOn failed");
             response->set_error(e.what());
@@ -347,12 +347,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonRezervOff_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC RezervOff";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/RezervOff";
             response->set_success(true);
             response->set_message("rezervOff");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC RezervOff failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/RezervOff failed: " << e.what();
             response->set_success(false);
             response->set_message("rezervOff failed");
             response->set_error(e.what());
@@ -365,12 +365,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonRezervOn_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC RezervOn";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/RezervOn";
             response->set_success(true);
             response->set_message("rezervOn");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC RezervOn failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/RezervOn failed: " << e.what();
             response->set_success(false);
             response->set_message("rezervOn failed");
             response->set_error(e.what());
@@ -383,12 +383,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonAlarmResetOff_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC AlarmResetOff";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/AlarmResetOff";
             response->set_success(true);
             response->set_message("AlarmResetOff");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC AlarmResetOff failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/AlarmResetOff failed: " << e.what();
             response->set_success(false);
             response->set_message("AlarmResetOff failed");
             response->set_error(e.what());
@@ -401,12 +401,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonAlarmResetOn_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC AlarmResetOn";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/AlarmResetOn";
             response->set_success(true);
             response->set_message("AlarmResetOn");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC AlarmResetOn failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/AlarmResetOn failed: " << e.what();
             response->set_success(false);
             response->set_message("AlarmResetOn failed");
             response->set_error(e.what());
@@ -419,12 +419,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonCurrentPositionSet_Click(request->numpos());
-            BOOST_LOG_TRIVIAL(info) << "gRPC CurrentPos: " << request->numpos();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/CurrentPos: " << request->numpos();
             response->set_success(true);
             response->set_message("CurrentPosition Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC CurrentPos failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/CurrentPos failed: " << e.what();
             response->set_success(false);
             response->set_message("CurrentPosition Set failed");
             response->set_error(e.what());
@@ -437,12 +437,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonResetCANStep_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC ResetCANStep";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/ResetCANStep";
             response->set_success(true);
             response->set_message("ResetCANStep");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC ResetCANStep failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/ResetCANStep failed: " << e.what();
             response->set_success(false);
             response->set_message("ResetCANStep failed");
             response->set_error(e.what());
@@ -455,12 +455,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonDriverOn_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC DriverOn";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/DriverOn";
             response->set_success(true);
             response->set_message("DriverOn");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC DriverOn failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/DriverOn failed: " << e.what();
             response->set_success(false);
             response->set_message("DriverOn failed");
             response->set_error(e.what());
@@ -473,12 +473,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonDriverOff_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC DriverOff";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/DriverOff";
             response->set_success(true);
             response->set_message("DriverOff");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC DriverOff failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/DriverOff failed: " << e.what();
             response->set_success(false);
             response->set_message("DriverOff failed");
             response->set_error(e.what());
@@ -491,12 +491,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.resetLostCounters_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC ResetLostCounters";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/ResetLostCounters";
             response->set_success(true);
             response->set_message("resetLostCounters");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC ResetLostCounters failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/ResetLostCounters failed: " << e.what();
             response->set_success(false);
             response->set_message("resetLostCounters failed");
             response->set_error(e.what());
@@ -509,12 +509,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonMotorTorque_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC MotorTorque";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/MotorTorque";
             response->set_success(true);
             response->set_message("motorTorque");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC MotorTorque failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/MotorTorque failed: " << e.what();
             response->set_success(false);
             response->set_message("motorTorque failed");
             response->set_error(e.what());
@@ -527,12 +527,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonMotorSpeed_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC MotorSpeed";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/MotorSpeed";
             response->set_success(true);
             response->set_message("motorSpeed");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC MotorSpeed failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/MotorSpeed failed: " << e.what();
             response->set_success(false);
             response->set_message("motorSpeed failed");
             response->set_error(e.what());
@@ -545,12 +545,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonAbsolutePositionRotorUint_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC AbsolutePositionRotorUint";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/AbsolutePositionRotorUint";
             response->set_success(true);
             response->set_message("absolutePositionRotorUint");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC AbsolutePositionRotorUint failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/AbsolutePositionRotorUint failed: " << e.what();
             response->set_success(false);
             response->set_message("absolutePositionRotorUint failed");
             response->set_error(e.what());
@@ -563,12 +563,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonAlarmCode_Click();
-            BOOST_LOG_TRIVIAL(info) << "gRPC AlarmCode";
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/AlarmCode";
             response->set_success(true);
             response->set_message("alarmCode");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC AlarmCode failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/AlarmCode failed: " << e.what();
             response->set_success(false);
             response->set_message("alarmCode failed");
             response->set_error(e.what());
@@ -581,12 +581,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonNumBoardSave_Click(request->numboard());
-            BOOST_LOG_TRIVIAL(info) << "gRPC SaveNumBoard: " << request->numboard();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/SaveNumBoard: " << request->numboard();
             response->set_success(true);
             response->set_message("saveNumBoard Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC SaveNumBoard failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/SaveNumBoard failed: " << e.what();
             response->set_success(false);
             response->set_message("saveNumBoard Set failed");
             response->set_error(e.what());
@@ -599,12 +599,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonNumGroupSave_Click(request->numgroup());
-            BOOST_LOG_TRIVIAL(info) << "gRPC SaveNumGroup: " << request->numgroup();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/SaveNumGroup: " << request->numgroup();
             response->set_success(true);
             response->set_message("saveNumGroup Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC SaveNumGroup failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/SaveNumGroup failed: " << e.what();
             response->set_success(false);
             response->set_message("saveNumGroup Set failed");
             response->set_error(e.what());
@@ -617,12 +617,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonStartPositionSave_Click(request->numpos());
-            BOOST_LOG_TRIVIAL(info) << "gRPC SaveStartPos: " << request->numpos();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/SaveStartPos: " << request->numpos();
             response->set_success(true);
             response->set_message("saveStartPos Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC SaveStartPos failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/SaveStartPos failed: " << e.what();
             response->set_success(false);
             response->set_message("saveStartPos Set failed");
             response->set_error(e.what());
@@ -635,12 +635,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonEndPositionSave_Click(request->numpos());
-            BOOST_LOG_TRIVIAL(info) << "gRPC SaveEndPos: " << request->numpos();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/SaveEndPos: " << request->numpos();
             response->set_success(true);
             response->set_message("saveEndPos Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC SaveEndPos failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/SaveEndPos failed: " << e.what();
             response->set_success(false);
             response->set_message("saveEndPos Set failed");
             response->set_error(e.what());
@@ -653,12 +653,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonMaxSpeedSave_Click(request->numspeed());
-            BOOST_LOG_TRIVIAL(info) << "gRPC SaveMaxSpeed: " << request->numspeed();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/SaveMaxSpeed: " << request->numspeed();
             response->set_success(true);
             response->set_message("saveMaxSpeed Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC SaveMaxSpeed failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/SaveMaxSpeed failed: " << e.what();
             response->set_success(false);
             response->set_message("saveMaxSpeed Set failed");
             response->set_error(e.what());
@@ -671,12 +671,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonDefaultSpeedSave_Click(request->numspeed());
-            BOOST_LOG_TRIVIAL(info) << "gRPC SaveDefaultSpeed: " << request->numspeed();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/SaveDefaultSpeed: " << request->numspeed();
             response->set_success(true);
             response->set_message("saveDefaultSpeed Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC SaveDefaultSpeed failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/SaveDefaultSpeed failed: " << e.what();
             response->set_success(false);
             response->set_message("saveDefaultSpeed Set failed");
             response->set_error(e.what());
@@ -689,12 +689,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonAccelSave_Click(request->numaccel());
-            BOOST_LOG_TRIVIAL(info) << "gRPC SaveAccel: " << request->numaccel();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/SaveAccel: " << request->numaccel();
             response->set_success(true);
             response->set_message("saveAccel Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC SaveAccel failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/SaveAccel failed: " << e.what();
             response->set_success(false);
             response->set_message("saveAccel Set failed");
             response->set_error(e.what());
@@ -707,12 +707,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonDecelSave_Click(request->numdecel());
-            BOOST_LOG_TRIVIAL(info) << "gRPC SaveDecel: " << request->numdecel();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/SaveDecel: " << request->numdecel();
             response->set_success(true);
             response->set_message("saveDecel Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC SaveDecel failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/SaveDecel failed: " << e.what();
             response->set_success(false);
             response->set_message("saveDecel Set failed");
             response->set_error(e.what());
@@ -725,12 +725,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonDeltaSave_Click(request->numdelta());
-            BOOST_LOG_TRIVIAL(info) << "gRPC SaveDelta: " << request->numdelta();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/SaveDelta: " << request->numdelta();
             response->set_success(true);
             response->set_message("saveDelta Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC SaveDelta failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/SaveDelta failed: " << e.what();
             response->set_success(false);
             response->set_message("saveDelta Set failed");
             response->set_error(e.what());
@@ -743,12 +743,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.button_MicroSteps_Click(request->numsteps());
-            BOOST_LOG_TRIVIAL(info) << "gRPC MicroSteps: " << request->numsteps();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/MicroSteps: " << request->numsteps();
             response->set_success(true);
             response->set_message("MicroSteps Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC MicroSteps failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/MicroSteps failed: " << e.what();
             response->set_success(false);
             response->set_message("MicroSteps Set failed");
             response->set_error(e.what());
@@ -761,12 +761,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.button_StepsTurn_Click(request->numsteps());
-            BOOST_LOG_TRIVIAL(info) << "gRPC TurnSteps: " << request->numsteps();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/TurnSteps: " << request->numsteps();
             response->set_success(true);
             response->set_message("StepsTurn Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC TurnSteps failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/TurnSteps failed: " << e.what();
             response->set_success(false);
             response->set_message("StepsTurn Set failed");
             response->set_error(e.what());
@@ -779,12 +779,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonSensor1Polarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Sensor1Polarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Sensor1Polarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("Sensor1Polarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Sensor1Polarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Sensor1Polarity failed: " << e.what();
             response->set_success(false);
             response->set_message("Sensor1Polarity Set failed");
             response->set_error(e.what());
@@ -797,12 +797,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonSensor2Polarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Sensor2Polarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Sensor2Polarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("Sensor2Polarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Sensor2Polarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Sensor2Polarity failed: " << e.what();
             response->set_success(false);
             response->set_message("Sensor2Polarity Set failed");
             response->set_error(e.what());
@@ -815,12 +815,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonSensor3Polarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Sensor3Polarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Sensor3Polarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("Sensor3Polarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Sensor3Polarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Sensor3Polarity failed: " << e.what();
             response->set_success(false);
             response->set_message("Sensor3Polarity Set failed");
             response->set_error(e.what());
@@ -833,12 +833,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonSensor4Polarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Sensor4Polarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Sensor4Polarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("Sensor4Polarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Sensor4Polarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Sensor4Polarity failed: " << e.what();
             response->set_success(false);
             response->set_message("Sensor4Polarity Set failed");
             response->set_error(e.what());
@@ -851,12 +851,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonSensor1Dir_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Sensor1Dir: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Sensor1Dir: " << request->statusinverting();
             response->set_success(true);
             response->set_message("Sensor1Dir Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Sensor1Dir failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Sensor1Dir failed: " << e.what();
             response->set_success(false);
             response->set_message("Sensor1Dir Set failed");
             response->set_error(e.what());
@@ -869,12 +869,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonSensor2Dir_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Sensor2Dir: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Sensor2Dir: " << request->statusinverting();
             response->set_success(true);
             response->set_message("Sensor2Dir Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Sensor2Dir failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Sensor2Dir failed: " << e.what();
             response->set_success(false);
             response->set_message("Sensor2Dir Set failed");
             response->set_error(e.what());
@@ -887,12 +887,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonSensor3Dir_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Sensor3Dir: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Sensor3Dir: " << request->statusinverting();
             response->set_success(true);
             response->set_message("Sensor3Dir Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Sensor3Dir failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Sensor3Dir failed: " << e.what();
             response->set_success(false);
             response->set_message("Sensor3Dir Set failed");
             response->set_error(e.what());
@@ -905,12 +905,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonSensor4Dir_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Sensor4Dir: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Sensor4Dir: " << request->statusinverting();
             response->set_success(true);
             response->set_message("Sensor4Dir Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Sensor4Dir failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Sensor4Dir failed: " << e.what();
             response->set_success(false);
             response->set_message("Sensor4Dir Set failed");
             response->set_error(e.what());
@@ -923,12 +923,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonSRVRDYPolarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC SRVRDYPolarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/SRVRDYPolarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("SRVRDYPolarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC SRVRDYPolarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/SRVRDYPolarity failed: " << e.what();
             response->set_success(false);
             response->set_message("SRVRDYPolarity Set failed");
             response->set_error(e.what());
@@ -941,12 +941,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonINPOSPolarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC INPOSPolarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/INPOSPolarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("INPOSPolarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC INPOSPolarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/INPOSPolarity failed: " << e.what();
             response->set_success(false);
             response->set_message("INPOSPolarity Set failed");
             response->set_error(e.what());
@@ -959,12 +959,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonFAULTPolarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC FAULTPolarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/FAULTPolarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("FAULTPolarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC FAULTPolarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/FAULTPolarity failed: " << e.what();
             response->set_success(false);
             response->set_message("FAULTPolarity Set failed");
             response->set_error(e.what());
@@ -977,12 +977,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonBrakePolarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC BrakePolarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/BrakePolarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("BrakePolarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC BrakePolarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/BrakePolarity failed: " << e.what();
             response->set_success(false);
             response->set_message("BrakePolarity Set failed");
             response->set_error(e.what());
@@ -995,12 +995,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonDirPolarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC DirPolarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/DirPolarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("DirPolarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC DirPolarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/DirPolarity failed: " << e.what();
             response->set_success(false);
             response->set_message("DirPolarity Set failed");
             response->set_error(e.what());
@@ -1013,12 +1013,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonEnPolarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC EnPolarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/EnPolarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("EnPolarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC EnPolarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/EnPolarity failed: " << e.what();
             response->set_success(false);
             response->set_message("EnPolarity Set failed");
             response->set_error(e.what());
@@ -1031,12 +1031,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonAl_CLRPolarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Al_CLRPolarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Al_CLRPolarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("Al_CLRPolarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Al_CLRPolarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Al_CLRPolarity failed: " << e.what();
             response->set_success(false);
             response->set_message("Al_CLRPolarity Set failed");
             response->set_error(e.what());
@@ -1049,12 +1049,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonAl_OBrakePolarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Al_OBrakePolarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Al_OBrakePolarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("Al_OBrakePolarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Al_OBrakePolarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Al_OBrakePolarity failed: " << e.what();
             response->set_success(false);
             response->set_message("Al_OBrakePolarity Set failed");
             response->set_error(e.what());
@@ -1067,12 +1067,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonAl_ORezervPolarity_Click(request->statusinverting());
-            BOOST_LOG_TRIVIAL(info) << "gRPC Al_ORezervPolarity: " << request->statusinverting();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Al_ORezervPolarity: " << request->statusinverting();
             response->set_success(true);
             response->set_message("Al_ORezervPolarity Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC Al_ORezervPolarity failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/Al_ORezervPolarity failed: " << e.what();
             response->set_success(false);
             response->set_message("Al_ORezervPolarity Set failed");
             response->set_error(e.what());
@@ -1085,12 +1085,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.setEncoderActive(request->statusactive());
-            BOOST_LOG_TRIVIAL(info) << "gRPC EncoderActive: " << request->statusactive();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/EncoderActive: " << request->statusactive();
             response->set_success(true);
             response->set_message("setEncoderActive Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC EncoderActive failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/EncoderActive failed: " << e.what();
             response->set_success(false);
             response->set_message("setEncoderActive Set failed");
             response->set_error(e.what());
@@ -1107,14 +1107,14 @@ public:
                 request->numdelta(),
                 request->numturndata()
             );
-            BOOST_LOG_TRIVIAL(info) << "gRPC EncoderConfig: polarity=" << request->numpolarity()
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/EncoderConfig: polarity=" << request->numpolarity()
                                    << ", delta=" << request->numdelta()
                                    << ", turnData=" << request->numturndata();
             response->set_success(true);
             response->set_message("encoderConfig Set");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC EncoderConfig failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/EncoderConfig failed: " << e.what();
             response->set_success(false);
             response->set_message("encoderConfig Set failed");
             response->set_error(e.what());
@@ -1127,12 +1127,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonBoot_Click(request->filename());
-            BOOST_LOG_TRIVIAL(info) << "gRPC FlashBoot: " << request->filename();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/FlashBoot: " << request->filename();
             response->set_success(true);
             response->set_message("Flash");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC FlashBoot failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/FlashBoot failed: " << e.what();
             response->set_success(false);
             response->set_message("Flash failed");
             response->set_error(e.what());
@@ -1145,12 +1145,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonTypeBootSet_Click(request->type());
-            BOOST_LOG_TRIVIAL(info) << "gRPC FlashTypeBootSet: " << request->type();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/FlashTypeBootSet: " << request->type();
             response->set_success(true);
             response->set_message("flashTypeBootSet");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC FlashTypeBootSet failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/FlashTypeBootSet failed: " << e.what();
             response->set_success(false);
             response->set_message("flashTypeBootSet failed");
             response->set_error(e.what());
@@ -1163,12 +1163,12 @@ public:
         std::lock_guard<std::mutex> lock(controllerMutex);
         try {
             controller.buttonTypeBootSave_Click(request->type());
-            BOOST_LOG_TRIVIAL(info) << "gRPC FlashTypeBootSave: " << request->type();
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/FlashTypeBootSave: " << request->type();
             response->set_success(true);
             response->set_message("flashTypeBootSave");
             return Status::OK;
         } catch (const std::exception& e) {
-            BOOST_LOG_TRIVIAL(error) << "gRPC FlashTypeBootSave failed: " << e.what();
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/FlashTypeBootSave failed: " << e.what();
             response->set_success(false);
             response->set_message("flashTypeBootSave failed");
             response->set_error(e.what());
@@ -1178,7 +1178,7 @@ public:
 
     Status Health(ServerContext* context, const Empty* request,
                   HealthResponse* response) override {
-        BOOST_LOG_TRIVIAL(info) << "gRPC Health check";
+        BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/Health";
         response->set_healthy(true);
         response->set_status("OK");
         auto now = std::chrono::system_clock::now();
