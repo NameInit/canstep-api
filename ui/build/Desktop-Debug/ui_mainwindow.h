@@ -1050,6 +1050,7 @@ public:
         comboBoxApiType = new QComboBox(centralwidget);
         comboBoxApiType->addItem(QString());
         comboBoxApiType->addItem(QString());
+        comboBoxApiType->addItem(QString());
         comboBoxApiType->setObjectName(QString::fromUtf8("comboBoxApiType"));
         comboBoxApiType->setGeometry(QRect(1160, 10, 121, 51));
         MainWindow->setCentralWidget(centralwidget);
@@ -1126,11 +1127,13 @@ public:
         pushButtonSensor3Polarity->setText(QCoreApplication::translate("MainWindow", "Sensor3Polarity", nullptr));
         pushButtonSteps->setText(QCoreApplication::translate("MainWindow", "steps", nullptr));
         pushButtonBoard->setText(QCoreApplication::translate("MainWindow", "board", nullptr));
+        lineEditSaveStartPos->setText(QCoreApplication::translate("MainWindow", "1000", nullptr));
         pushButtonAlarmCode->setText(QCoreApplication::translate("MainWindow", "AlarmCode", nullptr));
         lineEditSpeed->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
         lineEditBoard->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         pushButtonSaveNumBoard->setText(QCoreApplication::translate("MainWindow", "SaveNumBoard", nullptr));
         lineEditAccel->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
+        lineEditSaveEndPos->setText(QCoreApplication::translate("MainWindow", "100000", nullptr));
         pushButtonMotorTorque->setText(QCoreApplication::translate("MainWindow", "MotorTorque", nullptr));
         pushButtonRezervOff->setText(QCoreApplication::translate("MainWindow", "RezervOff", nullptr));
         pushButtonStop->setText(QCoreApplication::translate("MainWindow", "stop", nullptr));
@@ -1142,9 +1145,11 @@ public:
 
         pushButtonSaveStartPos->setText(QCoreApplication::translate("MainWindow", "SaveStartPos", nullptr));
         pushButtonDriverOff->setText(QCoreApplication::translate("MainWindow", "DriverOff", nullptr));
+        lineEditcurrentPos->setText(QCoreApplication::translate("MainWindow", "10000", nullptr));
         pushButtonDebugOn->setText(QCoreApplication::translate("MainWindow", "debugOn", nullptr));
         pushButtonSaveNumGroup->setText(QCoreApplication::translate("MainWindow", "SaveNumGroup", nullptr));
         pushButtonSaveDecel->setText(QCoreApplication::translate("MainWindow", "SaveDecel", nullptr));
+        lineEditSaveNumBoard->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         comboBoxSensor2Polarity->setItemText(0, QCoreApplication::translate("MainWindow", "Inverted", nullptr));
         comboBoxSensor2Polarity->setItemText(1, QCoreApplication::translate("MainWindow", "NotInverted", nullptr));
         comboBoxSensor2Polarity->setItemText(2, QCoreApplication::translate("MainWindow", "UnknownInverted", nullptr));
@@ -1170,6 +1175,7 @@ public:
         pushButtonForward->setText(QCoreApplication::translate("MainWindow", "forward", nullptr));
         lineEditDecel->setText(QCoreApplication::translate("MainWindow", "10", nullptr));
         pushButtoncurrentPos->setText(QCoreApplication::translate("MainWindow", "currentPos", nullptr));
+        lineEditSaveNumGroup->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         comboBoxSensor1Polarity->setItemText(0, QCoreApplication::translate("MainWindow", "Inverted", nullptr));
         comboBoxSensor1Polarity->setItemText(1, QCoreApplication::translate("MainWindow", "NotInverted", nullptr));
         comboBoxSensor1Polarity->setItemText(2, QCoreApplication::translate("MainWindow", "UnknownInverted", nullptr));
@@ -1246,6 +1252,7 @@ public:
         lineEditFilename->setText(QCoreApplication::translate("MainWindow", "../firmware/STM32F103C8T6CAN_Step_v2_5_297.bin", nullptr));
         comboBoxApiType->setItemText(0, QCoreApplication::translate("MainWindow", "REST", nullptr));
         comboBoxApiType->setItemText(1, QCoreApplication::translate("MainWindow", "GRPC", nullptr));
+        comboBoxApiType->setItemText(2, QCoreApplication::translate("MainWindow", "MQTT", nullptr));
 
     } // retranslateUi
 

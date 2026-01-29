@@ -6,7 +6,16 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
     , networkManager(new QNetworkAccessManager(this))
     , webSocket(new QWebSocket())
+    , mqttClient(new QMqttClient(this))
 {
+    mqttClient->setHostname("127.0.0.1");
+    mqttClient->setPort(1883);
+
+    connect(mqttClient, &QMqttClient::connected, this, &MainWindow::onMqttConnected);
+    connect(mqttClient, &QMqttClient::messageReceived, this, &MainWindow::onMqttMessageReceived);
+
+    mqttClient->connectToHost();
+
     ui->setupUi(this);
 
     QObject::connect(ui->pushButtonAutosender, &QPushButton::clicked, this, &MainWindow::ButtonAutosender);
@@ -95,6 +104,15 @@ void MainWindow::ButtonAutosender(){
     data["numType"]=ui->lineEditAutosenderType->text().toInt();
     data["numMs"]=ui->lineEditAutosenderMs->text().toInt();
     this->sendApiRequest("api/autosender",data);
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("api/connect");
+    }
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("Autosender");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Autosender");
+    }
     return ;
 }
 
@@ -107,6 +125,9 @@ void MainWindow::ButtonConnect()
     else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Connect");
     }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Connect");
+    }
     return ;
 }
 
@@ -116,8 +137,11 @@ void MainWindow::ButtonDebugOn()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/debug/on");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("DebugOn");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("DebugOn");
     }
     return ;
 }
@@ -128,10 +152,13 @@ void MainWindow::ButtonBoard(){
     data["numBoard"]=ui->lineEditBoard->text().toInt();
 
     if(ui->comboBoxApiType->currentText() == "REST"){
-        this->sendApiRequest("api/board/set",data);
+        this->sendApiRequest("api/board/set", data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Board", data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Board", data);
     }
     return ;
 }
@@ -145,8 +172,11 @@ void MainWindow::ButtonSteps()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/steps/set",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Steps", data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Steps", data);
     }
     return ;
 }
@@ -160,8 +190,11 @@ void MainWindow::ButtonSpeed()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/speed/set",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Speed", data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Speed", data);
     }
     return ;
 }
@@ -175,8 +208,11 @@ void MainWindow::ButtonAccel()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/accel/set",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Accel", data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Accel", data);
     }
     return ;
 }
@@ -190,8 +226,11 @@ void MainWindow::ButtonDecel()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/decel/set",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Decel", data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Decel", data);
     }
     return ;
 }
@@ -203,8 +242,11 @@ void MainWindow::ButtonForward()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/move/forward");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Forward");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Forward");
     }
     return ;
 }
@@ -216,8 +258,11 @@ void MainWindow::ButtonBackward()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/move/backward");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Backward");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Backward");
     }
     return ;
 }
@@ -229,8 +274,11 @@ void MainWindow::ButtonHomZero()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/homing/zero");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("HomingZero");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("HomingZero");
     }
     return ;
 }
@@ -242,8 +290,11 @@ void MainWindow::ButtonHomMax()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/homing/max");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("HomingMax");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("HomingMax");
     }
     return ;
 }
@@ -255,8 +306,11 @@ void MainWindow::ResetDRVRError()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/reset/driver/error");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("ResetDRVError");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("ResetDRVError");
     }
     return ;
 }
@@ -268,8 +322,11 @@ void MainWindow::Stop()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/move/stop");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Stop");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Stop");
     }
     return ;
 }
@@ -281,8 +338,11 @@ void MainWindow::BrakeOff()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/brake/off");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("BrakeOff");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("BrakeOff");
     }
     return ;
 }
@@ -294,8 +354,11 @@ void MainWindow::BrakeOn()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/brake/on");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("BrakeOn");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("BrakeOn");
     }
     return ;
 }
@@ -307,8 +370,11 @@ void MainWindow::RezervOff()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/rezerv/off");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("RezervOff");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("RezervOff");
     }
     return ;
 }
@@ -320,8 +386,11 @@ void MainWindow::RezervOn()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/rezerv/on");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("RezervOn");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("RezervOn");
     }
     return ;
 }
@@ -333,8 +402,11 @@ void MainWindow::AlarmResetOn()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/alarm/reset/on");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("AlarmResetOn");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("AlarmResetOn");
     }
     return ;
 }
@@ -346,8 +418,11 @@ void MainWindow::AlarmResetOff()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/alarm/reset/off");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("AlarmResetOff");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("AlarmResetOff");
     }
     return ;
 }
@@ -361,8 +436,11 @@ void MainWindow::CurrentPos()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/current/pos",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("CurrentPos",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("CurrentPos");
     }
     return ;
 }
@@ -374,8 +452,11 @@ void MainWindow::ResetCANStep()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/reset/canstep");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("ResetCANStep");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("ResetCANStep");
     }
     return ;
 }
@@ -387,8 +468,11 @@ void MainWindow::DriverOn()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/driver/on");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("DriverOn");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("DriverOn");
     }
     return ;
 }
@@ -400,8 +484,11 @@ void MainWindow::DriverOff()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/driver/off");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("DriverOff");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("DriverOff");
     }
     return ;
 }
@@ -413,8 +500,11 @@ void MainWindow::ResetLostCounters()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/lostcounters/reset");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("ResetLostCounters");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("ResetLostCounters");
     }
     return ;
 }
@@ -426,8 +516,11 @@ void MainWindow::MotorTorque()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/motor/torque");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("MotorTorque");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("MotorTorque");
     }
     return ;
 }
@@ -439,8 +532,11 @@ void MainWindow::MotorSpeed()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/motor/speed");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("MotorSpeed");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("MotorSpeed");
     }
     return ;
 }
@@ -452,8 +548,11 @@ void MainWindow::AbsPosRot()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/pos/absolute");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("AbsolutePositionRotorUint");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("AbsolutePositionRotorUint");
     }
     return ;
 }
@@ -465,8 +564,11 @@ void MainWindow::AlarmCode()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/alarm/code");
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("AlarmCode");
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("AlarmCode");
     }
     return ;
 }
@@ -481,8 +583,11 @@ void MainWindow::SaveNumBoard()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/save/board",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("SaveNumBoard",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("SaveNumBoard",data);
     }
     return ;
 }
@@ -496,8 +601,11 @@ void MainWindow::SaveNumGroup()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/save/group",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("SaveNumGroup",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("SaveNumGroup",data);
     }
     return ;
 }
@@ -511,8 +619,11 @@ void MainWindow::SaveStartPos()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/save/start/pos",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("SaveStartPos",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("SaveStartPos",data);
     }
     return ;
 }
@@ -526,8 +637,11 @@ void MainWindow::SaveEndPos()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/save/end/pos",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("SaveEndPos",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("SaveEndPos",data);
     }
     return ;
 }
@@ -541,8 +655,11 @@ void MainWindow::SaveMaxSpeed()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/save/max/speed",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("SaveMaxSpeed",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("SaveMaxSpeed",data);
     }
     return ;
 }
@@ -556,8 +673,11 @@ void MainWindow::SaveDefaultSpeed()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/save/default/speed",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("SaveDefaultSpeed",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("SaveDefaultSpeed",data);
     }
     return ;
 }
@@ -571,8 +691,11 @@ void MainWindow::SaveAccel()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/save/accel",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("SaveAccel",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("SaveAccel",data);
     }
     return ;
 }
@@ -586,8 +709,11 @@ void MainWindow::SaveDecel()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/save/decel",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("SaveDecel",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("SaveDecel",data);
     }
     return ;
 }
@@ -601,8 +727,11 @@ void MainWindow::SaveDelta()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/save/delta",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("SaveDelta",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("SaveDelta",data);
     }
     return ;
 }
@@ -616,8 +745,11 @@ void MainWindow::MicroSteps()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/steps/micro/set",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("MicroSteps",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("MicroSteps",data);
     }
     return ;
 }
@@ -631,8 +763,11 @@ void MainWindow::StepsTurn()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/steps/turn/set",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("TurnSteps",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("TurnSteps",data);
     }
     return ;
 }
@@ -645,8 +780,11 @@ void MainWindow::Sensor1Polarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/1",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Sensor1Polarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Sensor1Polarity",data);
     }
     return ;
 }
@@ -659,8 +797,11 @@ void MainWindow::Sensor2Polarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/2",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Sensor2Polarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Sensor2Polarity",data);
     }
     return ;
 }
@@ -673,8 +814,11 @@ void MainWindow::Sensor3Polarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/3",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Sensor3Polarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Sensor3Polarity",data);
     }
     return ;
 }
@@ -687,8 +831,11 @@ void MainWindow::Sensor4Polarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/4",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Sensor4Polarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Sensor4Polarity",data);
     }
     return ;
 }
@@ -701,8 +848,11 @@ void MainWindow::Sensor1Dir(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/direction/1",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Sensor1Dir",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Sensor1Dir",data);
     }
     return ;
 }
@@ -715,8 +865,11 @@ void MainWindow::Sensor2Dir(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/direction/2",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Sensor2Dir",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Sensor2Dir",data);
     }
     return ;
 }
@@ -729,8 +882,11 @@ void MainWindow::Sensor3Dir(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/direction/3",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Sensor3Dir",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Sensor3Dir",data);
     }
     return ;
 }
@@ -743,8 +899,11 @@ void MainWindow::Sensor4Dir(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/direction/4",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Sensor4Dir",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Sensor4Dir",data);
     }
     return ;
 }
@@ -757,8 +916,11 @@ void MainWindow::SRVRDYPolarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/srvrdy",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("SRVRDYPolarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("SRVRDYPolarity",data);
     }
     return ;
 }
@@ -771,8 +933,11 @@ void MainWindow::INPOSPolarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/inpos",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("INPOSPolarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("INPOSPolarity",data);
     }
     return ;
 }
@@ -785,8 +950,11 @@ void MainWindow::FAULTPolarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/fault",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("FAULTPolarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("FAULTPolarity",data);
     }
     return ;
 }
@@ -799,8 +967,11 @@ void MainWindow::BrakePolarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/brake",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("BrakePolarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("BrakePolarity",data);
     }
     return ;
 }
@@ -813,8 +984,11 @@ void MainWindow::DirPolarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/direction",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("DirPolarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("DirPolarity",data);
     }
     return ;
 }
@@ -827,8 +1001,11 @@ void MainWindow::EnPolarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/en",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("EnPolarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("EnPolarity",data);
     }
     return ;
 }
@@ -841,8 +1018,11 @@ void MainWindow::Al_CLRPolarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/al_clr",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Al_CLRPolarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Al_CLRPolarity",data);
     }
     return ;
 }
@@ -855,8 +1035,11 @@ void MainWindow::Al_OBrakePolarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/al_obrake",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Al_OBrakePolarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Al_OBrakePolarity",data);
     }
     return ;
 }
@@ -869,8 +1052,11 @@ void MainWindow::Al_ORezervPolarity(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/polarity/al_orezerv",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("Al_ORezervPolarity",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("Al_ORezervPolarity",data);
     }
     return ;
 }
@@ -884,8 +1070,11 @@ void MainWindow::EncoderActive()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/encoder/active",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("EncoderActive",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("EncoderActive",data);
     }
     return ;
 }
@@ -901,8 +1090,11 @@ void MainWindow::EncoderConfig()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/sensor/encoder/config",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("EncoderConfig",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("EncoderConfig",data);
     }
     return ;
 }
@@ -916,8 +1108,11 @@ void MainWindow::startFLASH()
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/flash/run",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("FlashBoot",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("FlashBoot",data);
     }
     return ;
 }
@@ -930,8 +1125,11 @@ void MainWindow::startINSTALL(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/flash/type/set",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("FlashTypeBootSet",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("FlashTypeBootSet",data);
     }
     return ;
 }
@@ -944,8 +1142,11 @@ void MainWindow::startSAVE(){
     if(ui->comboBoxApiType->currentText() == "REST"){
         this->sendApiRequest("api/flash/type/save",data);
     }
-    if(ui->comboBoxApiType->currentText() == "GRPC"){
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
         this->sendGrpcViaConsole("FlashTypeBootSave",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("FlashTypeBootSet",data);
     }
     return ;
 }
@@ -1020,7 +1221,6 @@ void MainWindow::onWebSocketTextMessageReceived(const QString &message)
 {
     // qDebug() << "WebSocket message received:" << message;
 
-    // Парсим JSON сообщение
     QJsonDocument doc = QJsonDocument::fromJson(message.toUtf8());
     if (!doc.isNull() && doc.isObject()) {
         QJsonObject json = doc.object();
@@ -1034,6 +1234,33 @@ void MainWindow::onSocketError(QAbstractSocket::SocketError error)
 {
     qDebug() << "WebSocket error:" << error << webSocket->errorString();
     ui->statusbar->showMessage("WebSocket Error: " + webSocket->errorString(), 5000);
+}
+
+void MainWindow::sendMqttRequest(const QString &part, const QJsonObject &data)
+{
+    if (mqttClient->state() != QMqttClient::Connected) {
+        qDebug() << "Not connected!";
+        return;
+    }
+    QJsonDocument doc(data);
+    QByteArray payload = doc.toJson(QJsonDocument::Compact);
+    QString topic = "cancontroller/command/"+part;
+    mqttClient->publish(QMqttTopicName(topic), payload);
+    return ;
+}
+
+void MainWindow::onMqttConnected()
+{
+    qDebug() << "Connected to Broker!";
+
+    mqttClient->subscribe(QMqttTopicFilter("cancontroller/response"));
+    return ;
+}
+
+void MainWindow::onMqttMessageReceived(const QByteArray &message, const QMqttTopicName &topic)
+{
+    qDebug() << "MQTT received: " << topic.name() << ":" << message;
+    return ;
 }
 
 void MainWindow::processWebSocketMessage(const QJsonObject &message)

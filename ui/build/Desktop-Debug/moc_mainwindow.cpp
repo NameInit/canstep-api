@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[78];
-    char stringdata0[1002];
+    QByteArrayData data[84];
+    char stringdata0[1082];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -109,7 +109,13 @@ QT_MOC_LITERAL(73, 899, 20), // "onSocketDisconnected"
 QT_MOC_LITERAL(74, 920, 30), // "onWebSocketTextMessageReceived"
 QT_MOC_LITERAL(75, 951, 7), // "message"
 QT_MOC_LITERAL(76, 959, 13), // "onSocketError"
-QT_MOC_LITERAL(77, 973, 28) // "QAbstractSocket::SocketError"
+QT_MOC_LITERAL(77, 973, 28), // "QAbstractSocket::SocketError"
+QT_MOC_LITERAL(78, 1002, 15), // "sendMqttRequest"
+QT_MOC_LITERAL(79, 1018, 4), // "part"
+QT_MOC_LITERAL(80, 1023, 15), // "onMqttConnected"
+QT_MOC_LITERAL(81, 1039, 21), // "onMqttMessageReceived"
+QT_MOC_LITERAL(82, 1061, 14), // "QMqttTopicName"
+QT_MOC_LITERAL(83, 1076, 5) // "topic"
 
     },
     "MainWindow\0ButtonAutosender\0\0ButtonConnect\0"
@@ -138,7 +144,10 @@ QT_MOC_LITERAL(77, 973, 28) // "QAbstractSocket::SocketError"
     "reply\0showApiError\0error\0onSocketConnected\0"
     "onSocketDisconnected\0"
     "onWebSocketTextMessageReceived\0message\0"
-    "onSocketError\0QAbstractSocket::SocketError"
+    "onSocketError\0QAbstractSocket::SocketError\0"
+    "sendMqttRequest\0part\0onMqttConnected\0"
+    "onMqttMessageReceived\0QMqttTopicName\0"
+    "topic"
 };
 #undef QT_MOC_LITERAL
 
@@ -148,7 +157,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      70,   14, // methods
+      74,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -156,76 +165,80 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  364,    2, 0x0a /* Public */,
-       3,    0,  365,    2, 0x0a /* Public */,
-       4,    0,  366,    2, 0x0a /* Public */,
-       5,    0,  367,    2, 0x0a /* Public */,
-       6,    0,  368,    2, 0x0a /* Public */,
-       7,    0,  369,    2, 0x0a /* Public */,
-       8,    0,  370,    2, 0x0a /* Public */,
-       9,    0,  371,    2, 0x0a /* Public */,
-      10,    0,  372,    2, 0x0a /* Public */,
-      11,    0,  373,    2, 0x0a /* Public */,
-      12,    0,  374,    2, 0x0a /* Public */,
-      13,    0,  375,    2, 0x0a /* Public */,
-      14,    0,  376,    2, 0x0a /* Public */,
-      15,    0,  377,    2, 0x0a /* Public */,
-      16,    0,  378,    2, 0x0a /* Public */,
-      17,    0,  379,    2, 0x0a /* Public */,
-      18,    0,  380,    2, 0x0a /* Public */,
-      19,    0,  381,    2, 0x0a /* Public */,
-      20,    0,  382,    2, 0x0a /* Public */,
-      21,    0,  383,    2, 0x0a /* Public */,
-      22,    0,  384,    2, 0x0a /* Public */,
-      23,    0,  385,    2, 0x0a /* Public */,
-      24,    0,  386,    2, 0x0a /* Public */,
-      25,    0,  387,    2, 0x0a /* Public */,
-      26,    0,  388,    2, 0x0a /* Public */,
-      27,    0,  389,    2, 0x0a /* Public */,
-      28,    0,  390,    2, 0x0a /* Public */,
-      29,    0,  391,    2, 0x0a /* Public */,
-      30,    0,  392,    2, 0x0a /* Public */,
-      31,    0,  393,    2, 0x0a /* Public */,
-      32,    0,  394,    2, 0x0a /* Public */,
-      33,    0,  395,    2, 0x0a /* Public */,
-      34,    0,  396,    2, 0x0a /* Public */,
-      35,    0,  397,    2, 0x0a /* Public */,
-      36,    0,  398,    2, 0x0a /* Public */,
-      37,    0,  399,    2, 0x0a /* Public */,
-      38,    0,  400,    2, 0x0a /* Public */,
-      39,    0,  401,    2, 0x0a /* Public */,
-      40,    0,  402,    2, 0x0a /* Public */,
-      41,    0,  403,    2, 0x0a /* Public */,
-      42,    0,  404,    2, 0x0a /* Public */,
-      43,    0,  405,    2, 0x0a /* Public */,
-      44,    0,  406,    2, 0x0a /* Public */,
-      45,    0,  407,    2, 0x0a /* Public */,
-      46,    0,  408,    2, 0x0a /* Public */,
-      47,    0,  409,    2, 0x0a /* Public */,
-      48,    0,  410,    2, 0x0a /* Public */,
-      49,    0,  411,    2, 0x0a /* Public */,
-      50,    0,  412,    2, 0x0a /* Public */,
-      51,    0,  413,    2, 0x0a /* Public */,
-      52,    0,  414,    2, 0x0a /* Public */,
-      53,    0,  415,    2, 0x0a /* Public */,
-      54,    0,  416,    2, 0x0a /* Public */,
-      55,    0,  417,    2, 0x0a /* Public */,
-      56,    0,  418,    2, 0x0a /* Public */,
-      57,    0,  419,    2, 0x0a /* Public */,
-      58,    0,  420,    2, 0x0a /* Public */,
-      59,    0,  421,    2, 0x0a /* Public */,
-      60,    0,  422,    2, 0x0a /* Public */,
-      61,    0,  423,    2, 0x0a /* Public */,
-      62,    0,  424,    2, 0x0a /* Public */,
-      63,    0,  425,    2, 0x0a /* Public */,
-      64,    2,  426,    2, 0x0a /* Public */,
-      64,    1,  431,    2, 0x2a /* Public | MethodCloned */,
-      67,    1,  434,    2, 0x0a /* Public */,
-      70,    1,  437,    2, 0x0a /* Public */,
-      72,    0,  440,    2, 0x0a /* Public */,
-      73,    0,  441,    2, 0x0a /* Public */,
-      74,    1,  442,    2, 0x0a /* Public */,
-      76,    1,  445,    2, 0x0a /* Public */,
+       1,    0,  384,    2, 0x0a /* Public */,
+       3,    0,  385,    2, 0x0a /* Public */,
+       4,    0,  386,    2, 0x0a /* Public */,
+       5,    0,  387,    2, 0x0a /* Public */,
+       6,    0,  388,    2, 0x0a /* Public */,
+       7,    0,  389,    2, 0x0a /* Public */,
+       8,    0,  390,    2, 0x0a /* Public */,
+       9,    0,  391,    2, 0x0a /* Public */,
+      10,    0,  392,    2, 0x0a /* Public */,
+      11,    0,  393,    2, 0x0a /* Public */,
+      12,    0,  394,    2, 0x0a /* Public */,
+      13,    0,  395,    2, 0x0a /* Public */,
+      14,    0,  396,    2, 0x0a /* Public */,
+      15,    0,  397,    2, 0x0a /* Public */,
+      16,    0,  398,    2, 0x0a /* Public */,
+      17,    0,  399,    2, 0x0a /* Public */,
+      18,    0,  400,    2, 0x0a /* Public */,
+      19,    0,  401,    2, 0x0a /* Public */,
+      20,    0,  402,    2, 0x0a /* Public */,
+      21,    0,  403,    2, 0x0a /* Public */,
+      22,    0,  404,    2, 0x0a /* Public */,
+      23,    0,  405,    2, 0x0a /* Public */,
+      24,    0,  406,    2, 0x0a /* Public */,
+      25,    0,  407,    2, 0x0a /* Public */,
+      26,    0,  408,    2, 0x0a /* Public */,
+      27,    0,  409,    2, 0x0a /* Public */,
+      28,    0,  410,    2, 0x0a /* Public */,
+      29,    0,  411,    2, 0x0a /* Public */,
+      30,    0,  412,    2, 0x0a /* Public */,
+      31,    0,  413,    2, 0x0a /* Public */,
+      32,    0,  414,    2, 0x0a /* Public */,
+      33,    0,  415,    2, 0x0a /* Public */,
+      34,    0,  416,    2, 0x0a /* Public */,
+      35,    0,  417,    2, 0x0a /* Public */,
+      36,    0,  418,    2, 0x0a /* Public */,
+      37,    0,  419,    2, 0x0a /* Public */,
+      38,    0,  420,    2, 0x0a /* Public */,
+      39,    0,  421,    2, 0x0a /* Public */,
+      40,    0,  422,    2, 0x0a /* Public */,
+      41,    0,  423,    2, 0x0a /* Public */,
+      42,    0,  424,    2, 0x0a /* Public */,
+      43,    0,  425,    2, 0x0a /* Public */,
+      44,    0,  426,    2, 0x0a /* Public */,
+      45,    0,  427,    2, 0x0a /* Public */,
+      46,    0,  428,    2, 0x0a /* Public */,
+      47,    0,  429,    2, 0x0a /* Public */,
+      48,    0,  430,    2, 0x0a /* Public */,
+      49,    0,  431,    2, 0x0a /* Public */,
+      50,    0,  432,    2, 0x0a /* Public */,
+      51,    0,  433,    2, 0x0a /* Public */,
+      52,    0,  434,    2, 0x0a /* Public */,
+      53,    0,  435,    2, 0x0a /* Public */,
+      54,    0,  436,    2, 0x0a /* Public */,
+      55,    0,  437,    2, 0x0a /* Public */,
+      56,    0,  438,    2, 0x0a /* Public */,
+      57,    0,  439,    2, 0x0a /* Public */,
+      58,    0,  440,    2, 0x0a /* Public */,
+      59,    0,  441,    2, 0x0a /* Public */,
+      60,    0,  442,    2, 0x0a /* Public */,
+      61,    0,  443,    2, 0x0a /* Public */,
+      62,    0,  444,    2, 0x0a /* Public */,
+      63,    0,  445,    2, 0x0a /* Public */,
+      64,    2,  446,    2, 0x0a /* Public */,
+      64,    1,  451,    2, 0x2a /* Public | MethodCloned */,
+      67,    1,  454,    2, 0x0a /* Public */,
+      70,    1,  457,    2, 0x0a /* Public */,
+      72,    0,  460,    2, 0x0a /* Public */,
+      73,    0,  461,    2, 0x0a /* Public */,
+      74,    1,  462,    2, 0x0a /* Public */,
+      76,    1,  465,    2, 0x0a /* Public */,
+      78,    2,  468,    2, 0x0a /* Public */,
+      78,    1,  473,    2, 0x2a /* Public | MethodCloned */,
+      80,    0,  476,    2, 0x0a /* Public */,
+      81,    2,  477,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -298,6 +311,10 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,   75,
     QMetaType::Void, 0x80000000 | 77,   71,
+    QMetaType::Void, QMetaType::QString, QMetaType::QJsonObject,   79,   66,
+    QMetaType::Void, QMetaType::QString,   79,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QByteArray, 0x80000000 | 82,   75,   83,
 
        0        // eod
 };
@@ -378,6 +395,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 67: _t->onSocketDisconnected(); break;
         case 68: _t->onWebSocketTextMessageReceived((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 69: _t->onSocketError((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
+        case 70: _t->sendMqttRequest((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QJsonObject(*)>(_a[2]))); break;
+        case 71: _t->sendMqttRequest((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 72: _t->onMqttConnected(); break;
+        case 73: _t->onMqttMessageReceived((*reinterpret_cast< const QByteArray(*)>(_a[1])),(*reinterpret_cast< const QMqttTopicName(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -395,6 +416,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QAbstractSocket::SocketError >(); break;
+            }
+            break;
+        case 73:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 1:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QMqttTopicName >(); break;
             }
             break;
         }
@@ -430,13 +458,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 70)
+        if (_id < 74)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 70;
+        _id -= 74;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 70)
+        if (_id < 74)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 70;
+        _id -= 74;
     }
     return _id;
 }

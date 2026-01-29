@@ -3325,4 +3325,22 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: \
  /usr/include/grpcpp/impl/codegen/proto_buffer_writer.h \
  /usr/include/grpcpp/support/proto_buffer_writer.h \
  /usr/include/grpcpp/impl/codegen/serialization_traits.h \
- /usr/include/grpcpp/support/stub_options.h
+ /usr/include/grpcpp/support/stub_options.h \
+ /home/ilya/Desktop/canstep-api/test/../include/MqttApiServer.h \
+ /usr/include/mqtt/async_client.h /usr/include/MQTTAsync.h \
+ /usr/include/MQTTExportDeclarations.h /usr/include/MQTTProperties.h \
+ /usr/include/MQTTReasonCodes.h /usr/include/MQTTSubscribeOpts.h \
+ /usr/include/MQTTClientPersistence.h /usr/include/mqtt/types.h \
+ /usr/include/mqtt/token.h /usr/include/mqtt/iaction_listener.h \
+ /usr/include/mqtt/exception.h /usr/include/mqtt/properties.h \
+ /usr/include/MQTTProperties.h /usr/include/mqtt/buffer_ref.h \
+ /usr/include/mqtt/string_collection.h \
+ /usr/include/mqtt/server_response.h /usr/include/mqtt/create_options.h \
+ /usr/include/mqtt/delivery_token.h /usr/include/mqtt/message.h \
+ /usr/include/mqtt/iclient_persistence.h /usr/include/mqtt/buffer_view.h \
+ /usr/include/mqtt/callback.h /usr/include/mqtt/thread_queue.h \
+ /usr/include/c++/13/queue /usr/include/c++/13/bits/stl_queue.h \
+ /usr/include/mqtt/iasync_client.h /usr/include/mqtt/connect_options.h \
+ /usr/include/mqtt/topic.h /usr/include/mqtt/subscribe_options.h \
+ /usr/include/MQTTSubscribeOpts.h /usr/include/mqtt/will_options.h \
+ /usr/include/mqtt/ssl_options.h /usr/include/mqtt/disconnect_options.h

@@ -11,6 +11,7 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
   /home/ilya/Desktop/canstep-api/include/GrpcApiServer.h \
   /home/ilya/Desktop/canstep-api/include/HidDevice.h \
   /home/ilya/Desktop/canstep-api/include/Mechanism.h \
+  /home/ilya/Desktop/canstep-api/include/MqttApiServer.h \
   /home/ilya/Desktop/canstep-api/include/RestApiServer.h \
   /home/ilya/Desktop/canstep-api/include/ScenarioBuilder.h \
   /home/ilya/Desktop/canstep-api/include/Typedefs.h \
@@ -22,6 +23,12 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
   /home/ilya/Desktop/canstep-api/include/WebSocketSession.h \
   /home/ilya/Desktop/canstep-api/include/can_controller.grpc.pb.h \
   /home/ilya/Desktop/canstep-api/include/can_controller.pb.h \
+  /usr/include/MQTTAsync.h \
+  /usr/include/MQTTClientPersistence.h \
+  /usr/include/MQTTExportDeclarations.h \
+  /usr/include/MQTTProperties.h \
+  /usr/include/MQTTReasonCodes.h \
+  /usr/include/MQTTSubscribeOpts.h \
   /usr/include/absl/base/attributes.h \
   /usr/include/absl/base/config.h \
   /usr/include/absl/base/const_init.h \
@@ -2976,6 +2983,7 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
   /usr/include/c++/13/bits/stl_multiset.h \
   /usr/include/c++/13/bits/stl_numeric.h \
   /usr/include/c++/13/bits/stl_pair.h \
+  /usr/include/c++/13/bits/stl_queue.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
   /usr/include/c++/13/bits/stl_relops.h \
   /usr/include/c++/13/bits/stl_set.h \
@@ -3060,6 +3068,7 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/glue_numeric_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/queue \
   /usr/include/c++/13/random \
   /usr/include/c++/13/ratio \
   /usr/include/c++/13/regex \
@@ -3294,6 +3303,29 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
   /usr/include/linux/version.h \
   /usr/include/locale.h \
   /usr/include/math.h \
+  /usr/include/mqtt/async_client.h \
+  /usr/include/mqtt/buffer_ref.h \
+  /usr/include/mqtt/buffer_view.h \
+  /usr/include/mqtt/callback.h \
+  /usr/include/mqtt/connect_options.h \
+  /usr/include/mqtt/create_options.h \
+  /usr/include/mqtt/delivery_token.h \
+  /usr/include/mqtt/disconnect_options.h \
+  /usr/include/mqtt/exception.h \
+  /usr/include/mqtt/iaction_listener.h \
+  /usr/include/mqtt/iasync_client.h \
+  /usr/include/mqtt/iclient_persistence.h \
+  /usr/include/mqtt/message.h \
+  /usr/include/mqtt/properties.h \
+  /usr/include/mqtt/server_response.h \
+  /usr/include/mqtt/ssl_options.h \
+  /usr/include/mqtt/string_collection.h \
+  /usr/include/mqtt/subscribe_options.h \
+  /usr/include/mqtt/thread_queue.h \
+  /usr/include/mqtt/token.h \
+  /usr/include/mqtt/topic.h \
+  /usr/include/mqtt/types.h \
+  /usr/include/mqtt/will_options.h \
   /usr/include/net/if.h \
   /usr/include/netdb.h \
   /usr/include/netinet/in.h \
@@ -3585,8 +3617,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
-
 /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
@@ -3711,8 +3741,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/x86_64-linux-gnu/bits/in.h:
 
-/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
-
 /usr/include/x86_64-linux-gnu/bits/fcntl.h:
 
 /usr/include/x86_64-linux-gnu/bits/eventfd.h:
@@ -3786,6 +3814,32 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/netinet/tcp.h:
 
 /usr/include/net/if.h:
+
+/usr/include/mqtt/topic.h:
+
+/usr/include/mqtt/thread_queue.h:
+
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/mqtt/subscribe_options.h:
+
+/usr/include/mqtt/string_collection.h:
+
+/usr/include/mqtt/ssl_options.h:
+
+/usr/include/mqtt/server_response.h:
+
+/usr/include/mqtt/properties.h:
+
+/usr/include/mqtt/message.h:
+
+/usr/include/mqtt/iclient_persistence.h:
+
+/usr/include/mqtt/delivery_token.h:
+
+/usr/include/mqtt/connect_options.h:
+
+/usr/include/mqtt/async_client.h:
 
 /usr/include/math.h:
 
@@ -3880,6 +3934,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/grpcpp/impl/call_op_set.h:
 
 /usr/include/grpcpp/impl/call_hook.h:
+
+/usr/include/mqtt/token.h:
 
 /usr/include/grpcpp/health_check_service_interface.h:
 
@@ -4013,6 +4069,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/c++/13/tr1/ell_integral.tcc:
 
+/usr/include/mqtt/exception.h:
+
 /usr/include/google/protobuf/io/zero_copy_stream_impl_lite.h:
 
 /usr/include/c++/13/tr1/beta_function.tcc:
@@ -4032,6 +4090,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/c++/13/regex:
 
 /usr/include/c++/13/random:
+
+/usr/include/c++/13/queue:
 
 /usr/include/c++/13/pstl/glue_numeric_defs.h:
 
@@ -4116,6 +4176,10 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/c++/13/bits/stl_tempbuf.h:
 
 /usr/include/c++/13/bits/stl_set.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
+
+/usr/include/c++/13/bits/stl_queue.h:
 
 /usr/include/c++/13/bits/stl_pair.h:
 
@@ -4328,8 +4392,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/c++/13/limits:
 
 /usr/include/boost/type_traits/is_nothrow_swappable.hpp:
-
-/usr/include/boost/type_traits/is_nothrow_move_constructible.hpp:
 
 /usr/include/c++/13/bits/vector.tcc:
 
@@ -4779,6 +4841,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/proto/functional/fusion/at.hpp:
 
+/usr/include/mqtt/will_options.h:
+
 /usr/include/boost/proto/expr.hpp:
 
 /usr/include/boost/proto/domain.hpp:
@@ -4840,6 +4904,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/proto/detail/extends_funop.hpp:
 
 /usr/include/boost/proto/detail/deduce_domain.hpp:
+
+/usr/include/mqtt/callback.h:
 
 /usr/include/boost/type_traits/has_logical_and.hpp:
 
@@ -4997,11 +5063,21 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/preprocessor/logical/bitand.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/uio-ext.h:
+/usr/include/boost/preprocessor/list/limits/fold_left_256.hpp:
 
-/usr/include/boost/date_time/date_clock_device.hpp:
+/usr/include/boost/preprocessor/list/for_each_i.hpp:
 
-/usr/include/boost/asio/ip/detail/impl/endpoint.ipp:
+/usr/include/boost/preprocessor/repetition/enum_trailing_params.hpp:
+
+/usr/include/boost/preprocessor/list/fold_right.hpp:
+
+/usr/include/grpcpp/impl/codegen/interceptor_common.h:
+
+/usr/include/boost/preprocessor/list/fold_left.hpp:
+
+/usr/include/boost/preprocessor/list/detail/limits/fold_left_256.hpp:
+
+/usr/include/boost/preprocessor/list/detail/fold_right.hpp:
 
 /usr/include/boost/fusion/adapted/struct/detail/is_sequence_impl.hpp:
 
@@ -5010,8 +5086,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/asio/detail/type_traits.hpp:
 
 /usr/include/boost/mp11/integral.hpp:
-
-/usr/include/boost/algorithm/string/yes_no_type.hpp:
 
 /usr/include/boost/fusion/adapted/struct/detail/deref_impl.hpp:
 
@@ -5064,8 +5138,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/mpl/advance.hpp:
 
 /usr/include/boost/function_types/detail/components_impl/arity10_0.hpp:
-
-/usr/include/boost/filesystem/path.hpp:
 
 /usr/include/boost/endian/detail/order.hpp:
 
@@ -5141,11 +5213,11 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/date_time/posix_time/posix_time_io.hpp:
 
+/usr/include/boost/preprocessor/list/detail/limits/fold_right_256.hpp:
+
+/usr/include/boost/asio/detail/keyword_tss_ptr.hpp:
+
 /usr/include/boost/beast/websocket.hpp:
-
-/usr/include/boost/preprocessor/seq/size.hpp:
-
-/usr/include/boost/date_time/period_parser.hpp:
 
 /usr/include/boost/date_time/time_zone_names.hpp:
 
@@ -5405,8 +5477,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/log/detail/date_time_fmt_gen_traits_fwd.hpp:
 
-/usr/include/boost/chrono/clock_string.hpp:
-
 /usr/include/boost/mpl/clear.hpp:
 
 /usr/include/boost/cerrno.hpp:
@@ -5470,8 +5540,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/parameter/aux_/name.hpp:
 
 /usr/include/boost/fusion/adapted/mpl/detail/begin_impl.hpp:
-
-/usr/include/boost/preprocessor/list/detail/limits/fold_left_256.hpp:
 
 /usr/include/boost/preprocessor/repetition/enum_shifted_params.hpp:
 
@@ -5560,6 +5628,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h:
 
 /usr/include/boost/preprocessor/arithmetic/sub.hpp:
+
+/usr/include/mqtt/types.h:
 
 /usr/include/boost/proto/detail/template_arity_helper.hpp:
 
@@ -5709,10 +5779,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/core/noinit_adaptor.hpp:
 
-/usr/include/grpcpp/impl/codegen/interceptor_common.h:
-
-/usr/include/boost/preprocessor/list/fold_left.hpp:
-
 /usr/include/boost/log/attributes/attribute.hpp:
 
 /usr/include/boost/lexical_cast/detail/converter_lexical.hpp:
@@ -5815,11 +5881,11 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /home/ilya/Desktop/canstep-api/include/Bootloader.h:
 
-/usr/include/boost/beast/core/detail/sha1.ipp:
-
 /usr/include/boost/beast/core/detail/remap_post_to_defer.hpp:
 
 /usr/include/boost/mpl/is_sequence.hpp:
+
+/usr/include/mqtt/iaction_listener.h:
 
 /usr/include/boost/mpl/numeric_cast.hpp:
 
@@ -5888,6 +5954,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/beast/core/buffers_to_string.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+/usr/include/mqtt/create_options.h:
 
 /usr/include/boost/beast/core/buffers_suffix.hpp:
 
@@ -6123,49 +6191,21 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/asio/file_base.hpp:
 
-/usr/include/boost/date_time/strings_from_facet.hpp:
+/usr/include/boost/core/allocator_access.hpp:
 
-/usr/include/boost/asio/detail/reactive_socket_sendto_op.hpp:
+/usr/include/boost/container/throw_exception.hpp:
 
-/usr/include/boost/range/detail/implementation_help.hpp:
+/usr/include/boost/asio/windows/overlapped_ptr.hpp:
 
-/usr/include/boost/mpl/aux_/lambda_spec.hpp:
+/usr/include/boost/asio/windows/object_handle.hpp:
 
-/usr/include/boost/asio/detail/reactive_socket_recvmsg_op.hpp:
+/usr/include/boost/proto/transform/detail/fold_impl.hpp:
 
-/usr/include/boost/asio/basic_serial_port.hpp:
+/usr/include/boost/beast/http/detail/basic_parser.ipp:
 
-/usr/include/boost/asio/detail/reactive_socket_recv_op.hpp:
+/usr/include/c++/13/fstream:
 
-/usr/include/boost/type_traits/is_reference.hpp:
-
-/usr/include/boost/asio/impl/read_until.hpp:
-
-/usr/include/boost/asio/is_executor.hpp:
-
-/usr/include/boost/predef/compiler/clang.h:
-
-/usr/include/boost/intrusive/parent_from_member.hpp:
-
-/usr/include/boost/asio/detail/reactive_socket_connect_op.hpp:
-
-/usr/include/boost/beast/core/detail/impl/read.hpp:
-
-/usr/include/boost/mpl/set/aux_/erase_impl.hpp:
-
-/usr/include/boost/asio/detail/handler_type_requirements.hpp:
-
-/usr/include/boost/atomic/detail/core_arch_operations.hpp:
-
-/usr/include/boost/preprocessor/seq/limits/elem_256.hpp:
-
-/usr/include/boost/asio/buffer.hpp:
-
-/usr/include/boost/mp11/algorithm.hpp:
-
-/usr/include/boost/phoenix/operator/detail/cpp03/preprocessed/mem_fun_ptr_gen_10.hpp:
-
-/usr/include/boost/phoenix/core/detail/cpp03/preprocessed/argument.hpp:
+/usr/include/boost/asio/windows/basic_overlapped_handle.hpp:
 
 /usr/include/boost/json/detail/value_from.hpp:
 
@@ -6263,6 +6303,26 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/asio/detail/winsock_init.hpp:
 
+/usr/include/boost/atomic/detail/core_arch_operations.hpp:
+
+/usr/include/boost/preprocessor/seq/limits/elem_256.hpp:
+
+/usr/include/boost/asio/buffer.hpp:
+
+/usr/include/boost/mp11/algorithm.hpp:
+
+/usr/include/boost/phoenix/operator/detail/cpp03/preprocessed/mem_fun_ptr_gen_10.hpp:
+
+/usr/include/boost/phoenix/core/detail/cpp03/preprocessed/argument.hpp:
+
+/usr/include/boost/asio/detail/handler_type_requirements.hpp:
+
+/usr/include/boost/asio/detail/reactive_socket_connect_op.hpp:
+
+/usr/include/boost/beast/core/detail/impl/read.hpp:
+
+/usr/include/boost/mpl/set/aux_/erase_impl.hpp:
+
 /usr/include/boost/asio/impl/detached.hpp:
 
 /usr/include/google/protobuf/repeated_field.h:
@@ -6274,6 +6334,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/asio/ip/unicast.hpp:
 
 /usr/include/boost/asio/detail/executor_op.hpp:
+
+/usr/include/MQTTSubscribeOpts.h:
 
 /usr/include/boost/date_time/gregorian/parsers.hpp:
 
@@ -6439,13 +6501,15 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/asio/buffered_stream.hpp:
 
-/usr/include/boost/asio/impl/redirect_error.hpp:
-
 /usr/include/boost/asio/detail/base_from_cancellation_state.hpp:
 
 /usr/include/boost/asio/windows/basic_object_handle.hpp:
 
+/usr/include/boost/asio/impl/redirect_error.hpp:
+
 /usr/include/boost/asio/buffered_read_stream.hpp:
+
+/usr/include/boost/asio/windows/basic_stream_handle.hpp:
 
 /usr/include/boost/asio/buffer_registration.hpp:
 
@@ -6485,51 +6549,9 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/asio/detail/initiate_post.hpp:
 
-/usr/include/c++/13/mutex:
-
-/usr/include/boost/log/detail/embedded_string_type.hpp:
-
-/usr/include/libintl.h:
-
-/usr/include/boost/predef/platform/ios.h:
-
-/usr/include/boost/asio/detail/resolve_endpoint_op.hpp:
-
-/usr/include/c++/13/ext/atomicity.h:
-
-/usr/include/boost/asio/buffered_read_stream_fwd.hpp:
-
-/usr/include/boost/json/detail/string_impl.hpp:
-
-/usr/include/boost/preprocessor/repetition/enum_binary_params.hpp:
-
-/usr/include/boost/multi_index/detail/node_type.hpp:
-
-/usr/include/boost/beast/core/detail/config.hpp:
-
-/usr/include/x86_64-linux-gnu/sys/types.h:
-
-/usr/include/boost/beast/core/impl/error.hpp:
-
-/usr/include/boost/type_traits/is_const.hpp:
-
-/usr/include/boost/mpl/aux_/config/integral.hpp:
-
-/usr/include/boost/asio/generic/detail/endpoint.hpp:
-
-/usr/include/boost/asio/detail/null_event.hpp:
-
-/usr/include/boost/preprocessor/facilities/identity.hpp:
-
-/usr/include/arpa/inet.h:
-
 /usr/include/boost/algorithm/string/detail/find_format.hpp:
 
 /usr/include/boost/fusion/sequence/intrinsic_fwd.hpp:
-
-/usr/include/boost/proto/transform/detail/fold_impl.hpp:
-
-/usr/include/boost/beast/http/detail/basic_parser.ipp:
 
 /usr/include/c++/13/bits/regex.h:
 
@@ -6538,6 +6560,10 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/asio/detail/pop_options.hpp:
 
 /usr/include/boost/phoenix/core/limits.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/uio-ext.h:
+
+/usr/include/boost/date_time/date_clock_device.hpp:
 
 /usr/include/boost/container/detail/auto_link.hpp:
 
@@ -6548,6 +6574,32 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/asio/detail/conditionally_enabled_mutex.hpp:
 
 /usr/include/boost/mpl/apply_fwd.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
+/usr/include/boost/asio/basic_writable_pipe.hpp:
+
+/usr/include/boost/mpl/aux_/nttp_decl.hpp:
+
+/usr/include/boost/fusion/view/single_view/detail/end_impl.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
+
+/usr/include/boost/preprocessor/repetition/limits/repeat_256.hpp:
+
+/usr/include/boost/core/enable_if.hpp:
+
+/usr/include/boost/mpl/aux_/config/use_preprocessed.hpp:
+
+/usr/include/boost/beast/zlib/detail/bitstream.hpp:
+
+/usr/include/boost/asio/detail/impl/reactive_socket_service_base.ipp:
+
+/usr/include/boost/array.hpp:
+
+/usr/include/boost/mpl/aux_/config/typeof.hpp:
+
+/usr/include/boost/json/parse_options.hpp:
 
 /usr/include/boost/type_traits/has_unary_minus.hpp:
 
@@ -6568,12 +6620,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/json/stream_parser.hpp:
 
 /usr/include/boost/algorithm/string/sequence_traits.hpp:
-
-/usr/include/boost/asio/basic_io_object.hpp:
-
-/usr/include/boost/asio/detail/resolve_query_op.hpp:
-
-/usr/include/boost/log/detail/copy_cv.hpp:
 
 /usr/include/absl/time/internal/cctz/include/cctz/time_zone.h:
 
@@ -6599,35 +6645,11 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/asio/detail/wait_handler.hpp:
 
-/usr/include/grpcpp/security/tls_certificate_provider.h:
-
-/usr/include/boost/mpl/aux_/config/msvc_typename.hpp:
-
-/usr/include/boost/beast/core/impl/buffers_generator.hpp:
-
-/usr/include/boost/asio/detail/impl/epoll_reactor.hpp:
-
-/usr/include/pistache/endpoint.h:
-
-/usr/include/boost/asio/execution/context.hpp:
-
-/usr/include/boost/asio/associated_immediate_executor.hpp:
-
 /usr/include/boost/predef/architecture/mips.h:
 
 /usr/include/boost/beast/core/buffers_adaptor.hpp:
 
 /usr/include/absl/base/policy_checks.h:
-
-/usr/include/boost/date_time/dst_rules.hpp:
-
-/usr/include/absl/synchronization/internal/kernel_timeout.h:
-
-/usr/include/boost/predef/os/hpux.h:
-
-/usr/include/boost/asio/read_at.hpp:
-
-/usr/include/boost/asio/detail/throw_exception.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
 
@@ -6635,15 +6657,49 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/absl/strings/string_view.h:
 
+/home/ilya/Desktop/canstep-api/include/TypesTenso.h:
+
 /usr/include/grpc/impl/codegen/byte_buffer.h:
 
 /home/ilya/Desktop/canstep-api/include/CRC.h:
 
-/home/ilya/Desktop/canstep-api/include/TypesTenso.h:
+/usr/include/absl/base/macros.h:
 
 /usr/include/absl/synchronization/internal/per_thread_sem.h:
 
-/usr/include/absl/base/macros.h:
+/usr/include/boost/beast/http/read.hpp:
+
+/usr/include/boost/container_hash/detail/mulx.hpp:
+
+/usr/include/absl/base/internal/tsan_mutex_interface.h:
+
+/usr/include/grpcpp/support/client_interceptor.h:
+
+/usr/include/boost/range/empty.hpp:
+
+/usr/include/boost/asio/detail/array.hpp:
+
+/usr/include/boost/preprocessor/arithmetic/detail/div_base.hpp:
+
+/usr/include/boost/container/container_fwd.hpp:
+
+/usr/include/boost/container_hash/detail/hash_tuple_like.hpp:
+
+/usr/include/boost/intrusive/detail/ebo_functor_holder.hpp:
+
+/usr/include/boost/multi_index/detail/unbounded.hpp:
+
+/usr/include/boost/beast/core/impl/saved_handler.hpp:
+
+/usr/include/boost/fusion/algorithm/iteration/fold_fwd.hpp:
+
+/usr/include/linux/ioctl.h:
+
+/usr/include/boost/beast/core.hpp:
+
+/usr/include/boost/asio/impl/consign.hpp:
+
+/usr/include/boost/date_time/time_resolution_traits.hpp:
 
 /usr/include/boost/fusion/algorithm/transformation/push_front.hpp:
 
@@ -6652,24 +6708,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/x86_64-linux-gnu/bits/termios-misc.h:
 
 /usr/include/boost/parameter/aux_/pack/tag_template_keyword_arg.hpp:
-
-/usr/include/boost/proto/transform/detail/preprocessed/expand_pack.hpp:
-
-/usr/include/boost/beast/http/impl/write.hpp:
-
-/usr/include/boost/asio/detail/impl/posix_event.ipp:
-
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
-
-/usr/include/boost/asio/basic_stream_socket.hpp:
-
-/usr/include/boost/date_time/time_resolution_traits.hpp:
-
-/usr/include/linux/ioctl.h:
-
-/usr/include/boost/beast/core.hpp:
-
-/usr/include/boost/asio/impl/consign.hpp:
 
 /usr/include/boost/asio/basic_streambuf.hpp:
 
@@ -6680,6 +6718,12 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/predef/library/std/cxx.h:
 
 /usr/include/absl/synchronization/mutex.h:
+
+/usr/include/boost/date_time/dst_rules.hpp:
+
+/usr/include/absl/synchronization/internal/kernel_timeout.h:
+
+/usr/include/boost/predef/os/hpux.h:
 
 /usr/include/boost/range/begin.hpp:
 
@@ -6715,67 +6759,59 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/parameter/aux_/yesno.hpp:
 
-/usr/include/boost/intrusive/pack_options.hpp:
-
 /usr/include/boost/asio/executor_work_guard.hpp:
 
-/usr/include/boost/log/trivial.hpp:
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
-/usr/include/boost/asio/detail/global.hpp:
+/usr/include/boost/beast/websocket/error.hpp:
 
-/usr/include/boost/range/end.hpp:
+/usr/include/boost/proto/traits.hpp:
 
-/usr/include/boost/asio/detail/cstddef.hpp:
+/usr/include/boost/asio/detail/impl/strand_executor_service.hpp:
 
-/usr/include/boost/beast/core/impl/buffers_adaptor.hpp:
+/usr/include/boost/asio/detail/impl/signal_set_service.ipp:
 
-/usr/include/boost/asio/buffers_iterator.hpp:
+/usr/include/boost/atomic/detail/memory_order_utils.hpp:
 
-/usr/include/boost/date_time/adjust_functors.hpp:
+/usr/include/boost/atomic/detail/type_traits/is_signed.hpp:
 
-/usr/include/boost/asio/streambuf.hpp:
+/usr/include/boost/asio/read.hpp:
 
-/home/ilya/Desktop/canstep-api/include/RestApiServer.h:
+/usr/include/boost/log/detail/locking_ptr.hpp:
 
-/usr/include/boost/mpl/size.hpp:
+/usr/include/boost/detail/workaround.hpp:
 
-/usr/include/boost/mpl/eval_if.hpp:
+/usr/include/boost/asio/ip/address_v6.hpp:
 
-/usr/include/boost/type_traits/negation.hpp:
+/usr/include/boost/iterator/iterator_categories.hpp:
 
-/usr/include/boost/asio/detail/reactive_socket_send_op.hpp:
+/usr/include/boost/asio/detail/initiate_defer.hpp:
 
-/usr/include/boost/fusion/algorithm/iteration/detail/preprocessed/fold.hpp:
+/usr/include/x86_64-linux-gnu/bits/endian.h:
 
-/usr/include/boost/static_string/config.hpp:
+/usr/include/boost/asio/execution/sender.hpp:
 
-/usr/include/boost/numeric/conversion/detail/int_float_mixture.hpp:
+/usr/include/boost/iterator/detail/config_def.hpp:
 
-/usr/include/boost/beast/http/rfc7230.hpp:
+/usr/include/boost/mpl/set/aux_/has_key_impl.hpp:
 
-/usr/include/boost/asio/detail/timer_scheduler.hpp:
+/usr/include/boost/preprocessor/seq/detail/split.hpp:
 
-/usr/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp:
+/usr/include/boost/describe/bases.hpp:
 
-/home/ilya/Desktop/canstep-api/include/HidDevice.h:
+/usr/include/absl/time/internal/cctz/include/cctz/civil_time.h:
 
-/usr/include/boost/container/pmr/polymorphic_allocator.hpp:
+/usr/include/boost/fusion/include/value_of.hpp:
 
-/usr/include/boost/asio/impl/read_at.hpp:
+/usr/include/grpc/byte_buffer.h:
 
-/usr/include/boost/type_traits/extent.hpp:
+/usr/include/boost/asio/async_result.hpp:
 
-/usr/include/absl/base/thread_annotations.h:
+/usr/include/boost/beast/websocket/detail/service.hpp:
 
-/usr/include/google/protobuf/inlined_string_field.h:
+/usr/include/boost/asio/query.hpp:
 
-/usr/include/boost/atomic/detail/footer.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
-
-/usr/include/boost/asio/traits/submit_free.hpp:
-
-/usr/include/boost/log/sinks/text_file_backend.hpp:
+/usr/include/boost/asio/detail/static_mutex.hpp:
 
 /usr/include/grpcpp/support/byte_buffer.h:
 
@@ -6801,6 +6837,60 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/predef/library/std/stlport.h:
 
+/usr/include/absl/base/internal/identity.h:
+
+/usr/include/boost/json/detail/shared_resource.hpp:
+
+/usr/include/boost/beast/core/detail/clamp.hpp:
+
+/usr/include/boost/mpl/begin_end_fwd.hpp:
+
+/usr/include/boost/parameter/aux_/unwrap_cv_reference.hpp:
+
+/usr/include/boost/exception/exception.hpp:
+
+/usr/include/boost/type_traits/extent.hpp:
+
+/usr/include/absl/base/thread_annotations.h:
+
+/usr/include/google/protobuf/inlined_string_field.h:
+
+/usr/include/boost/atomic/detail/footer.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+
+/usr/include/boost/asio/traits/submit_free.hpp:
+
+/usr/include/boost/log/sinks/text_file_backend.hpp:
+
+/usr/include/boost/beast/http/rfc7230.hpp:
+
+/usr/include/boost/asio/detail/timer_scheduler.hpp:
+
+/usr/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp:
+
+/home/ilya/Desktop/canstep-api/include/HidDevice.h:
+
+/usr/include/boost/container/pmr/polymorphic_allocator.hpp:
+
+/usr/include/boost/asio/impl/read_at.hpp:
+
+/usr/include/boost/date_time/posix_time/time_formatters.hpp:
+
+/usr/include/boost/asio/execution/execute.hpp:
+
+/usr/include/boost/beast/core/impl/static_buffer.hpp:
+
+/usr/include/boost/config/stdlib/libstdcpp3.hpp:
+
+/usr/include/boost/log/detail/sfinae_tools.hpp:
+
+/usr/include/c++/13/bits/fstream.tcc:
+
+/usr/include/boost/log/support/date_time.hpp:
+
+/usr/include/boost/asio/detail/noncopyable.hpp:
+
 /home/ilya/Desktop/canstep-api/include/CanController.h:
 
 /usr/include/boost/fusion/view/iterator_range/detail/at_impl.hpp:
@@ -6808,6 +6898,16 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/asio/traits/bulk_execute_free.hpp:
 
 /usr/include/boost/asio/detail/timer_queue.hpp:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/boost/beast/core/impl/error.hpp:
+
+/usr/include/boost/beast/core/detail/config.hpp:
+
+/usr/include/boost/type_traits/is_const.hpp:
+
+/usr/include/boost/mpl/aux_/config/integral.hpp:
 
 /usr/include/boost/asio/detail/buffer_sequence_adapter.hpp:
 
@@ -6831,7 +6931,7 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/parameter/aux_/is_placeholder.hpp:
 
-/usr/include/boost/asio/windows/object_handle.hpp:
+/usr/include/mqtt/buffer_ref.h:
 
 /usr/include/boost/atomic/detail/bitwise_cast.hpp:
 
@@ -6866,36 +6966,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/beast/http/impl/error.ipp:
 
 /usr/include/boost/asio/detail/epoll_reactor.hpp:
-
-/usr/include/grpcpp/version_info.h:
-
-/usr/include/boost/beast/websocket/teardown.hpp:
-
-/usr/include/boost/mpl/vector/aux_/pop_front.hpp:
-
-/usr/include/boost/asio/detail/reactive_socket_accept_op.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:
-
-/usr/include/boost/any/fwd.hpp:
-
-/usr/include/boost/preprocessor/seq/pop_back.hpp:
-
-/usr/include/boost/fusion/adapted/struct/detail/size_impl.hpp:
-
-/usr/include/boost/config/abi_suffix.hpp:
-
-/usr/include/boost/asio/detail/variadic_templates.hpp:
-
-/usr/include/boost/log/sinks/sink.hpp:
-
-/usr/include/boost/config/no_tr1/memory.hpp:
-
-/usr/include/boost/asio/ip/impl/network_v4.ipp:
-
-/usr/include/boost/asio/basic_readable_pipe.hpp:
-
-/usr/include/boost/mpl/vector/aux_/include_preprocessed.hpp:
 
 /usr/include/boost/asio/detail/impl/null_event.ipp:
 
@@ -6933,12 +7003,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/mp11/tuple.hpp:
 
-/usr/include/boost/mpl/begin_end_fwd.hpp:
-
-/usr/include/boost/parameter/aux_/unwrap_cv_reference.hpp:
-
-/usr/include/boost/exception/exception.hpp:
-
 /usr/include/boost/beast/core/string_type.hpp:
 
 /usr/include/boost/asio/detail/conditionally_enabled_event.hpp:
@@ -6955,51 +7019,7 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/asio/detail/thread_context.hpp:
 
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/boost/mpl/aux_/preprocessed/gcc/or.hpp:
-
-/usr/include/boost/asio/detail/posix_mutex.hpp:
-
-/usr/include/boost/intrusive/detail/mpl.hpp:
-
 /home/ilya/Desktop/canstep-api/include/can_controller.pb.h:
-
-/usr/include/boost/detail/workaround.hpp:
-
-/usr/include/boost/asio/ip/address_v6.hpp:
-
-/usr/include/boost/iterator/iterator_categories.hpp:
-
-/usr/include/boost/asio/detail/initiate_defer.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/endian.h:
-
-/usr/include/boost/asio/execution/sender.hpp:
-
-/usr/include/boost/iterator/detail/config_def.hpp:
-
-/usr/include/boost/mpl/set/aux_/has_key_impl.hpp:
-
-/usr/include/boost/asio/buffered_write_stream_fwd.hpp:
-
-/usr/include/boost/predef/architecture.h:
-
-/usr/include/boost/preprocessor/seq/detail/split.hpp:
-
-/usr/include/boost/describe/bases.hpp:
-
-/usr/include/absl/time/internal/cctz/include/cctz/civil_time.h:
-
-/usr/include/boost/fusion/include/value_of.hpp:
-
-/usr/include/grpc/byte_buffer.h:
-
-/usr/include/boost/asio/async_result.hpp:
-
-/usr/include/boost/beast/websocket/detail/service.hpp:
-
-/usr/include/boost/asio/query.hpp:
 
 /home/ilya/Desktop/canstep-api/include/GrpcApiServer.h:
 
@@ -7011,17 +7031,51 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /home/ilya/Desktop/canstep-api/include/TypesCANStep.h:
 
-/usr/include/boost/beast/core/impl/static_buffer.hpp:
+/usr/include/boost/algorithm/string/yes_no_type.hpp:
 
-/usr/include/boost/config/stdlib/libstdcpp3.hpp:
+/home/ilya/Desktop/canstep-api/include/CanControllerApi.h:
 
-/usr/include/boost/log/detail/sfinae_tools.hpp:
+/usr/include/boost/asio/buffered_write_stream_fwd.hpp:
 
-/usr/include/c++/13/bits/fstream.tcc:
+/usr/include/boost/predef/architecture.h:
 
-/usr/include/boost/log/support/date_time.hpp:
+/usr/include/boost/beast/websocket/detail/hybi13.hpp:
 
-/usr/include/boost/asio/detail/noncopyable.hpp:
+/usr/include/boost/atomic/detail/atomic_impl.hpp:
+
+/usr/include/x86_64-linux-gnu/asm/ioctl.h:
+
+/usr/include/boost/preprocessor/logical/and.hpp:
+
+/usr/include/boost/mpl/long_fwd.hpp:
+
+/usr/include/boost/asio/execution/schedule.hpp:
+
+/usr/include/c++/13/bits/std_thread.h:
+
+/usr/include/boost/function_types/is_callable_builtin.hpp:
+
+/usr/include/features-time64.h:
+
+/usr/include/boost/asio/post.hpp:
+
+/usr/include/boost/beast/websocket/impl/accept.hpp:
+
+/usr/include/boost/asio/ip/address_v4_iterator.hpp:
+
+/usr/include/boost/mpl/aux_/empty_impl.hpp:
+
+/usr/include/boost/numeric/conversion/detail/bounds.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:
+
+/usr/include/boost/any/fwd.hpp:
+
+/usr/include/boost/mpl/vector/aux_/pop_front.hpp:
+
+/usr/include/boost/asio/detail/reactive_socket_accept_op.hpp:
+
+/usr/include/boost/asio/any_io_executor.hpp:
 
 /usr/include/boost/asio/detail/posix_global.hpp:
 
@@ -7041,105 +7095,17 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/asio/ip/impl/basic_endpoint.hpp:
 
-/home/ilya/Desktop/canstep-api/include/CanControllerApi.h:
+/usr/include/boost/asio/detail/reactive_socket_recv_op.hpp:
 
-/usr/include/boost/asio/detail/impl/signal_set_service.ipp:
+/usr/include/boost/type_traits/is_reference.hpp:
 
-/usr/include/boost/atomic/detail/memory_order_utils.hpp:
+/usr/include/boost/asio/impl/read_until.hpp:
 
-/usr/include/boost/proto/traits.hpp:
+/usr/include/boost/asio/is_executor.hpp:
 
-/usr/include/boost/asio/detail/impl/strand_executor_service.hpp:
+/usr/include/boost/predef/compiler/clang.h:
 
-/usr/include/boost/atomic/detail/type_traits/is_signed.hpp:
-
-/usr/include/grpcpp/security/authorization_policy_provider.h:
-
-/usr/include/boost/asio/detail/operation.hpp:
-
-/usr/include/boost/mpl/integral_c_fwd.hpp:
-
-/usr/include/boost/beast/websocket/impl/write.hpp:
-
-/usr/include/boost/type_traits/is_signed.hpp:
-
-/usr/include/boost/asio/steady_timer.hpp:
-
-/usr/include/boost/asio/ip/address_v6_range.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
-
-/usr/include/boost/beast/websocket/error.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
-
-/usr/include/boost/preprocessor/repetition/limits/repeat_256.hpp:
-
-/usr/include/boost/core/enable_if.hpp:
-
-/usr/include/boost/mpl/aux_/config/use_preprocessed.hpp:
-
-/usr/include/boost/beast/zlib/detail/bitstream.hpp:
-
-/usr/include/boost/asio/detail/impl/reactive_socket_service_base.ipp:
-
-/usr/include/boost/array.hpp:
-
-/usr/include/boost/mpl/aux_/config/typeof.hpp:
-
-/usr/include/boost/json/parse_options.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
-/usr/include/boost/asio/basic_writable_pipe.hpp:
-
-/usr/include/boost/mpl/aux_/nttp_decl.hpp:
-
-/usr/include/boost/fusion/view/single_view/detail/end_impl.hpp:
-
-/usr/include/boost/multi_index/detail/node_handle.hpp:
-
-/usr/include/boost/asio/detail/handler_work.hpp:
-
-/usr/include/boost/type_traits/is_arithmetic.hpp:
-
-/usr/include/alloca.h:
-
-/usr/include/boost/asio/read.hpp:
-
-/usr/include/boost/log/detail/locking_ptr.hpp:
-
-/usr/include/grpcpp/support/client_interceptor.h:
-
-/usr/include/boost/range/empty.hpp:
-
-/usr/include/boost/asio/detail/array.hpp:
-
-/usr/include/boost/preprocessor/arithmetic/detail/div_base.hpp:
-
-/usr/include/boost/beast/http/read.hpp:
-
-/usr/include/boost/container_hash/detail/mulx.hpp:
-
-/usr/include/absl/base/internal/tsan_mutex_interface.h:
-
-/usr/include/boost/container/container_fwd.hpp:
-
-/usr/include/boost/container_hash/detail/hash_tuple_like.hpp:
-
-/usr/include/boost/intrusive/detail/ebo_functor_holder.hpp:
-
-/usr/include/boost/multi_index/detail/unbounded.hpp:
-
-/usr/include/boost/beast/core/impl/saved_handler.hpp:
-
-/usr/include/boost/fusion/algorithm/iteration/fold_fwd.hpp:
-
-/usr/include/boost/core/allocator_access.hpp:
-
-/usr/include/boost/container/throw_exception.hpp:
-
-/usr/include/boost/asio/windows/overlapped_ptr.hpp:
+/usr/include/boost/intrusive/parent_from_member.hpp:
 
 /usr/include/boost/asio/wait_traits.hpp:
 
@@ -7163,8 +7129,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/move/detail/force_ptr.hpp:
 
-/usr/include/boost/beast/core/detail/clamp.hpp:
-
 /usr/include/asm-generic/socket.h:
 
 /usr/include/boost/multi_index/detail/seq_index_ops.hpp:
@@ -7175,21 +7139,141 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/asio/traits/schedule_member.hpp:
 
+/usr/include/grpcpp/security/tls_certificate_provider.h:
+
+/usr/include/boost/mpl/aux_/config/msvc_typename.hpp:
+
+/usr/include/boost/beast/core/impl/buffers_generator.hpp:
+
+/usr/include/boost/asio/detail/impl/epoll_reactor.hpp:
+
+/usr/include/pistache/endpoint.h:
+
+/usr/include/boost/asio/execution/context.hpp:
+
+/usr/include/boost/asio/associated_immediate_executor.hpp:
+
+/usr/include/boost/multi_index/detail/node_handle.hpp:
+
+/usr/include/boost/type_traits/is_arithmetic.hpp:
+
+/usr/include/alloca.h:
+
+/usr/include/boost/asio/detail/handler_work.hpp:
+
 /usr/include/boost/predef/library/std/dinkumware.h:
 
 /usr/include/boost/asio/detail/timer_queue_ptime.hpp:
 
+/usr/include/boost/chrono/clock_string.hpp:
+
+/usr/include/MQTTProperties.h:
+
+/usr/include/boost/fusion/container/list/detail/next_impl.hpp:
+
 /home/ilya/Desktop/canstep-api/include/WebSocketServer.h:
 
-/usr/include/absl/base/internal/identity.h:
+/usr/include/boost/log/trivial.hpp:
 
-/usr/include/boost/json/detail/shared_resource.hpp:
+/usr/include/boost/asio/detail/global.hpp:
 
-/usr/include/boost/date_time/posix_time/time_formatters.hpp:
+/usr/include/boost/range/end.hpp:
 
-/usr/include/boost/asio/execution/execute.hpp:
+/usr/include/boost/asio/detail/cstddef.hpp:
+
+/usr/include/boost/beast/core/impl/buffers_adaptor.hpp:
+
+/usr/include/boost/asio/buffers_iterator.hpp:
+
+/usr/include/boost/date_time/adjust_functors.hpp:
+
+/usr/include/boost/asio/streambuf.hpp:
+
+/home/ilya/Desktop/canstep-api/include/RestApiServer.h:
+
+/usr/include/boost/mpl/size.hpp:
+
+/usr/include/boost/mpl/eval_if.hpp:
+
+/usr/include/boost/preprocessor/seq/size.hpp:
+
+/usr/include/boost/date_time/period_parser.hpp:
+
+/usr/include/boost/filesystem/path.hpp:
+
+/usr/include/MQTTAsync.h:
+
+/usr/include/MQTTClientPersistence.h:
+
+/usr/include/boost/type_traits/is_nothrow_move_constructible.hpp:
+
+/usr/include/MQTTReasonCodes.h:
+
+/usr/include/boost/fusion/adapted/struct/detail/adapt_base_attr_filler.hpp:
+
+/usr/include/boost/asio/detail/impl/socket_ops.ipp:
+
+/usr/include/boost/asio/bind_executor.hpp:
+
+/usr/include/boost/mp11/detail/mp_is_list.hpp:
+
+/usr/include/c++/13/mutex:
+
+/usr/include/boost/log/detail/embedded_string_type.hpp:
+
+/usr/include/libintl.h:
+
+/usr/include/boost/predef/platform/ios.h:
+
+/usr/include/boost/asio/detail/resolve_endpoint_op.hpp:
+
+/usr/include/c++/13/ext/atomicity.h:
+
+/usr/include/boost/asio/buffered_read_stream_fwd.hpp:
+
+/usr/include/boost/json/detail/string_impl.hpp:
+
+/usr/include/boost/preprocessor/repetition/enum_binary_params.hpp:
+
+/usr/include/boost/multi_index/detail/node_type.hpp:
+
+/usr/include/boost/asio/generic/detail/endpoint.hpp:
+
+/usr/include/boost/asio/detail/null_event.hpp:
+
+/usr/include/boost/preprocessor/facilities/identity.hpp:
+
+/usr/include/arpa/inet.h:
 
 /usr/include/absl/base/log_severity.h:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/boost/mpl/aux_/preprocessed/gcc/or.hpp:
+
+/usr/include/boost/asio/detail/posix_mutex.hpp:
+
+/usr/include/boost/intrusive/detail/mpl.hpp:
+
+/usr/include/boost/asio/basic_io_object.hpp:
+
+/usr/include/boost/asio/detail/resolve_query_op.hpp:
+
+/usr/include/boost/log/detail/copy_cv.hpp:
+
+/usr/include/grpcpp/security/authorization_policy_provider.h:
+
+/usr/include/boost/asio/detail/operation.hpp:
+
+/usr/include/boost/mpl/integral_c_fwd.hpp:
+
+/usr/include/boost/beast/websocket/impl/write.hpp:
+
+/usr/include/boost/type_traits/is_signed.hpp:
+
+/usr/include/boost/asio/steady_timer.hpp:
+
+/usr/include/boost/asio/ip/address_v6_range.hpp:
 
 /usr/include/boost/beast/core/detail/allocator.hpp:
 
@@ -7203,11 +7287,35 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/core/detail/is_same.hpp:
 
-/usr/include/boost/lexical_cast/detail/converter_numeric.hpp:
-
-/usr/include/boost/mpl/pair_view.hpp:
-
 /usr/include/boost/asio/detail/consuming_buffers.hpp:
+
+/usr/include/boost/asio/basic_streambuf_fwd.hpp:
+
+/usr/include/boost/date_time/gregorian/greg_calendar.hpp:
+
+/usr/include/boost/asio/execution/invocable_archetype.hpp:
+
+/usr/include/grpcpp/server.h:
+
+/usr/include/boost/preprocessor/seq/limits/size_256.hpp:
+
+/usr/include/boost/date_time/date_iterator.hpp:
+
+/usr/include/boost/fusion/view/single_view/detail/equal_to_impl.hpp:
+
+/usr/include/boost/mpl/aux_/template_arity.hpp:
+
+/usr/include/boost/asio/detail/socket_holder.hpp:
+
+/usr/include/boost/asio/basic_deadline_timer.hpp:
+
+/usr/include/boost/mpl/map/aux_/value_type_impl.hpp:
+
+/usr/include/boost/algorithm/string/config.hpp:
+
+/usr/include/c++/13/cstddef:
+
+/usr/include/boost/asio/basic_stream_file.hpp:
 
 /usr/include/boost/predef/library/std/_prefix.h:
 
@@ -7241,6 +7349,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/parameter/aux_/pack/tag_deduced.hpp:
 
+/usr/include/MQTTExportDeclarations.h:
+
 /usr/include/boost/mpl/remove_if.hpp:
 
 /usr/include/c++/13/stdlib.h:
@@ -7252,8 +7362,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/property_tree/string_path.hpp:
 
 /usr/include/boost/asio/is_read_buffered.hpp:
-
-/usr/include/boost/fusion/algorithm/iteration/detail/preprocessed/reverse_fold.hpp:
 
 /usr/include/boost/detail/indirect_traits.hpp:
 
@@ -7275,8 +7383,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/algorithm/string/detail/case_conv.hpp:
 
-/usr/include/boost/fusion/adapted/struct/detail/value_at_impl.hpp:
-
 /usr/include/boost/endian/detail/endian_reverse.hpp:
 
 /usr/include/boost/atomic/detail/gcc_atomic_memory_order_utils.hpp:
@@ -7293,15 +7399,25 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/predef/library/c.h:
 
+/usr/include/boost/asio/basic_readable_pipe.hpp:
+
+/usr/include/boost/log/sinks/sink.hpp:
+
+/usr/include/boost/config/no_tr1/memory.hpp:
+
+/usr/include/boost/asio/ip/impl/network_v4.ipp:
+
+/usr/include/boost/mpl/vector/aux_/include_preprocessed.hpp:
+
+/usr/include/boost/phoenix/operator.hpp:
+
+/usr/include/boost/asio/generic/stream_protocol.hpp:
+
 /usr/include/boost/optional/optional_io.hpp:
 
 /usr/include/boost/asio/execution/bulk_execute.hpp:
 
 /usr/include/boost/phoenix/core/detail/index_sequence.hpp:
-
-/usr/include/boost/phoenix/operator.hpp:
-
-/usr/include/boost/asio/generic/stream_protocol.hpp:
 
 /usr/include/boost/asio/execution/connect.hpp:
 
@@ -7363,32 +7479,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/log/attributes/timer.hpp:
 
-/usr/include/boost/fusion/adapted/struct/detail/adapt_base_attr_filler.hpp:
-
-/usr/include/boost/asio/detail/impl/socket_ops.ipp:
-
-/usr/include/boost/asio/bind_executor.hpp:
-
-/usr/include/boost/mp11/detail/mp_is_list.hpp:
-
-/usr/include/c++/13/bits/std_thread.h:
-
-/usr/include/boost/function_types/is_callable_builtin.hpp:
-
-/usr/include/features-time64.h:
-
-/usr/include/boost/asio/post.hpp:
-
-/usr/include/boost/beast/websocket/impl/accept.hpp:
-
-/usr/include/boost/asio/ip/address_v4_iterator.hpp:
-
-/usr/include/boost/mpl/aux_/empty_impl.hpp:
-
-/usr/include/boost/numeric/conversion/detail/bounds.hpp:
-
-/usr/include/boost/asio/any_io_executor.hpp:
-
 /usr/include/boost/asio/any_completion_executor.hpp:
 
 /usr/include/google/protobuf/stubs/mutex.h:
@@ -7417,28 +7507,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/log/attributes/current_process_id.hpp:
 
-/usr/include/boost/date_time/gregorian/greg_calendar.hpp:
-
-/usr/include/boost/asio/execution/invocable_archetype.hpp:
-
-/usr/include/grpcpp/server.h:
-
-/usr/include/boost/preprocessor/seq/limits/size_256.hpp:
-
-/usr/include/boost/date_time/date_iterator.hpp:
-
-/usr/include/boost/fusion/view/single_view/detail/equal_to_impl.hpp:
-
-/usr/include/boost/mpl/aux_/template_arity.hpp:
-
-/usr/include/boost/asio/detail/socket_holder.hpp:
-
-/usr/include/boost/asio/basic_deadline_timer.hpp:
-
-/usr/include/boost/mpl/map/aux_/value_type_impl.hpp:
-
-/usr/include/boost/asio/basic_streambuf_fwd.hpp:
-
 /usr/include/boost/date_time/gregorian/conversion.hpp:
 
 /usr/include/boost/any/detail/placeholder.hpp:
@@ -7450,6 +7518,14 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/asio/associated_allocator.hpp:
 
 /usr/include/boost/asio/impl/read.hpp:
+
+/usr/include/boost/asio/basic_serial_port.hpp:
+
+/usr/include/boost/asio/detail/reactive_socket_recvmsg_op.hpp:
+
+/usr/include/boost/asio/detail/throw_exception.hpp:
+
+/usr/include/boost/asio/read_at.hpp:
 
 /usr/include/boost/asio/impl/connect_pipe.hpp:
 
@@ -7491,11 +7567,51 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/log/attributes/attribute_value_set.hpp:
 
-/usr/include/boost/algorithm/string/config.hpp:
+/usr/include/grpcpp/version_info.h:
 
-/usr/include/c++/13/cstddef:
+/usr/include/boost/beast/websocket/teardown.hpp:
 
-/usr/include/boost/asio/basic_stream_file.hpp:
+/usr/include/boost/preprocessor/seq/pop_back.hpp:
+
+/usr/include/boost/fusion/adapted/struct/detail/size_impl.hpp:
+
+/usr/include/boost/config/abi_suffix.hpp:
+
+/usr/include/boost/asio/detail/variadic_templates.hpp:
+
+/usr/include/boost/intrusive/pack_options.hpp:
+
+/usr/include/boost/mpl/pair_view.hpp:
+
+/usr/include/boost/lexical_cast/detail/converter_numeric.hpp:
+
+/usr/include/boost/proto/transform/detail/preprocessed/expand_pack.hpp:
+
+/usr/include/boost/beast/http/impl/write.hpp:
+
+/usr/include/boost/asio/detail/impl/posix_event.ipp:
+
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+
+/usr/include/boost/asio/basic_stream_socket.hpp:
+
+/usr/include/boost/type_traits/negation.hpp:
+
+/usr/include/boost/asio/detail/reactive_socket_send_op.hpp:
+
+/usr/include/boost/fusion/algorithm/iteration/detail/preprocessed/fold.hpp:
+
+/usr/include/boost/static_string/config.hpp:
+
+/usr/include/boost/numeric/conversion/detail/int_float_mixture.hpp:
+
+/usr/include/boost/date_time/strings_from_facet.hpp:
+
+/usr/include/boost/asio/detail/reactive_socket_sendto_op.hpp:
+
+/usr/include/boost/range/detail/implementation_help.hpp:
+
+/usr/include/boost/mpl/aux_/lambda_spec.hpp:
 
 /usr/include/x86_64-linux-gnu/sys/ioctl.h:
 
@@ -7512,6 +7628,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/preprocessor/iteration/iterate.hpp:
 
 /usr/include/boost/asio/detail/reactive_wait_op.hpp:
+
+/usr/include/boost/log/detail/sink_init_helpers.hpp:
 
 /usr/include/boost/beast/core/make_printable.hpp:
 
@@ -7536,6 +7654,10 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/algorithm/string/detail/replace_storage.hpp:
 
 /usr/include/boost/asio/detail/scheduler.hpp:
+
+/usr/include/boost/beast/core/detail/sha1.ipp:
+
+/home/ilya/Desktop/canstep-api/include/MqttApiServer.h:
 
 /usr/include/boost/asio/detail/scheduler_operation.hpp:
 
@@ -7723,18 +7845,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/asio/execution/impl/receiver_invocation_error.ipp:
 
-/usr/include/boost/beast/websocket/detail/hybi13.hpp:
-
-/usr/include/boost/atomic/detail/atomic_impl.hpp:
-
-/usr/include/x86_64-linux-gnu/asm/ioctl.h:
-
-/usr/include/boost/preprocessor/logical/and.hpp:
-
-/usr/include/boost/mpl/long_fwd.hpp:
-
-/usr/include/boost/asio/execution/schedule.hpp:
-
 /usr/include/boost/mpl/pop_front.hpp:
 
 /usr/include/boost/multi_index_container.hpp:
@@ -7790,6 +7900,10 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/fusion/support/detail/mpl_iterator_category.hpp:
 
 /usr/include/boost/asio/executor.hpp:
+
+/usr/include/boost/asio/impl/thread_pool.hpp:
+
+/usr/include/boost/mpl/limits/vector.hpp:
 
 /usr/include/boost/utility/string_view.hpp:
 
@@ -7895,8 +8009,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/mpl/long.hpp:
 
-/usr/include/boost/asio/detail/static_mutex.hpp:
-
 /usr/include/boost/asio/impl/serial_port_base.ipp:
 
 /usr/include/boost/fusion/view/single_view/detail/value_at_impl.hpp:
@@ -7926,12 +8038,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/endian/detail/endian_load.hpp:
 
 /usr/include/boost/asio/impl/system_executor.hpp:
-
-/usr/include/boost/log/detail/sink_init_helpers.hpp:
-
-/usr/include/boost/mpl/limits/vector.hpp:
-
-/usr/include/boost/asio/impl/thread_pool.hpp:
 
 /usr/include/boost/asio/detail/memory.hpp:
 
@@ -8022,6 +8128,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/absl/base/internal/raw_logging.h:
 
 /usr/include/boost/mpl/begin_end.hpp:
+
+/usr/include/boost/asio/ip/detail/impl/endpoint.ipp:
 
 /usr/include/boost/optional/bad_optional_access.hpp:
 
@@ -8287,6 +8395,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/predef/compiler/metaware.h:
 
+/usr/include/boost/asio/traits/static_query.hpp:
+
 /usr/include/boost/asio/local/connect_pair.hpp:
 
 /usr/include/boost/asio/detail/impl/throw_error.ipp:
@@ -8297,13 +8407,9 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/asio/version.hpp:
 
-/usr/include/c++/13/fstream:
+/usr/include/boost/fusion/adapted/struct/detail/value_at_impl.hpp:
 
-/usr/include/boost/asio/windows/basic_overlapped_handle.hpp:
-
-/usr/include/boost/asio/windows/basic_stream_handle.hpp:
-
-/usr/include/boost/asio/traits/static_query.hpp:
+/usr/include/boost/fusion/algorithm/iteration/detail/preprocessed/reverse_fold.hpp:
 
 /usr/include/boost/fusion/algorithm/iteration/detail/segmented_fold.hpp:
 
@@ -8345,8 +8451,6 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/log/detail/cleanup_scope_guard.hpp:
 
-/usr/include/boost/fusion/container/list/detail/next_impl.hpp:
-
 /usr/include/boost/atomic/detail/type_traits/make_unsigned.hpp:
 
 /usr/include/boost/fusion/container/list/detail/reverse_cons.hpp:
@@ -8362,6 +8466,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/fusion/container/list/detail/value_of_impl.hpp:
 
 /usr/include/boost/fusion/container/list/list_fwd.hpp:
+
+/usr/include/mqtt/disconnect_options.h:
 
 /usr/include/boost/fusion/container/list/nil.hpp:
 
@@ -10095,13 +10201,13 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/parameter/aux_/is_maybe.hpp:
 
-/usr/include/boost/fusion/adapted/struct/detail/is_view_impl.hpp:
-
 /usr/include/boost/mpl/aux_/is_msvc_eti_arg.hpp:
 
 /usr/include/boost/mpl/aux_/config/adl.hpp:
 
 /usr/include/boost/mpl/aux_/preprocessed/gcc/vector.hpp:
+
+/usr/include/boost/fusion/adapted/struct/detail/is_view_impl.hpp:
 
 /usr/include/boost/numeric/conversion/detail/numeric_cast_traits.hpp:
 
@@ -10321,6 +10427,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 
 /usr/include/boost/preprocessor/arithmetic/limits/inc_256.hpp:
 
+/usr/include/mqtt/buffer_view.h:
+
 /usr/include/boost/predef/compiler/diab.h:
 
 /usr/include/boost/lexical_cast/try_lexical_convert.hpp:
@@ -10424,6 +10532,8 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/asio/detail/non_const_lvalue.hpp:
 
 /usr/include/boost/predef/platform/mingw32.h:
+
+/usr/include/mqtt/iasync_client.h:
 
 /usr/include/boost/predef/library/c/zos.h:
 
@@ -10578,17 +10688,3 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o: /home/ilya/Desktop/canstep-api/test
 /usr/include/boost/preprocessor/iteration/local.hpp:
 
 /usr/include/boost/preprocessor/list/adt.hpp:
-
-/usr/include/boost/preprocessor/list/detail/fold_right.hpp:
-
-/usr/include/boost/asio/detail/keyword_tss_ptr.hpp:
-
-/usr/include/boost/preprocessor/list/detail/limits/fold_right_256.hpp:
-
-/usr/include/boost/preprocessor/repetition/enum_trailing_params.hpp:
-
-/usr/include/boost/preprocessor/list/fold_right.hpp:
-
-/usr/include/boost/preprocessor/list/for_each_i.hpp:
-
-/usr/include/boost/preprocessor/list/limits/fold_left_256.hpp:

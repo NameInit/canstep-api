@@ -232,11 +232,20 @@ OPENSSL_INCLUDE_DIR:PATH=/usr/include
 //Path to a library.
 OPENSSL_SSL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.so
 
+//Path to a file.
+PAHO_MQTT_C_INCLUDE_DIRS:PATH=/usr/include
+
+//Path to a library.
+PAHO_MQTT_C_LIBRARIES:FILEPATH=/usr/lib/x86_64-linux-gnu/libpaho-mqtt3as.so
+
 //Arguments to supply to pkg-config
 PKG_CONFIG_ARGN:STRING=
 
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
+//The directory containing a CMake configuration file for PahoMqttCpp.
+PahoMqttCpp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/PahoMqttCpp
 
 //Path to a file.
 Protobuf_INCLUDE_DIR:PATH=/usr/include
@@ -461,6 +470,8 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake][cfound components: log ][v1.83.0()]
 //Details about finding OpenSSL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcrypto.so][/usr/include][c ][v3.0.13()]
+//Details about finding PahoMqttC
+FIND_PACKAGE_MESSAGE_DETAILS_PahoMqttC:INTERNAL=[/usr/lib/x86_64-linux-gnu/libpaho-mqtt3as.so][/usr/include][v()]
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v1.8.1()]
 //Details about finding Protobuf

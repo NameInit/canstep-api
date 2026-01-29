@@ -10,6 +10,7 @@
 #include <QWebSocket>
 #include <QTimer>
 #include <QProcess>
+#include <QtMqtt/QMqttClient>
 
 
 QT_BEGIN_NAMESPACE
@@ -30,6 +31,7 @@ private:
     Ui::MainWindow *ui;
     QNetworkAccessManager *networkManager;
     QWebSocket *webSocket;
+    QMqttClient *mqttClient;
 
 private:
     void processWebSocketMessage(const QJsonObject &message);
@@ -107,5 +109,10 @@ public slots:
     void onSocketDisconnected();
     void onWebSocketTextMessageReceived(const QString &message);
     void onSocketError(QAbstractSocket::SocketError error);
+
+    //mqtt:
+    void sendMqttRequest(const QString &part, const QJsonObject &data = QJsonObject());
+    void onMqttConnected();
+    void onMqttMessageReceived(const QByteArray &message, const QMqttTopicName &topic);
 };
 #endif // MAINWINDOW_H

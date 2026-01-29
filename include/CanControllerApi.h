@@ -22,6 +22,7 @@
 #include "WebSocketServer.h"
 #include "RestApiServer.h"
 #include "GrpcApiServer.h"
+#include "MqttApiServer.h"
 
 class CanControllerApi
 {
@@ -29,10 +30,12 @@ private:
     std::unique_ptr<RestApiServer> restApiServer;
     std::unique_ptr<WebSocketServer> webSocketServer;
     std::unique_ptr<GrpcApiServer> grpcApiServer;
+    std::unique_ptr<MqttApiServer> mqttApiServer;
     CanController controller;
 
 	std::thread restApiThread;
     std::thread grpcApiThread;
+    std::thread mqttApiThread;
 
     void initializeLogger() {
         namespace logging = boost::log;
@@ -72,18 +75,23 @@ private:
     }
 
 public:
-    CanControllerApi(const uint16_t numPortRest=8080, const uint16_t numPortGRGC=50051, const uint16_t numPortWebSocket=8081)
+    CanControllerApi(const uint16_t numPortRest=8080, const uint16_t numPortGrpc=50051, const uint16_t numPortMqtt=50051, const uint16_t numPortWebSocket=8081)
     {
         initializeLogger();
         restApiServer = std::make_unique<RestApiServer>(controller, numPortRest);
         webSocketServer = std::make_unique<WebSocketServer>(controller, numPortWebSocket);
-        grpcApiServer = std::make_unique<GrpcApiServer>(controller, numPortGRGC);
+        grpcApiServer = std::make_unique<GrpcApiServer>(controller, numPortGrpc);
+        mqttApiServer = std::make_unique<MqttApiServer>(controller);
     }
 
     ~CanControllerApi(){
         if(webSocketServer){
             webSocketServer->stopAutoUpdates();
             webSocketServer->shutdownServer();
+        }
+
+        if(mqttApiServer){
+            mqttApiServer->shutdownServer();
         }
 
         if(grpcApiServer){
@@ -106,6 +114,16 @@ public:
             
         }
 
+        if(mqttApiServer){
+            mqttApiThread = std::thread([this]() { 
+                try {
+                    mqttApiServer->runServer(); 
+                } catch (const std::exception& e) {
+                    BOOST_LOG_TRIVIAL(error) << "gRPC Thread Error: " << e.what();
+                }
+            });
+		}
+
         if(grpcApiServer){
             grpcApiThread = std::thread([this]() { 
                 try {
@@ -124,6 +142,10 @@ public:
                     BOOST_LOG_TRIVIAL(error) << "Rest Thread Error: " << e.what();
                 }
             });
+        }
+
+        if(mqttApiThread.joinable()){
+            mqttApiThread.join();
         }
 
 		if(grpcApiThread.joinable()){

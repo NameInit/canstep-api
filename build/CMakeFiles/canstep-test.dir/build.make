@@ -154,9 +154,11 @@ canstep-test: /usr/lib/x86_64-linux-gnu/libabsl_raw_logging_internal.so.20220623
 canstep-test: /usr/lib/x86_64-linux-gnu/libabsl_log_severity.so.20220623.0.0
 canstep-test: /usr/lib/x86_64-linux-gnu/libabsl_civil_time.so.20220623.0.0
 canstep-test: /usr/lib/x86_64-linux-gnu/libabsl_time_zone.so.20220623.0.0
+canstep-test: /usr/lib/x86_64-linux-gnu/libprotobuf.so
+canstep-test: /usr/lib/x86_64-linux-gnu/libpaho-mqttpp3.so.1.2.0
+canstep-test: /usr/lib/x86_64-linux-gnu/libpaho-mqtt3as.so
 canstep-test: /usr/lib/x86_64-linux-gnu/libssl.so
 canstep-test: /usr/lib/x86_64-linux-gnu/libcrypto.so
-canstep-test: /usr/lib/x86_64-linux-gnu/libprotobuf.so
 canstep-test: CMakeFiles/canstep-test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilya/Desktop/canstep-api/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable canstep-test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/canstep-test.dir/link.txt --verbose=$(VERBOSE)

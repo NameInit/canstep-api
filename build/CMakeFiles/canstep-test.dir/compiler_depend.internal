@@ -12,6 +12,7 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o
  /home/ilya/Desktop/canstep-api/include/GrpcApiServer.h
  /home/ilya/Desktop/canstep-api/include/HidDevice.h
  /home/ilya/Desktop/canstep-api/include/Mechanism.h
+ /home/ilya/Desktop/canstep-api/include/MqttApiServer.h
  /home/ilya/Desktop/canstep-api/include/RestApiServer.h
  /home/ilya/Desktop/canstep-api/include/ScenarioBuilder.h
  /home/ilya/Desktop/canstep-api/include/Typedefs.h
@@ -23,6 +24,12 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o
  /home/ilya/Desktop/canstep-api/include/WebSocketSession.h
  /home/ilya/Desktop/canstep-api/include/can_controller.grpc.pb.h
  /home/ilya/Desktop/canstep-api/include/can_controller.pb.h
+ /usr/include/MQTTAsync.h
+ /usr/include/MQTTClientPersistence.h
+ /usr/include/MQTTExportDeclarations.h
+ /usr/include/MQTTProperties.h
+ /usr/include/MQTTReasonCodes.h
+ /usr/include/MQTTSubscribeOpts.h
  /usr/include/absl/base/attributes.h
  /usr/include/absl/base/config.h
  /usr/include/absl/base/const_init.h
@@ -2977,6 +2984,7 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o
  /usr/include/c++/13/bits/stl_multiset.h
  /usr/include/c++/13/bits/stl_numeric.h
  /usr/include/c++/13/bits/stl_pair.h
+ /usr/include/c++/13/bits/stl_queue.h
  /usr/include/c++/13/bits/stl_raw_storage_iter.h
  /usr/include/c++/13/bits/stl_relops.h
  /usr/include/c++/13/bits/stl_set.h
@@ -3061,6 +3069,7 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o
  /usr/include/c++/13/pstl/glue_memory_defs.h
  /usr/include/c++/13/pstl/glue_numeric_defs.h
  /usr/include/c++/13/pstl/pstl_config.h
+ /usr/include/c++/13/queue
  /usr/include/c++/13/random
  /usr/include/c++/13/ratio
  /usr/include/c++/13/regex
@@ -3295,6 +3304,29 @@ CMakeFiles/canstep-test.dir/test/main.cpp.o
  /usr/include/linux/version.h
  /usr/include/locale.h
  /usr/include/math.h
+ /usr/include/mqtt/async_client.h
+ /usr/include/mqtt/buffer_ref.h
+ /usr/include/mqtt/buffer_view.h
+ /usr/include/mqtt/callback.h
+ /usr/include/mqtt/connect_options.h
+ /usr/include/mqtt/create_options.h
+ /usr/include/mqtt/delivery_token.h
+ /usr/include/mqtt/disconnect_options.h
+ /usr/include/mqtt/exception.h
+ /usr/include/mqtt/iaction_listener.h
+ /usr/include/mqtt/iasync_client.h
+ /usr/include/mqtt/iclient_persistence.h
+ /usr/include/mqtt/message.h
+ /usr/include/mqtt/properties.h
+ /usr/include/mqtt/server_response.h
+ /usr/include/mqtt/ssl_options.h
+ /usr/include/mqtt/string_collection.h
+ /usr/include/mqtt/subscribe_options.h
+ /usr/include/mqtt/thread_queue.h
+ /usr/include/mqtt/token.h
+ /usr/include/mqtt/topic.h
+ /usr/include/mqtt/types.h
+ /usr/include/mqtt/will_options.h
  /usr/include/net/if.h
  /usr/include/netdb.h
  /usr/include/netinet/in.h

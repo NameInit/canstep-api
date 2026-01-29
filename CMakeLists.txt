@@ -1,3 +1,5 @@
+# mosquitto mosquitto-clients важный пакет для mqtt, должен быть на образе ubuntu
+
 cmake_minimum_required(VERSION 3.12)
 project(CANStepAPI VERSION 0.1.0 LANGUAGES CXX)
 
@@ -27,6 +29,8 @@ find_package(gRPC REQUIRED)
 target_link_libraries(canstep PUBLIC gRPC::grpc++)
 target_link_libraries(canstep PUBLIC gRPC::grpc)
 target_link_libraries(canstep PUBLIC gRPC::grpc++_reflection)
+find_package(PahoMqttCpp REQUIRED)
+target_link_libraries(canstep PUBLIC PahoMqttCpp::paho-mqttpp3)
 
 add_executable(canstep-test test/main.cpp)
 target_link_libraries(canstep-test canstep)

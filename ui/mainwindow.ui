@@ -421,7 +421,11 @@
       </widget>
      </item>
      <item row="15" column="1">
-      <widget class="QLineEdit" name="lineEditSaveStartPos"/>
+      <widget class="QLineEdit" name="lineEditSaveStartPos">
+       <property name="text">
+        <string>1000</string>
+       </property>
+      </widget>
      </item>
      <item row="12" column="4">
       <widget class="QPushButton" name="pushButtonAlarmCode">
@@ -459,7 +463,11 @@
       </widget>
      </item>
      <item row="16" column="1">
-      <widget class="QLineEdit" name="lineEditSaveEndPos"/>
+      <widget class="QLineEdit" name="lineEditSaveEndPos">
+       <property name="text">
+        <string>100000</string>
+       </property>
+      </widget>
      </item>
      <item row="11" column="3">
       <widget class="QPushButton" name="pushButtonMotorTorque">
@@ -536,7 +544,11 @@
       </widget>
      </item>
      <item row="12" column="1">
-      <widget class="QLineEdit" name="lineEditcurrentPos"/>
+      <widget class="QLineEdit" name="lineEditcurrentPos">
+       <property name="text">
+        <string>10000</string>
+       </property>
+      </widget>
      </item>
      <item row="2" column="4">
       <widget class="QLineEdit" name="lineEditSaveAccel"/>
@@ -563,7 +575,11 @@
       </widget>
      </item>
      <item row="13" column="1">
-      <widget class="QLineEdit" name="lineEditSaveNumBoard"/>
+      <widget class="QLineEdit" name="lineEditSaveNumBoard">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
      </item>
      <item row="6" column="4">
       <widget class="QComboBox" name="comboBoxSensor2Polarity">
@@ -705,7 +721,11 @@
       </widget>
      </item>
      <item row="14" column="1">
-      <widget class="QLineEdit" name="lineEditSaveNumGroup"/>
+      <widget class="QLineEdit" name="lineEditSaveNumGroup">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
      </item>
      <item row="5" column="4">
       <widget class="QComboBox" name="comboBoxSensor1Polarity">
@@ -1329,6 +1349,11 @@
     <item>
      <property name="text">
       <string>GRPC</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>MQTT</string>
      </property>
     </item>
    </widget>
