@@ -101,17 +101,18 @@ MainWindow::~MainWindow()
 void MainWindow::ButtonAutosender(){
     qDebug() << "ButtonAutosender";
     QJsonObject data;
-    data["numType"]=ui->lineEditAutosenderType->text().toInt();
-    data["numMs"]=ui->lineEditAutosenderMs->text().toInt();
-    this->sendApiRequest("api/autosender",data);
+    data["type"]=ui->lineEditAutosenderType->text().toInt();
+    data["ms"]=ui->lineEditAutosenderMs->text().toInt();
+
     if(ui->comboBoxApiType->currentText() == "REST"){
-        this->sendApiRequest("api/connect");
+        this->sendApiRequest("api/autosender",data);
     }
     else if(ui->comboBoxApiType->currentText() == "GRPC"){
-        this->sendGrpcViaConsole("Autosender");
+        this->sendGrpcViaConsole("Autosender",data);
     }
     else if(ui->comboBoxApiType->currentText() == "MQTT"){
-        this->sendMqttRequest("Autosender");
+        qDebug() << "1";
+        this->sendMqttRequest("Autosender",data);
     }
     return ;
 }

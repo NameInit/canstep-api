@@ -95,8 +95,8 @@ private:
 		boost::json::value json_data = boost::json::parse(request.body());
 		try{
 			boost::json::object obj=json_data.as_object();
-			int64_t type=obj["numType"].as_int64();
-			int64_t ms=obj["numMs"].as_int64();
+			int64_t type=obj["type"].as_int64();
+			int64_t ms=obj["ms"].as_int64();
 			controller.buttonAutosender_Click(type,ms);
 			BOOST_LOG_TRIVIAL(info) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Ok, "Autosender");

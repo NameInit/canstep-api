@@ -108,8 +108,8 @@ private:
             }
 
             if (commandName == "Autosender") {
-                int type = get_json_value<int>(jobj, "type", 0);
-                int ms = get_json_value<int>(jobj, "ms", 0);
+                uint8_t type = get_json_value<uint8_t>(jobj, "type", 0);
+                uint8_t ms = get_json_value<uint8_t>(jobj, "ms", 0);
                 controller.buttonAutosender_Click(type, ms);
                 publishResponse(commandName, true, "Autosender executed");
             }
@@ -122,23 +122,28 @@ private:
                 publishResponse(commandName, true, "Debug ON");
             }
             else if (commandName == "Board") {
-                controller.buttonNumBoard_Click(get_json_value<uint64_t>(jobj, "numBoard", 0));
+                uint8_t numBoard = get_json_value<uint8_t>(jobj, "numBoard", 0);
+                controller.buttonNumBoard_Click(numBoard);
                 publishResponse(commandName, true, "Board Set");
             }
             else if (commandName == "Steps") {
-                controller.buttonNumSteps_Click(get_json_value<uint64_t>(jobj, "numSteps", 0));
+                uint32_t numSteps = get_json_value<uint32_t>(jobj, "numSteps", 0);
+                controller.buttonNumSteps_Click(numSteps);
                 publishResponse(commandName, true, "Steps Set");
             }
             else if (commandName == "Speed") {
-                controller.buttonSpeed_Click(get_json_value<float>(jobj, "numSpeed", 0));
+                float numSpeed = get_json_value<float>(jobj, "numSpeed", 0);
+                controller.buttonSpeed_Click(numSpeed);
                 publishResponse(commandName, true, "Speed Set");
             }
             else if (commandName == "Accel") {
-                controller.buttonAccel_Click(get_json_value<uint64_t>(jobj, "numAccel", 0));
+                uint8_t numAccel = get_json_value<uint8_t>(jobj, "numAccel", 0);
+                controller.buttonAccel_Click(numAccel);
                 publishResponse(commandName, true, "Accel Set");
             }
             else if (commandName == "Decel") {
-                controller.buttonDecel_Click(get_json_value<uint64_t>(jobj, "numDecel", 0));
+                uint8_t numDecel = get_json_value<uint8_t>(jobj, "numDecel", 0);
+                controller.buttonDecel_Click(numDecel);
                 publishResponse(commandName, true, "Decel Set");
             }
             else if (commandName == "Forward") {
@@ -190,7 +195,8 @@ private:
                 publishResponse(commandName, true, "AlarmResetOn");
             }
             else if (commandName == "CurrentPos") {
-                controller.buttonCurrentPositionSet_Click(get_json_value<uint64_t>(jobj, "numPos", 0));
+                uint32_t numPos = get_json_value<uint32_t>(jobj, "numPos", 0);
+                controller.buttonCurrentPositionSet_Click(numPos);
                 publishResponse(commandName, true, "CurrentPosition Set");
             }
             else if (commandName == "ResetCANStep") {
@@ -225,145 +231,171 @@ private:
                 controller.buttonAlarmCode_Click();
                 publishResponse(commandName, true, "alarmCode");
             }
-            // // Save Commands
             else if (commandName == "SaveNumBoard") {
-                controller.buttonNumBoardSave_Click(get_json_value<int>(jobj, "numBoard", 0));
+                uint8_t numBoard = get_json_value<uint8_t>(jobj, "numBoard", 0);
+                controller.buttonNumBoardSave_Click(numBoard);
                 publishResponse(commandName, true, "saveNumBoard Set");
             }
             else if (commandName == "SaveNumGroup") {
-                controller.buttonNumGroupSave_Click(get_json_value<int>(jobj, "numGroup", 0));
+                uint8_t numGroup = get_json_value<uint8_t>(jobj, "numGroup", 0);
+                controller.buttonNumGroupSave_Click(numGroup);
                 publishResponse(commandName, true, "saveNumGroup Set");
             }
             else if (commandName == "SaveStartPos") {
-                controller.buttonStartPositionSave_Click(get_json_value<uint64_t>(jobj, "numPos", 0));
+                uint32_t numPos = get_json_value<uint32_t>(jobj, "numPos", 0);
+                controller.buttonStartPositionSave_Click(numPos);
                 publishResponse(commandName, true, "saveStartPos Set");
             }
             else if (commandName == "SaveEndPos") {
-                controller.buttonEndPositionSave_Click(get_json_value<uint64_t>(jobj, "numPos", 0));
+                uint32_t numPos = get_json_value<uint32_t>(jobj, "numPos", 0);
+                controller.buttonEndPositionSave_Click(numPos);
                 publishResponse(commandName, true, "saveEndPos Set");
             }
             else if (commandName == "SaveMaxSpeed") {
-                controller.buttonMaxSpeedSave_Click(get_json_value<uint64_t>(jobj, "numSpeed", 0));
+                float numSpeed = get_json_value<float>(jobj, "numSpeed", 0);
+                controller.buttonMaxSpeedSave_Click(numSpeed);
                 publishResponse(commandName, true, "saveMaxSpeed Set");
             }
             else if (commandName == "SaveDefaultSpeed") {
-                controller.buttonDefaultSpeedSave_Click(get_json_value<uint64_t>(jobj, "numSpeed", 0));
+                float numSpeed = get_json_value<float>(jobj, "numSpeed", 0);
+                controller.buttonDefaultSpeedSave_Click(numSpeed);
                 publishResponse(commandName, true, "saveDefaultSpeed Set");
             }
             else if (commandName == "SaveAccel") {
-                controller.buttonAccelSave_Click(get_json_value<uint64_t>(jobj, "numAccel", 0));
+                uint8_t numAccel = get_json_value<uint8_t>(jobj, "numAccel", 0);
+                controller.buttonAccelSave_Click(numAccel);
                 publishResponse(commandName, true, "saveAccel Set");
             }
             else if (commandName == "SaveDecel") {
-                controller.buttonDecelSave_Click(get_json_value<int>(jobj, "numDecel", 0));
+                uint8_t numDecel = get_json_value<uint8_t>(jobj, "numDecel", 0);
+                controller.buttonDecelSave_Click(numDecel);
                 publishResponse(commandName, true, "saveDecel Set");
             }
             else if (commandName == "SaveDelta") {
-                controller.buttonDeltaSave_Click(get_json_value<int>(jobj, "numDelta", 0));
+                uint32_t numDelta = get_json_value<uint32_t>(jobj, "numDelta", 0);
+                controller.buttonDeltaSave_Click(numDelta);
                 publishResponse(commandName, true, "saveDelta Set");
             }
-            // Configuration Commands
             else if (commandName == "MicroSteps") {
-                controller.button_MicroSteps_Click(get_json_value<int>(jobj, "numSteps", 0));
+                uint32_t numSteps = get_json_value<uint32_t>(jobj, "numSteps", 0);
+                controller.button_MicroSteps_Click(numSteps);
                 publishResponse(commandName, true, "MicroSteps Set");
             }
             else if (commandName == "TurnSteps") {
-                controller.button_StepsTurn_Click(get_json_value<int>(jobj, "numSteps", 0));
+                uint32_t numSteps = get_json_value<uint32_t>(jobj, "numSteps", 0);
+                controller.button_StepsTurn_Click(numSteps);
                 publishResponse(commandName, true, "StepsTurn Set");
             }
-            // Polarity Commands
             else if (commandName == "Sensor1Polarity") {
-                controller.buttonSensor1Polarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonSensor1Polarity_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor1Polarity Set");
             }
             else if (commandName == "Sensor2Polarity") {
-                controller.buttonSensor2Polarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonSensor2Polarity_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor2Polarity Set");
             }
             else if (commandName == "Sensor3Polarity") {
-                controller.buttonSensor3Polarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonSensor3Polarity_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor3Polarity Set");
             }
             else if (commandName == "Sensor4Polarity") {
-                controller.buttonSensor4Polarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonSensor4Polarity_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor4Polarity Set");
             }
-            // Direction Commands
             else if (commandName == "Sensor1Dir") {
-                controller.buttonSensor1Dir_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonSensor1Dir_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor1Dir Set");
             }
             else if (commandName == "Sensor2Dir") {
-                controller.buttonSensor2Dir_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonSensor2Dir_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor2Dir Set");
             }
             else if (commandName == "Sensor3Dir") {
-                controller.buttonSensor3Dir_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonSensor3Dir_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor3Dir Set");
             }
             else if (commandName == "Sensor4Dir") {
-                controller.buttonSensor4Dir_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonSensor4Dir_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor4Dir Set");
             }
             else if (commandName == "SRVRDYPolarity") {
-                controller.buttonSRVRDYPolarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonSRVRDYPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "SRVRDYPolarity Set");
             }
             else if (commandName == "INPOSPolarity") {
-                controller.buttonINPOSPolarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonINPOSPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "INPOSPolarity Set");
             }
             else if (commandName == "FAULTPolarity") {
-                controller.buttonFAULTPolarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonFAULTPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "FAULTPolarity Set");
             }
             else if (commandName == "BrakePolarity") {
-                controller.buttonBrakePolarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonBrakePolarity_Click(statusInverting);
                 publishResponse(commandName, true, "BrakePolarity Set");
             }
             else if (commandName == "DirPolarity") {
-                controller.buttonDirPolarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonDirPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "DirPolarity Set");
             }
             else if (commandName == "EnPolarity") {
-                controller.buttonEnPolarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonEnPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "EnPolarity Set");
             }
             else if (commandName == "Al_CLRPolarity") {
-                controller.buttonAl_CLRPolarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonAl_CLRPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "Al_CLRPolarity Set");
             }
             else if (commandName == "Al_OBrakePolarity") {
-                controller.buttonAl_OBrakePolarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonAl_OBrakePolarity_Click(statusInverting);
                 publishResponse(commandName, true, "Al_OBrakePolarity Set");
             }
             else if (commandName == "Al_ORezervPolarity") {
-                controller.buttonAl_ORezervPolarity_Click(jobj["statusInverting"].as_string().c_str());
+                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                controller.buttonAl_ORezervPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "Al_ORezervPolarity Set");
             }
             else if (commandName == "EncoderActive") {
-                controller.setEncoderActive(get_json_value<bool>(jobj, "statusActive", false));
+                bool statusActive = get_json_value<bool>(jobj, "statusActive", false);
+                controller.setEncoderActive(statusActive);
                 publishResponse(commandName, true, "setEncoderActive Set");
             }
             else if (commandName == "EncoderConfig") {
-                controller.buttonEncoderConfig_Click(
-                    get_json_value<int>(jobj, "numPolarity", 0),
-                    get_json_value<int>(jobj, "numDelta", 0),
-                    get_json_value<int>(jobj, "numTurnData", 0)
-                );
+                uint8_t numPolarity = get_json_value<uint8_t>(jobj, "numPolarity", 0);
+                uint8_t numDelta = get_json_value<uint8_t>(jobj, "numDelta", 0);
+                uint16_t numTurnData = get_json_value<uint16_t>(jobj, "numTurnData", 0);
+                controller.buttonEncoderConfig_Click(numPolarity, numDelta, numTurnData);
                 publishResponse(commandName, true, "encoderConfig Set");
             }
             else if (commandName == "FlashBoot") {
-                std::string fname = get_json_value<std::string>(jobj, "filename", "");
-                controller.buttonBoot_Click(fname);
+                std::string filename = get_json_value<std::string>(jobj, "filename", "");
+                controller.buttonBoot_Click(filename);
                 publishResponse(commandName, true, "Flash Started");
             }
             else if (commandName == "FlashTypeBootSet") {
-                controller.buttonTypeBootSet_Click(jobj["type"].as_string().c_str());
+                std::string type = get_json_value<std::string>(jobj, "NoTypeBoard", "");
+                controller.buttonTypeBootSet_Click(type);
                 publishResponse(commandName, true, "flashTypeBootSet");
             }
             else if (commandName == "FlashTypeBootSave") {
-                controller.buttonTypeBootSave_Click(jobj["type"].as_string().c_str());
+                std::string type = get_json_value<std::string>(jobj, "NoTypeBoard", "");
+                controller.buttonTypeBootSave_Click(type);
                 publishResponse(commandName, true, "flashTypeBootSave");
             }
             else if (commandName == "Health") {
