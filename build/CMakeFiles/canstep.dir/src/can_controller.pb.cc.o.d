@@ -1,7 +1,7 @@
 CMakeFiles/canstep.dir/src/can_controller.pb.cc.o: \
  /home/ilya/Desktop/canstep-api/src/can_controller.pb.cc \
  /usr/include/stdc-predef.h \
- /home/ilya/Desktop/canstep-api/src/../include/can_controller.pb.h \
+ /home/ilya/Desktop/canstep-api/include/can_controller.pb.h \
  /usr/include/c++/13/limits \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \

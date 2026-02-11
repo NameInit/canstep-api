@@ -31,6 +31,7 @@ using cancontroller::EncoderActiveRequest;
 using cancontroller::EncoderConfigRequest;
 using cancontroller::FlashBootRequest;
 using cancontroller::FlashTypeRequest;
+using cancontroller::FileConfigRequest;
 using cancontroller::CommandResponse;
 using cancontroller::HealthResponse;
 using cancontroller::Empty;
@@ -1171,6 +1172,42 @@ public:
             BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/FlashTypeBootSave failed: " << e.what();
             response->set_success(false);
             response->set_message("flashTypeBootSave failed");
+            response->set_error(e.what());
+            return Status::CANCELLED;
+        }
+    }
+
+    Status LoadMech(ServerContext* context, const FileConfigRequest* request,
+                             CommandResponse* response) override {
+        std::lock_guard<std::mutex> lock(controllerMutex);
+        try {
+            controller.readMechsFromFile_Click(request->filename());
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/LoadMech: " << request->filename();
+            response->set_success(true);
+            response->set_message("LoadMech");
+            return Status::OK;
+        } catch (const std::exception& e) {
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/LoadMech failed: " << e.what();
+            response->set_success(false);
+            response->set_message("LoadMech failed");
+            response->set_error(e.what());
+            return Status::CANCELLED;
+        }
+    }
+
+    Status ExecuteSce(ServerContext* context, const FileConfigRequest* request,
+                             CommandResponse* response) override {
+        std::lock_guard<std::mutex> lock(controllerMutex);
+        try {
+            controller.executeSce_Click(request->filename());
+            BOOST_LOG_TRIVIAL(info) << "gRPC cancontroller.CanControllerService/ExecuteSce: " << request->filename();
+            response->set_success(true);
+            response->set_message("ExecuteSce");
+            return Status::OK;
+        } catch (const std::exception& e) {
+            BOOST_LOG_TRIVIAL(error) << "gRPC cancontroller.CanControllerService/ExecuteSce failed: " << e.what();
+            response->set_success(false);
+            response->set_message("ExecuteSce failed");
             response->set_error(e.what());
             return Status::CANCELLED;
         }

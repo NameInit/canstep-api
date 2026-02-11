@@ -1,7 +1,7 @@
 CMakeFiles/canstep.dir/src/can_controller.grpc.pb.cc.o: \
  /home/ilya/Desktop/canstep-api/src/can_controller.grpc.pb.cc \
  /usr/include/stdc-predef.h \
- /home/ilya/Desktop/canstep-api/src/../include/can_controller.pb.h \
+ /home/ilya/Desktop/canstep-api/include/can_controller.pb.h \
  /usr/include/c++/13/limits \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -259,8 +259,8 @@ CMakeFiles/canstep.dir/src/can_controller.grpc.pb.cc.o: \
  /usr/include/c++/13/compare \
  /usr/include/google/protobuf/map_type_handler.h \
  /usr/include/google/protobuf/extension_set.h /usr/include/c++/13/cassert \
- /home/ilya/Desktop/canstep-api/src/../include/can_controller.grpc.pb.h \
- /home/ilya/Desktop/canstep-api/src/../include/can_controller.pb.h \
+ /home/ilya/Desktop/canstep-api/include/can_controller.grpc.pb.h \
+ /home/ilya/Desktop/canstep-api/include/can_controller.pb.h \
  /usr/include/grpcpp/generic/async_generic_service.h \
  /usr/include/grpc/impl/codegen/port_platform.h \
  /usr/include/linux/version.h \

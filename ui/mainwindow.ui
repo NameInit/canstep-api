@@ -1260,9 +1260,9 @@
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>340</y>
+      <y>320</y>
       <width>200</width>
-      <height>92</height>
+      <height>101</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
@@ -1270,13 +1270,6 @@
       <widget class="QPushButton" name="pushButtonSAVE">
        <property name="text">
         <string>SAVE</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QPushButton" name="pushButtonFLASH">
-       <property name="text">
-        <string>FLASH</string>
        </property>
       </widget>
      </item>
@@ -1307,6 +1300,13 @@
          <string>Tensometer</string>
         </property>
        </item>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButtonFLASH">
+       <property name="text">
+        <string>FLASH</string>
+       </property>
       </widget>
      </item>
      <item row="1" column="0">
@@ -1356,6 +1356,46 @@
       <string>MQTT</string>
      </property>
     </item>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>450</y>
+      <width>238</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEditExSce">
+       <property name="text">
+        <string>../config/full_stop.sce</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEditLoadMech">
+       <property name="text">
+        <string>../config/mech.txt</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButtonLoadMech">
+       <property name="text">
+        <string>Load mech</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButtonExSce">
+       <property name="text">
+        <string>Execute sce</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

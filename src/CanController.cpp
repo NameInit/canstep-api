@@ -435,7 +435,9 @@ void CanController::saveMechsToFile_Click(const std::string& filename){
 }
 
 void CanController::readMechsFromFile_Click(const std::string& filename){
-	scenarioBuilder->loadMechanismsFromFile(filename);
+	std::thread([this, filename]() {
+        scenarioBuilder->loadMechanismsFromFile(filename);
+    }).detach();
 	// System::Threading::Thread^ staThread = gcnew System::Threading::Thread(gcnew System::Threading::ThreadStart(this, &MyForm::ShowOpenMechanismsDialog));
 	// staThread->SetApartmentState(System::Threading::ApartmentState::STA);
 	// staThread->Start();
@@ -514,6 +516,17 @@ void CanController::autoUpdateTable_CheckedChanged() {
 	// else {
 	// 	autoTableUpdate = false;
 	// }
+	return ;
+}
+
+void CanController::executeSce_Click(const std::string& filename){
+	std::thread([this, filename]() {
+		std::ifstream file(filename);
+		std::string line;
+		while (std::getline(file, line)) {
+			scenarioBuilder->executeSingleCommand(line);
+		}
+    }).detach();
 	return ;
 }
 

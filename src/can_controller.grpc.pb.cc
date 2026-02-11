@@ -2,8 +2,8 @@
 // If you make any local change, they will be lost.
 // source: can_controller.proto
 
-#include "../include/can_controller.pb.h"
-#include "../include/can_controller.grpc.pb.h"
+#include "can_controller.pb.h"
+#include "can_controller.grpc.pb.h"
 
 #include <functional>
 #include <grpcpp/support/async_stream.h>
@@ -84,6 +84,8 @@ static const char* CanControllerService_method_names[] = {
   "/cancontroller.CanControllerService/FlashBoot",
   "/cancontroller.CanControllerService/FlashTypeBootSet",
   "/cancontroller.CanControllerService/FlashTypeBootSave",
+  "/cancontroller.CanControllerService/LoadMech",
+  "/cancontroller.CanControllerService/ExecuteSce",
   "/cancontroller.CanControllerService/Health",
 };
 
@@ -156,7 +158,9 @@ CanControllerService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface
   , rpcmethod_FlashBoot_(CanControllerService_method_names[59], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_FlashTypeBootSet_(CanControllerService_method_names[60], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_FlashTypeBootSave_(CanControllerService_method_names[61], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Health_(CanControllerService_method_names[62], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_LoadMech_(CanControllerService_method_names[62], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ExecuteSce_(CanControllerService_method_names[63], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Health_(CanControllerService_method_names[64], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status CanControllerService::Stub::Autosender(::grpc::ClientContext* context, const ::cancontroller::AutosenderRequest& request, ::cancontroller::CommandResponse* response) {
@@ -1585,6 +1589,52 @@ void CanControllerService::Stub::async::FlashTypeBootSave(::grpc::ClientContext*
   return result;
 }
 
+::grpc::Status CanControllerService::Stub::LoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::cancontroller::CommandResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_LoadMech_, context, request, response);
+}
+
+void CanControllerService::Stub::async::LoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_LoadMech_, context, request, response, std::move(f));
+}
+
+void CanControllerService::Stub::async::LoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_LoadMech_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>* CanControllerService::Stub::PrepareAsyncLoadMechRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::cancontroller::CommandResponse, ::cancontroller::FileConfigRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_LoadMech_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>* CanControllerService::Stub::AsyncLoadMechRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncLoadMechRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status CanControllerService::Stub::ExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::cancontroller::CommandResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ExecuteSce_, context, request, response);
+}
+
+void CanControllerService::Stub::async::ExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ExecuteSce_, context, request, response, std::move(f));
+}
+
+void CanControllerService::Stub::async::ExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ExecuteSce_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>* CanControllerService::Stub::PrepareAsyncExecuteSceRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::cancontroller::CommandResponse, ::cancontroller::FileConfigRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ExecuteSce_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>* CanControllerService::Stub::AsyncExecuteSceRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncExecuteSceRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 ::grpc::Status CanControllerService::Stub::Health(::grpc::ClientContext* context, const ::cancontroller::Empty& request, ::cancontroller::HealthResponse* response) {
   return ::grpc::internal::BlockingUnaryCall< ::cancontroller::Empty, ::cancontroller::HealthResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Health_, context, request, response);
 }
@@ -2232,6 +2282,26 @@ CanControllerService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       CanControllerService_method_names[62],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< CanControllerService::Service, ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](CanControllerService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::cancontroller::FileConfigRequest* req,
+             ::cancontroller::CommandResponse* resp) {
+               return service->LoadMech(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      CanControllerService_method_names[63],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< CanControllerService::Service, ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](CanControllerService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::cancontroller::FileConfigRequest* req,
+             ::cancontroller::CommandResponse* resp) {
+               return service->ExecuteSce(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      CanControllerService_method_names[64],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< CanControllerService::Service, ::cancontroller::Empty, ::cancontroller::HealthResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](CanControllerService::Service* service,
              ::grpc::ServerContext* ctx,
@@ -2672,6 +2742,20 @@ CanControllerService::Service::~Service() {
 }
 
 ::grpc::Status CanControllerService::Service::FlashTypeBootSave(::grpc::ServerContext* context, const ::cancontroller::FlashTypeRequest* request, ::cancontroller::CommandResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status CanControllerService::Service::LoadMech(::grpc::ServerContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status CanControllerService::Service::ExecuteSce(::grpc::ServerContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response) {
   (void) context;
   (void) request;
   (void) response;

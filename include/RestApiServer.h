@@ -86,6 +86,8 @@ private:
 		Pistache::Rest::Routes::Post(router, "/api/flash/run", Pistache::Rest::Routes::bind(&RestApiServer::flashBoot, this));
 		Pistache::Rest::Routes::Post(router, "/api/flash/type/set", Pistache::Rest::Routes::bind(&RestApiServer::flashTypeBootSet, this));
 		Pistache::Rest::Routes::Post(router, "/api/flash/type/save", Pistache::Rest::Routes::bind(&RestApiServer::flashTypeBootSave, this));
+		Pistache::Rest::Routes::Post(router, "/api/mech/load", Pistache::Rest::Routes::bind(&RestApiServer::loadMech, this));
+		Pistache::Rest::Routes::Post(router, "/api/sce/execute", Pistache::Rest::Routes::bind(&RestApiServer::executeSce, this));
 
 		Pistache::Rest::Routes::Get(router, "/health", Pistache::Rest::Routes::bind(&RestApiServer::health, this));
 	}
@@ -954,6 +956,36 @@ private:
 		} catch (const std::exception& e){
 			BOOST_LOG_TRIVIAL(error) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
 			response.send(Pistache::Http::Code::Internal_Server_Error, "flashTypeBootSave failed");
+		}
+	}
+
+	void loadMech(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controllerMutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			std::string filename = static_cast<std::string>(obj["filename"].as_string());
+			controller.readMechsFromFile_Click(filename);
+			BOOST_LOG_TRIVIAL(info) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "loadMech");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "loadMech failed");
+		}
+	}
+
+	void executeSce(const Pistache::Rest::Request& request, Pistache::Http::ResponseWriter response){
+		std::lock_guard<std::mutex> lock(controllerMutex);
+		boost::json::value json_data = boost::json::parse(request.body());
+		try{
+			boost::json::object obj=json_data.as_object();
+			std::string filename = static_cast<std::string>(obj["filename"].as_string());
+			controller.executeSce_Click(filename);
+			BOOST_LOG_TRIVIAL(info) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Ok, "executeSce");
+		} catch (const std::exception& e){
+			BOOST_LOG_TRIVIAL(error) << request.method() << ' ' << request.resource() << ' ' << boost::json::serialize(json_data);
+			response.send(Pistache::Http::Code::Internal_Server_Error, "executeSce failed");
 		}
 	}
 

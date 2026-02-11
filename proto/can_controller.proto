@@ -73,6 +73,9 @@ service CanControllerService {
     rpc FlashTypeBootSet (FlashTypeRequest) returns (CommandResponse);
     rpc FlashTypeBootSave (FlashTypeRequest) returns (CommandResponse);
 
+    rpc LoadMech (FileConfigRequest) returns (CommandResponse);
+    rpc ExecuteSce (FileConfigRequest) returns (CommandResponse);
+
     rpc Health (Empty) returns (HealthResponse);
 }
 
@@ -145,6 +148,10 @@ message HealthResponse {
     bool healthy = 1;
     string status = 2;
     int64 timestamp = 3;
+}
+
+message FileConfigRequest {
+    string filename = 1;
 }
 
 message Empty {}

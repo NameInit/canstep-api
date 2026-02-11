@@ -35,7 +35,6 @@ class CanControllerService final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    // Основные команды
     virtual ::grpc::Status Autosender(::grpc::ClientContext* context, const ::cancontroller::AutosenderRequest& request, ::cancontroller::CommandResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> AsyncAutosender(::grpc::ClientContext* context, const ::cancontroller::AutosenderRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(AsyncAutosenderRaw(context, request, cq));
@@ -239,7 +238,6 @@ class CanControllerService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> PrepareAsyncAlarmCode(::grpc::ClientContext* context, const ::cancontroller::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(PrepareAsyncAlarmCodeRaw(context, request, cq));
     }
-    // Сохранение параметров
     virtual ::grpc::Status SaveNumBoard(::grpc::ClientContext* context, const ::cancontroller::BoardRequest& request, ::cancontroller::CommandResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> AsyncSaveNumBoard(::grpc::ClientContext* context, const ::cancontroller::BoardRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(AsyncSaveNumBoardRaw(context, request, cq));
@@ -303,7 +301,6 @@ class CanControllerService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> PrepareAsyncSaveDelta(::grpc::ClientContext* context, const ::cancontroller::DeltaRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(PrepareAsyncSaveDeltaRaw(context, request, cq));
     }
-    // Настройки шагов
     virtual ::grpc::Status MicroSteps(::grpc::ClientContext* context, const ::cancontroller::StepsRequest& request, ::cancontroller::CommandResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> AsyncMicroSteps(::grpc::ClientContext* context, const ::cancontroller::StepsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(AsyncMicroStepsRaw(context, request, cq));
@@ -318,7 +315,6 @@ class CanControllerService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> PrepareAsyncTurnSteps(::grpc::ClientContext* context, const ::cancontroller::StepsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(PrepareAsyncTurnStepsRaw(context, request, cq));
     }
-    // Датчики
     virtual ::grpc::Status Sensor1Polarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest& request, ::cancontroller::CommandResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> AsyncSensor1Polarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(AsyncSensor1PolarityRaw(context, request, cq));
@@ -375,7 +371,6 @@ class CanControllerService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> PrepareAsyncSensor4Dir(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(PrepareAsyncSensor4DirRaw(context, request, cq));
     }
-    // Полярности
     virtual ::grpc::Status SRVRDYPolarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest& request, ::cancontroller::CommandResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> AsyncSRVRDYPolarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(AsyncSRVRDYPolarityRaw(context, request, cq));
@@ -439,7 +434,6 @@ class CanControllerService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> PrepareAsyncAl_ORezervPolarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(PrepareAsyncAl_ORezervPolarityRaw(context, request, cq));
     }
-    // Энкодер
     virtual ::grpc::Status EncoderActive(::grpc::ClientContext* context, const ::cancontroller::EncoderActiveRequest& request, ::cancontroller::CommandResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> AsyncEncoderActive(::grpc::ClientContext* context, const ::cancontroller::EncoderActiveRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(AsyncEncoderActiveRaw(context, request, cq));
@@ -454,7 +448,6 @@ class CanControllerService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> PrepareAsyncEncoderConfig(::grpc::ClientContext* context, const ::cancontroller::EncoderConfigRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(PrepareAsyncEncoderConfigRaw(context, request, cq));
     }
-    // Flash операции
     virtual ::grpc::Status FlashBoot(::grpc::ClientContext* context, const ::cancontroller::FlashBootRequest& request, ::cancontroller::CommandResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> AsyncFlashBoot(::grpc::ClientContext* context, const ::cancontroller::FlashBootRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(AsyncFlashBootRaw(context, request, cq));
@@ -476,7 +469,20 @@ class CanControllerService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> PrepareAsyncFlashTypeBootSave(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(PrepareAsyncFlashTypeBootSaveRaw(context, request, cq));
     }
-    // Health check
+    virtual ::grpc::Status LoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::cancontroller::CommandResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> AsyncLoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(AsyncLoadMechRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> PrepareAsyncLoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(PrepareAsyncLoadMechRaw(context, request, cq));
+    }
+    virtual ::grpc::Status ExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::cancontroller::CommandResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> AsyncExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(AsyncExecuteSceRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>> PrepareAsyncExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>>(PrepareAsyncExecuteSceRaw(context, request, cq));
+    }
     virtual ::grpc::Status Health(::grpc::ClientContext* context, const ::cancontroller::Empty& request, ::cancontroller::HealthResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::HealthResponse>> AsyncHealth(::grpc::ClientContext* context, const ::cancontroller::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::HealthResponse>>(AsyncHealthRaw(context, request, cq));
@@ -487,7 +493,6 @@ class CanControllerService final {
     class async_interface {
      public:
       virtual ~async_interface() {}
-      // Основные команды
       virtual void Autosender(::grpc::ClientContext* context, const ::cancontroller::AutosenderRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Autosender(::grpc::ClientContext* context, const ::cancontroller::AutosenderRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void Connect(::grpc::ClientContext* context, const ::cancontroller::Empty* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -546,7 +551,6 @@ class CanControllerService final {
       virtual void AbsolutePositionRotorUint(::grpc::ClientContext* context, const ::cancontroller::Empty* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void AlarmCode(::grpc::ClientContext* context, const ::cancontroller::Empty* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void AlarmCode(::grpc::ClientContext* context, const ::cancontroller::Empty* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Сохранение параметров
       virtual void SaveNumBoard(::grpc::ClientContext* context, const ::cancontroller::BoardRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SaveNumBoard(::grpc::ClientContext* context, const ::cancontroller::BoardRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void SaveNumGroup(::grpc::ClientContext* context, const ::cancontroller::GroupRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -565,12 +569,10 @@ class CanControllerService final {
       virtual void SaveDecel(::grpc::ClientContext* context, const ::cancontroller::DecelRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void SaveDelta(::grpc::ClientContext* context, const ::cancontroller::DeltaRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SaveDelta(::grpc::ClientContext* context, const ::cancontroller::DeltaRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Настройки шагов
       virtual void MicroSteps(::grpc::ClientContext* context, const ::cancontroller::StepsRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void MicroSteps(::grpc::ClientContext* context, const ::cancontroller::StepsRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void TurnSteps(::grpc::ClientContext* context, const ::cancontroller::StepsRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void TurnSteps(::grpc::ClientContext* context, const ::cancontroller::StepsRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Датчики
       virtual void Sensor1Polarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Sensor1Polarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void Sensor2Polarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -587,7 +589,6 @@ class CanControllerService final {
       virtual void Sensor3Dir(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void Sensor4Dir(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Sensor4Dir(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Полярности
       virtual void SRVRDYPolarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SRVRDYPolarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void INPOSPolarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -606,19 +607,20 @@ class CanControllerService final {
       virtual void Al_OBrakePolarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void Al_ORezervPolarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Al_ORezervPolarity(::grpc::ClientContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Энкодер
       virtual void EncoderActive(::grpc::ClientContext* context, const ::cancontroller::EncoderActiveRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void EncoderActive(::grpc::ClientContext* context, const ::cancontroller::EncoderActiveRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void EncoderConfig(::grpc::ClientContext* context, const ::cancontroller::EncoderConfigRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void EncoderConfig(::grpc::ClientContext* context, const ::cancontroller::EncoderConfigRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Flash операции
       virtual void FlashBoot(::grpc::ClientContext* context, const ::cancontroller::FlashBootRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void FlashBoot(::grpc::ClientContext* context, const ::cancontroller::FlashBootRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void FlashTypeBootSet(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void FlashTypeBootSet(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void FlashTypeBootSave(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void FlashTypeBootSave(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Health check
+      virtual void LoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void LoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void ExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void Health(::grpc::ClientContext* context, const ::cancontroller::Empty* request, ::cancontroller::HealthResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Health(::grpc::ClientContext* context, const ::cancontroller::Empty* request, ::cancontroller::HealthResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
@@ -750,6 +752,10 @@ class CanControllerService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>* PrepareAsyncFlashTypeBootSetRaw(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>* AsyncFlashTypeBootSaveRaw(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>* PrepareAsyncFlashTypeBootSaveRaw(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>* AsyncLoadMechRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>* PrepareAsyncLoadMechRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>* AsyncExecuteSceRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::CommandResponse>* PrepareAsyncExecuteSceRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::HealthResponse>* AsyncHealthRaw(::grpc::ClientContext* context, const ::cancontroller::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::cancontroller::HealthResponse>* PrepareAsyncHealthRaw(::grpc::ClientContext* context, const ::cancontroller::Empty& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -1190,6 +1196,20 @@ class CanControllerService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>> PrepareAsyncFlashTypeBootSave(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>>(PrepareAsyncFlashTypeBootSaveRaw(context, request, cq));
     }
+    ::grpc::Status LoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::cancontroller::CommandResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>> AsyncLoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>>(AsyncLoadMechRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>> PrepareAsyncLoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>>(PrepareAsyncLoadMechRaw(context, request, cq));
+    }
+    ::grpc::Status ExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::cancontroller::CommandResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>> AsyncExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>>(AsyncExecuteSceRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>> PrepareAsyncExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>>(PrepareAsyncExecuteSceRaw(context, request, cq));
+    }
     ::grpc::Status Health(::grpc::ClientContext* context, const ::cancontroller::Empty& request, ::cancontroller::HealthResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::HealthResponse>> AsyncHealth(::grpc::ClientContext* context, const ::cancontroller::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cancontroller::HealthResponse>>(AsyncHealthRaw(context, request, cq));
@@ -1324,6 +1344,10 @@ class CanControllerService final {
       void FlashTypeBootSet(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void FlashTypeBootSave(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) override;
       void FlashTypeBootSave(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void LoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) override;
+      void LoadMech(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, std::function<void(::grpc::Status)>) override;
+      void ExecuteSce(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void Health(::grpc::ClientContext* context, const ::cancontroller::Empty* request, ::cancontroller::HealthResponse* response, std::function<void(::grpc::Status)>) override;
       void Health(::grpc::ClientContext* context, const ::cancontroller::Empty* request, ::cancontroller::HealthResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
@@ -1461,6 +1485,10 @@ class CanControllerService final {
     ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>* PrepareAsyncFlashTypeBootSetRaw(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>* AsyncFlashTypeBootSaveRaw(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>* PrepareAsyncFlashTypeBootSaveRaw(::grpc::ClientContext* context, const ::cancontroller::FlashTypeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>* AsyncLoadMechRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>* PrepareAsyncLoadMechRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>* AsyncExecuteSceRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::cancontroller::CommandResponse>* PrepareAsyncExecuteSceRaw(::grpc::ClientContext* context, const ::cancontroller::FileConfigRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::cancontroller::HealthResponse>* AsyncHealthRaw(::grpc::ClientContext* context, const ::cancontroller::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::cancontroller::HealthResponse>* PrepareAsyncHealthRaw(::grpc::ClientContext* context, const ::cancontroller::Empty& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Autosender_;
@@ -1525,6 +1553,8 @@ class CanControllerService final {
     const ::grpc::internal::RpcMethod rpcmethod_FlashBoot_;
     const ::grpc::internal::RpcMethod rpcmethod_FlashTypeBootSet_;
     const ::grpc::internal::RpcMethod rpcmethod_FlashTypeBootSave_;
+    const ::grpc::internal::RpcMethod rpcmethod_LoadMech_;
+    const ::grpc::internal::RpcMethod rpcmethod_ExecuteSce_;
     const ::grpc::internal::RpcMethod rpcmethod_Health_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -1533,7 +1563,6 @@ class CanControllerService final {
    public:
     Service();
     virtual ~Service();
-    // Основные команды
     virtual ::grpc::Status Autosender(::grpc::ServerContext* context, const ::cancontroller::AutosenderRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status Connect(::grpc::ServerContext* context, const ::cancontroller::Empty* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status DebugOn(::grpc::ServerContext* context, const ::cancontroller::Empty* request, ::cancontroller::CommandResponse* response);
@@ -1563,7 +1592,6 @@ class CanControllerService final {
     virtual ::grpc::Status MotorSpeed(::grpc::ServerContext* context, const ::cancontroller::Empty* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status AbsolutePositionRotorUint(::grpc::ServerContext* context, const ::cancontroller::Empty* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status AlarmCode(::grpc::ServerContext* context, const ::cancontroller::Empty* request, ::cancontroller::CommandResponse* response);
-    // Сохранение параметров
     virtual ::grpc::Status SaveNumBoard(::grpc::ServerContext* context, const ::cancontroller::BoardRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status SaveNumGroup(::grpc::ServerContext* context, const ::cancontroller::GroupRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status SaveStartPos(::grpc::ServerContext* context, const ::cancontroller::PositionRequest* request, ::cancontroller::CommandResponse* response);
@@ -1573,10 +1601,8 @@ class CanControllerService final {
     virtual ::grpc::Status SaveAccel(::grpc::ServerContext* context, const ::cancontroller::AccelRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status SaveDecel(::grpc::ServerContext* context, const ::cancontroller::DecelRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status SaveDelta(::grpc::ServerContext* context, const ::cancontroller::DeltaRequest* request, ::cancontroller::CommandResponse* response);
-    // Настройки шагов
     virtual ::grpc::Status MicroSteps(::grpc::ServerContext* context, const ::cancontroller::StepsRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status TurnSteps(::grpc::ServerContext* context, const ::cancontroller::StepsRequest* request, ::cancontroller::CommandResponse* response);
-    // Датчики
     virtual ::grpc::Status Sensor1Polarity(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status Sensor2Polarity(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status Sensor3Polarity(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
@@ -1585,7 +1611,6 @@ class CanControllerService final {
     virtual ::grpc::Status Sensor2Dir(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status Sensor3Dir(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status Sensor4Dir(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
-    // Полярности
     virtual ::grpc::Status SRVRDYPolarity(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status INPOSPolarity(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status FAULTPolarity(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
@@ -1595,14 +1620,13 @@ class CanControllerService final {
     virtual ::grpc::Status Al_CLRPolarity(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status Al_OBrakePolarity(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status Al_ORezervPolarity(::grpc::ServerContext* context, const ::cancontroller::SensorPolarityRequest* request, ::cancontroller::CommandResponse* response);
-    // Энкодер
     virtual ::grpc::Status EncoderActive(::grpc::ServerContext* context, const ::cancontroller::EncoderActiveRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status EncoderConfig(::grpc::ServerContext* context, const ::cancontroller::EncoderConfigRequest* request, ::cancontroller::CommandResponse* response);
-    // Flash операции
     virtual ::grpc::Status FlashBoot(::grpc::ServerContext* context, const ::cancontroller::FlashBootRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status FlashTypeBootSet(::grpc::ServerContext* context, const ::cancontroller::FlashTypeRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status FlashTypeBootSave(::grpc::ServerContext* context, const ::cancontroller::FlashTypeRequest* request, ::cancontroller::CommandResponse* response);
-    // Health check
+    virtual ::grpc::Status LoadMech(::grpc::ServerContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response);
+    virtual ::grpc::Status ExecuteSce(::grpc::ServerContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response);
     virtual ::grpc::Status Health(::grpc::ServerContext* context, const ::cancontroller::Empty* request, ::cancontroller::HealthResponse* response);
   };
   template <class BaseClass>
@@ -2846,12 +2870,52 @@ class CanControllerService final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_LoadMech : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_LoadMech() {
+      ::grpc::Service::MarkMethodAsync(62);
+    }
+    ~WithAsyncMethod_LoadMech() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LoadMech(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestLoadMech(::grpc::ServerContext* context, ::cancontroller::FileConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::cancontroller::CommandResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(62, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_ExecuteSce : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_ExecuteSce() {
+      ::grpc::Service::MarkMethodAsync(63);
+    }
+    ~WithAsyncMethod_ExecuteSce() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ExecuteSce(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestExecuteSce(::grpc::ServerContext* context, ::cancontroller::FileConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::cancontroller::CommandResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(63, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_Health : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Health() {
-      ::grpc::Service::MarkMethodAsync(62);
+      ::grpc::Service::MarkMethodAsync(64);
     }
     ~WithAsyncMethod_Health() override {
       BaseClassMustBeDerivedFromService(this);
@@ -2862,10 +2926,10 @@ class CanControllerService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestHealth(::grpc::ServerContext* context, ::cancontroller::Empty* request, ::grpc::ServerAsyncResponseWriter< ::cancontroller::HealthResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(62, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(64, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Autosender<WithAsyncMethod_Connect<WithAsyncMethod_DebugOn<WithAsyncMethod_Board<WithAsyncMethod_Steps<WithAsyncMethod_Speed<WithAsyncMethod_Accel<WithAsyncMethod_Decel<WithAsyncMethod_Forward<WithAsyncMethod_Backward<WithAsyncMethod_HomingZero<WithAsyncMethod_HomingMax<WithAsyncMethod_ResetDRVError<WithAsyncMethod_Stop<WithAsyncMethod_BrakeOff<WithAsyncMethod_BrakeOn<WithAsyncMethod_RezervOff<WithAsyncMethod_RezervOn<WithAsyncMethod_AlarmResetOff<WithAsyncMethod_AlarmResetOn<WithAsyncMethod_CurrentPos<WithAsyncMethod_ResetCANStep<WithAsyncMethod_DriverOn<WithAsyncMethod_DriverOff<WithAsyncMethod_ResetLostCounters<WithAsyncMethod_MotorTorque<WithAsyncMethod_MotorSpeed<WithAsyncMethod_AbsolutePositionRotorUint<WithAsyncMethod_AlarmCode<WithAsyncMethod_SaveNumBoard<WithAsyncMethod_SaveNumGroup<WithAsyncMethod_SaveStartPos<WithAsyncMethod_SaveEndPos<WithAsyncMethod_SaveMaxSpeed<WithAsyncMethod_SaveDefaultSpeed<WithAsyncMethod_SaveAccel<WithAsyncMethod_SaveDecel<WithAsyncMethod_SaveDelta<WithAsyncMethod_MicroSteps<WithAsyncMethod_TurnSteps<WithAsyncMethod_Sensor1Polarity<WithAsyncMethod_Sensor2Polarity<WithAsyncMethod_Sensor3Polarity<WithAsyncMethod_Sensor4Polarity<WithAsyncMethod_Sensor1Dir<WithAsyncMethod_Sensor2Dir<WithAsyncMethod_Sensor3Dir<WithAsyncMethod_Sensor4Dir<WithAsyncMethod_SRVRDYPolarity<WithAsyncMethod_INPOSPolarity<WithAsyncMethod_FAULTPolarity<WithAsyncMethod_BrakePolarity<WithAsyncMethod_DirPolarity<WithAsyncMethod_EnPolarity<WithAsyncMethod_Al_CLRPolarity<WithAsyncMethod_Al_OBrakePolarity<WithAsyncMethod_Al_ORezervPolarity<WithAsyncMethod_EncoderActive<WithAsyncMethod_EncoderConfig<WithAsyncMethod_FlashBoot<WithAsyncMethod_FlashTypeBootSet<WithAsyncMethod_FlashTypeBootSave<WithAsyncMethod_Health<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_Autosender<WithAsyncMethod_Connect<WithAsyncMethod_DebugOn<WithAsyncMethod_Board<WithAsyncMethod_Steps<WithAsyncMethod_Speed<WithAsyncMethod_Accel<WithAsyncMethod_Decel<WithAsyncMethod_Forward<WithAsyncMethod_Backward<WithAsyncMethod_HomingZero<WithAsyncMethod_HomingMax<WithAsyncMethod_ResetDRVError<WithAsyncMethod_Stop<WithAsyncMethod_BrakeOff<WithAsyncMethod_BrakeOn<WithAsyncMethod_RezervOff<WithAsyncMethod_RezervOn<WithAsyncMethod_AlarmResetOff<WithAsyncMethod_AlarmResetOn<WithAsyncMethod_CurrentPos<WithAsyncMethod_ResetCANStep<WithAsyncMethod_DriverOn<WithAsyncMethod_DriverOff<WithAsyncMethod_ResetLostCounters<WithAsyncMethod_MotorTorque<WithAsyncMethod_MotorSpeed<WithAsyncMethod_AbsolutePositionRotorUint<WithAsyncMethod_AlarmCode<WithAsyncMethod_SaveNumBoard<WithAsyncMethod_SaveNumGroup<WithAsyncMethod_SaveStartPos<WithAsyncMethod_SaveEndPos<WithAsyncMethod_SaveMaxSpeed<WithAsyncMethod_SaveDefaultSpeed<WithAsyncMethod_SaveAccel<WithAsyncMethod_SaveDecel<WithAsyncMethod_SaveDelta<WithAsyncMethod_MicroSteps<WithAsyncMethod_TurnSteps<WithAsyncMethod_Sensor1Polarity<WithAsyncMethod_Sensor2Polarity<WithAsyncMethod_Sensor3Polarity<WithAsyncMethod_Sensor4Polarity<WithAsyncMethod_Sensor1Dir<WithAsyncMethod_Sensor2Dir<WithAsyncMethod_Sensor3Dir<WithAsyncMethod_Sensor4Dir<WithAsyncMethod_SRVRDYPolarity<WithAsyncMethod_INPOSPolarity<WithAsyncMethod_FAULTPolarity<WithAsyncMethod_BrakePolarity<WithAsyncMethod_DirPolarity<WithAsyncMethod_EnPolarity<WithAsyncMethod_Al_CLRPolarity<WithAsyncMethod_Al_OBrakePolarity<WithAsyncMethod_Al_ORezervPolarity<WithAsyncMethod_EncoderActive<WithAsyncMethod_EncoderConfig<WithAsyncMethod_FlashBoot<WithAsyncMethod_FlashTypeBootSet<WithAsyncMethod_FlashTypeBootSave<WithAsyncMethod_LoadMech<WithAsyncMethod_ExecuteSce<WithAsyncMethod_Health<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_Autosender : public BaseClass {
    private:
@@ -4541,18 +4605,72 @@ class CanControllerService final {
       ::grpc::CallbackServerContext* /*context*/, const ::cancontroller::FlashTypeRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_LoadMech : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_LoadMech() {
+      ::grpc::Service::MarkMethodCallback(62,
+          new ::grpc::internal::CallbackUnaryHandler< ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response) { return this->LoadMech(context, request, response); }));}
+    void SetMessageAllocatorFor_LoadMech(
+        ::grpc::MessageAllocator< ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(62);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_LoadMech() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LoadMech(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* LoadMech(
+      ::grpc::CallbackServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_ExecuteSce : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_ExecuteSce() {
+      ::grpc::Service::MarkMethodCallback(63,
+          new ::grpc::internal::CallbackUnaryHandler< ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::cancontroller::FileConfigRequest* request, ::cancontroller::CommandResponse* response) { return this->ExecuteSce(context, request, response); }));}
+    void SetMessageAllocatorFor_ExecuteSce(
+        ::grpc::MessageAllocator< ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(63);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_ExecuteSce() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ExecuteSce(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ExecuteSce(
+      ::grpc::CallbackServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_Health : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_Health() {
-      ::grpc::Service::MarkMethodCallback(62,
+      ::grpc::Service::MarkMethodCallback(64,
           new ::grpc::internal::CallbackUnaryHandler< ::cancontroller::Empty, ::cancontroller::HealthResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::cancontroller::Empty* request, ::cancontroller::HealthResponse* response) { return this->Health(context, request, response); }));}
     void SetMessageAllocatorFor_Health(
         ::grpc::MessageAllocator< ::cancontroller::Empty, ::cancontroller::HealthResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(62);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(64);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::cancontroller::Empty, ::cancontroller::HealthResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -4567,7 +4685,7 @@ class CanControllerService final {
     virtual ::grpc::ServerUnaryReactor* Health(
       ::grpc::CallbackServerContext* /*context*/, const ::cancontroller::Empty* /*request*/, ::cancontroller::HealthResponse* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_Autosender<WithCallbackMethod_Connect<WithCallbackMethod_DebugOn<WithCallbackMethod_Board<WithCallbackMethod_Steps<WithCallbackMethod_Speed<WithCallbackMethod_Accel<WithCallbackMethod_Decel<WithCallbackMethod_Forward<WithCallbackMethod_Backward<WithCallbackMethod_HomingZero<WithCallbackMethod_HomingMax<WithCallbackMethod_ResetDRVError<WithCallbackMethod_Stop<WithCallbackMethod_BrakeOff<WithCallbackMethod_BrakeOn<WithCallbackMethod_RezervOff<WithCallbackMethod_RezervOn<WithCallbackMethod_AlarmResetOff<WithCallbackMethod_AlarmResetOn<WithCallbackMethod_CurrentPos<WithCallbackMethod_ResetCANStep<WithCallbackMethod_DriverOn<WithCallbackMethod_DriverOff<WithCallbackMethod_ResetLostCounters<WithCallbackMethod_MotorTorque<WithCallbackMethod_MotorSpeed<WithCallbackMethod_AbsolutePositionRotorUint<WithCallbackMethod_AlarmCode<WithCallbackMethod_SaveNumBoard<WithCallbackMethod_SaveNumGroup<WithCallbackMethod_SaveStartPos<WithCallbackMethod_SaveEndPos<WithCallbackMethod_SaveMaxSpeed<WithCallbackMethod_SaveDefaultSpeed<WithCallbackMethod_SaveAccel<WithCallbackMethod_SaveDecel<WithCallbackMethod_SaveDelta<WithCallbackMethod_MicroSteps<WithCallbackMethod_TurnSteps<WithCallbackMethod_Sensor1Polarity<WithCallbackMethod_Sensor2Polarity<WithCallbackMethod_Sensor3Polarity<WithCallbackMethod_Sensor4Polarity<WithCallbackMethod_Sensor1Dir<WithCallbackMethod_Sensor2Dir<WithCallbackMethod_Sensor3Dir<WithCallbackMethod_Sensor4Dir<WithCallbackMethod_SRVRDYPolarity<WithCallbackMethod_INPOSPolarity<WithCallbackMethod_FAULTPolarity<WithCallbackMethod_BrakePolarity<WithCallbackMethod_DirPolarity<WithCallbackMethod_EnPolarity<WithCallbackMethod_Al_CLRPolarity<WithCallbackMethod_Al_OBrakePolarity<WithCallbackMethod_Al_ORezervPolarity<WithCallbackMethod_EncoderActive<WithCallbackMethod_EncoderConfig<WithCallbackMethod_FlashBoot<WithCallbackMethod_FlashTypeBootSet<WithCallbackMethod_FlashTypeBootSave<WithCallbackMethod_Health<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > CallbackService;
+  typedef WithCallbackMethod_Autosender<WithCallbackMethod_Connect<WithCallbackMethod_DebugOn<WithCallbackMethod_Board<WithCallbackMethod_Steps<WithCallbackMethod_Speed<WithCallbackMethod_Accel<WithCallbackMethod_Decel<WithCallbackMethod_Forward<WithCallbackMethod_Backward<WithCallbackMethod_HomingZero<WithCallbackMethod_HomingMax<WithCallbackMethod_ResetDRVError<WithCallbackMethod_Stop<WithCallbackMethod_BrakeOff<WithCallbackMethod_BrakeOn<WithCallbackMethod_RezervOff<WithCallbackMethod_RezervOn<WithCallbackMethod_AlarmResetOff<WithCallbackMethod_AlarmResetOn<WithCallbackMethod_CurrentPos<WithCallbackMethod_ResetCANStep<WithCallbackMethod_DriverOn<WithCallbackMethod_DriverOff<WithCallbackMethod_ResetLostCounters<WithCallbackMethod_MotorTorque<WithCallbackMethod_MotorSpeed<WithCallbackMethod_AbsolutePositionRotorUint<WithCallbackMethod_AlarmCode<WithCallbackMethod_SaveNumBoard<WithCallbackMethod_SaveNumGroup<WithCallbackMethod_SaveStartPos<WithCallbackMethod_SaveEndPos<WithCallbackMethod_SaveMaxSpeed<WithCallbackMethod_SaveDefaultSpeed<WithCallbackMethod_SaveAccel<WithCallbackMethod_SaveDecel<WithCallbackMethod_SaveDelta<WithCallbackMethod_MicroSteps<WithCallbackMethod_TurnSteps<WithCallbackMethod_Sensor1Polarity<WithCallbackMethod_Sensor2Polarity<WithCallbackMethod_Sensor3Polarity<WithCallbackMethod_Sensor4Polarity<WithCallbackMethod_Sensor1Dir<WithCallbackMethod_Sensor2Dir<WithCallbackMethod_Sensor3Dir<WithCallbackMethod_Sensor4Dir<WithCallbackMethod_SRVRDYPolarity<WithCallbackMethod_INPOSPolarity<WithCallbackMethod_FAULTPolarity<WithCallbackMethod_BrakePolarity<WithCallbackMethod_DirPolarity<WithCallbackMethod_EnPolarity<WithCallbackMethod_Al_CLRPolarity<WithCallbackMethod_Al_OBrakePolarity<WithCallbackMethod_Al_ORezervPolarity<WithCallbackMethod_EncoderActive<WithCallbackMethod_EncoderConfig<WithCallbackMethod_FlashBoot<WithCallbackMethod_FlashTypeBootSet<WithCallbackMethod_FlashTypeBootSave<WithCallbackMethod_LoadMech<WithCallbackMethod_ExecuteSce<WithCallbackMethod_Health<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Autosender : public BaseClass {
@@ -5624,12 +5742,46 @@ class CanControllerService final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_LoadMech : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_LoadMech() {
+      ::grpc::Service::MarkMethodGeneric(62);
+    }
+    ~WithGenericMethod_LoadMech() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LoadMech(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ExecuteSce : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_ExecuteSce() {
+      ::grpc::Service::MarkMethodGeneric(63);
+    }
+    ~WithGenericMethod_ExecuteSce() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ExecuteSce(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_Health : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Health() {
-      ::grpc::Service::MarkMethodGeneric(62);
+      ::grpc::Service::MarkMethodGeneric(64);
     }
     ~WithGenericMethod_Health() override {
       BaseClassMustBeDerivedFromService(this);
@@ -6881,12 +7033,52 @@ class CanControllerService final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_LoadMech : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_LoadMech() {
+      ::grpc::Service::MarkMethodRaw(62);
+    }
+    ~WithRawMethod_LoadMech() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LoadMech(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestLoadMech(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(62, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ExecuteSce : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ExecuteSce() {
+      ::grpc::Service::MarkMethodRaw(63);
+    }
+    ~WithRawMethod_ExecuteSce() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ExecuteSce(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestExecuteSce(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(63, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_Health : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Health() {
-      ::grpc::Service::MarkMethodRaw(62);
+      ::grpc::Service::MarkMethodRaw(64);
     }
     ~WithRawMethod_Health() override {
       BaseClassMustBeDerivedFromService(this);
@@ -6897,7 +7089,7 @@ class CanControllerService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestHealth(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(62, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(64, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -8265,12 +8457,56 @@ class CanControllerService final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_LoadMech : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_LoadMech() {
+      ::grpc::Service::MarkMethodRawCallback(62,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->LoadMech(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_LoadMech() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status LoadMech(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* LoadMech(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_ExecuteSce : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_ExecuteSce() {
+      ::grpc::Service::MarkMethodRawCallback(63,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ExecuteSce(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_ExecuteSce() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ExecuteSce(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ExecuteSce(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_Health : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_Health() {
-      ::grpc::Service::MarkMethodRawCallback(62,
+      ::grpc::Service::MarkMethodRawCallback(64,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Health(context, request, response); }));
@@ -9961,12 +10197,66 @@ class CanControllerService final {
     virtual ::grpc::Status StreamedFlashTypeBootSave(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::cancontroller::FlashTypeRequest,::cancontroller::CommandResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_LoadMech : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_LoadMech() {
+      ::grpc::Service::MarkMethodStreamed(62,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse>* streamer) {
+                       return this->StreamedLoadMech(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_LoadMech() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status LoadMech(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedLoadMech(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::cancontroller::FileConfigRequest,::cancontroller::CommandResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ExecuteSce : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ExecuteSce() {
+      ::grpc::Service::MarkMethodStreamed(63,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::cancontroller::FileConfigRequest, ::cancontroller::CommandResponse>* streamer) {
+                       return this->StreamedExecuteSce(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_ExecuteSce() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ExecuteSce(::grpc::ServerContext* /*context*/, const ::cancontroller::FileConfigRequest* /*request*/, ::cancontroller::CommandResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedExecuteSce(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::cancontroller::FileConfigRequest,::cancontroller::CommandResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_Health : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Health() {
-      ::grpc::Service::MarkMethodStreamed(62,
+      ::grpc::Service::MarkMethodStreamed(64,
         new ::grpc::internal::StreamedUnaryHandler<
           ::cancontroller::Empty, ::cancontroller::HealthResponse>(
             [this](::grpc::ServerContext* context,
@@ -9987,9 +10277,9 @@ class CanControllerService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedHealth(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::cancontroller::Empty,::cancontroller::HealthResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_Autosender<WithStreamedUnaryMethod_Connect<WithStreamedUnaryMethod_DebugOn<WithStreamedUnaryMethod_Board<WithStreamedUnaryMethod_Steps<WithStreamedUnaryMethod_Speed<WithStreamedUnaryMethod_Accel<WithStreamedUnaryMethod_Decel<WithStreamedUnaryMethod_Forward<WithStreamedUnaryMethod_Backward<WithStreamedUnaryMethod_HomingZero<WithStreamedUnaryMethod_HomingMax<WithStreamedUnaryMethod_ResetDRVError<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_BrakeOff<WithStreamedUnaryMethod_BrakeOn<WithStreamedUnaryMethod_RezervOff<WithStreamedUnaryMethod_RezervOn<WithStreamedUnaryMethod_AlarmResetOff<WithStreamedUnaryMethod_AlarmResetOn<WithStreamedUnaryMethod_CurrentPos<WithStreamedUnaryMethod_ResetCANStep<WithStreamedUnaryMethod_DriverOn<WithStreamedUnaryMethod_DriverOff<WithStreamedUnaryMethod_ResetLostCounters<WithStreamedUnaryMethod_MotorTorque<WithStreamedUnaryMethod_MotorSpeed<WithStreamedUnaryMethod_AbsolutePositionRotorUint<WithStreamedUnaryMethod_AlarmCode<WithStreamedUnaryMethod_SaveNumBoard<WithStreamedUnaryMethod_SaveNumGroup<WithStreamedUnaryMethod_SaveStartPos<WithStreamedUnaryMethod_SaveEndPos<WithStreamedUnaryMethod_SaveMaxSpeed<WithStreamedUnaryMethod_SaveDefaultSpeed<WithStreamedUnaryMethod_SaveAccel<WithStreamedUnaryMethod_SaveDecel<WithStreamedUnaryMethod_SaveDelta<WithStreamedUnaryMethod_MicroSteps<WithStreamedUnaryMethod_TurnSteps<WithStreamedUnaryMethod_Sensor1Polarity<WithStreamedUnaryMethod_Sensor2Polarity<WithStreamedUnaryMethod_Sensor3Polarity<WithStreamedUnaryMethod_Sensor4Polarity<WithStreamedUnaryMethod_Sensor1Dir<WithStreamedUnaryMethod_Sensor2Dir<WithStreamedUnaryMethod_Sensor3Dir<WithStreamedUnaryMethod_Sensor4Dir<WithStreamedUnaryMethod_SRVRDYPolarity<WithStreamedUnaryMethod_INPOSPolarity<WithStreamedUnaryMethod_FAULTPolarity<WithStreamedUnaryMethod_BrakePolarity<WithStreamedUnaryMethod_DirPolarity<WithStreamedUnaryMethod_EnPolarity<WithStreamedUnaryMethod_Al_CLRPolarity<WithStreamedUnaryMethod_Al_OBrakePolarity<WithStreamedUnaryMethod_Al_ORezervPolarity<WithStreamedUnaryMethod_EncoderActive<WithStreamedUnaryMethod_EncoderConfig<WithStreamedUnaryMethod_FlashBoot<WithStreamedUnaryMethod_FlashTypeBootSet<WithStreamedUnaryMethod_FlashTypeBootSave<WithStreamedUnaryMethod_Health<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_Autosender<WithStreamedUnaryMethod_Connect<WithStreamedUnaryMethod_DebugOn<WithStreamedUnaryMethod_Board<WithStreamedUnaryMethod_Steps<WithStreamedUnaryMethod_Speed<WithStreamedUnaryMethod_Accel<WithStreamedUnaryMethod_Decel<WithStreamedUnaryMethod_Forward<WithStreamedUnaryMethod_Backward<WithStreamedUnaryMethod_HomingZero<WithStreamedUnaryMethod_HomingMax<WithStreamedUnaryMethod_ResetDRVError<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_BrakeOff<WithStreamedUnaryMethod_BrakeOn<WithStreamedUnaryMethod_RezervOff<WithStreamedUnaryMethod_RezervOn<WithStreamedUnaryMethod_AlarmResetOff<WithStreamedUnaryMethod_AlarmResetOn<WithStreamedUnaryMethod_CurrentPos<WithStreamedUnaryMethod_ResetCANStep<WithStreamedUnaryMethod_DriverOn<WithStreamedUnaryMethod_DriverOff<WithStreamedUnaryMethod_ResetLostCounters<WithStreamedUnaryMethod_MotorTorque<WithStreamedUnaryMethod_MotorSpeed<WithStreamedUnaryMethod_AbsolutePositionRotorUint<WithStreamedUnaryMethod_AlarmCode<WithStreamedUnaryMethod_SaveNumBoard<WithStreamedUnaryMethod_SaveNumGroup<WithStreamedUnaryMethod_SaveStartPos<WithStreamedUnaryMethod_SaveEndPos<WithStreamedUnaryMethod_SaveMaxSpeed<WithStreamedUnaryMethod_SaveDefaultSpeed<WithStreamedUnaryMethod_SaveAccel<WithStreamedUnaryMethod_SaveDecel<WithStreamedUnaryMethod_SaveDelta<WithStreamedUnaryMethod_MicroSteps<WithStreamedUnaryMethod_TurnSteps<WithStreamedUnaryMethod_Sensor1Polarity<WithStreamedUnaryMethod_Sensor2Polarity<WithStreamedUnaryMethod_Sensor3Polarity<WithStreamedUnaryMethod_Sensor4Polarity<WithStreamedUnaryMethod_Sensor1Dir<WithStreamedUnaryMethod_Sensor2Dir<WithStreamedUnaryMethod_Sensor3Dir<WithStreamedUnaryMethod_Sensor4Dir<WithStreamedUnaryMethod_SRVRDYPolarity<WithStreamedUnaryMethod_INPOSPolarity<WithStreamedUnaryMethod_FAULTPolarity<WithStreamedUnaryMethod_BrakePolarity<WithStreamedUnaryMethod_DirPolarity<WithStreamedUnaryMethod_EnPolarity<WithStreamedUnaryMethod_Al_CLRPolarity<WithStreamedUnaryMethod_Al_OBrakePolarity<WithStreamedUnaryMethod_Al_ORezervPolarity<WithStreamedUnaryMethod_EncoderActive<WithStreamedUnaryMethod_EncoderConfig<WithStreamedUnaryMethod_FlashBoot<WithStreamedUnaryMethod_FlashTypeBootSet<WithStreamedUnaryMethod_FlashTypeBootSave<WithStreamedUnaryMethod_LoadMech<WithStreamedUnaryMethod_ExecuteSce<WithStreamedUnaryMethod_Health<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_Autosender<WithStreamedUnaryMethod_Connect<WithStreamedUnaryMethod_DebugOn<WithStreamedUnaryMethod_Board<WithStreamedUnaryMethod_Steps<WithStreamedUnaryMethod_Speed<WithStreamedUnaryMethod_Accel<WithStreamedUnaryMethod_Decel<WithStreamedUnaryMethod_Forward<WithStreamedUnaryMethod_Backward<WithStreamedUnaryMethod_HomingZero<WithStreamedUnaryMethod_HomingMax<WithStreamedUnaryMethod_ResetDRVError<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_BrakeOff<WithStreamedUnaryMethod_BrakeOn<WithStreamedUnaryMethod_RezervOff<WithStreamedUnaryMethod_RezervOn<WithStreamedUnaryMethod_AlarmResetOff<WithStreamedUnaryMethod_AlarmResetOn<WithStreamedUnaryMethod_CurrentPos<WithStreamedUnaryMethod_ResetCANStep<WithStreamedUnaryMethod_DriverOn<WithStreamedUnaryMethod_DriverOff<WithStreamedUnaryMethod_ResetLostCounters<WithStreamedUnaryMethod_MotorTorque<WithStreamedUnaryMethod_MotorSpeed<WithStreamedUnaryMethod_AbsolutePositionRotorUint<WithStreamedUnaryMethod_AlarmCode<WithStreamedUnaryMethod_SaveNumBoard<WithStreamedUnaryMethod_SaveNumGroup<WithStreamedUnaryMethod_SaveStartPos<WithStreamedUnaryMethod_SaveEndPos<WithStreamedUnaryMethod_SaveMaxSpeed<WithStreamedUnaryMethod_SaveDefaultSpeed<WithStreamedUnaryMethod_SaveAccel<WithStreamedUnaryMethod_SaveDecel<WithStreamedUnaryMethod_SaveDelta<WithStreamedUnaryMethod_MicroSteps<WithStreamedUnaryMethod_TurnSteps<WithStreamedUnaryMethod_Sensor1Polarity<WithStreamedUnaryMethod_Sensor2Polarity<WithStreamedUnaryMethod_Sensor3Polarity<WithStreamedUnaryMethod_Sensor4Polarity<WithStreamedUnaryMethod_Sensor1Dir<WithStreamedUnaryMethod_Sensor2Dir<WithStreamedUnaryMethod_Sensor3Dir<WithStreamedUnaryMethod_Sensor4Dir<WithStreamedUnaryMethod_SRVRDYPolarity<WithStreamedUnaryMethod_INPOSPolarity<WithStreamedUnaryMethod_FAULTPolarity<WithStreamedUnaryMethod_BrakePolarity<WithStreamedUnaryMethod_DirPolarity<WithStreamedUnaryMethod_EnPolarity<WithStreamedUnaryMethod_Al_CLRPolarity<WithStreamedUnaryMethod_Al_OBrakePolarity<WithStreamedUnaryMethod_Al_ORezervPolarity<WithStreamedUnaryMethod_EncoderActive<WithStreamedUnaryMethod_EncoderConfig<WithStreamedUnaryMethod_FlashBoot<WithStreamedUnaryMethod_FlashTypeBootSet<WithStreamedUnaryMethod_FlashTypeBootSave<WithStreamedUnaryMethod_Health<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_Autosender<WithStreamedUnaryMethod_Connect<WithStreamedUnaryMethod_DebugOn<WithStreamedUnaryMethod_Board<WithStreamedUnaryMethod_Steps<WithStreamedUnaryMethod_Speed<WithStreamedUnaryMethod_Accel<WithStreamedUnaryMethod_Decel<WithStreamedUnaryMethod_Forward<WithStreamedUnaryMethod_Backward<WithStreamedUnaryMethod_HomingZero<WithStreamedUnaryMethod_HomingMax<WithStreamedUnaryMethod_ResetDRVError<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_BrakeOff<WithStreamedUnaryMethod_BrakeOn<WithStreamedUnaryMethod_RezervOff<WithStreamedUnaryMethod_RezervOn<WithStreamedUnaryMethod_AlarmResetOff<WithStreamedUnaryMethod_AlarmResetOn<WithStreamedUnaryMethod_CurrentPos<WithStreamedUnaryMethod_ResetCANStep<WithStreamedUnaryMethod_DriverOn<WithStreamedUnaryMethod_DriverOff<WithStreamedUnaryMethod_ResetLostCounters<WithStreamedUnaryMethod_MotorTorque<WithStreamedUnaryMethod_MotorSpeed<WithStreamedUnaryMethod_AbsolutePositionRotorUint<WithStreamedUnaryMethod_AlarmCode<WithStreamedUnaryMethod_SaveNumBoard<WithStreamedUnaryMethod_SaveNumGroup<WithStreamedUnaryMethod_SaveStartPos<WithStreamedUnaryMethod_SaveEndPos<WithStreamedUnaryMethod_SaveMaxSpeed<WithStreamedUnaryMethod_SaveDefaultSpeed<WithStreamedUnaryMethod_SaveAccel<WithStreamedUnaryMethod_SaveDecel<WithStreamedUnaryMethod_SaveDelta<WithStreamedUnaryMethod_MicroSteps<WithStreamedUnaryMethod_TurnSteps<WithStreamedUnaryMethod_Sensor1Polarity<WithStreamedUnaryMethod_Sensor2Polarity<WithStreamedUnaryMethod_Sensor3Polarity<WithStreamedUnaryMethod_Sensor4Polarity<WithStreamedUnaryMethod_Sensor1Dir<WithStreamedUnaryMethod_Sensor2Dir<WithStreamedUnaryMethod_Sensor3Dir<WithStreamedUnaryMethod_Sensor4Dir<WithStreamedUnaryMethod_SRVRDYPolarity<WithStreamedUnaryMethod_INPOSPolarity<WithStreamedUnaryMethod_FAULTPolarity<WithStreamedUnaryMethod_BrakePolarity<WithStreamedUnaryMethod_DirPolarity<WithStreamedUnaryMethod_EnPolarity<WithStreamedUnaryMethod_Al_CLRPolarity<WithStreamedUnaryMethod_Al_OBrakePolarity<WithStreamedUnaryMethod_Al_ORezervPolarity<WithStreamedUnaryMethod_EncoderActive<WithStreamedUnaryMethod_EncoderConfig<WithStreamedUnaryMethod_FlashBoot<WithStreamedUnaryMethod_FlashTypeBootSet<WithStreamedUnaryMethod_FlashTypeBootSave<WithStreamedUnaryMethod_LoadMech<WithStreamedUnaryMethod_ExecuteSce<WithStreamedUnaryMethod_Health<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace cancontroller

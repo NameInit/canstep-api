@@ -71,7 +71,6 @@ void ScenarioBuilder::executeSingleCommand(const std::string& command) {
 
 	std::string mechName = parts[0];
 	std::string action = parts[1];
-
 	auto it = mechanisms.find(mechName);
 	if (it != mechanisms.end()) {
 		Mechanism* mech = it->second.get();

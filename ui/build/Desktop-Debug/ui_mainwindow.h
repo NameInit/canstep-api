@@ -181,12 +181,18 @@ public:
     QWidget *layoutWidget2;
     QGridLayout *gridLayout_2;
     QPushButton *pushButtonSAVE;
-    QPushButton *pushButtonFLASH;
     QComboBox *comboBoxFLASH;
+    QPushButton *pushButtonFLASH;
     QPushButton *pushButtonINSTALL;
     QLabel *labelFilename;
     QLineEdit *lineEditFilename;
     QComboBox *comboBoxApiType;
+    QWidget *layoutWidget3;
+    QGridLayout *gridLayout_3;
+    QLineEdit *lineEditExSce;
+    QLineEdit *lineEditLoadMech;
+    QPushButton *pushButtonLoadMech;
+    QPushButton *pushButtonExSce;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -1008,7 +1014,7 @@ public:
 
         layoutWidget2 = new QWidget(centralwidget);
         layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(900, 340, 200, 92));
+        layoutWidget2->setGeometry(QRect(900, 320, 200, 101));
         gridLayout_2 = new QGridLayout(layoutWidget2);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -1016,11 +1022,6 @@ public:
         pushButtonSAVE->setObjectName(QString::fromUtf8("pushButtonSAVE"));
 
         gridLayout_2->addWidget(pushButtonSAVE, 1, 1, 1, 1);
-
-        pushButtonFLASH = new QPushButton(layoutWidget2);
-        pushButtonFLASH->setObjectName(QString::fromUtf8("pushButtonFLASH"));
-
-        gridLayout_2->addWidget(pushButtonFLASH, 0, 0, 1, 1);
 
         comboBoxFLASH = new QComboBox(layoutWidget2);
         comboBoxFLASH->addItem(QString());
@@ -1031,6 +1032,11 @@ public:
         comboBoxFLASH->setObjectName(QString::fromUtf8("comboBoxFLASH"));
 
         gridLayout_2->addWidget(comboBoxFLASH, 0, 1, 1, 1);
+
+        pushButtonFLASH = new QPushButton(layoutWidget2);
+        pushButtonFLASH->setObjectName(QString::fromUtf8("pushButtonFLASH"));
+
+        gridLayout_2->addWidget(pushButtonFLASH, 0, 0, 1, 1);
 
         pushButtonINSTALL = new QPushButton(layoutWidget2);
         pushButtonINSTALL->setObjectName(QString::fromUtf8("pushButtonINSTALL"));
@@ -1053,6 +1059,32 @@ public:
         comboBoxApiType->addItem(QString());
         comboBoxApiType->setObjectName(QString::fromUtf8("comboBoxApiType"));
         comboBoxApiType->setGeometry(QRect(1160, 10, 121, 51));
+        layoutWidget3 = new QWidget(centralwidget);
+        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(880, 450, 238, 60));
+        gridLayout_3 = new QGridLayout(layoutWidget3);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        gridLayout_3->setContentsMargins(0, 0, 0, 0);
+        lineEditExSce = new QLineEdit(layoutWidget3);
+        lineEditExSce->setObjectName(QString::fromUtf8("lineEditExSce"));
+
+        gridLayout_3->addWidget(lineEditExSce, 1, 1, 1, 1);
+
+        lineEditLoadMech = new QLineEdit(layoutWidget3);
+        lineEditLoadMech->setObjectName(QString::fromUtf8("lineEditLoadMech"));
+
+        gridLayout_3->addWidget(lineEditLoadMech, 0, 1, 1, 1);
+
+        pushButtonLoadMech = new QPushButton(layoutWidget3);
+        pushButtonLoadMech->setObjectName(QString::fromUtf8("pushButtonLoadMech"));
+
+        gridLayout_3->addWidget(pushButtonLoadMech, 0, 0, 1, 1);
+
+        pushButtonExSce = new QPushButton(layoutWidget3);
+        pushButtonExSce->setObjectName(QString::fromUtf8("pushButtonExSce"));
+
+        gridLayout_3->addWidget(pushButtonExSce, 1, 0, 1, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -1240,13 +1272,13 @@ public:
         labelEndPos->setText(QCoreApplication::translate("MainWindow", "EndPos:", nullptr));
         labelEndPosInfo->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         pushButtonSAVE->setText(QCoreApplication::translate("MainWindow", "SAVE", nullptr));
-        pushButtonFLASH->setText(QCoreApplication::translate("MainWindow", "FLASH", nullptr));
         comboBoxFLASH->setItemText(0, QCoreApplication::translate("MainWindow", "Unknown", nullptr));
         comboBoxFLASH->setItemText(1, QCoreApplication::translate("MainWindow", "CAN-STEP", nullptr));
         comboBoxFLASH->setItemText(2, QCoreApplication::translate("MainWindow", "USB-CAN", nullptr));
         comboBoxFLASH->setItemText(3, QCoreApplication::translate("MainWindow", "TractorESC", nullptr));
         comboBoxFLASH->setItemText(4, QCoreApplication::translate("MainWindow", "Tensometer", nullptr));
 
+        pushButtonFLASH->setText(QCoreApplication::translate("MainWindow", "FLASH", nullptr));
         pushButtonINSTALL->setText(QCoreApplication::translate("MainWindow", "INSTALL", nullptr));
         labelFilename->setText(QCoreApplication::translate("MainWindow", "Filename:", nullptr));
         lineEditFilename->setText(QCoreApplication::translate("MainWindow", "../firmware/STM32F103C8T6CAN_Step_v2_5_297.bin", nullptr));
@@ -1254,6 +1286,10 @@ public:
         comboBoxApiType->setItemText(1, QCoreApplication::translate("MainWindow", "GRPC", nullptr));
         comboBoxApiType->setItemText(2, QCoreApplication::translate("MainWindow", "MQTT", nullptr));
 
+        lineEditExSce->setText(QCoreApplication::translate("MainWindow", "../config/full_stop.sce", nullptr));
+        lineEditLoadMech->setText(QCoreApplication::translate("MainWindow", "../config/mech.txt", nullptr));
+        pushButtonLoadMech->setText(QCoreApplication::translate("MainWindow", "Load mech", nullptr));
+        pushButtonExSce->setText(QCoreApplication::translate("MainWindow", "Execute sce", nullptr));
     } // retranslateUi
 
 };

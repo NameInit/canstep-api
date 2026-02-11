@@ -100,6 +100,8 @@ public slots:
     void startFLASH();
     void startINSTALL();
     void startSAVE();
+    void loadMech();
+    void executeSce();
 
     void sendApiRequest(const QString &endpoint, const QJsonObject &data = QJsonObject());
     void onApiReplyFinished(QNetworkReply *reply);

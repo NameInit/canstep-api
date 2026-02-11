@@ -165,6 +165,7 @@ public:
 	void buttonDebugMode_Click(const std::string &selectedItem);
 	void refreshStateButton_Click();
 	void autoUpdateTable_CheckedChanged();
+	void executeSce_Click(const std::string& filename = "*.sce");
 	void startSceExecutionButton_Click(const std::string& mechFile = "mechs.txt", const std::string& bindingFile = "scenario_bindings.txt");
 	void stopSceExecutionButton_Click();
 	void resetAllDriversFaultButton_Click();

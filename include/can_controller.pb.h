@@ -73,6 +73,9 @@ extern EncoderActiveRequestDefaultTypeInternal _EncoderActiveRequest_default_ins
 class EncoderConfigRequest;
 struct EncoderConfigRequestDefaultTypeInternal;
 extern EncoderConfigRequestDefaultTypeInternal _EncoderConfigRequest_default_instance_;
+class FileConfigRequest;
+struct FileConfigRequestDefaultTypeInternal;
+extern FileConfigRequestDefaultTypeInternal _FileConfigRequest_default_instance_;
 class FlashBootRequest;
 struct FlashBootRequestDefaultTypeInternal;
 extern FlashBootRequestDefaultTypeInternal _FlashBootRequest_default_instance_;
@@ -108,6 +111,7 @@ template<> ::cancontroller::DeltaRequest* Arena::CreateMaybeMessage<::cancontrol
 template<> ::cancontroller::Empty* Arena::CreateMaybeMessage<::cancontroller::Empty>(Arena*);
 template<> ::cancontroller::EncoderActiveRequest* Arena::CreateMaybeMessage<::cancontroller::EncoderActiveRequest>(Arena*);
 template<> ::cancontroller::EncoderConfigRequest* Arena::CreateMaybeMessage<::cancontroller::EncoderConfigRequest>(Arena*);
+template<> ::cancontroller::FileConfigRequest* Arena::CreateMaybeMessage<::cancontroller::FileConfigRequest>(Arena*);
 template<> ::cancontroller::FlashBootRequest* Arena::CreateMaybeMessage<::cancontroller::FlashBootRequest>(Arena*);
 template<> ::cancontroller::FlashTypeRequest* Arena::CreateMaybeMessage<::cancontroller::FlashTypeRequest>(Arena*);
 template<> ::cancontroller::GroupRequest* Arena::CreateMaybeMessage<::cancontroller::GroupRequest>(Arena*);
@@ -2596,6 +2600,159 @@ class HealthResponse final :
 };
 // -------------------------------------------------------------------
 
+class FileConfigRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cancontroller.FileConfigRequest) */ {
+ public:
+  inline FileConfigRequest() : FileConfigRequest(nullptr) {}
+  ~FileConfigRequest() override;
+  explicit PROTOBUF_CONSTEXPR FileConfigRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  FileConfigRequest(const FileConfigRequest& from);
+  FileConfigRequest(FileConfigRequest&& from) noexcept
+    : FileConfigRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline FileConfigRequest& operator=(const FileConfigRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline FileConfigRequest& operator=(FileConfigRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const FileConfigRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const FileConfigRequest* internal_default_instance() {
+    return reinterpret_cast<const FileConfigRequest*>(
+               &_FileConfigRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(FileConfigRequest& a, FileConfigRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(FileConfigRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(FileConfigRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  FileConfigRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<FileConfigRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const FileConfigRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const FileConfigRequest& from) {
+    FileConfigRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(FileConfigRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "cancontroller.FileConfigRequest";
+  }
+  protected:
+  explicit FileConfigRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFilenameFieldNumber = 1,
+  };
+  // string filename = 1;
+  void clear_filename();
+  const std::string& filename() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_filename(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_filename();
+  PROTOBUF_NODISCARD std::string* release_filename();
+  void set_allocated_filename(std::string* filename);
+  private:
+  const std::string& _internal_filename() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_filename(const std::string& value);
+  std::string* _internal_mutable_filename();
+  public:
+
+  // @@protoc_insertion_point(class_scope:cancontroller.FileConfigRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filename_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_can_5fcontroller_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Empty final :
     public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:cancontroller.Empty) */ {
  public:
@@ -2643,7 +2800,7 @@ class Empty final :
                &_Empty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(Empty& a, Empty& b) {
     a.Swap(&b);
@@ -3425,11 +3582,67 @@ inline void HealthResponse::set_timestamp(int64_t value) {
 
 // -------------------------------------------------------------------
 
+// FileConfigRequest
+
+// string filename = 1;
+inline void FileConfigRequest::clear_filename() {
+  _impl_.filename_.ClearToEmpty();
+}
+inline const std::string& FileConfigRequest::filename() const {
+  // @@protoc_insertion_point(field_get:cancontroller.FileConfigRequest.filename)
+  return _internal_filename();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void FileConfigRequest::set_filename(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.filename_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:cancontroller.FileConfigRequest.filename)
+}
+inline std::string* FileConfigRequest::mutable_filename() {
+  std::string* _s = _internal_mutable_filename();
+  // @@protoc_insertion_point(field_mutable:cancontroller.FileConfigRequest.filename)
+  return _s;
+}
+inline const std::string& FileConfigRequest::_internal_filename() const {
+  return _impl_.filename_.Get();
+}
+inline void FileConfigRequest::_internal_set_filename(const std::string& value) {
+  
+  _impl_.filename_.Set(value, GetArenaForAllocation());
+}
+inline std::string* FileConfigRequest::_internal_mutable_filename() {
+  
+  return _impl_.filename_.Mutable(GetArenaForAllocation());
+}
+inline std::string* FileConfigRequest::release_filename() {
+  // @@protoc_insertion_point(field_release:cancontroller.FileConfigRequest.filename)
+  return _impl_.filename_.Release();
+}
+inline void FileConfigRequest::set_allocated_filename(std::string* filename) {
+  if (filename != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.filename_.SetAllocated(filename, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.filename_.IsDefault()) {
+    _impl_.filename_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:cancontroller.FileConfigRequest.filename)
+}
+
+// -------------------------------------------------------------------
+
 // Empty
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

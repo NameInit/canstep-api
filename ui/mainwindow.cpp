@@ -80,6 +80,8 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->pushButtonFLASH, &QPushButton::clicked, this, &MainWindow::startFLASH);
     QObject::connect(ui->pushButtonINSTALL, &QPushButton::clicked, this, &MainWindow::startINSTALL);
     QObject::connect(ui->pushButtonSAVE, &QPushButton::clicked, this, &MainWindow::startSAVE);
+    QObject::connect(ui->pushButtonLoadMech, &QPushButton::clicked, this, &MainWindow::loadMech);
+    QObject::connect(ui->pushButtonExSce, &QPushButton::clicked, this, &MainWindow::executeSce);
 
     QObject::connect(networkManager, &QNetworkAccessManager::finished, this, &MainWindow::onApiReplyFinished);
 
@@ -111,7 +113,6 @@ void MainWindow::ButtonAutosender(){
         this->sendGrpcViaConsole("Autosender",data);
     }
     else if(ui->comboBoxApiType->currentText() == "MQTT"){
-        qDebug() << "1";
         this->sendMqttRequest("Autosender",data);
     }
     return ;
@@ -1148,6 +1149,40 @@ void MainWindow::startSAVE(){
     }
     else if(ui->comboBoxApiType->currentText() == "MQTT"){
         this->sendMqttRequest("FlashTypeBootSet",data);
+    }
+    return ;
+}
+
+void MainWindow::loadMech(){
+    qDebug() << "loadMech";
+    QJsonObject data;
+    data["filename"] = ui->lineEditLoadMech->text();
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("/api/mech/load", data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("LoadMech",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("LoadMech",data);
+    }
+    return ;
+}
+
+void MainWindow::executeSce(){
+    qDebug() << "executeSce";
+    QJsonObject data;
+    data["filename"] = ui->lineEditExSce->text();
+
+    if(ui->comboBoxApiType->currentText() == "REST"){
+        this->sendApiRequest("/api/sce/execute", data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "GRPC"){
+        this->sendGrpcViaConsole("ExecuteSce",data);
+    }
+    else if(ui->comboBoxApiType->currentText() == "MQTT"){
+        this->sendMqttRequest("ExecuteSce",data);
     }
     return ;
 }

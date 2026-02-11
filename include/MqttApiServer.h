@@ -398,6 +398,16 @@ private:
                 controller.buttonTypeBootSave_Click(type);
                 publishResponse(commandName, true, "flashTypeBootSave");
             }
+            else if (commandName == "LoadMech") {
+                std::string filename = get_json_value<std::string>(jobj, "../config/mech.txt", "");
+                controller.readMechsFromFile_Click(filename);
+                publishResponse(commandName, true, "LoadMech");
+            }
+            else if (commandName == "ExecuteSce") {
+                std::string filename = get_json_value<std::string>(jobj, "../config/stop_full.sce", "");
+                controller.executeSce_Click(filename);
+                publishResponse(commandName, true, "ExecuteSce");
+            }
             else if (commandName == "Health") {
                 publishResponse(commandName, true, "OK");
             }
