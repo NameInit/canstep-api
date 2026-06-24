@@ -1368,18 +1368,15 @@ void MainWindow::sendGrpcViaConsole(const QString &methodName, const QJsonObject
 {
     qDebug() << "Executing grpcurl for method:" << methodName;
 
-    // 1. Создаем процесс
     QProcess *process = new QProcess(this);
 
-    // 2. Формируем аргументы
     // Команда: grpcurl
     QString program = "grpcurl";
 
     QStringList arguments;
-    arguments << "-plaintext"; // Без SSL
+    arguments << "-plaintext";
 
     // Данные: -d '{"key": val}'
-    // Превращаем QJsonObject в строку
     QJsonDocument doc(data);
     QString jsonString = QString(doc.toJson(QJsonDocument::Compact));
 
@@ -1394,20 +1391,16 @@ void MainWindow::sendGrpcViaConsole(const QString &methodName, const QJsonObject
     arguments << "localhost:50051";
 
     // Метод (Сервис/Метод)
-    // ВАЖНО: Убедитесь, что имя сервиса правильное.
-    // Судя по вашему выводу 'list', это cancontroller.CanControllerService
     arguments << "cancontroller.CanControllerService/" + methodName;
 
-    // 3. Обработка результата (асинхронно)
+    // Обработка результата
     connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
             [this, process, methodName](int exitCode, QProcess::ExitStatus exitStatus) {
 
                 if (exitStatus == QProcess::NormalExit && exitCode == 0) {
-                    // Читаем ответ (стандартный вывод)
                     QByteArray output = process->readAllStandardOutput();
                     qDebug() << "gRPC Response:" << output;
 
-                    // Показываем в GUI
                     // grpcurl обычно возвращает JSON, можно его распарсить
                     QJsonDocument respDoc = QJsonDocument::fromJson(output);
                     QJsonObject respJson = respDoc.object();
@@ -1420,7 +1413,6 @@ void MainWindow::sendGrpcViaConsole(const QString &methodName, const QJsonObject
                     }
 
                 } else {
-                    // Читаем ошибку (стандартный вывод ошибок)
                     QByteArray error = process->readAllStandardError();
                     qDebug() << "grpcurl execution failed:" << error;
                     ui->statusbar->showMessage("grpcurl Error: " + QString(error), 5000);
@@ -1429,7 +1421,6 @@ void MainWindow::sendGrpcViaConsole(const QString &methodName, const QJsonObject
                 process->deleteLater();
             });
 
-    // 4. Запуск
     process->start(program, arguments);
     qDebug()<<arguments;
 }
