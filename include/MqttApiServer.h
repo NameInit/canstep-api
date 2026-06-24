@@ -287,87 +287,87 @@ private:
                 publishResponse(commandName, true, "StepsTurn Set");
             }
             else if (commandName == "Sensor1Polarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonSensor1Polarity_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor1Polarity Set");
             }
             else if (commandName == "Sensor2Polarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonSensor2Polarity_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor2Polarity Set");
             }
             else if (commandName == "Sensor3Polarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonSensor3Polarity_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor3Polarity Set");
             }
             else if (commandName == "Sensor4Polarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonSensor4Polarity_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor4Polarity Set");
             }
             else if (commandName == "Sensor1Dir") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonSensor1Dir_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor1Dir Set");
             }
             else if (commandName == "Sensor2Dir") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonSensor2Dir_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor2Dir Set");
             }
             else if (commandName == "Sensor3Dir") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonSensor3Dir_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor3Dir Set");
             }
             else if (commandName == "Sensor4Dir") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonSensor4Dir_Click(statusInverting);
                 publishResponse(commandName, true, "Sensor4Dir Set");
             }
             else if (commandName == "SRVRDYPolarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonSRVRDYPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "SRVRDYPolarity Set");
             }
             else if (commandName == "INPOSPolarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonINPOSPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "INPOSPolarity Set");
             }
             else if (commandName == "FAULTPolarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonFAULTPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "FAULTPolarity Set");
             }
             else if (commandName == "BrakePolarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonBrakePolarity_Click(statusInverting);
                 publishResponse(commandName, true, "BrakePolarity Set");
             }
             else if (commandName == "DirPolarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonDirPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "DirPolarity Set");
             }
             else if (commandName == "EnPolarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonEnPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "EnPolarity Set");
             }
             else if (commandName == "Al_CLRPolarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonAl_CLRPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "Al_CLRPolarity Set");
             }
             else if (commandName == "Al_OBrakePolarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonAl_OBrakePolarity_Click(statusInverting);
                 publishResponse(commandName, true, "Al_OBrakePolarity Set");
             }
             else if (commandName == "Al_ORezervPolarity") {
-                std::string statusInverting = get_json_value<std::string>(jobj, "UnknownInverted", "");
+                std::string statusInverting = get_json_value<std::string>(jobj, "statusInverting", "UnknownInverted");
                 controller.buttonAl_ORezervPolarity_Click(statusInverting);
                 publishResponse(commandName, true, "Al_ORezervPolarity Set");
             }
